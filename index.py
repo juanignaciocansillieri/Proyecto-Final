@@ -6,7 +6,7 @@ from pymysql.err import Error
 PRODUCTS_TABLE = """CREATE TABLE produc (
         id int UNSIGNED AUTO_INCREMENT PRIMARY KEY,  
         nombre VARCHAR(10),
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);"""
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);"""""
 
 if __name__ == '__main__':
         try:
@@ -15,7 +15,7 @@ if __name__ == '__main__':
                 cursor = connect.cursor()       
                 cursor.execute(PRODUCTS_TABLE)
         except pymysql.err.OperationalError as err:
-                print("hubo un error:" ,err)
+                print("hubo un error:" ,err)    
 
                 
 
