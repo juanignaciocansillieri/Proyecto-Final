@@ -35,6 +35,4 @@ for i in lista:
 
 print(hola)
 
-
-
-
+print("Soy Nicolás")
