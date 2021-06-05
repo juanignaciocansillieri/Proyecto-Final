@@ -2,7 +2,7 @@ from typing import AbstractSet
 import pymysql
 from pymysql import connect, err
 from pymysql.err import Error
-print("hola whats happen")
+print("hola")
 
 PRODUCTS_TABLE = """CREATE TABLE produc (
         id int UNSIGNED AUTO_INCREMENT PRIMARY KEY,  
