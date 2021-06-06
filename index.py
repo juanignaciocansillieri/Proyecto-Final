@@ -3,6 +3,7 @@ import os
 import pymysql
 from pymysql import connect, err
 from pymysql.err import Error
+print("asd")
 
 # ELIMINAR TABLA
 DROP_TABLE = """DROP TABLE IF EXISTS produc"""
