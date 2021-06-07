@@ -1,7 +1,12 @@
 import pymysql
 import os
 
-def start_connection():
+#AXIOMAS Y OBLIGACIONES A LA HORA DE LA CODIFICACION:
+#se abre conexion unicamente cunado estamos por usar la base de datos y al finalizar se la cierra
+#cada de vez que se usar el cursor, posteriormente se lo cierra
+#para la devolucion de datos de cursor se usara fetchall e intantaneamente se lo convertira 
+
+def start_connection(): #inicia conexcion a db
     h='localhost'
     p=3306
     u=os.environ.get('USER_MYSQL')
@@ -15,15 +20,15 @@ def start_connection():
     
     return con
  
-def close_connection(con):
+def close_connection(con):  #cierra conexcion a db
     try:
         con.close()
         print("se cerro conexion\n",con)
     except pymysql.err.OperationalError as err:
         print("Hubo un error:",err)
 
-def borrar_tabla(con):
-    q="DROP TABLE IF EXISTS produc;"
+def borrar_tabla(con):  #borra tablas (posible modificacion futura: ingresar el nombre de la tabla y que la borre)
+    q="DROP TABLE IF EXISTS produc;" #se usa "," para mas de una
     try:
         cur=con.cursor()
         cur.execute(q)
@@ -32,7 +37,7 @@ def borrar_tabla(con):
     except pymysql.err.OperationalError as err:
         print("Hubo un error:",err)
 
-def crear_tabla(con):
+def crear_tabla(con):   #crea una tabla (al iniciar por primera vez el programa se crearan todas)
     q="CREATE TABLE IF NOT EXISTS produc(id int UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL, nombre VARCHAR(30) NOT NULL,apellido VARCHAR(30) NOT NULL,edad int(2) NOT NULL,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);"
     try:
         cur=con.cursor()
@@ -43,6 +48,8 @@ def crear_tabla(con):
         print("Hubo un error:",err)
 
 def contar_filas_tabla(con):
+    #cuenta las filas de una tabla especifica
+    #(modificacion futura: definir la sentencia de la funcion para que cuente en la tabal donde sea necesario)
     q="SELECT COUNT(*) from produc;"
     try:
         cur=con.cursor()
