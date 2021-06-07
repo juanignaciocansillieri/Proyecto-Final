@@ -18,7 +18,7 @@ def start_connection():
 def close_connection(con):
     try:
         con.close()
-        print("se cerro conexion",con)
+        print("se cerro conexion\n",con)
     except pymysql.err.OperationalError as err:
         print("Hubo un error:",err)
 
