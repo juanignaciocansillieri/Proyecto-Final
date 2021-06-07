@@ -2,11 +2,11 @@ import pymysql
 import os
 
 #AXIOMAS Y OBLIGACIONES A LA HORA DE LA CODIFICACION:
-#se abre conexion unicamente cunado estamos por usar la base de datos y al finalizar se la cierra
+#se abre conexion unicamente cuando estamos por usar la base de datos y al finalizar se la cierra
 #cada de vez que se usar el cursor, posteriormente se lo cierra
 #para la devolucion de datos de cursor se usara fetchall e intantaneamente se lo convertira 
 
-def start_connection(): #inicia conexcion a db
+def start_connection(): #inicia conexion a db
     h='localhost'
     p=3306
     u=os.environ.get('USER_MYSQL')
@@ -20,7 +20,7 @@ def start_connection(): #inicia conexcion a db
     
     return con
  
-def close_connection(con):  #cierra conexcion a db
+def close_connection(con):  #cierra conexion a db
     try:
         con.close()
         print("se cerro conexion\n",con)
