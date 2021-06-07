@@ -22,20 +22,34 @@ def close_connection(con):
     except pymysql.err.OperationalError as err:
         print("Hubo un error:",err)
 
-def borrar_db(con):
-    q="DROP TABLE IF EXISTS produc"
+def borrar_tabla(con):
+    q="DROP TABLE IF EXISTS produc;"
     try:
         cur=con.cursor()
         cur.execute(q)
+        cur.close()
         print("se borro con exito")
     except pymysql.err.OperationalError as err:
         print("Hubo un error:",err)
 
-def crear_db(con):
+def crear_tabla(con):
     q="CREATE TABLE IF NOT EXISTS produc(id int UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL, nombre VARCHAR(30) NOT NULL,apellido VARCHAR(30) NOT NULL,edad int(2) NOT NULL,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);"
     try:
         cur=con.cursor()
         cur.execute(q)
+        cur.close()
         print("se creo con exito")
+    except pymysql.err.OperationalError as err:
+        print("Hubo un error:",err)
+
+def contar_filas_tabla(con):
+    q="SELECT COUNT(*) from produc;"
+    try:
+        cur=con.cursor()
+        cur.execute(q)
+        a=cur.fetchall()
+        a=int(a[0][0])
+        cur.close
+        print("hay ",a,"vistas")
     except pymysql.err.OperationalError as err:
         print("Hubo un error:",err)

@@ -3,6 +3,7 @@ import pruebas as p
 
 from DB import conexion as c
 a=c.start_connection()
-#c.borrar_db(a)
-#c.crear_db(a)
+#c.borrar_tabla(a)
+c.crear_tabla(a)
+c.contar_filas_tabla(a)
 c.close_connection(a)
