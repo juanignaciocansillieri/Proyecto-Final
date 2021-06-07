@@ -21,3 +21,15 @@ def close_connection(con):
         print("se cerro conexion",con)
     except pymysql.err.OperationalError as err:
         print("Hubo un error:",err)
+
+def borrar_db(con):
+    q="DROP TABLE IF EXISTS produc"
+    cur=con.cursor()
+    cur.execute(q)
+    print("se borro con exito")
+
+def crear_db(con):
+    q="CREATE TABLE IF NOT EXISTS produc(id int UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL, nombre VARCHAR(30) NOT NULL,apellido VARCHAR(30) NOT NULL,edad int(2) NOT NULL,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);"
+    cur=con.cursor()
+    cur.execute(q)
+    print("se creo con exito")
