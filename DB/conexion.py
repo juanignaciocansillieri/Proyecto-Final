@@ -47,9 +47,9 @@ def contar_filas_tabla(con):
     try:
         cur=con.cursor()
         cur.execute(q)
-        a=cur.fetchall()
-        a=int(a[0][0])
-        cur.close
+        a=cur.fetchall()    #fetchall hace que el cursor muestre todos las filas
+        a=int(a[0][0])      #convierte la tupla del cursor en un entero
+        cur.close           #cierra el cursor
         print("hay ",a,"vistas")
     except pymysql.err.OperationalError as err:
         print("Hubo un error:",err)
