@@ -41,7 +41,6 @@ def borrar_tabla(con):  # borra tablas (posible modificacion futura: ingresar el
     except pymysql.err.OperationalError as err:
         print("Hubo un error:", err)
 
-
 def crear_tabla(con):  # crea una tabla (al iniciar por primera vez el programa se crearan todas)
     q1 = """CREATE TABLE IF NOT EXISTS usuarios (
   idusuarios INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,

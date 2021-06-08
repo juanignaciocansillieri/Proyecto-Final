@@ -43,7 +43,7 @@ def crear_usuario(connect, cursor):
 
 
 def listar_usuarios(connect, cursor):
-    query = "SELECT id,nombre,apellido,edad FROM produc"
+    query = "SELECT id,nombre,apellido FROM produc"
     cursor.execute(query)
     # 1
     # for id,nombre,apellido,edad in cursor.fetchall():
