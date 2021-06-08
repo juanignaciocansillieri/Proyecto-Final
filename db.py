@@ -20,8 +20,3 @@ def start_connection():
 def close_connection(connect):
     connect.close()
     print("se cerro la conexión con éxito")
-
-
-
-    
-      
