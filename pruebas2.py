@@ -3,7 +3,7 @@ import pruebas as p
 
 from DB import conexion as c
 a=c.start_connection()
-c.borrar_tabla(a)
+#c.borrar_tabla(a)
 #c.crear_tabla(a)
 #c.contar_filas_tabla(a)
 #c.close_connection(a)
@@ -18,3 +18,4 @@ from DB import ABM_usuarios as abmuser
 #abmuser.crear_usuario(nombre,apellido,tipo,1,puesto,nacimiento)
 #abmuser.borrar_usuario(nombre,apellido)
 #abmuser.ab_usuario(nombre,apellido)
+abmuser.mostrar_usuario(nombre,apellido)

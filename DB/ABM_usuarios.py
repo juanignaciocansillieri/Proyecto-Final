@@ -29,3 +29,15 @@ def ab_usuario(nombre,apellido):
     a.commit()
     print("se MODIFICO correctamente")
     c.close_connection(a)
+
+def mostrar_usuario(nombre,apellido):
+    a=c.start_connection()
+    cursor=a.cursor()
+    query = "SELECT * FROM usuarios WHERE nombre= %s AND apellido=%s"
+    values = (nombre, apellido)
+    cursor.execute(query, values)
+    a.commit()
+    b=cursor.fetchall()
+    b=str(b[0])
+    print(b)
+    c.close_connection(a)
