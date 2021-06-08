@@ -15,7 +15,7 @@ def start_connection():  # inicia conexion a db
     db = os.environ.get('DB_MYSQL')
     try:
         con = pymysql.Connect(host=h, port=p, user=u, password=ps, database=db)
-        print(con, "conectado")
+        print(con, "\nse creo conexion")
     except pymysql.err.OperationalError as err:
         print("Hubo un error:", err)
 
@@ -25,23 +25,26 @@ def start_connection():  # inicia conexion a db
 def close_connection(con):  # cierra conexion a db
     try:
         con.close()
-        print("se cerro conexion\n", con)
+        print("se cerro conexion\n",con)
     except pymysql.err.OperationalError as err:
         print("Hubo un error:", err)
 
 
-def borrar_tabla(con):  # borra tablas (posible modificacion futura: ingresar el nombre de la tabla y que la borre)
+def borrar_tabla():  # borra tablas (posible modificacion futura: ingresar el nombre de la tabla y que la borre)
     # se usa "," para mas de una
+    con=start_connection()
     q = "DROP TABLE IF EXISTS productos, usuarios,alojamiento;"
     try:
         cur = con.cursor()
         cur.execute(q)
         cur.close()
-        print("se borro con exito")
+        print("se borro las tablas con exito")
     except pymysql.err.OperationalError as err:
         print("Hubo un error:", err)
+    close_connection(con)
 
-def crear_tabla(con):  # crea una tabla (al iniciar por primera vez el programa se crearan todas)
+def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se crearan todas)
+    con=start_connection()
     q1 = """CREATE TABLE IF NOT EXISTS usuarios (
   idusuarios INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
   nombre VARCHAR(20) NOT NULL,
@@ -77,14 +80,16 @@ def crear_tabla(con):  # crea una tabla (al iniciar por primera vez el programa 
         cur.execute(q2)
         cur.execute(q3)
         cur.close()
-        print("se creo con exito")
+        print("se creo las tablas con exito")
     except pymysql.err.OperationalError as err:
         print("Hubo un error:", err)
+    close_connection(con)
 
 
-def contar_filas_tabla(con):  # despues hay que poner de que tabla queremos contar
+def contar_filas_tabla():  # despues hay que poner de que tabla queremos contar
     # cuenta las filas de una tabla especifica
     # (modificacion futura: definir la sentencia de la funcion para que cuente en la tabal donde sea necesario)
+    con=start_connection()
     q = "SELECT COUNT(*) from productos;"
     try:
         cur = con.cursor()
@@ -96,3 +101,4 @@ def contar_filas_tabla(con):  # despues hay que poner de que tabla queremos cont
     except pymysql.err.OperationalError as err:
         print("Hubo un error:", err)
         # despues tiene que hacer un return
+    close_connection(con)
