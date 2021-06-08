@@ -6,38 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>848</width>
-    <height>657</height>
+    <width>800</width>
+    <height>645</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <property name="styleSheet">
-    <string notr="true">margin: 0 0 0;</string>
-   </property>
    <layout class="QVBoxLayout" name="verticalLayout">
-    <property name="spacing">
-     <number>0</number>
-    </property>
-    <property name="leftMargin">
-     <number>0</number>
-    </property>
-    <property name="topMargin">
-     <number>0</number>
-    </property>
-    <property name="rightMargin">
-     <number>0</number>
-    </property>
-    <property name="bottomMargin">
-     <number>0</number>
-    </property>
     <item>
      <widget class="QFrame" name="frame">
       <property name="styleSheet">
-       <string notr="true">background-color: #fff;
-margin: 0;</string>
+       <string notr="true">background: #fff;
+</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -45,83 +27,32 @@ margin: 0;</string>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item>
-        <widget class="QTabWidget" name="tabWidget">
-         <property name="styleSheet">
-          <string notr="true">backgorund: #f1d3</string>
-         </property>
-         <property name="tabPosition">
-          <enum>QTabWidget::North</enum>
-         </property>
-         <property name="tabShape">
-          <enum>QTabWidget::Rounded</enum>
-         </property>
-         <property name="currentIndex">
-          <number>0</number>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>16</width>
-           <height>16</height>
-          </size>
-         </property>
-         <property name="movable">
-          <bool>false</bool>
-         </property>
-         <property name="tabBarAutoHide">
-          <bool>false</bool>
-         </property>
-         <widget class="QWidget" name="tab">
-          <attribute name="title">
-           <string>CREAR USUARIO</string>
-          </attribute>
-          <widget class="QTableWidget" name="tableWidget">
-           <property name="geometry">
-            <rect>
-             <x>0</x>
-             <y>0</y>
-             <width>811</width>
-             <height>491</height>
-            </rect>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">margin: 0;
-border: 1px solid;</string>
-           </property>
-           <column>
-            <property name="text">
-             <string>ID</string>
-            </property>
-           </column>
-           <column>
-            <property name="text">
-             <string>NOMBRE</string>
-            </property>
-           </column>
-           <column>
-            <property name="text">
-             <string>APELLIDO</string>
-            </property>
-           </column>
-          </widget>
-          <widget class="QPushButton" name="pushButton">
-           <property name="geometry">
-            <rect>
-             <x>80</x>
-             <y>540</y>
-             <width>75</width>
-             <height>23</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>AASS</string>
-           </property>
-          </widget>
-         </widget>
-        </widget>
-       </item>
-      </layout>
+      <widget class="QPushButton" name="btn">
+       <property name="geometry">
+        <rect>
+         <x>350</x>
+         <y>460</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>b</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>130</y>
+         <width>47</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>HOLA</string>
+       </property>
+      </widget>
      </widget>
     </item>
    </layout>
