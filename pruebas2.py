@@ -18,7 +18,7 @@ from DB import ABM_usuarios as abmuser
 #abmuser.crear_usuario(nombre,apellido,tipo,1,puesto,nacimiento)
 #abmuser.borrar_usuario(nombre,apellido)
 #abmuser.ab_usuario(nombre,apellido)
-#abmuser.mostrar_usuario(nombre,apellido)
+#abmuser.mostrar_usuario(nombre="alex",apellido="arraya")
 abmuser.mostrar2__usuario(nombre="alex",apellido="arraya")
 
 from CLASES import usuarios as u
