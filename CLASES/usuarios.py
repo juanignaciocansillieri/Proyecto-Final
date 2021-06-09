@@ -12,7 +12,8 @@ class usuarios:
         self.alta=1
         self.puesto=puesto
         self.nacimiento=nacimiento
-        self.alta_usuario()
+        print("se creo correctamente")
+
 
     def alta_usuario(self):
         a=c.start_connection()
@@ -22,7 +23,7 @@ class usuarios:
             values = (self.nombre,self.apellido,self.tipo,self.alta,self.puesto,self.nacimiento)
             cursor.execute(query, values)
             a.commit()
-            print("se creo correctamente")
+            print("se dio alta correctamente")
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
         c.close_connection(a)

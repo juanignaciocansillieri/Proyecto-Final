@@ -22,3 +22,4 @@ from DB import ABM_usuarios as abmuser
 
 from CLASES import usuarios as u
 u1=u.usuarios(nombre,apellido,tipo,puesto,nacimiento)
+u1.alta_usuario()
