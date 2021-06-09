@@ -55,3 +55,47 @@ def mostrar_usuario(nombre,apellido):
     except pymysql.err.OperationalError as err:
         print("Hubo un error:", err)
     c.close_connection(a)
+
+def mostrar2__usuario(nombre,apellido):
+    a=c.start_connection()
+    try:
+        cursor=a.cursor()
+        query = "SELECT nombre FROM usuarios WHERE nombre= %s AND apellido=%s"
+        values = (nombre, apellido)
+        cursor.execute(query, values)
+        a.commit()
+        b=cursor.fetchall() #fetchall llama a la tupla
+        nombre=str(b[0][0])      #al ser "[0]" elmina un solo parentesis, dos "[0] elimina los 2"
+        query = "SELECT apellido FROM usuarios WHERE nombre= %s AND apellido=%s"
+        values = (nombre, apellido)
+        cursor.execute(query, values)
+        a.commit()
+        b=cursor.fetchall() 
+        apellido=str(b[0][0])      
+        query = "SELECT nacimiento FROM usuarios WHERE nombre= %s AND apellido=%s"
+        values = (nombre, apellido)
+        cursor.execute(query, values)
+        a.commit()
+        b=cursor.fetchall() 
+        nacimiento=str(b[0][0])      
+        query = "SELECT tipo FROM usuarios WHERE nombre= %s AND apellido=%s"
+        values = (nombre, apellido)
+        cursor.execute(query, values)
+        a.commit()
+        b=cursor.fetchall() 
+        tipo=str(b[0][0])     
+        if tipo=="1":
+            tipo="administrador"
+        else:
+            tipo="usuario"
+        query = "SELECT puesto FROM usuarios WHERE nombre= %s AND apellido=%s"
+        values = (nombre, apellido)
+        cursor.execute(query, values)
+        a.commit()
+        b=cursor.fetchall() 
+        puesto=str(b[0][0])     
+        print("Nombre: ",nombre,"\nApellido: ",apellido,"\nFecha de nacimiento: ",nacimiento,
+        "\nTipo: ",tipo,"\nPuesto: ",puesto) 
+    except pymysql.err.OperationalError as err:
+        print("Hubo un error:", err)
+    c.close_connection(a)
