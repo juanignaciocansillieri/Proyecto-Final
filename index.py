@@ -4,6 +4,8 @@ import pymysql
 from pymysql import connect, err
 import numpy as np
 from pymysql.err import Error
+from p import Listar as l
+import db as db
 
 # ELIMINAR TABLA
 DROP_TABLE = """DROP TABLE IF EXISTS produc"""
@@ -42,7 +44,10 @@ def crear_usuario(connect, cursor):
 # FUNCION LISTA USUARIOS
 
 
-def listar_usuarios(connect, cursor):
+def listar_usuarios():
+    c = db.start_connection()
+    cursor = c.cursor()
+    u = "USUARIOS: "
     query = "SELECT id,nombre,apellido FROM produc"
     cursor.execute(query)
     # 1
@@ -50,8 +55,11 @@ def listar_usuarios(connect, cursor):
     #      print(id,"-", nombre, "-", apellido,"-",edad)
     # 2
     for user in cursor.fetchall():
-        print(user)
-    connect.commit()
+       u += str(user)
+    
+    c.commit()
+    db.close_connection(c)
+    return(u)
 
 # FUNCION MODIFICAR USUARIOS
 
@@ -68,12 +76,6 @@ def eliminar_usuarios(connect, cursor):
     query = "DELETE FROM produc WHERE id = %s"
     cursor.execute(query, 2)
     connect.commit()
-
-
-
-
-
-
     # CREAR 1 REGISTRO
     query = "INSERT INTO produc(nombre,apellido,edad) VALUES(%s,%s,%s)"
     values = ("Nicolas", "ajir", 20)

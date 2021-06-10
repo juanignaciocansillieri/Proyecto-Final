@@ -18,7 +18,7 @@
     <item>
      <widget class="QFrame" name="frame">
       <property name="styleSheet">
-       <string notr="true">background: #fff;
+       <string notr="true">background: #000;
 </string>
       </property>
       <property name="frameShape">
@@ -27,32 +27,6 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QPushButton" name="btn">
-       <property name="geometry">
-        <rect>
-         <x>350</x>
-         <y>460</y>
-         <width>75</width>
-         <height>23</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>b</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="lbl">
-       <property name="geometry">
-        <rect>
-         <x>230</x>
-         <y>130</y>
-         <width>47</width>
-         <height>13</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>HOLA</string>
-       </property>
-      </widget>
      </widget>
     </item>
    </layout>
