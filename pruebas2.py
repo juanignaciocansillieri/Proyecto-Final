@@ -3,8 +3,8 @@ import pruebas as p
 
 from DB import conexion as c
 #a=c.start_connection()
-c.borrar_tabla()
-c.crear_tabla()
+#c.borrar_tabla()
+#c.crear_tabla()
 #c.contar_filas_tabla()
 #c.close_connection()
 
@@ -18,4 +18,9 @@ from DB import ABM_usuarios as abmuser
 #abmuser.crear_usuario(nombre,apellido,tipo,1,puesto,nacimiento)
 #abmuser.borrar_usuario(nombre,apellido)
 #abmuser.ab_usuario(nombre,apellido)
-#abmuser.mostrar_usuario(nombre,apellido)
+#abmuser.mostrar_usuario(nombre="alex",apellido="arraya")
+abmuser.mostrar2__usuario(nombre="alex",apellido="arraya")
+
+from CLASES import usuarios as u
+#u1=u.usuarios(nombre,apellido,tipo,puesto,nacimiento)
+#u1.alta_usuario()
