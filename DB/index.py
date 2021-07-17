@@ -147,16 +147,6 @@ def verificar_usuario(cod,password):
 a = verificar_usuario(int("1"),"asd123")
 print(a)
 
-def f():
-        c = db.start_connection()
-        cursor = c.cursor()
-        query = "SELECT Codigo,Password FROM usuarios WHERE Codigo= %s AND Password = %s"
-        values = (1,'asd123')
-        b=cursor.execute(query,values)
-        print(b)
-        c.commit()
-        db.close_connection(c)
-
 def mostrar_usuario(nombre,apellido):
     a=db.start_connection()
     try:
@@ -172,5 +162,4 @@ def mostrar_usuario(nombre,apellido):
         print("Hubo un error:", err)
     db.close_connection(a)
 
-mostrar_usuario(int(1),"asd123")
 
