@@ -2,8 +2,8 @@ import sys
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtCore import QFile
+sys.path.append("..")
 from login import Ui_MainWindow
-sys.path.append(".")
 from DB import index as i
 
 class LoginWindow(QMainWindow):
@@ -21,14 +21,14 @@ class LoginWindow(QMainWindow):
                 pass
             else:
                 QtWidgets.QMessageBox.critical(self, "Error", "Datos incorrectos")
+                self.ui.user_login_input.setText("")
+                self.ui.pass_login_input.setText("")
                 
             
 
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-
     window = LoginWindow()
     window.show()
-
     sys.exit(app.exec())
