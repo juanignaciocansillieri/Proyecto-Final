@@ -1,11 +1,14 @@
 from typing import AbstractSet
 import os
+import sys
 import pymysql
 from pymysql import connect, err
 import numpy as np
+from pymysql import cursors
 from pymysql.err import Error
-from p import Listar as l
-import db as db
+sys.path.append(".")
+from DB import db as db
+
 
 # ELIMINAR TABLA
 DROP_TABLE = """DROP TABLE IF EXISTS produc"""
@@ -23,7 +26,20 @@ users = [
     ("Perez", "Raid", 21)
 ]
 
+
+
+
+
 # CREAR NUEVO USUARIO - VERIFICAR NÚMERO ENTERO
+
+def crearUser(connect,cursor,codigo, password):
+    
+    cursor = connect.cursor()
+    query = "INSERT INTO usuarios(Codigo,Password) VALUES (%s,%s)"
+    values = (codigo, password)
+    cursor.execute(query, values)
+    connect.commit()
+ 
 
 
 def crear_usuario(connect, cursor):
@@ -55,20 +71,20 @@ def listar_usuarios():
     #      print(id,"-", nombre, "-", apellido,"-",edad)
     # 2
     for user in cursor.fetchall():
-       u += str(user)
-    
+        u += str(user)
+
     c.commit()
     db.close_connection(c)
     return(u)
 
 # FUNCION MODIFICAR USUARIOS
 
+
 def modificar_usuarios(connect, cursor):
     query = "UPDATE produc SET nombre=%s WHERE id=%s"
     values = ("raul", 1)
-    cursor.execute(query,values)
+    cursor.execute(query, values)
     connect.commit()
-
 
 
 # FUNCION ELIMINAR USUARIOS
@@ -112,10 +128,49 @@ def eliminar_usuarios(connect, cursor):
     query = "DELETE FROM produc WHERE id = %s"
     cursor.execute(query, 3)
     connect.commit()
-    #Ejecutar funciones
-    crear_usuario(connect, cursor)
-    listar_usuarios(connect, cursor)
-    modificar_usuarios(connect, cursor)
-    eliminar_usuarios(connect, cursor)
-        
-       
+    # Ejecutar funciones
+    #crear_usuario(connect, cursor)
+    #listar_usuarios(connect, cursor)
+    #modificar_usuarios(connect, cursor)
+    #eliminar_usuarios(connect, cursor)
+    
+def verificar_usuario(cod,password):
+        c = db.start_connection()
+        cursor = c.cursor()
+        query = "SELECT Codigo,Password FROM usuarios WHERE Codigo= %s AND Password = %s"
+        values = (cod,password)
+        o = cursor.execute(query,values)
+        c.commit()
+        db.close_connection(c)
+        return (o)
+ 
+a = verificar_usuario(int("1"),"asd123")
+print(a)
+
+def f():
+        c = db.start_connection()
+        cursor = c.cursor()
+        query = "SELECT Codigo,Password FROM usuarios WHERE Codigo= %s AND Password = %s"
+        values = (1,'asd123')
+        b=cursor.execute(query,values)
+        print(b)
+        c.commit()
+        db.close_connection(c)
+
+def mostrar_usuario(nombre,apellido):
+    a=db.start_connection()
+    try:
+        cursor=a.cursor()
+        query = "SELECT * FROM usuarios WHERE Codigo= %s AND Password=%s"
+        values = (nombre, apellido)
+        cursor.execute(query, values)
+        a.commit()
+        b=cursor.fetchall()
+        b=str(b[0])
+        print(b)
+    except pymysql.err.OperationalError as err:
+        print("Hubo un error:", err)
+    db.close_connection(a)
+
+mostrar_usuario(int(1),"asd123")
+

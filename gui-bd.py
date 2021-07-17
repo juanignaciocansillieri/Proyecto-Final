@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import index as i
-import db as db
+import DB.db as db
 
 
 
