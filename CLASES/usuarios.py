@@ -139,5 +139,35 @@ class usuarios:
             print("Hubo un error:", err)
         c.close_connection(a)
 
-    def modificar_datos_user(self,nombre,apellido,dni,tipo,alta,puesto,nacimiento):
-        
+    def modificar_datos_user(self,nombre,apellido,dni,tipo,puesto,nacimiento):
+        a=c.start_connection()
+        cursor=a.cursor()
+        try:
+            query = "UPDATE usuarios SET nombre=%s WHERE dni=%s"
+            values = (nombre,self.dni)
+            cursor.execute(query, values)
+            a.commit()
+            query = "UPDATE usuarios SET apellido=%s WHERE dni=%s"
+            values = (apellido,self.dni)
+            cursor.execute(query, values)
+            a.commit()  
+            query = "UPDATE usuarios SET dni=%s WHERE dni=%s"
+            values = (dni,self.dni)
+            cursor.execute(query, values)
+            a.commit() 
+            query = "UPDATE usuarios SET nacimiento=%s WHERE dni=%s"
+            values = (nacimiento,self.dni)
+            cursor.execute(query, values)
+            a.commit() 
+            query = "UPDATE usuarios SET tipo=%s WHERE dni=%s"
+            values = (tipo,self.dni)
+            cursor.execute(query, values)
+            a.commit()    
+            query = "UPDATE usuarios SET puesto=%s WHERE dni=%s"
+            values = (puesto,self.dni)
+            cursor.execute(query, values)
+            a.commit() 
+            print("se modifico correctamente")
+        except pymysql.err.OperationalError as err:
+            print("Hubo un error:", err)
+        c.close_connection(a)

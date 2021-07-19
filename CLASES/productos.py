@@ -192,44 +192,48 @@ class productos:
             a=c.start_connection()
             cursor=a.cursor()
             try:
+                query = "UPDATE productos set codigo=%s WHERE codigo=%s"
+                values = (codigo,self.codigo)
+                cursor.execute(query, values)
+                a.commit()
                 query = "UPDATE productos set nombre=%s WHERE codigo=%s"
-                values = (nombre,codigo)
+                values = (nombre,self.codigo)
                 cursor.execute(query, values)
                 a.commit()
                 query = "UPDATE productos set marca=%s WHERE codigo=%s"
-                values = (marca,codigo)
+                values = (marca,self.codigo)
                 cursor.execute(query, values)
                 a.commit()
                 query = "UPDATE productos set cantidad=%s WHERE codigo=%s"
-                values = (cantidad,codigo)
+                values = (cantidad,self.codigo)
                 cursor.execute(query, values)
                 a.commit()
                 query = "UPDATE productos set descripcion=%s WHERE codigo=%s"
-                values = (descripcion,codigo)
+                values = (descripcion,self.codigo)
                 cursor.execute(query, values)
                 a.commit()
                 query = "UPDATE productos set foto=%s WHERE codigo=%s"
-                values = (foto,codigo)
+                values = (foto,self.codigo)
                 cursor.execute(query, values)
                 a.commit()
                 query = "UPDATE productos set lote=%s WHERE codigo=%s"
-                values = (lote,codigo)
+                values = (lote,self.codigo)
                 cursor.execute(query, values)
                 a.commit()
                 query = "UPDATE productos set vemcimiemto=%s WHERE codigo=%s"
-                values = (vencimiento,codigo)
+                values = (vencimiento,self.codigo)
                 cursor.execute(query, values)
                 a.commit()
                 query = "UPDATE productos set refrigeracion=%s WHERE codigo=%s"
-                values = (refrigeracion,codigo)
+                values = (refrigeracion,self.codigo)
                 cursor.execute(query, values)
                 a.commit()
                 query = "UPDATE productos set inflamable=%s WHERE codigo=%s"
-                values = (inflamable,codigo)
+                values = (inflamable,self.codigo)
                 cursor.execute(query, values)
                 a.commit()
                 query = "UPDATE productos set fragil=%s WHERE codigo=%s"
-                values = (fragil,codigo)
+                values = (fragil,self.codigo)
                 cursor.execute(query, values)
                 a.commit()
                 
