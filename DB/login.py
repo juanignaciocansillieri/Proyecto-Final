@@ -28,3 +28,17 @@ def log_in (dni,contraseña):
     except pymysql.err.OperationalError as err:
         print("Ha ocurrido un error", err)
     c.close_connection(a)
+
+def cambiar_conraseña(dni):
+    a=c.start_connection()
+    cursor=a.cursor()
+    password=input("ingrese su nueva contraseña:")
+    try:
+        cursor=a.cursor()
+        query = "UPDATE login SET contraseña=%s WHERE dni= %s"
+        values = (password,dni)
+        cursor.execute(query, values)
+        a.commit()
+    except pymysql.err.OperationalError as err:
+        print("Ha ocurrido un error", err)
+    c.close_connection(a)

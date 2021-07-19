@@ -3,7 +3,7 @@ import pruebas as p
 
 from DB import conexion as c
 #a=c.start_connection()
-c.borrar_tabla()
+#c.borrar_tabla()
 #c.crear_tabla()
 #c.contar_filas_tabla()
 #c.close_connection()
@@ -23,8 +23,10 @@ c.borrar_tabla()
 #abmuser.mostrar2__usuario(nombre="alex",apellido="arraya")
 
 #from CLASES import usuarios as u
-#u1=u.usuarios(nombre,apellido,tipo,puesto,nacimiento)
+#u1=u.usuarios(nombre,apellido,dni,tipo,puesto,nacimiento)
 #u1.alta_usuario()
 
 #from DB import login as log
 #log.log_in(132,132)
+
+

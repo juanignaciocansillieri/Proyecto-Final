@@ -108,3 +108,22 @@ def contar_filas_tabla():  # despues hay que poner de que tabla queremos contar
         print("Hubo un error:", err)
         # despues tiene que hacer un return
     close_connection(con)
+
+def controlador(con,tabla,columna):
+    a=start_connection()
+    cursor=a.cursor()
+    try:
+        query = "SELECT * FROM %s WHERE %s= %s"
+        values = (tabla,columna,con)
+        cursor.execute(query, values)
+        a.commit()
+        b=cursor.fetchone()
+        control1=str(b[0])
+        if control1 == "None" :#and 
+            print("no se encuentra")
+            return 0
+        else: return 1
+            
+    except pymysql.err.OperationalError as err:
+        print("Ha ocurrido un error", err)
+    close_connection(a)
