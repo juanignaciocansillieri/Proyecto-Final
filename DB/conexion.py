@@ -49,6 +49,7 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
   idusuarios INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
   nombre VARCHAR(20) NOT NULL,
   apellido VARCHAR(20) NOT NULL,
+  dni VARCHAR(20) NOT NULL,
   tipo BINARY(1) NOT NULL,
   alta BINARY(1) NOT NULL,
   puesto VARCHAR(20) NOT NULL,
@@ -74,11 +75,16 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
   posicion VARCHAR(20) NOT NULL,
   refrigeracion BINARY(1) NOT NULL,
   limite VARCHAR(20) NOT NULL);"""
+    q4 ="""CREATE TABLE IF NOT EXISTS login (
+  idalogin INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  dni VARCHAR(20) NOT NULL,
+  contraseña VARCHAR(20) NOT NULL);"""
     try:
         cur = con.cursor()
         cur.execute(q1)
         cur.execute(q2)
         cur.execute(q3)
+        cur.execute(q4)
         cur.close()
         print("se creo las tablas con exito")
     except pymysql.err.OperationalError as err:
