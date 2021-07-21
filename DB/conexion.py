@@ -66,17 +66,18 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
   lote VARCHAR(20) NOT NULL,
   vencimiento DATE NOT NULL,
   refrigeracion BINARY(1) NOT NULL,
-  inflamabre BINARY(1) NOT NULL,
+  inflamable BINARY(1) NOT NULL,
   fragil BINARY(1) NOT NULL);"""
     q3 = """CREATE TABLE IF NOT EXISTS alojamiento (
   idalojamiento INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  codigo VARCHAR(20) NOT NULL,
   dimensiones VARCHAR(20) NOT NULL,
   disponibilidad BINARY(1) NOT NULL,
   posicion VARCHAR(20) NOT NULL,
   refrigeracion BINARY(1) NOT NULL,
   limite VARCHAR(20) NOT NULL);"""
     q4 ="""CREATE TABLE IF NOT EXISTS login (
-  idalogin INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  idlogin INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
   dni VARCHAR(20) NOT NULL,
   contraseña VARCHAR(20) NOT NULL);"""
     try:

@@ -3,7 +3,7 @@ import pruebas as p
 
 from DB import conexion as c
 #a=c.start_connection()
-#c.borrar_tabla()
+c.borrar_tabla()
 #c.crear_tabla()
 #c.contar_filas_tabla()
 #c.close_connection()
@@ -14,6 +14,32 @@ from DB import conexion as c
 #tipo=input("ingrese el tipo(1/0):")
 #puesto=input("ingrese el peusto:")
 #nacimiento=input("ingrese el fecha de nacimiento:")
+
+from CLASES import usuarios as us
+from DB import login as log
+from CLASES import productos as pr
+from CLASES import alojamiento as al
+
+"""
+aa=us.usuarios("alex","arraya","123",1,"gerente","1999/05/14")
+aa.alta_usuario()
+aa.alta_login("asd")
+bb=us.usuarios("juan","cansillieri","456",1,"productos","1999/07/20")
+bb.alta_usuario()
+bb.alta_login("zxc")
+cc=us.usuarios("nicolas","rija","789",0,"asistente","1999/04/26")
+cc.alta_usuario()
+cc.alta_login("qwe")
+
+dd=pr.productos("123","leche","serenisima","10","clasica","...","147","2021/07/25",1,0,0)
+dd.alta_producto()
+ee=pr.productos("456","harina","harina","100","0000","...","258","2021/09/10",0,0,0)
+dd.alta_producto()
+ff=pr.productos("789","fideos","gallo","50","integral","...","369","2021/08/05",0,0,0)
+ff.alta_producto()
+"""
+
+#al.generacion_posicion("12 1 5")
 
 #from DB import ABM_usuarios as abmuser
 #abmuser.crear_usuario(nombre,apellido,tipo,1,puesto,nacimiento)

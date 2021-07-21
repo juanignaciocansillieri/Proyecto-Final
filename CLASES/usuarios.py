@@ -1,4 +1,5 @@
 from sys import setprofile
+from typing import NoReturn
 import pymysql
 import os
 from DB import conexion as c
@@ -14,7 +15,7 @@ class usuarios:
         self.alta=1
         self.puesto=puesto
         self.nacimiento=nacimiento
-        print("se creo correctamente")
+        print("se creo usuario correctamente")
 
 
     def alta_usuario(self):
@@ -25,7 +26,7 @@ class usuarios:
             values = (self.nombre,self.apellido,self.dni,self.tipo,self.alta,self.puesto,self.nacimiento)
             cursor.execute(query, values)
             a.commit()
-            print("se dio alta correctamente")
+            print("se dio alta usuario correctamente")
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
         c.close_connection(a)
@@ -38,105 +39,107 @@ class usuarios:
             values = (self.dni,contraseña)
             cursor.execute(query, values)
             a.commit()
-            print("se registro correctamente")
+            print("se registro usuario correctamente")
+        except pymysql.err.OperationalError as err:
+            print("Hubo un error:", err)
+        c.close_connection(a)
+
+    def listar_user(self):
+        a=c.start_connection()
+        cursor=a.cursor()
+        try:
+            query = "SELECT COUNT (*) FROM usuarios"
+            #values =
+            cursor.execute(query)
+            a.commit()
+            n=int(cursor.fetchall())
+            i=0
+            ii=0
+            while i<n:
+                query = "SELECT dni FROM usuarios WHERE idusuarios = %s"
+                values = ii
+                cursor.execute(query,values)
+                a.commit()
+                dni=cursor.fetchall()
+                dni=str(dni[0][0])
+                if self.mostrar_datos_user(dni) != NoReturn:
+                    ii=ii+1
+                else:
+                    i=i+1
+            
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
         c.close_connection(a)
 
     def mostrar_datos_user(self,dni):
-        a=c.start_connection()
-        cursor=a.cursor()
+        #a=c.start_connection()
+        #cursor=a.cursor()
+        #if c.controlador(dni,"usuarios","dni") == 1:
+        self.importar_datos_user(dni)
         try:
-            query = "SELECT nombre FROM usuarios WHERE dni=%s"
-            values = dni
-            cursor.execute(query, values)
-            a.commit()
-            b=cursor.fetchall() #fetchall llama a la tupla
-            nombre=str(b[0][0])      #al ser "[0]" elmina un solo parentesis, dos "[0] elimina los 2"
-            query = "SELECT apellido FROM usuarios WHERE dni=%s"
-            values = dni
-            cursor.execute(query, values)
-            a.commit()
-            b=cursor.fetchall() 
-            apellido=str(b[0][0])      
-            query = "SELECT nacimiento FROM usuarios WHERE dni=%s"
-            values = dni
-            cursor.execute(query, values)
-            a.commit()
-            b=cursor.fetchall() 
-            nacimiento=str(b[0][0])      
-            query = "SELECT tipo FROM usuarios WHERE dni=%s"
-            values = dni
-            cursor.execute(query, values)
-            a.commit()
-            b=cursor.fetchall() 
-            tipo=str(b[0][0])     
-            if tipo=="1":
-                tipo="administrador"
+            if self.tipo=="1":
+                self.tipo="administrador"
             else:
-                tipo="usuario"
-            query = "SELECT puesto FROM usuarios WHERE dni=%s"
-            values = dni
-            cursor.execute(query, values)
-            a.commit()
-            b=cursor.fetchall() 
-            puesto=str(b[0][0])     
-            print("Nombre: ",nombre,"\nApellido: ",apellido,"\nDNI: ",dni,"\nFecha de nacimiento: ",nacimiento,
-            "\nTipo: ",tipo,"\nPuesto: ",puesto)
+                self.tipo="usuario"     
+            print("Nombre: ",self.nombre,"\nApellido: ",self.apellido,"\nDNI: ",dni,"\nFecha de nacimiento: ",self.nacimiento,
+            "\nTipo: ",self.tipo,"\nPuesto: ",self.puesto)
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
-        c.close_connection(a)
+        #c.close_connection(a)
+        return 0
 
     def ab_usuario(self,dni):
         a=c.start_connection()
-        try:
-            cursor=a.cursor()
-            query = "UPDATE usuarios set alta= IF(alta = '0', alta + 1, alta-1) WHERE dni=%s"
-            values = dni
-            cursor.execute(query, values)
-            a.commit()
-            print("se MODIFICO correctamente")
-        except pymysql.err.OperationalError as err:
-            print("Hubo un error:", err)
+        cursor=a.cursor()
+        if c.controlador(dni,"usuarios","dni") == 1:
+            try: 
+                query = "UPDATE usuarios set alta= IF(alta = '0', alta + 1, alta-1) WHERE dni=%s"
+                values = dni
+                cursor.execute(query, values)
+                a.commit()
+                print("se MODIFICO usuario correctamente")
+            except pymysql.err.OperationalError as err:
+                print("Hubo un error:", err)
         c.close_connection(a)
 
     def importar_datos_user(self,dni):
         a=c.start_connection()
         cursor=a.cursor()
-        try:
-            query = "SELECT nombre FROM usuarios WHERE dni=%s"
-            values = dni
-            cursor.execute(query, values)
-            a.commit()
-            b=cursor.fetchall() 
-            self.nombre=str(b[0][0]) 
-            query = "SELECT apellido FROM usuarios WHERE dni=%s"
-            values = dni
-            cursor.execute(query, values)
-            a.commit()
-            b=cursor.fetchall() 
-            self.apellido=str(b[0][0])      
-            query = "SELECT nacimiento FROM usuarios WHERE dni=%s"
-            values = dni
-            cursor.execute(query, values)
-            a.commit()
-            b=cursor.fetchall() 
-            self.nacimiento=str(b[0][0])      
-            query = "SELECT tipo FROM usuarios WHERE dni=%s"
-            values = dni
-            cursor.execute(query, values)
-            a.commit()
-            b=cursor.fetchall() 
-            self.tipo=str(b[0][0])     
-            query = "SELECT puesto FROM usuarios WHERE dni=%s"
-            values = dni
-            cursor.execute(query, values)
-            a.commit()
-            b=cursor.fetchall() 
-            self.puesto=str(b[0][0])     
-            print("se importo correctamente")
-        except pymysql.err.OperationalError as err:
-            print("Hubo un error:", err)
+        if c.controlador(dni,"usuarios","dni") == 1:
+            try:
+                query = "SELECT nombre FROM usuarios WHERE dni=%s"
+                values = dni
+                cursor.execute(query, values)
+                a.commit()
+                b=cursor.fetchall() 
+                self.nombre=str(b[0][0]) 
+                query = "SELECT apellido FROM usuarios WHERE dni=%s"
+                values = dni
+                cursor.execute(query, values)
+                a.commit()
+                b=cursor.fetchall() 
+                self.apellido=str(b[0][0])      
+                query = "SELECT nacimiento FROM usuarios WHERE dni=%s"
+                values = dni
+                cursor.execute(query, values)
+                a.commit()
+                b=cursor.fetchall() 
+                self.nacimiento=str(b[0][0])      
+                query = "SELECT tipo FROM usuarios WHERE dni=%s"
+                values = dni
+                cursor.execute(query, values)
+                a.commit()
+                b=cursor.fetchall() 
+                self.tipo=str(b[0][0])     
+                query = "SELECT puesto FROM usuarios WHERE dni=%s"
+                values = dni
+                cursor.execute(query, values)
+                a.commit()
+                b=cursor.fetchall() 
+                self.puesto=str(b[0][0])     
+                print("se importo usuario correctamente")
+            except pymysql.err.OperationalError as err:
+                print("Hubo un error:", err)
         c.close_connection(a)
 
     def modificar_datos_user(self,nombre,apellido,dni,tipo,puesto,nacimiento):
@@ -167,7 +170,7 @@ class usuarios:
             values = (puesto,self.dni)
             cursor.execute(query, values)
             a.commit() 
-            print("se modifico correctamente")
+            print("se modifico  usuario correctamente")
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
         c.close_connection(a)
