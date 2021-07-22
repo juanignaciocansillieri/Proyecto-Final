@@ -1,9 +1,10 @@
+from CLASES.alojamiento import alojamiento
 from sys import setprofile
 from typing import NoReturn
 import pymysql
 import os
 from DB import conexion as c
-
+from CLASES import alojamiento as aloj
 
 class productos:
     def __init__(self,codigo,nombre,marca,cantidad,descripcion,foto,lote,vencimiento,refrigeracion,inflamable,fragil):
@@ -12,7 +13,7 @@ class productos:
         self.marca=marca
         self.cantidad=cantidad
         self.descripcion=descripcion
-        self.ubicacion=0#llamar a funcion de asignacion de ubicacion(hacerla)
+        self.ubicacion=aloj.asignacion_de_ubicacion()
         self.foto=foto
         self.lote=lote
         self.vencimiento=vencimiento

@@ -3,13 +3,14 @@ import pymysql
 import os
 from DB import conexion as c
 import numpy as np
+from CLASES import matriz as mz
 
 class alojamiento:
     def __init__(self,dimensiones,refrigeracion,limite):
-        #self.codigo=#autogeneracion de codigo
+        self.codigo=mz.asignacion_de_posicion()
         self.dimensiones=dimensiones
         self.disponibilidad=1
-        self.posicion=self.generacion_posicion
+        self.posicion=self.generacion_posicion()
         self.refrigeracion=refrigeracion
         self.limite=limite
         print("se creo alojamiento correctamente")
@@ -17,7 +18,7 @@ class alojamiento:
     def generacion_codigo(self):
         pass
 
-    def generacion_posicion(self):
+    def generacion_ubicacion(self):
         posicion=self.codigo.split()
         posicion="pasillo: ",posicion[0],", fila: ",posicion[1],", altura: ",posicion[2]
         posicion=str(posicion)
@@ -157,4 +158,33 @@ class alojamiento:
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
         c.close_connection(a)
+
+
+
+
+def asignacion_de_ubicacion():
+    a=c.start_connection()
+    cursor=a.cursor()
+    try:
+        query = "SELECT COUNT (*) FROM alojamiento where disponibilidad = 1"
+        #values =
+        cursor.execute(query)
+        a.commit()
+        n=int(cursor.fetchall())
+        i=0
+        ii=0
+        while i<n:
+            query = "SELECT codigo FROM alojamiento WHERE idmatriz = %s and disponibilidad = 1"
+            values = ii
+            cursor.execute(query,values)
+            a.commit()
+            codigo=cursor.fetchall()
+            codigo=str(codigo[0][0])
+            if i==n-1 and codigo == "none":
+                print("no hay espacios disponibles")
+                pass
+            else: return codigo        
+    except pymysql.err.OperationalError as err:
+        print("Hubo un error:", err)
+    c.close_connection(a)
         

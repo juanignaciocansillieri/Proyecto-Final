@@ -65,8 +65,7 @@ class usuarios:
                 if self.mostrar_datos_user(dni) != NoReturn:
                     ii=ii+1
                 else:
-                    i=i+1
-            
+                    i=i+1      
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
         c.close_connection(a)
