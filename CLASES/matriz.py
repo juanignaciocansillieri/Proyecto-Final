@@ -201,6 +201,83 @@ class matriz:
                 i=i+1
                 j=0
 
+    def mostrar_datos_ubicaciones(self,codigo):
+        self.importar_datos_alojamiento(codigo)
+        try:
+            
+            
+            a=c.start_connection()
+            cursor=a.cursor()
+            if c.controlador(codigo,"matriz","codigo") ==1:
+                query = "SELECT codigo FROM matriz WHERE codigo=%s"
+                values = codigo
+                cursor.execute(query, values)
+                a.commit()
+                b=cursor.fetchall() 
+                codigo=str(b[0][0]) 
+                query = "SELECT fila FROM matriz WHERE codigo=%s"
+                values = codigo
+                cursor.execute(query, values)
+                a.commit()
+                b=cursor.fetchall() 
+                fila=str(b[0][0])
+                query = "SELECT fila FROM matriz WHERE codigo=%s"
+                values = codigo
+                cursor.execute(query, values)
+                a.commit()
+                b=cursor.fetchall() 
+                columna=str(b[0][0])
+                query = "SELECT fila FROM matriz WHERE codigo=%s"
+                values = codigo
+                cursor.execute(query, values)
+                a.commit()
+                b=cursor.fetchall() 
+                altura=str(b[0][0])
+                query = "SELECT fila FROM matriz WHERE codigo=%s"
+                values = codigo
+                cursor.execute(query, values)
+                a.commit()
+                b=cursor.fetchall() 
+                disponibilidad=str(b[0][0])
+                if disponibilidad=="1":
+                    disponibilidad="disponible"
+                else:
+                    disponibilidad="no disponible"
+
+
+
+            print("\ncodigo: ",self.codigo,"\nfila: ",fila,"\ncolumna: ",columna,"\naltura: ",altura,"\ndisponibilidad: ",disponibilidad)
+        except pymysql.err.OperationalError as err:
+            print("Hubo un error:", err)
+        #c.close_connection(a)
+        return 0
+        
+    def listar_matriz(self):
+        a=c.start_connection()
+        cursor=a.cursor()
+        try:
+            query = "SELECT COUNT (*) FROM matriz"
+            #values =
+            cursor.execute(query)
+            a.commit()
+            n=int(cursor.fetchall())
+            i=0
+            ii=0
+            while i<n:
+                query = "SELECT codigo FROM matriz WHERE idproductos = %s"
+                values = ii
+                cursor.execute(query,values)
+                a.commit()
+                codigo=cursor.fetchall()
+                codigo=str(codigo[0][0])
+                if self.mostrar_datos_matriz(codigo) != pymysql.NULL:
+                    ii=ii+1
+                else:
+                    i=i+1
+        except pymysql.err.OperationalError as err:
+            print("Hubo un error:", err)
+        c.close_connection(a)
+
 
 
 
@@ -228,7 +305,13 @@ def asignacion_de_posicion():
             if i==n-1 and codigo == "none":
                 print("no hay espacios disponibles")
                 pass
-            else: return codigo        
+            else:
+                query = "UPDATE matriz SET disponibilidad=0 WHERE codigo=%s"
+                values = codigo
+                cursor.execute(query,values)
+                a.commit()
+                return codigo
+
     except pymysql.err.OperationalError as err:
         print("Hubo un error:", err)
     c.close_connection(a)

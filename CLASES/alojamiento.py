@@ -15,8 +15,6 @@ class alojamiento:
         self.limite=limite
         print("se creo alojamiento correctamente")
 
-    def generacion_codigo(self):
-        pass
 
     def generacion_ubicacion(self):
         posicion=self.codigo.split()
@@ -106,7 +104,7 @@ class alojamiento:
                 self.refrigeracion="refrigerado"
             else:
                 self.refrigeracion="no refrigerado"
-            print("\ncodigo: ",self.codigo,"\ndimensiones: ",self.dimensiones,"\nsiponibilidad: ",self.disponibilidad,"\nposicion: ",self.posicion,"\nrefrigeracion: ",self.refrigeracion,"\nlimite: ",self.limite)
+            print("\ncodigo: ",self.codigo,"\ndimensiones: ",self.dimensiones,"\ndisponibilidad: ",self.disponibilidad,"\nposicion: ",self.posicion,"\nrefrigeracion: ",self.refrigeracion,"\nlimite: ",self.limite)
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
         #c.close_connection(a)
@@ -152,11 +150,26 @@ class alojamiento:
                 codigo=cursor.fetchall()
                 codigo=str(codigo[0][0])
                 if self.mostrar_datos_alojamiento(codigo) != pymysql.NULL:
+
                     ii=ii+1
                 else:
                     i=i+1
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
+        c.close_connection(a)
+
+    def ab_refrigeracion(self,codigo):
+        a=c.start_connection()
+        cursor=a.cursor()
+        if c.controlador(codigo,"alojamiento","codigo") == 1:
+            try: 
+                query = "UPDATE alojaminto set refrigeracion= IF(refrigeracion = '0', refrigeracion + 1, refrigeracion-1) WHERE codigo=%s"
+                values = codigo
+                cursor.execute(query, values)
+                a.commit()
+                print("se MODIFICO alojamiento correctamente")
+            except pymysql.err.OperationalError as err:
+                print("Hubo un error:", err)
         c.close_connection(a)
 
 
@@ -181,9 +194,14 @@ def asignacion_de_ubicacion():
             codigo=cursor.fetchall()
             codigo=str(codigo[0][0])
             if i==n-1 and codigo == "none":
-                print("no hay espacios disponibles")
+                print("no hay alojamiento disponibles")
                 pass
-            else: return codigo        
+            else: 
+                query = "UPDATE alojamiento SET disponibilidad=0 WHERE codigo=%s"
+                values = codigo
+                cursor.execute(query,values)
+                a.commit()
+                return codigo        
     except pymysql.err.OperationalError as err:
         print("Hubo un error:", err)
     c.close_connection(a)
