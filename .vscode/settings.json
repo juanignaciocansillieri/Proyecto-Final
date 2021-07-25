@@ -1,5 +1,6 @@
 {
     "python.analysis.extraPaths": [
-        "./Interfaces/login"
+        "./Interfaces/login",
+        "./Interfaces"
     ]
 }

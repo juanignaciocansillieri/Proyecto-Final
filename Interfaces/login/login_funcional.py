@@ -24,9 +24,6 @@ class LoginWindow(QMainWindow):
                 self.ui.user_login_input.setText("")
                 self.ui.pass_login_input.setText("")
                 
-            
-
-
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = LoginWindow()

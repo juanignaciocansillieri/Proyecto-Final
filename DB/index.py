@@ -142,7 +142,7 @@ def verificar_usuario(cod,password):
         o = cursor.execute(query,values)
         c.commit()
         db.close_connection(c)
-        return (o)
+        return (o)  
  
 a = verificar_usuario(int("1"),"asd123")
 print(a)
