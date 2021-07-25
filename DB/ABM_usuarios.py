@@ -71,7 +71,13 @@ def mostrar2__usuario(nombre,apellido):
         cursor.execute(query, values)
         a.commit()
         b=cursor.fetchall() 
-        apellido=str(b[0][0])      
+        apellido=str(b[0][0])
+        query = "SELECT dni FROM usuarios WHERE nombre= %s AND apellido=%s"
+        values = (nombre, apellido)
+        cursor.execute(query, values)
+        a.commit()
+        b=cursor.fetchall() 
+        dni=str(b[0][0])      
         query = "SELECT nacimiento FROM usuarios WHERE nombre= %s AND apellido=%s"
         values = (nombre, apellido)
         cursor.execute(query, values)
@@ -94,7 +100,7 @@ def mostrar2__usuario(nombre,apellido):
         a.commit()
         b=cursor.fetchall() 
         puesto=str(b[0][0])     
-        print("Nombre: ",nombre,"\nApellido: ",apellido,"\nFecha de nacimiento: ",nacimiento,
+        print("Nombre: ",nombre,"\nApellido: ",apellido,"\nDNI: ",dni,"\nFecha de nacimiento: ",nacimiento,
         "\nTipo: ",tipo,"\nPuesto: ",puesto) 
     except pymysql.err.OperationalError as err:
         print("Hubo un error:", err)
