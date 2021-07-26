@@ -8,12 +8,13 @@ from PyQt5.QtGui import *
 import splash
 import Img.img
 counter = 0
+
 class Splash(QMainWindow):
+    a = 0
     def __init__(self):
         super(Splash, self).__init__()
         self.ui = splash.Ui_MainWindow()
         self.ui.setupUi(self)
-
         ######## SACAR BARRA DE TÍTULO#####################
         self.setWindowFlag(Qt.FramelessWindowHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
@@ -26,14 +27,28 @@ class Splash(QMainWindow):
         ###### INSERTAR CÍRCULO DE PROGRESO##############
         self.circle = CircularProgress()        
         self.ui.horizontalLayout_3.addWidget(self.circle)
-        self.circle
         ###### CERRAR SPLASH #############
-        self.close()
+        print(self.circle.timer.duration)
+        self.timer = QtCore.QTimer()
+        self.time = QtCore.QTime(0,0,0)
         
+        def timerEvent():
+            global time
+            self.time = self.time.addSecs(1)
+            print(self.time.toString(str))
+            if self.time.toString(str) == "00:00:07":
+                print("hola")
+                self.close()
+            
+        self.timer.timeout.connect(timerEvent)
+        self.timer.start(1000)
+
+           
+
 class CircularProgress(QWidget):
     counter = 0
-    a = 0
     b = 0
+    a = 0
     def __init__(self):
         super().__init__()  
                 #Global
@@ -46,17 +61,16 @@ class CircularProgress(QWidget):
         self.lineWidth=18
                  # Timeline for animation
                 #timer
-        self.timer = QTimeLine(7500,self)
+        self.timer = QTimeLine(7000,self)
         self.timer.setFrameRange(0,360)
         self.timer.frameChanged.connect(self.progress)
         self.timer.start()
-        self.b = self.progress
-        print(self.b)
+        print(self.drawAngle)
+
         ######## CREAR LABEL CONTADOR ##########
         self.label = QtWidgets.QLabel(self)
         self.label.move(287,123)
         self.label.resize(110,50)
-
         self.label.setStyleSheet("font-family: roboto;\n"
 "font-weight: lighter;\n"
 "color:#FFF;\n"
@@ -71,17 +85,16 @@ class CircularProgress(QWidget):
         self.drawAngle = frame
         self.update()
         self.counter += 1
-        if self.drawAngle > 361:
-            self.timer.stop()
-            print(self.b)
+        if self.drawAngle == 360:
             self.b = 1
-            print(self.b)
+            self.timer.stop()
+            self.close()
         if self.counter < 101:
             self.label.setText(str(self.counter) + "%")
         else:
             self.label.setText("100%")
-            
-        return(self.b)
+            self.b = 1
+   
     
     def paintEvent(self,event):
         if self.a == 0:
