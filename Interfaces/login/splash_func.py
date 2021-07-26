@@ -1,4 +1,3 @@
-from DB import index as i
 import sys
 from PyQt5 import QtWidgets
 from PyQt5 import QtGui
@@ -8,37 +7,13 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 import splash
 import Img.img
-from login_funcional import Ui_MainWindow
+from login_funcional import LoginWindow, Ui_MainWindow
 import login_funcional as l
 sys.path.append("..")
+from DB import index as i
 
 counter = 0
 
-
-class Login(QMainWindow):
-
-    def __init__(self):
-        super(QMainWindow, self).__init__()
-        self.ui = Ui_MainWindow()
-        print(Ui_MainWindow)
-        self.ui.setupUi(self)
-        self.setWindowFlag(Qt.FramelessWindowHint)
-        self.setAttribute(Qt.WA_TranslucentBackground)
-        self.login = l.LoginWindow()
-        self.btnLogin = self.ui.login_btn
-        self.btnLogin.clicked.connect(self.verificacion)
-
-    def verificacion(self):
-        user = self.ui.user_login_input.text()
-        password = self.ui.pass_login_input.text()
-        usuario = i.verificar_usuario(user, password)
-        if usuario == 1:
-            print("cargado exitosamente")
-        else:
-            print("hola")
-            QtWidgets.QMessageBox.critical(self, "Error", "Datos incorrectos")
-            self.ui.user_login_input.setText("")
-            self.ui.pass_login_input.setText("")
 
 
 class Splash(QMainWindow):
@@ -70,9 +45,7 @@ class Splash(QMainWindow):
             self.time = self.time.addSecs(1)
             if str(self.time) == "PyQt5.QtCore.QTime(0, 0, 7)":
                 self.close()
-                self.login = Login()
-                self.login.show()
-
+                self.login = LoginWindow()
         self.timer.timeout.connect(timerEvent)
         self.timer.start(1000)
 
