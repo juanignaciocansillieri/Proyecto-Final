@@ -35,8 +35,8 @@ class Splash(QMainWindow):
         def timerEvent():
             global time
             self.time = self.time.addSecs(1)
-            print(self.time.toString(str))
-            if self.time.toString(str) == "00:00:07":
+            print(str(self.time))
+            if str(self.time) == "PyQt5.QtCore.QTime(0, 0, 7)":
                 print("hola")
                 self.close()
             
