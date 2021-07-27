@@ -8,12 +8,15 @@ from PyQt5.QtGui import *
 import splash
 import Img.img
 from circuloProgress import CircularProgress 
+sys.path.append("C:\\Users\\Juan Ignacio\\Desktop\\proyecto python\\Interfaces\\login\\")
+import login_funcional
 class Splash(QMainWindow):
     counter = 0
     def __init__(self):
         super(Splash, self).__init__()
         self.ui = splash.Ui_MainWindow()
         self.ui.setupUi(self)
+        self.a = login_funcional.LoginWindow()
 
         ######## SACAR BARRA DE TÍTULO#####################
         self.setWindowFlag(Qt.FramelessWindowHint)
