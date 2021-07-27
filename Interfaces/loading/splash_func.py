@@ -7,17 +7,21 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 import splash
 import Img.img
-from circuloProgress import CircularProgress 
+import circularProgress as c
 sys.path.append("C:\\Users\\Juan Ignacio\\Desktop\\proyecto python\\Interfaces\\login\\")
-import login_funcional
+import login_funcional as l
+sys.path.append("..")
+from DB import index as i
+
+counter = 0
+
 class Splash(QMainWindow):
-    counter = 0
+    a = 0
+
     def __init__(self):
         super(Splash, self).__init__()
         self.ui = splash.Ui_MainWindow()
         self.ui.setupUi(self)
-        self.a = login_funcional.LoginWindow()
-
         ######## SACAR BARRA DE TÍTULO#####################
         self.setWindowFlag(Qt.FramelessWindowHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
@@ -26,13 +30,28 @@ class Splash(QMainWindow):
         self.shadow.setBlurRadius(20)
         self.shadow.setXOffset(0)
         self.shadow.setYOffset(0)
-        self.shadow.setColor(QColor(0,0,0,60))
+        self.shadow.setColor(QColor(0, 0, 0, 60))
         ###### INSERTAR CÍRCULO DE PROGRESO##############
-        self.circle = CircularProgress()        
+        self.circle = c.CircularProgress()
         self.ui.horizontalLayout_3.addWidget(self.circle)
-        
-        
-        print(self.circle.counter) 
+        ###### CERRAR SPLASH #############
+        print(self.circle.timer.duration)
+        self.timer = QtCore.QTimer()
+        self.time = QtCore.QTime(0, 0, 0)
+
+        def timerEvent():
+            global time
+            self.time = self.time.addSecs(1)
+            if str(self.time) == "PyQt5.QtCore.QTime(0, 0, 7)":
+                self.close()
+                self.login = l.LoginWindow()
+        self.timer.timeout.connect(timerEvent)
+        self.timer.start(1000)
+
+
+
+
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = Splash()

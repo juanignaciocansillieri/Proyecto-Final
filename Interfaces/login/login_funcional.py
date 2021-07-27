@@ -35,7 +35,7 @@ class LoginWindow(QMainWindow):
             password = self.ui.pass_login_input.text()
             usuario = i.verificar_usuario(user,password)
             if usuario == 1:
-                pass
+                self.close()
             else:
                 QtWidgets.QMessageBox.critical(self, "Error", "Datos incorrectos")
                 self.ui.user_login_input.setText("")
