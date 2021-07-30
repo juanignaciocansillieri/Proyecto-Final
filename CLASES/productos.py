@@ -237,3 +237,4 @@ class productos:
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
         c.close_connection(a)
+                                                           
