@@ -1,4 +1,5 @@
 from sys import setprofile
+from typing import NoReturn
 import pymysql
 import os
 from DB import conexion as c
@@ -149,7 +150,7 @@ class alojamiento:
                 a.commit()
                 codigo=cursor.fetchall()
                 codigo=str(codigo[0][0])
-                if self.mostrar_datos_alojamiento(codigo) != pymysql.NULL:
+                if self.mostrar_datos_alojamiento(codigo) != NoReturn:
 
                     ii=ii+1
                 else:

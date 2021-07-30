@@ -228,9 +228,9 @@ class productos:
                 values = ii
                 cursor.execute(query,values)
                 a.commit()
-                dni=cursor.fetchall()
-                dni=str(dni[0][0])
-                if self.mostrar_datos_product(dni) != NoReturn:
+                codigo=cursor.fetchall()
+                codigo=str(codigo[0][0])
+                if self.mostrar_datos_product(codigo) != NoReturn:
                     ii=ii+1
                 else:
                     i=i+1
