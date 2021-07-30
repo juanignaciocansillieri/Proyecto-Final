@@ -37,57 +37,79 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.frame_toggle = QtWidgets.QFrame(self.Top_Bar)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.frame_toggle.sizePolicy().hasHeightForWidth())
-        self.frame_toggle.setSizePolicy(sizePolicy)
-        self.frame_toggle.setMaximumSize(QtCore.QSize(70, 40))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(20)
-        font.setBold(True)
-        font.setWeight(75)
-        self.frame_toggle.setFont(font)
-        self.frame_toggle.setStyleSheet("background-color: rgb(14, 15, 17);")
-        self.frame_toggle.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_toggle.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_toggle.setObjectName("frame_toggle")
-        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.frame_toggle)
-        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout_3.setSpacing(0)
-        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.Btn_toggle = QtWidgets.QPushButton(self.frame_toggle)
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(18)
-        font.setBold(True)
-        font.setWeight(75)
-        self.Btn_toggle.setFont(font)
-        self.Btn_toggle.setStyleSheet("color: #b3b3b3;\n"
-"background-color: #12151a;\n"
-"border: 0px solid\n"
-"")
-        self.Btn_toggle.setObjectName("Btn_toggle")
-        self.horizontalLayout_3.addWidget(self.Btn_toggle)
-        self.horizontalLayout.addWidget(self.frame_toggle)
         self.frame_top = QtWidgets.QFrame(self.Top_Bar)
+        self.frame_top.setMinimumSize(QtCore.QSize(0, 40))
         self.frame_top.setStyleSheet("background-color: rgb(18, 21, 26);")
         self.frame_top.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_top.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_top.setObjectName("frame_top")
-        self.label_2 = QtWidgets.QLabel(self.frame_top)
-        self.label_2.setGeometry(QtCore.QRect(290, -20, 261, 71))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Maximum)
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.frame_top)
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.label_logo = QtWidgets.QLabel(self.frame_top)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Maximum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
-        self.label_2.setSizePolicy(sizePolicy)
-        self.label_2.setStyleSheet("border-image: url(:/cct/Logo.png);")
-        self.label_2.setText("")
-        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_2.setObjectName("label_2")
+        sizePolicy.setHeightForWidth(self.label_logo.sizePolicy().hasHeightForWidth())
+        self.label_logo.setSizePolicy(sizePolicy)
+        self.label_logo.setMinimumSize(QtCore.QSize(0, 30))
+        self.label_logo.setMaximumSize(QtCore.QSize(90, 35))
+        self.label_logo.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+        self.label_logo.setMouseTracking(False)
+        self.label_logo.setStyleSheet("border-image: url(:/cct/Logo.png);\n"
+"border: none;")
+        self.label_logo.setText("")
+        self.label_logo.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_logo.setObjectName("label_logo")
+        self.horizontalLayout_3.addWidget(self.label_logo)
+        self.Btn_Minimizar = QtWidgets.QPushButton(self.frame_top)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Btn_Minimizar.sizePolicy().hasHeightForWidth())
+        self.Btn_Minimizar.setSizePolicy(sizePolicy)
+        self.Btn_Minimizar.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.Btn_Minimizar.setStyleSheet("border: none;")
+        self.Btn_Minimizar.setText("")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/cct/minimize-2.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.Btn_Minimizar.setIcon(icon)
+        self.Btn_Minimizar.setIconSize(QtCore.QSize(15, 15))
+        self.Btn_Minimizar.setAutoDefault(False)
+        self.Btn_Minimizar.setDefault(False)
+        self.Btn_Minimizar.setObjectName("Btn_Minimizar")
+        self.horizontalLayout_3.addWidget(self.Btn_Minimizar)
+        self.Btn_Maximizar = QtWidgets.QPushButton(self.frame_top)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Btn_Maximizar.sizePolicy().hasHeightForWidth())
+        self.Btn_Maximizar.setSizePolicy(sizePolicy)
+        self.Btn_Maximizar.setStyleSheet("border: none;\n"
+"")
+        self.Btn_Maximizar.setText("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(":/cct/maximize.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.Btn_Maximizar.setIcon(icon1)
+        self.Btn_Maximizar.setObjectName("Btn_Maximizar")
+        self.horizontalLayout_3.addWidget(self.Btn_Maximizar)
+        self.Btn_Cerrar = QtWidgets.QPushButton(self.frame_top)
+        self.Btn_Cerrar.setEnabled(True)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Btn_Cerrar.sizePolicy().hasHeightForWidth())
+        self.Btn_Cerrar.setSizePolicy(sizePolicy)
+        self.Btn_Cerrar.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.Btn_Cerrar.setAutoFillBackground(False)
+        self.Btn_Cerrar.setStyleSheet("border: none;\n"
+"")
+        self.Btn_Cerrar.setText("")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap(":/cct/x.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.Btn_Cerrar.setIcon(icon2)
+        self.Btn_Cerrar.setIconSize(QtCore.QSize(15, 15))
+        self.Btn_Cerrar.setObjectName("Btn_Cerrar")
+        self.horizontalLayout_3.addWidget(self.Btn_Cerrar)
         self.horizontalLayout.addWidget(self.frame_top)
         self.verticalLayout.addWidget(self.Top_Bar)
         self.Content = QtWidgets.QFrame(self.centralwidget)
@@ -118,6 +140,15 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.Btn_Menu_5 = QtWidgets.QPushButton(self.frame_top_menus)
+        self.Btn_Menu_5.setStyleSheet("border: none;")
+        self.Btn_Menu_5.setText("")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap(":/cct/Menú.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.Btn_Menu_5.setIcon(icon3)
+        self.Btn_Menu_5.setIconSize(QtCore.QSize(50, 50))
+        self.Btn_Menu_5.setObjectName("Btn_Menu_5")
+        self.verticalLayout_3.addWidget(self.Btn_Menu_5)
         self.Btn_Menu_4 = QtWidgets.QPushButton(self.frame_top_menus)
         self.Btn_Menu_4.setMinimumSize(QtCore.QSize(0, 40))
         font = QtGui.QFont()
@@ -134,7 +165,13 @@ class Ui_MainWindow(object):
 "\n"
 "QPushButton:hover {\n"
 "background-color: rgb(85, 170, 255);\n"
-"}")
+"}\n"
+"")
+        self.Btn_Menu_4.setText("")
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap("Iconos/Productos.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.Btn_Menu_4.setIcon(icon4)
+        self.Btn_Menu_4.setIconSize(QtCore.QSize(60, 60))
         self.Btn_Menu_4.setObjectName("Btn_Menu_4")
         self.verticalLayout_3.addWidget(self.Btn_Menu_4)
         self.Btn_Menu_1 = QtWidgets.QPushButton(self.frame_top_menus)
@@ -149,11 +186,18 @@ class Ui_MainWindow(object):
 "color: #b3b3b3;\n"
 "background-color: #12151a;\n"
 "border: 0px solid;\n"
+"border: none;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
 "background-color: rgb(85, 170, 255);\n"
-"}")
+"}\n"
+"")
+        self.Btn_Menu_1.setText("")
+        icon5 = QtGui.QIcon()
+        icon5.addPixmap(QtGui.QPixmap(":/cct/Depósito.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.Btn_Menu_1.setIcon(icon5)
+        self.Btn_Menu_1.setIconSize(QtCore.QSize(60, 60))
         self.Btn_Menu_1.setObjectName("Btn_Menu_1")
         self.verticalLayout_3.addWidget(self.Btn_Menu_1)
         self.Btn_Menu_2 = QtWidgets.QPushButton(self.frame_top_menus)
@@ -168,11 +212,17 @@ class Ui_MainWindow(object):
 "color: #b3b3b3;\n"
 "background-color: #12151a;\n"
 "border: 0px solid;\n"
+"border: none;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
 "background-color: rgb(85, 170, 255);\n"
 "}")
+        self.Btn_Menu_2.setText("")
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap("Iconos/Usuarios.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.Btn_Menu_2.setIcon(icon6)
+        self.Btn_Menu_2.setIconSize(QtCore.QSize(60, 60))
         self.Btn_Menu_2.setObjectName("Btn_Menu_2")
         self.verticalLayout_3.addWidget(self.Btn_Menu_2)
         self.verticalLayout_2.addWidget(self.frame_top_menus, 0, QtCore.Qt.AlignTop)
@@ -187,23 +237,30 @@ class Ui_MainWindow(object):
         self.Btn_Menu_3.setStyleSheet("QPushButton {\n"
 "color: #b3b3b3;\n"
 "background-color: #12151a;\n"
-"border: 0px solid;\n"
+"border: none;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
 "background-color: rgb(85, 170, 255);\n"
 "}")
+        self.Btn_Menu_3.setText("")
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap(":/cct/Exit.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.Btn_Menu_3.setIcon(icon7)
+        self.Btn_Menu_3.setIconSize(QtCore.QSize(60, 60))
         self.Btn_Menu_3.setObjectName("Btn_Menu_3")
         self.verticalLayout_2.addWidget(self.Btn_Menu_3)
         self.horizontalLayout_2.addWidget(self.frame_left_menu)
         self.frame_pages = QtWidgets.QFrame(self.Content)
+        self.frame_pages.setStyleSheet("border: none;")
         self.frame_pages.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_pages.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_pages.setObjectName("frame_pages")
         self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.frame_pages)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
         self.Pages_Widget = QtWidgets.QStackedWidget(self.frame_pages)
-        self.Pages_Widget.setStyleSheet("background-color: rgb(10, 12, 14);")
+        self.Pages_Widget.setStyleSheet("background-color: rgb(10, 12, 14);\n"
+"border: none;")
         self.Pages_Widget.setObjectName("Pages_Widget")
         self.page = QtWidgets.QWidget()
         self.page.setObjectName("page")
@@ -218,15 +275,18 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        MainWindow.setTabOrder(self.Btn_Menu_1, self.Btn_Menu_2)
+        MainWindow.setTabOrder(self.Btn_Menu_2, self.Btn_Menu_3)
+        MainWindow.setTabOrder(self.Btn_Menu_3, self.Btn_Menu_5)
+        MainWindow.setTabOrder(self.Btn_Menu_5, self.Btn_Maximizar)
+        MainWindow.setTabOrder(self.Btn_Maximizar, self.Btn_Cerrar)
+        MainWindow.setTabOrder(self.Btn_Cerrar, self.Btn_Menu_4)
+        MainWindow.setTabOrder(self.Btn_Menu_4, self.Btn_Minimizar)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.Btn_toggle.setText(_translate("MainWindow", "Inicio"))
-        self.Btn_Menu_4.setText(_translate("MainWindow", "Productos"))
-        self.Btn_Menu_1.setText(_translate("MainWindow", "Depósito"))
-        self.Btn_Menu_2.setText(_translate("MainWindow", "Usuario"))
-        self.Btn_Menu_3.setText(_translate("MainWindow", "Exit"))
+import iconos_provisorios_rc
 import logo_rc
 
 
