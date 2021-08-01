@@ -1,6 +1,3 @@
-# 1° COMANDO: C:\Users\nicol\OneDrive\Escritorio\Documentation\Main
-# 2° COMANDO: pyuic5 -x "nombre del archivo de qt que es extensión ui" -o "nombre con extensión py"
-
 # -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'ui_main.ui'
