@@ -368,8 +368,8 @@ class Ui_MainWindow(object):
         self.label_productos.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">Productos</span></p></body></html>"))
         self.label_usuarios.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">Usuarios</span></p></body></html>"))
         self.label_deposito.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">Depósito</span></p></body></html>"))
-import iconos_provisorios_rc
-import logo_rc
+import img_provisorias
+import img_oficiales
 
 
 if __name__ == "__main__":
