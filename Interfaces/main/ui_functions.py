@@ -1,7 +1,10 @@
 from PyQt5.sip import enableoverflowchecking
+from PyQt5.QtCore import QPropertyAnimation
+from PyQt5.QtWidgets import QMainWindow
+
 from main import *
 
-class UIFunctions(MainWindow):
+class UIFunctions(QMainWindow):
     
     def toggleMenu(self, maxWidth, enable):
         if enable:
@@ -9,10 +12,10 @@ class UIFunctions(MainWindow):
             #GET WIDTH 
             width = self.ui.frame_left_menu.width()
             maxExtend = maxWidth
-            standard = 70 
+            standard = 50
 
             #SET MAX WIDTH
-            if width == 70:
+            if width == 50:
                 widthExtended = maxExtend
             else:
                 widthExtended = standard

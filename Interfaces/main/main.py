@@ -16,17 +16,20 @@ class MainWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.setWindowFlag(Qt.FramelessWindowHint)
+        self.setAttribute(Qt.WA_TranslucentBackground)
+        self.show()
 
 
-    ## Toggle / Burguer menú
-    self.ui.Btn_toggle.clicked.connect(lambda: UIFunctions.toggleMenu(self, 250, True))
+    
+        self.ui.btn_toggle.clicked.connect(lambda: UIFunctions.toggleMenu(self, 250, True))
 
     ## Show main window
-    self.show
+    #self.show
     ## --> End 
 
 
-## if __name__ == "__main__":  
-##    app = QApplication(sys.argv)
-##    window = MainWindow()
-##    sys.exit(app.exec_()) 
+if __name__ == "__main__":  
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    sys.exit(app.exec_()) 
