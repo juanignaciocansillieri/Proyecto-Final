@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow,QDesktopWidget
 from PyQt5.QtCore import QFile,Qt
 sys.path.append("..")
 from login import Ui_MainWindow
+from Funciones import functions
 from DB import index as i
 
 class LoginWindow(QMainWindow):
@@ -12,18 +13,12 @@ class LoginWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setWindowFlag(Qt.FramelessWindowHint)
-        self.setAttribute(Qt.WA_TranslucentBackground)
 
-        ############# RECIBIMOS PROPORCIONES DE LA PANTALLA ###########
-        qtRectangle = self.frameGeometry()
-        centerPoint = QDesktopWidget().availableGeometry().center()
-        qtRectangle.moveCenter(centerPoint)
-        self.move(qtRectangle.topLeft())
-        ############## CENTRAMOS LA VENTANA #############
-        centerPoint = QDesktopWidget().availableGeometry().center()
-        qtRectangle.moveCenter(centerPoint)
-        self.move(qtRectangle.topLeft())
+        # Centrar Pantalla
+        self.funciones = functions.Functions()
+        self.funciones.centrarPantallas()
         ### BOTON INGRESAR ####
+        self.setAttribute(Qt.WA_TranslucentBackground)
         self.ui.login_btn.clicked.connect(self.verificacion)
 
         ## MOSTRAR ##

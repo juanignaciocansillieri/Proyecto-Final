@@ -20,7 +20,9 @@ class MainWindow(QMainWindow):
         self.setAttribute(Qt.WA_TranslucentBackground)
         self.show()
 
-
+        self.setWindowFlag(Qt.FramelessWindowHint)
+        self.setAttribute(Qt.WA_TranslucentBackground)
+        
         ###################### ABRIR/CERRAR BARRA LATERAL #########################
         self.ui.btn_toggle.clicked.connect(lambda: UIFunctions.toggleMenu(self, 100, True))
 
