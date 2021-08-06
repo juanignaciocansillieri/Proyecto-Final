@@ -1,6 +1,6 @@
 import pymysql
 import os
-from DB import conexion as c
+import conexion as c
 
 def log_in (dni,contraseña):
     print(dni,contraseña)

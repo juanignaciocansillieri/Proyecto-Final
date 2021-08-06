@@ -3,11 +3,11 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow,QDesktopWidget
 from PyQt5.QtCore import QFile,Qt
 from login import Ui_MainWindow
-#sys.path.append("C:\\Users\\Juan Ignacio\\Desktop\\proyecto python\\Interfaces\\main\\")
-sys.path.append("C:\\Users\\Alex\\Desktop\\Nueva carpeta (2)\\Interfaces\\main\\")
+sys.path.append("C:\\Users\\Juan Ignacio\\Desktop\\proyecto python\\Interfaces\\main\\")
+#sys.path.append("C:\\Users\\Alex\\Desktop\\Nueva carpeta (2)\\Interfaces\\main\\")
 import main_func as m
-sys.path.append("..")
-from DB import login as log
+sys.path.append("C:\\Users\\Juan Ignacio\\Desktop\\proyecto python\\DB\\")
+import loginDB as l
 
 class LoginWindow(QMainWindow):
     def __init__(self):
@@ -36,7 +36,8 @@ class LoginWindow(QMainWindow):
     def verificacion(self):
             user = self.ui.user_login_input.text()
             password = self.ui.pass_login_input.text()
-            usuario = log.log_in(user,password)
+            usuario = l.log_in(user,password)
+            
             if usuario==1:
                 #inicia
                 self.main = m.Main()

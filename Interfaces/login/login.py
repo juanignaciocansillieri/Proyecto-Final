@@ -9,8 +9,7 @@
 
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
-sys.path.append(".")
-from DB import index as i
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
