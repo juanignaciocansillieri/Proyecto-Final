@@ -3,6 +3,8 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow,QDesktopWidget
 from PyQt5.QtCore import QFile,Qt
 from login import Ui_MainWindow
+sys.path.append("C:\\Users\\Juan Ignacio\\Desktop\\proyecto python\\Interfaces\\main\\")
+import main_func as m
 sys.path.append("..")
 from DB import index as i
 
@@ -35,7 +37,7 @@ class LoginWindow(QMainWindow):
             password = self.ui.pass_login_input.text()
             usuario = i.verificar_usuario(user,password)
             if usuario == 1:
-                self.close()
+                self.main = m.Main()
             else:
                 QtWidgets.QMessageBox.critical(self, "Error", "Datos incorrectos")
                 self.ui.user_login_input.setText("")

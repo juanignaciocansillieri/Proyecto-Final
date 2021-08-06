@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'asd.ui'
+# Form implementation generated from reading ui file 'main_ui.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1202, 786)
+        MainWindow.resize(1202, 788)
         MainWindow.setStyleSheet("background-color: rgb(45, 45, 45);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setMinimumSize(QtCore.QSize(1000, 500))
@@ -75,6 +75,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.btn_toggle = QtWidgets.QPushButton(self.frame_top_menus)
         self.btn_toggle.setMinimumSize(QtCore.QSize(20, 20))
+        self.btn_toggle.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_toggle.setStyleSheet("QPushButton {\n"
 "color: #b3b3b3;\n"
 "background-color: #12151a;\n"
@@ -101,6 +102,7 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.btn_productos.setFont(font)
+        self.btn_productos.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_productos.setStyleSheet("QPushButton {\n"
 "color: #b3b3b3;\n"
 "background-color: #12151a;\n"
@@ -125,6 +127,7 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.btn_depositos.setFont(font)
+        self.btn_depositos.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_depositos.setStyleSheet("QPushButton {\n"
 "color: #b3b3b3;\n"
 "background-color: #12151a;\n"
@@ -150,6 +153,7 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.btn_usuarios.setFont(font)
+        self.btn_usuarios.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_usuarios.setStyleSheet("QPushButton {\n"
 "color: #b3b3b3;\n"
 "background-color: #12151a;\n"
@@ -175,6 +179,7 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.btn_exit.setFont(font)
+        self.btn_exit.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_exit.setStyleSheet("QPushButton {\n"
 "color: #b3b3b3;\n"
 "background-color: #12151a;\n"
@@ -262,16 +267,91 @@ class Ui_MainWindow(object):
         self.Pages_Widget.setObjectName("Pages_Widget")
         self.page_productos = QtWidgets.QWidget()
         self.page_productos.setObjectName("page_productos")
-        self.label_2 = QtWidgets.QLabel(self.page_productos)
-        self.label_2.setGeometry(QtCore.QRect(140, 60, 91, 51))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_2.setFont(font)
-        self.label_2.setStyleSheet("background-color: rgb(17, 115, 255);")
-        self.label_2.setObjectName("label_2")
+        self.lineEdit = QtWidgets.QLineEdit(self.page_productos)
+        self.lineEdit.setGeometry(QtCore.QRect(110, 74, 851, 25))
+        self.lineEdit.setStyleSheet("QLineEdit{\n"
+"background-color: #23262b;\n"
+"border-radius: 10px;\n"
+"padding:0 10px;\n"
+"color: #b3b3b3;\n"
+"}\n"
+"\n"
+"\n"
+"QLineEdit:focus{\n"
+"border: 1px solid rgb(75, 75, 75);\n"
+"}")
+        self.lineEdit.setText("")
+        self.lineEdit.setObjectName("lineEdit")
+        self.pushButton = QtWidgets.QPushButton(self.page_productos)
+        self.pushButton.setGeometry(QtCore.QRect(970, 74, 81, 23))
+        self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton.setStyleSheet("QPushButton{\n"
+"background-color: #1173ff;\n"
+"color: #fff;\n"
+"border-radius:10px;\n"
+"font-weight:bold;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #45a9f0;\n"
+"}")
+        self.pushButton.setObjectName("pushButton")
+        self.tableWidget = QtWidgets.QTableWidget(self.page_productos)
+        self.tableWidget.setGeometry(QtCore.QRect(120, 130, 931, 421))
+        self.tableWidget.setStyleSheet("QTableWidget{\n"
+"color:#fff;\n"
+"font-size: 20px;\n"
+"border-style: none;\n"
+"\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: #12151a;\n"
+"    color:#fff;\n"
+"    font-size: 14pt;\n"
+"    border-style: none;\n"
+"    border-bottom: 1px solid #fffff8;\n"
+"    border-right: 1px solid #fffff8;\n"
+"}\n"
+"\n"
+"QHeaderView::section:horizontal\n"
+"{\n"
+"\n"
+"    border-top: 1px solid #fffff8;\n"
+"}\n"
+"\n"
+"QHeaderView::section:vertical\n"
+"{\n"
+"\n"
+"    border-left: 1px solid #fffff8;\n"
+"}")
+        self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget.setTextElideMode(QtCore.Qt.ElideRight)
+        self.tableWidget.setShowGrid(True)
+        self.tableWidget.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableWidget.setWordWrap(True)
+        self.tableWidget.setCornerButtonEnabled(True)
+        self.tableWidget.setObjectName("tableWidget")
+        self.tableWidget.setColumnCount(3)
+        self.tableWidget.setRowCount(1)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setItem(0, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setItem(0, 2, item)
+        self.tableWidget.horizontalHeader().setVisible(True)
+        self.tableWidget.horizontalHeader().setCascadingSectionResizes(False)
+        self.tableWidget.horizontalHeader().setHighlightSections(True)
+        self.tableWidget.verticalHeader().setVisible(False)
+        self.tableWidget.verticalHeader().setHighlightSections(True)
         self.Pages_Widget.addWidget(self.page_productos)
         self.page_depositos = QtWidgets.QWidget()
         self.page_depositos.setObjectName("page_depositos")
@@ -305,7 +385,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.Pages_Widget.setCurrentIndex(2)
+        self.Pages_Widget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.setTabOrder(self.btn_depositos, self.btn_usuarios)
         MainWindow.setTabOrder(self.btn_usuarios, self.btn_exit)
@@ -320,7 +400,26 @@ class Ui_MainWindow(object):
         self.label_productos.setText(_translate("MainWindow", "Productos"))
         self.label_usuarios.setText(_translate("MainWindow", "Usuarios"))
         self.label_exit.setText(_translate("MainWindow", "Exit"))
-        self.label_2.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">Productos</span></p></body></html>"))
+        self.lineEdit.setPlaceholderText(_translate("MainWindow", "Buscar un producto"))
+        self.pushButton.setText(_translate("MainWindow", "Buscar"))
+        self.tableWidget.setSortingEnabled(False)
+        item = self.tableWidget.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "1"))
+        item = self.tableWidget.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "ID"))
+        item = self.tableWidget.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Nombre"))
+        item = self.tableWidget.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Cantidad"))
+        __sortingEnabled = self.tableWidget.isSortingEnabled()
+        self.tableWidget.setSortingEnabled(False)
+        item = self.tableWidget.item(0, 0)
+        item.setText(_translate("MainWindow", "332231"))
+        item = self.tableWidget.item(0, 1)
+        item.setText(_translate("MainWindow", "Arena"))
+        item = self.tableWidget.item(0, 2)
+        item.setText(_translate("MainWindow", "2kg"))
+        self.tableWidget.setSortingEnabled(__sortingEnabled)
         self.label_3.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">Depósito</span></p></body></html>"))
         self.label_4.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">Usuarios</span></p></body></html>"))
 import img_oficiales_rc

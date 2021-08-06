@@ -11,7 +11,7 @@ from main import Ui_MainWindow
 #Import Functions 
 from toggleFunction import *
 
-class MainWindow(QMainWindow):
+class Main(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
@@ -51,8 +51,3 @@ class MainWindow(QMainWindow):
 
 
     
-
-if __name__ == "__main__":  
-    app = QApplication(sys.argv)
-    window = MainWindow()
-    sys.exit(app.exec_()) 
