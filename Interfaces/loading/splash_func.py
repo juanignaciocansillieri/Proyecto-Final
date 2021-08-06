@@ -9,7 +9,8 @@ from PyQt5.QtGui import *
 import splash
 import Img.img
 import circularProgress as c
-sys.path.append("C:\\Users\\Juan Ignacio\\Desktop\\proyecto python\\Interfaces\\login\\")
+#sys.path.append("C:\\Users\\Juan Ignacio\\Desktop\\proyecto python\\Interfaces\\login\\")
+sys.path.append("C:\\Users\\Alex\\Desktop\\Nueva carpeta (2)\\Interfaces\\login\\")
 import login_funcional as l
 sys.path.append("..")
 from DB import index as i

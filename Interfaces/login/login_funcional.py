@@ -1,10 +1,10 @@
-from CLASES.usuarios import usuarios
 import sys
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow,QDesktopWidget
 from PyQt5.QtCore import QFile,Qt
 from login import Ui_MainWindow
-sys.path.append("C:\\Users\\Juan Ignacio\\Desktop\\proyecto python\\Interfaces\\main\\")
+#sys.path.append("C:\\Users\\Juan Ignacio\\Desktop\\proyecto python\\Interfaces\\main\\")
+sys.path.append("C:\\Users\\Alex\\Desktop\\Nueva carpeta (2)\\Interfaces\\main\\")
 import main_func as m
 sys.path.append("..")
 from DB import login as log
