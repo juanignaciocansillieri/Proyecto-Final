@@ -22,6 +22,15 @@ class Main(QMainWindow):
 
         self.setWindowFlag(Qt.FramelessWindowHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
+        ############# RECIBIMOS PROPORCIONES DE LA PANTALLA ###########
+        qtRectangle = self.frameGeometry()
+        centerPoint = QDesktopWidget().availableGeometry().center()
+        qtRectangle.moveCenter(centerPoint)
+        self.move(qtRectangle.topLeft())
+        ############## CENTRAMOS LA VENTANA #############
+        centerPoint = QDesktopWidget().availableGeometry().center()
+        qtRectangle.moveCenter(centerPoint)
+        self.move(qtRectangle.topLeft())
         
         ###################### ABRIR/CERRAR BARRA LATERAL #########################
         self.ui.btn_toggle.clicked.connect(lambda: UIFunctions.toggleMenu(self, 100, True))
