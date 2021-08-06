@@ -13,13 +13,14 @@ def log_in (dni,contraseña):
         cursor.execute(query, values)
         a.commit()
         b=cursor.fetchone()
-        password=str(b[0])
-        contraseña=str(contraseña)
+        password=str(b)
+        #contraseña=str(contraseña)
         print(password,b)
         if password == "None":
             print("no se encontro el dni indicado")
             return 2
         else:
+            password=str(b[0])
             if contraseña == password:
                 print("se inicio sesion correctamente")
                 return 1

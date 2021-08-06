@@ -2,11 +2,13 @@ import sys
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow,QDesktopWidget
 from PyQt5.QtCore import QFile,Qt
+sys.path.append("C:\\Users\\Alex\\Desktop\\Nueva carpeta (2)\\Interfaces\\login\\")
 from login import Ui_MainWindow
-sys.path.append("C:\\Users\\Juan Ignacio\\Desktop\\proyecto python\\Interfaces\\main\\")
-#sys.path.append("C:\\Users\\Alex\\Desktop\\Nueva carpeta (2)\\Interfaces\\main\\")
+#sys.path.append("C:\\Users\\Juan Ignacio\\Desktop\\proyecto python\\Interfaces\\main\\")
+sys.path.append("C:\\Users\\Alex\\Desktop\\Nueva carpeta (2)\\Interfaces\\main\\")
 import main_func as m
-sys.path.append("C:\\Users\\Juan Ignacio\\Desktop\\proyecto python\\DB\\")
+#sys.path.append("C:\\Users\\Juan Ignacio\\Desktop\\proyecto python\\DB\\")
+sys.path.append("C:\\Users\\Alex\\Desktop\\Nueva carpeta (2)\\DB\\")
 import loginDB as l
 
 class LoginWindow(QMainWindow):
