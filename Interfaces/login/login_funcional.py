@@ -2,8 +2,10 @@ import sys
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow,QDesktopWidget
 from PyQt5.QtCore import QFile,Qt
-sys.path.append("..")
 from login import Ui_MainWindow
+sys.path.append("C:\\Users\\Juan Ignacio\\Desktop\\proyecto python\\Interfaces\\main\\")
+import main_func as m
+sys.path.append("..")
 from DB import index as i
 
 class LoginWindow(QMainWindow):
@@ -12,7 +14,6 @@ class LoginWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setWindowFlag(Qt.FramelessWindowHint)
-        self.setAttribute(Qt.WA_TranslucentBackground)
 
         ############# RECIBIMOS PROPORCIONES DE LA PANTALLA ###########
         qtRectangle = self.frameGeometry()
@@ -24,6 +25,7 @@ class LoginWindow(QMainWindow):
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
         ### BOTON INGRESAR ####
+        self.setAttribute(Qt.WA_TranslucentBackground)
         self.ui.login_btn.clicked.connect(self.verificacion)
 
         ## MOSTRAR ##
@@ -35,7 +37,7 @@ class LoginWindow(QMainWindow):
             password = self.ui.pass_login_input.text()
             usuario = i.verificar_usuario(user,password)
             if usuario == 1:
-                self.close()
+                self.main = m.Main()
             else:
                 QtWidgets.QMessageBox.critical(self, "Error", "Datos incorrectos")
                 self.ui.user_login_input.setText("")
