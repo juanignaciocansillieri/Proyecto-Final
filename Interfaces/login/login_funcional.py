@@ -1,3 +1,4 @@
+from CLASES.usuarios import usuarios
 import sys
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow,QDesktopWidget
@@ -6,7 +7,7 @@ from login import Ui_MainWindow
 sys.path.append("C:\\Users\\Juan Ignacio\\Desktop\\proyecto python\\Interfaces\\main\\")
 import main_func as m
 sys.path.append("..")
-from DB import index as i
+from DB import login as log
 
 class LoginWindow(QMainWindow):
     def __init__(self):
@@ -35,12 +36,17 @@ class LoginWindow(QMainWindow):
     def verificacion(self):
             user = self.ui.user_login_input.text()
             password = self.ui.pass_login_input.text()
-            usuario = i.verificar_usuario(user,password)
-            if usuario == 1:
+            usuario = log.log_in(user,password)
+            if usuario==1:
+                #inicia
                 self.main = m.Main()
                 self.close()
-            else:
-                QtWidgets.QMessageBox.critical(self, "Error", "Datos incorrectos")
+            if usuario==2:
+                #no se encuentra dni
+                QtWidgets.QMessageBox.critical(self, "Error", "DNI Incorrecto")
                 self.ui.user_login_input.setText("")
                 self.ui.pass_login_input.setText("")
-                
+            if usuario==3:
+                #contraseña incorrecta
+                QtWidgets.QMessageBox.critical(self, "Error", "Contraseña Incorrecta")
+                self.ui.pass_login_input.setText("")

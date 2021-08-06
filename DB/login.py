@@ -18,12 +18,14 @@ def log_in (dni,contraseña):
         print(password,b)
         if password == "None":
             print("no se encontro el dni indicado")
+            return 2
         else:
             if contraseña == password:
-                print("se inicio sesion conrractamente")
-                #aca iria el comando para pasar a la ventana correspondiente
+                print("se inicio sesion correctamente")
+                return 1
             else: 
                 print("contraseña incorrecta")
+                return 3
 
     except pymysql.err.OperationalError as err:
         print("Ha ocurrido un error", err)
