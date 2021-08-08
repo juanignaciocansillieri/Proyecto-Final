@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1202, 788)
+        MainWindow.resize(1133, 558)
         MainWindow.setStyleSheet("background-color: rgb(45, 45, 45);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setMinimumSize(QtCore.QSize(1000, 500))
@@ -267,8 +267,30 @@ class Ui_MainWindow(object):
         self.Pages_Widget.setObjectName("Pages_Widget")
         self.page_productos = QtWidgets.QWidget()
         self.page_productos.setObjectName("page_productos")
-        self.lineEdit = QtWidgets.QLineEdit(self.page_productos)
-        self.lineEdit.setGeometry(QtCore.QRect(110, 74, 851, 25))
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.page_productos)
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.frame = QtWidgets.QFrame(self.page_productos)
+        self.frame.setMinimumSize(QtCore.QSize(0, 503))
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.frame)
+        self.verticalLayout_5.setObjectName("verticalLayout_5")
+        self.frame_2 = QtWidgets.QFrame(self.frame)
+        self.frame_2.setMinimumSize(QtCore.QSize(900, 65))
+        self.frame_2.setMaximumSize(QtCore.QSize(16777215, 50))
+        self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_2.setObjectName("frame_2")
+        self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.frame_2)
+        self.verticalLayout_6.setObjectName("verticalLayout_6")
+        self.groupBox = QtWidgets.QGroupBox(self.frame_2)
+        self.groupBox.setMinimumSize(QtCore.QSize(990, 50))
+        self.groupBox.setMaximumSize(QtCore.QSize(0, 70))
+        self.groupBox.setTitle("")
+        self.groupBox.setObjectName("groupBox")
+        self.lineEdit = QtWidgets.QLineEdit(self.groupBox)
+        self.lineEdit.setGeometry(QtCore.QRect(43, 21, 771, 25))
         self.lineEdit.setStyleSheet("QLineEdit{\n"
 "background-color: #23262b;\n"
 "border-radius: 10px;\n"
@@ -282,8 +304,8 @@ class Ui_MainWindow(object):
 "}")
         self.lineEdit.setText("")
         self.lineEdit.setObjectName("lineEdit")
-        self.pushButton = QtWidgets.QPushButton(self.page_productos)
-        self.pushButton.setGeometry(QtCore.QRect(970, 74, 81, 23))
+        self.pushButton = QtWidgets.QPushButton(self.groupBox)
+        self.pushButton.setGeometry(QtCore.QRect(841, 21, 81, 25))
         self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton.setStyleSheet("QPushButton{\n"
 "background-color: #1173ff;\n"
@@ -295,34 +317,45 @@ class Ui_MainWindow(object):
 "background-color: #45a9f0;\n"
 "}")
         self.pushButton.setObjectName("pushButton")
-        self.tableWidget = QtWidgets.QTableWidget(self.page_productos)
-        self.tableWidget.setGeometry(QtCore.QRect(120, 130, 931, 421))
+        self.verticalLayout_6.addWidget(self.groupBox, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        self.verticalLayout_5.addWidget(self.frame_2, 0, QtCore.Qt.AlignTop)
+        self.frame_3 = QtWidgets.QFrame(self.frame)
+        self.frame_3.setMinimumSize(QtCore.QSize(0, 288))
+        self.frame_3.setMaximumSize(QtCore.QSize(16777215, 500))
+        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_3.setObjectName("frame_3")
+        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.frame_3)
+        self.verticalLayout_7.setObjectName("verticalLayout_7")
+        self.tableWidget = QtWidgets.QTableWidget(self.frame_3)
+        self.tableWidget.setMinimumSize(QtCore.QSize(0, 0))
         self.tableWidget.setStyleSheet("QTableWidget{\n"
 "color:#fff;\n"
 "font-size: 20px;\n"
 "border-style: none;\n"
-"\n"
+"margin-left: 55px;\n"
 "}\n"
+"\n"
 "\n"
 "QHeaderView::section {\n"
 "    background-color: #12151a;\n"
 "    color:#fff;\n"
 "    font-size: 14pt;\n"
 "    border-style: none;\n"
-"    border-bottom: 1px solid #fffff8;\n"
-"    border-right: 1px solid #fffff8;\n"
+"    border-bottom: 1px solid #23262b;\n"
+"    border-right: 1px solid #23262b;\n"
 "}\n"
 "\n"
 "QHeaderView::section:horizontal\n"
 "{\n"
 "\n"
-"    border-top: 1px solid #fffff8;\n"
+"    border-top: 1px solid #23262b;\n"
 "}\n"
 "\n"
 "QHeaderView::section:vertical\n"
 "{\n"
 "\n"
-"    border-left: 1px solid #fffff8;\n"
+"    border-left: 1px solid #23262b;\n"
 "}")
         self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableWidget.setTextElideMode(QtCore.Qt.ElideRight)
@@ -331,7 +364,7 @@ class Ui_MainWindow(object):
         self.tableWidget.setWordWrap(True)
         self.tableWidget.setCornerButtonEnabled(True)
         self.tableWidget.setObjectName("tableWidget")
-        self.tableWidget.setColumnCount(3)
+        self.tableWidget.setColumnCount(5)
         self.tableWidget.setRowCount(1)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setVerticalHeaderItem(0, item)
@@ -342,16 +375,49 @@ class Ui_MainWindow(object):
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setItem(0, 0, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setItem(0, 1, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setItem(0, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setItem(0, 3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget.setItem(0, 4, item)
         self.tableWidget.horizontalHeader().setVisible(True)
         self.tableWidget.horizontalHeader().setCascadingSectionResizes(False)
+        self.tableWidget.horizontalHeader().setDefaultSectionSize(146)
         self.tableWidget.horizontalHeader().setHighlightSections(True)
         self.tableWidget.verticalHeader().setVisible(False)
+        self.tableWidget.verticalHeader().setDefaultSectionSize(40)
         self.tableWidget.verticalHeader().setHighlightSections(True)
+        self.tableWidget.verticalHeader().setMinimumSectionSize(20)
+        self.verticalLayout_7.addWidget(self.tableWidget)
+        self.verticalLayout_5.addWidget(self.frame_3)
+        self.frame_4 = QtWidgets.QFrame(self.frame)
+        self.frame_4.setMinimumSize(QtCore.QSize(0, 53))
+        self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_4.setObjectName("frame_4")
+        self.pushButton_2 = QtWidgets.QPushButton(self.frame_4)
+        self.pushButton_2.setGeometry(QtCore.QRect(470, 10, 111, 31))
+        self.pushButton_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_2.setStyleSheet("QPushButton{\n"
+"background-color: #1173ff;\n"
+"color: #fff;\n"
+"border-radius:10px;\n"
+"font-weight:bold;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #45a9f0;\n"
+"}")
+        self.pushButton_2.setObjectName("pushButton_2")
+        self.verticalLayout_5.addWidget(self.frame_4)
+        self.horizontalLayout_3.addWidget(self.frame, 0, QtCore.Qt.AlignTop)
         self.Pages_Widget.addWidget(self.page_productos)
         self.page_depositos = QtWidgets.QWidget()
         self.page_depositos.setObjectName("page_depositos")
@@ -406,20 +472,29 @@ class Ui_MainWindow(object):
         item = self.tableWidget.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "1"))
         item = self.tableWidget.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "ID"))
+        item.setText(_translate("MainWindow", "Código"))
         item = self.tableWidget.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "Nombre"))
         item = self.tableWidget.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Marca"))
+        item = self.tableWidget.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Cantidad"))
+        item = self.tableWidget.horizontalHeaderItem(4)
+        item.setText(_translate("MainWindow", "Vencimiento"))
         __sortingEnabled = self.tableWidget.isSortingEnabled()
         self.tableWidget.setSortingEnabled(False)
         item = self.tableWidget.item(0, 0)
         item.setText(_translate("MainWindow", "332231"))
         item = self.tableWidget.item(0, 1)
-        item.setText(_translate("MainWindow", "Arena"))
+        item.setText(_translate("MainWindow", "Arroz"))
         item = self.tableWidget.item(0, 2)
+        item.setText(_translate("MainWindow", "Aro"))
+        item = self.tableWidget.item(0, 3)
         item.setText(_translate("MainWindow", "2kg"))
+        item = self.tableWidget.item(0, 4)
+        item.setText(_translate("MainWindow", "28/08/2025"))
         self.tableWidget.setSortingEnabled(__sortingEnabled)
+        self.pushButton_2.setText(_translate("MainWindow", "Nuevo Pruducto"))
         self.label_3.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">Depósito</span></p></body></html>"))
         self.label_4.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">Usuarios</span></p></body></html>"))
 import img_oficiales_rc
