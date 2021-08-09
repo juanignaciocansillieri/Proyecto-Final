@@ -669,7 +669,7 @@ class Ui_MainWindow(object):
         item = self.tableWidget_2.item(0, 3)
         item.setText(_translate("MainWindow", "28/08/1995"))
         item = self.tableWidget_2.item(0, 4)
-        item.setText(_translate("MainWindow", "28/08/2025"))
+        item.setText(_translate("MainWindow", "Usuario"))
         item = self.tableWidget_2.item(0, 5)
         item.setText(_translate("MainWindow", "Repositor"))
         self.tableWidget_2.setSortingEnabled(__sortingEnabled)
