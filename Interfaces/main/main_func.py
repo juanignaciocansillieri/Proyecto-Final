@@ -33,7 +33,7 @@ class Main(QMainWindow):
         self.move(qtRectangle.topLeft())
         
         ###################### ABRIR/CERRAR BARRA LATERAL #########################
-        self.ui.btn_toggle.clicked.connect(lambda: UIFunctions.toggleMenu(self, 100, True))
+        self.ui.btn_toggle.clicked.connect(lambda: UIFunctions.toggleMenu(self, 65, True))
 
         ## PAGINAS ##
 

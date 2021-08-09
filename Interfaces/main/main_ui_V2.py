@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'main_ui.ui'
+# Form implementation generated from reading ui file 'main_ui_V2.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -388,7 +388,7 @@ class Ui_MainWindow(object):
         self.tableWidget.setItem(0, 3, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setItem(0, 4, item)
-        self.tableWidget.horizontalHeader().setVisible(True)
+        self.tableWidget.horizontalHeader().setVisible(False)
         self.tableWidget.horizontalHeader().setCascadingSectionResizes(False)
         self.tableWidget.horizontalHeader().setDefaultSectionSize(146)
         self.tableWidget.horizontalHeader().setHighlightSections(True)
@@ -434,16 +434,160 @@ class Ui_MainWindow(object):
         self.Pages_Widget.addWidget(self.page_depositos)
         self.page_usuarios = QtWidgets.QWidget()
         self.page_usuarios.setObjectName("page_usuarios")
-        self.label_4 = QtWidgets.QLabel(self.page_usuarios)
-        self.label_4.setGeometry(QtCore.QRect(70, 60, 111, 71))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_4.setFont(font)
-        self.label_4.setStyleSheet("background-color: rgb(17, 115, 255);")
-        self.label_4.setObjectName("label_4")
+        self.frame_principal_usuarios = QtWidgets.QFrame(self.page_usuarios)
+        self.frame_principal_usuarios.setGeometry(QtCore.QRect(0, 0, 1071, 511))
+        self.frame_principal_usuarios.setMinimumSize(QtCore.QSize(0, 503))
+        self.frame_principal_usuarios.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_principal_usuarios.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_principal_usuarios.setObjectName("frame_principal_usuarios")
+        self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.frame_principal_usuarios)
+        self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_8.setSpacing(0)
+        self.verticalLayout_8.setObjectName("verticalLayout_8")
+        self.frame_superior = QtWidgets.QFrame(self.frame_principal_usuarios)
+        self.frame_superior.setMinimumSize(QtCore.QSize(900, 65))
+        self.frame_superior.setMaximumSize(QtCore.QSize(16777215, 50))
+        self.frame_superior.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_superior.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_superior.setObjectName("frame_superior")
+        self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.frame_superior)
+        self.verticalLayout_9.setObjectName("verticalLayout_9")
+        self.groupBox_2 = QtWidgets.QGroupBox(self.frame_superior)
+        self.groupBox_2.setMinimumSize(QtCore.QSize(990, 50))
+        self.groupBox_2.setMaximumSize(QtCore.QSize(0, 70))
+        self.groupBox_2.setTitle("")
+        self.groupBox_2.setObjectName("groupBox_2")
+        self.lineEdit_2 = QtWidgets.QLineEdit(self.groupBox_2)
+        self.lineEdit_2.setGeometry(QtCore.QRect(43, 21, 771, 25))
+        self.lineEdit_2.setStyleSheet("QLineEdit{\n"
+"background-color: #23262b;\n"
+"border-radius: 10px;\n"
+"padding:0 10px;\n"
+"color: #b3b3b3;\n"
+"}\n"
+"\n"
+"\n"
+"QLineEdit:focus{\n"
+"border: 1px solid rgb(75, 75, 75);\n"
+"}")
+        self.lineEdit_2.setObjectName("lineEdit_2")
+        self.pushButton_3 = QtWidgets.QPushButton(self.groupBox_2)
+        self.pushButton_3.setGeometry(QtCore.QRect(841, 21, 81, 25))
+        self.pushButton_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_3.setStyleSheet("QPushButton{\n"
+"background-color: #1173ff;\n"
+"color: #fff;\n"
+"border-radius:10px;\n"
+"font-weight:bold;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #45a9f0;\n"
+"}")
+        self.pushButton_3.setObjectName("pushButton_3")
+        self.verticalLayout_9.addWidget(self.groupBox_2, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        self.verticalLayout_8.addWidget(self.frame_superior, 0, QtCore.Qt.AlignTop)
+        self.frame_7 = QtWidgets.QFrame(self.frame_principal_usuarios)
+        self.frame_7.setMinimumSize(QtCore.QSize(0, 288))
+        self.frame_7.setMaximumSize(QtCore.QSize(16777215, 500))
+        self.frame_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_7.setObjectName("frame_7")
+        self.verticalLayout_10 = QtWidgets.QVBoxLayout(self.frame_7)
+        self.verticalLayout_10.setObjectName("verticalLayout_10")
+        self.tableWidget_2 = QtWidgets.QTableWidget(self.frame_7)
+        self.tableWidget_2.setMinimumSize(QtCore.QSize(0, 0))
+        self.tableWidget_2.setStyleSheet("QTableWidget{\n"
+"color:#fff;\n"
+"font-size: 20px;\n"
+"border-style: none;\n"
+"margin-left: 55px;\n"
+"}\n"
+"\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: #12151a;\n"
+"    color:#fff;\n"
+"    font-size: 14pt;\n"
+"    border-style: none;\n"
+"    border-bottom: 1px solid #23262b;\n"
+"    border-right: 1px solid #23262b;\n"
+"}\n"
+"\n"
+"QHeaderView::section:horizontal\n"
+"{\n"
+"\n"
+"    border-top: 1px solid #23262b;\n"
+"}\n"
+"\n"
+"QHeaderView::section:vertical\n"
+"{\n"
+"\n"
+"    border-left: 1px solid #23262b;\n"
+"}")
+        self.tableWidget_2.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget_2.setTextElideMode(QtCore.Qt.ElideRight)
+        self.tableWidget_2.setShowGrid(True)
+        self.tableWidget_2.setGridStyle(QtCore.Qt.SolidLine)
+        self.tableWidget_2.setWordWrap(True)
+        self.tableWidget_2.setCornerButtonEnabled(True)
+        self.tableWidget_2.setObjectName("tableWidget_2")
+        self.tableWidget_2.setColumnCount(6)
+        self.tableWidget_2.setRowCount(1)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_2.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_2.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_2.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_2.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_2.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_2.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_2.setHorizontalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_2.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_2.setItem(0, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_2.setItem(0, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_2.setItem(0, 3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_2.setItem(0, 4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_2.setItem(0, 5, item)
+        self.tableWidget_2.horizontalHeader().setVisible(True)
+        self.tableWidget_2.horizontalHeader().setCascadingSectionResizes(False)
+        self.tableWidget_2.horizontalHeader().setDefaultSectionSize(146)
+        self.tableWidget_2.horizontalHeader().setHighlightSections(True)
+        self.tableWidget_2.verticalHeader().setVisible(False)
+        self.tableWidget_2.verticalHeader().setDefaultSectionSize(40)
+        self.tableWidget_2.verticalHeader().setHighlightSections(True)
+        self.tableWidget_2.verticalHeader().setMinimumSectionSize(20)
+        self.verticalLayout_10.addWidget(self.tableWidget_2)
+        self.verticalLayout_8.addWidget(self.frame_7)
+        self.frame_btn_usuario = QtWidgets.QFrame(self.frame_principal_usuarios)
+        self.frame_btn_usuario.setMinimumSize(QtCore.QSize(0, 53))
+        self.frame_btn_usuario.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_btn_usuario.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_btn_usuario.setObjectName("frame_btn_usuario")
+        self.btn_nuevo_usuario = QtWidgets.QPushButton(self.frame_btn_usuario)
+        self.btn_nuevo_usuario.setGeometry(QtCore.QRect(470, 10, 111, 31))
+        self.btn_nuevo_usuario.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_nuevo_usuario.setStyleSheet("QPushButton{\n"
+"background-color: #1173ff;\n"
+"color: #fff;\n"
+"border-radius:10px;\n"
+"font-weight:bold;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #45a9f0;\n"
+"}")
+        self.btn_nuevo_usuario.setObjectName("btn_nuevo_usuario")
+        self.verticalLayout_8.addWidget(self.frame_btn_usuario)
         self.Pages_Widget.addWidget(self.page_usuarios)
         self.verticalLayout_4.addWidget(self.Pages_Widget)
         self.horizontalLayout_2.addWidget(self.frame_pages)
@@ -451,7 +595,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.Pages_Widget.setCurrentIndex(0)
+        self.Pages_Widget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.setTabOrder(self.btn_depositos, self.btn_usuarios)
         MainWindow.setTabOrder(self.btn_usuarios, self.btn_exit)
@@ -496,7 +640,40 @@ class Ui_MainWindow(object):
         self.tableWidget.setSortingEnabled(__sortingEnabled)
         self.pushButton_2.setText(_translate("MainWindow", "Nuevo Pruducto"))
         self.label_3.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">Depósito</span></p></body></html>"))
-        self.label_4.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">Usuarios</span></p></body></html>"))
+        self.lineEdit_2.setText(_translate("MainWindow", "Buscar usuario"))
+        self.lineEdit_2.setPlaceholderText(_translate("MainWindow", "Buscar un producto"))
+        self.pushButton_3.setText(_translate("MainWindow", "Buscar"))
+        self.tableWidget_2.setSortingEnabled(False)
+        item = self.tableWidget_2.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", "1"))
+        item = self.tableWidget_2.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Nombre"))
+        item = self.tableWidget_2.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Apellido"))
+        item = self.tableWidget_2.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "DNI"))
+        item = self.tableWidget_2.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "Fecha De Nacimiento"))
+        item = self.tableWidget_2.horizontalHeaderItem(4)
+        item.setText(_translate("MainWindow", "Tipo"))
+        item = self.tableWidget_2.horizontalHeaderItem(5)
+        item.setText(_translate("MainWindow", "Puesto"))
+        __sortingEnabled = self.tableWidget_2.isSortingEnabled()
+        self.tableWidget_2.setSortingEnabled(False)
+        item = self.tableWidget_2.item(0, 0)
+        item.setText(_translate("MainWindow", "Mauricio"))
+        item = self.tableWidget_2.item(0, 1)
+        item.setText(_translate("MainWindow", "Perez Isa"))
+        item = self.tableWidget_2.item(0, 2)
+        item.setText(_translate("MainWindow", "40902380"))
+        item = self.tableWidget_2.item(0, 3)
+        item.setText(_translate("MainWindow", "28/08/1995"))
+        item = self.tableWidget_2.item(0, 4)
+        item.setText(_translate("MainWindow", "Usuario"))
+        item = self.tableWidget_2.item(0, 5)
+        item.setText(_translate("MainWindow", "Repositor"))
+        self.tableWidget_2.setSortingEnabled(__sortingEnabled)
+        self.btn_nuevo_usuario.setText(_translate("MainWindow", "Nuevo Usuario"))
 import img_oficiales_rc
 
 
