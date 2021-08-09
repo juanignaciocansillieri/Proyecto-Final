@@ -1254,7 +1254,7 @@ QHeaderView::section:vertical
                     </item>
                     <item row="0" column="4">
                      <property name="text">
-                      <string>28/08/2025</string>
+                      <string>Usuario</string>
                      </property>
                     </item>
                     <item row="0" column="5">
