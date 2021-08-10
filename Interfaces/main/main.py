@@ -72,12 +72,16 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.btn_toggle = QtWidgets.QPushButton(self.frame_top_menus)
         self.btn_toggle.setMinimumSize(QtCore.QSize(20, 20))
+        font = QtGui.QFont()
+        font.setStyleStrategy(QtGui.QFont.PreferDefault)
+        self.btn_toggle.setFont(font)
         self.btn_toggle.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_toggle.setStyleSheet("QPushButton {\n"
 "color: #b3b3b3;\n"
 "background-color: #12151a;\n"
 "border: none;\n"
-"border-radius:20px;\n"
+"border-radius:10px;\n"
+"padding:0 5px;\n"
 "\n"
 "}\n"
 "\n"
@@ -109,9 +113,17 @@ class Ui_MainWindow(object):
 "color: #b3b3b3;\n"
 "background-color: #12151a;\n"
 "border: none;\n"
+"border-radius:10px;\n"
+"padding:0 5px;\n"
+"\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
+"background-color: #23262b;\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton:focus {\n"
 "background-color: #23262b;\n"
 "}")
         self.btn_productos.setText("")
@@ -133,11 +145,18 @@ class Ui_MainWindow(object):
         self.btn_depositos.setStyleSheet("QPushButton {\n"
 "color: #b3b3b3;\n"
 "background-color: #12151a;\n"
-"border: 0px solid;\n"
 "border: none;\n"
+"border-radius:10px;\n"
+"padding:0 5px;\n"
+"\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
+"background-color: #23262b;\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton:focus {\n"
 "background-color: #23262b;\n"
 "}")
         self.btn_depositos.setText("")
@@ -160,9 +179,17 @@ class Ui_MainWindow(object):
 "color: #b3b3b3;\n"
 "background-color: #12151a;\n"
 "border: none;\n"
+"border-radius:10px;\n"
+"padding:0 5px;\n"
+"\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
+"background-color: #23262b;\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton:focus {\n"
 "background-color: #23262b;\n"
 "}")
         self.btn_usuarios.setText("")
@@ -186,9 +213,17 @@ class Ui_MainWindow(object):
 "color: #b3b3b3;\n"
 "background-color: #12151a;\n"
 "border: none;\n"
+"border-radius:10px;\n"
+"padding:0 5px;\n"
+"\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
+"background-color: #23262b;\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton:focus {\n"
 "background-color: #23262b;\n"
 "}")
         self.btn_exit.setText("")
@@ -200,43 +235,41 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.addWidget(self.btn_exit)
         self.horizontalLayout_2.addWidget(self.frame_left_menu)
         self.slide_bar = QtWidgets.QFrame(self.Content)
-        self.slide_bar.setMinimumSize(QtCore.QSize(0, 741))
+        self.slide_bar.setMinimumSize(QtCore.QSize(80, 741))
         self.slide_bar.setMaximumSize(QtCore.QSize(0, 750))
         self.slide_bar.setStyleSheet("background-color: #12151a;")
         self.slide_bar.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.slide_bar.setFrameShadow(QtWidgets.QFrame.Raised)
         self.slide_bar.setObjectName("slide_bar")
         self.label_inicio = QtWidgets.QLabel(self.slide_bar)
-        self.label_inicio.setGeometry(QtCore.QRect(0, 10, 101, 31))
+        self.label_inicio.setGeometry(QtCore.QRect(0, 1, 51, 50))
+        self.label_inicio.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.label_inicio.setStyleSheet("QLabel {\n"
 "color: #fff;\n"
 "font-weight:bold;\n"
-"\n"
-"}\n"
-"\n"
-"QLabel:hover {\n"
-"background-color: #23262b;\n"
+"border-radius:10px;\n"
+"text-align:center;\n"
 "}")
         self.label_inicio.setObjectName("label_inicio")
         self.label_deposito = QtWidgets.QLabel(self.slide_bar)
-        self.label_deposito.setGeometry(QtCore.QRect(0, 130, 101, 20))
+        self.label_deposito.setGeometry(QtCore.QRect(0, 130, 71, 31))
+        self.label_deposito.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.label_deposito.setStyleSheet("color:#fff;\n"
 "font-family:Roboto")
         self.label_deposito.setObjectName("label_deposito")
         self.label_productos = QtWidgets.QLabel(self.slide_bar)
-        self.label_productos.setGeometry(QtCore.QRect(0, 65, 101, 31))
+        self.label_productos.setGeometry(QtCore.QRect(0, 65, 71, 31))
+        self.label_productos.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.label_productos.setStyleSheet("QLabel {\n"
-"color: #fff;\n"
-"\n"
+"color: #fff\n"
 "\n"
 "}\n"
 "\n"
-"QLabel:hover {\n"
-"background-color: #23262b;\n"
-"}")
+"")
         self.label_productos.setObjectName("label_productos")
         self.label_usuarios = QtWidgets.QLabel(self.slide_bar)
-        self.label_usuarios.setGeometry(QtCore.QRect(0, 190, 101, 20))
+        self.label_usuarios.setGeometry(QtCore.QRect(0, 186, 71, 31))
+        self.label_usuarios.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.label_usuarios.setStyleSheet("color:#fff;\n"
 "font-family:Roboto")
         self.label_usuarios.setObjectName("label_usuarios")
@@ -252,6 +285,12 @@ class Ui_MainWindow(object):
 "background-color: #23262b;\n"
 "}")
         self.label_exit.setObjectName("label_exit")
+        self.label_exit_2 = QtWidgets.QLabel(self.slide_bar)
+        self.label_exit_2.setGeometry(QtCore.QRect(0, 451, 71, 31))
+        self.label_exit_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.label_exit_2.setStyleSheet("color:#fff;\n"
+"font-family:Roboto")
+        self.label_exit_2.setObjectName("label_exit_2")
         self.horizontalLayout_2.addWidget(self.slide_bar)
         self.frame_pages = QtWidgets.QFrame(self.Content)
         self.frame_pages.setMaximumSize(QtCore.QSize(16777215, 16777215))
@@ -333,15 +372,17 @@ class Ui_MainWindow(object):
 "}")
         self.pushButton.setObjectName("pushButton")
         self.verticalLayout_6.addWidget(self.groupBox, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
-        self.verticalLayout_5.addWidget(self.frame_2, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        self.verticalLayout_5.addWidget(self.frame_2)
         self.tableWidget = QtWidgets.QTableWidget(self.frame)
-        self.tableWidget.setMinimumSize(QtCore.QSize(800, 300))
+        self.tableWidget.setMinimumSize(QtCore.QSize(900, 328))
         self.tableWidget.setMaximumSize(QtCore.QSize(16777215, 500))
+        self.tableWidget.viewport().setProperty("cursor", QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.tableWidget.setStyleSheet("QTableWidget{\n"
 "color:#fff;\n"
 "font-size: 20px;\n"
 "border-style: none;\n"
-"margin-left: 60px;\n"
+"margin-left: 0px;\n"
+"margin-top:15px\n"
 "}\n"
 "\n"
 "\n"
@@ -383,12 +424,12 @@ class Ui_MainWindow(object):
         self.tableWidget.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(4, item)
-        self.tableWidget.horizontalHeader().setDefaultSectionSize(180)
+        self.tableWidget.horizontalHeader().setDefaultSectionSize(176)
         self.tableWidget.horizontalHeader().setHighlightSections(False)
         self.tableWidget.verticalHeader().setVisible(False)
         self.tableWidget.verticalHeader().setDefaultSectionSize(30)
         self.tableWidget.verticalHeader().setMinimumSectionSize(23)
-        self.verticalLayout_5.addWidget(self.tableWidget)
+        self.verticalLayout_5.addWidget(self.tableWidget, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
         self.frame_3 = QtWidgets.QFrame(self.frame)
         self.frame_3.setMinimumSize(QtCore.QSize(0, 66))
         self.frame_3.setMaximumSize(QtCore.QSize(16777215, 100))
@@ -404,26 +445,34 @@ class Ui_MainWindow(object):
         self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_4.setObjectName("frame_4")
         self.pushButton_2 = QtWidgets.QPushButton(self.frame_4)
-        self.pushButton_2.setGeometry(QtCore.QRect(470, 10, 111, 31))
+        self.pushButton_2.setGeometry(QtCore.QRect(690, 27, 111, 27))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.pushButton_2.setFont(font)
         self.pushButton_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_2.setStyleSheet("QPushButton{\n"
 "background-color: #1173ff;\n"
 "color: #fff;\n"
 "border-radius:10px;\n"
-"font-weight:bold;\n"
 "}\n"
 "QPushButton:hover{\n"
 "background-color: #45a9f0;\n"
 "}")
         self.pushButton_2.setObjectName("pushButton_2")
         self.pushButton_3 = QtWidgets.QPushButton(self.frame_4)
-        self.pushButton_3.setGeometry(QtCore.QRect(610, 10, 111, 31))
+        self.pushButton_3.setGeometry(QtCore.QRect(820, 27, 111, 27))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setItalic(False)
+        self.pushButton_3.setFont(font)
         self.pushButton_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_3.setStyleSheet("QPushButton{\n"
 "background-color: #1173ff;\n"
 "color: #fff;\n"
 "border-radius:10px;\n"
-"font-weight:bold;\n"
 "}\n"
 "QPushButton:hover{\n"
 "background-color: #45a9f0;\n"
@@ -465,7 +514,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.frame_usuarios_1)
         self.verticalLayout_9.setObjectName("verticalLayout_9")
         self.groupBox_usuarios_1 = QtWidgets.QGroupBox(self.frame_usuarios_1)
-        self.groupBox_usuarios_1.setMinimumSize(QtCore.QSize(990, 50))
+        self.groupBox_usuarios_1.setMinimumSize(QtCore.QSize(1941, 50))
         self.groupBox_usuarios_1.setMaximumSize(QtCore.QSize(0, 70))
         self.groupBox_usuarios_1.setTitle("")
         self.groupBox_usuarios_1.setObjectName("groupBox_usuarios_1")
@@ -504,13 +553,13 @@ class Ui_MainWindow(object):
         self.verticalLayout_9.addWidget(self.groupBox_usuarios_1, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
         self.verticalLayout_8.addWidget(self.frame_usuarios_1, 0, QtCore.Qt.AlignTop)
         self.tableWidget_2 = QtWidgets.QTableWidget(self.frame_usuarios)
-        self.tableWidget_2.setMinimumSize(QtCore.QSize(800, 300))
-        self.tableWidget_2.setMaximumSize(QtCore.QSize(16777215, 500))
+        self.tableWidget_2.setMinimumSize(QtCore.QSize(980, 300))
+        self.tableWidget_2.setMaximumSize(QtCore.QSize(801, 500))
         self.tableWidget_2.setStyleSheet("QTableWidget{\n"
 "color:#fff;\n"
 "font-size: 20px;\n"
 "border-style: none;\n"
-"margin-left: 60px;\n"
+"margin-left: 55px;\n"
 "}\n"
 "\n"
 "\n"
@@ -550,7 +599,7 @@ class Ui_MainWindow(object):
         self.tableWidget_2.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_2.setHorizontalHeaderItem(4, item)
-        self.tableWidget_2.horizontalHeader().setDefaultSectionSize(180)
+        self.tableWidget_2.horizontalHeader().setDefaultSectionSize(176)
         self.tableWidget_2.horizontalHeader().setHighlightSections(False)
         self.verticalLayout_8.addWidget(self.tableWidget_2)
         self.frame_usuarios_3 = QtWidgets.QFrame(self.frame_usuarios)
@@ -588,11 +637,12 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label_inicio.setText(_translate("MainWindow", "Inicio"))
-        self.label_deposito.setText(_translate("MainWindow", "Depósito"))
-        self.label_productos.setText(_translate("MainWindow", "Productos"))
-        self.label_usuarios.setText(_translate("MainWindow", "Usuarios"))
+        self.label_inicio.setText(_translate("MainWindow", " Inicio"))
+        self.label_deposito.setText(_translate("MainWindow", " Depósito"))
+        self.label_productos.setText(_translate("MainWindow", " Productos"))
+        self.label_usuarios.setText(_translate("MainWindow", " Usuarios"))
         self.label_exit.setText(_translate("MainWindow", "Exit"))
+        self.label_exit_2.setText(_translate("MainWindow", " Salir"))
         self.lineEdit.setPlaceholderText(_translate("MainWindow", "Buscar un producto"))
         self.pushButton.setText(_translate("MainWindow", "Buscar"))
         item = self.tableWidget.horizontalHeaderItem(0)

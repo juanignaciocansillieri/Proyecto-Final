@@ -63,6 +63,7 @@ class Main(QMainWindow):
         self.ui.label_usuarios.mousePressEvent = self.clickU
         # Boton Exit
         self.ui.btn_exit.clicked.connect(self.close)
+        #self.ui.label_exit.mousePressEvent(self.close)
         
     def clickP(self,event): 
        return self.ui.Pages_Widget.setCurrentWidget(self.ui.page_productos)
@@ -72,6 +73,8 @@ class Main(QMainWindow):
         
     def clickU(self,event): 
        return self.ui.Pages_Widget.setCurrentWidget(self.ui.page_usuarios)
+    def clickE(self,event): 
+       return self.close()
 
 
 

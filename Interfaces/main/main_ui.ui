@@ -208,6 +208,11 @@
                <height>20</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <stylestrategy>PreferDefault</stylestrategy>
+              </font>
+             </property>
              <property name="cursor">
               <cursorShape>PointingHandCursor</cursorShape>
              </property>
@@ -216,7 +221,8 @@
 color: #b3b3b3;
 background-color: #12151a;
 border: none;
-border-radius:20px;
+border-radius:10px;
+padding:0 5px;
 
 }
 
@@ -268,9 +274,17 @@ background-color: #23262b;
 color: #b3b3b3;
 background-color: #12151a;
 border: none;
+border-radius:10px;
+padding:0 5px;
+
 }
 
 QPushButton:hover {
+background-color: #23262b;
+}
+
+
+QPushButton:focus {
 background-color: #23262b;
 }</string>
              </property>
@@ -312,11 +326,18 @@ background-color: #23262b;
               <string notr="true">QPushButton {
 color: #b3b3b3;
 background-color: #12151a;
-border: 0px solid;
 border: none;
+border-radius:10px;
+padding:0 5px;
+
 }
 
 QPushButton:hover {
+background-color: #23262b;
+}
+
+
+QPushButton:focus {
 background-color: #23262b;
 }</string>
              </property>
@@ -359,9 +380,17 @@ background-color: #23262b;
 color: #b3b3b3;
 background-color: #12151a;
 border: none;
+border-radius:10px;
+padding:0 5px;
+
 }
 
 QPushButton:hover {
+background-color: #23262b;
+}
+
+
+QPushButton:focus {
 background-color: #23262b;
 }</string>
              </property>
@@ -407,9 +436,17 @@ background-color: #23262b;
 color: #b3b3b3;
 background-color: #12151a;
 border: none;
+border-radius:10px;
+padding:0 5px;
+
 }
 
 QPushButton:hover {
+background-color: #23262b;
+}
+
+
+QPushButton:focus {
 background-color: #23262b;
 }</string>
           </property>
@@ -435,7 +472,7 @@ background-color: #23262b;
       <widget class="QFrame" name="slide_bar">
        <property name="minimumSize">
         <size>
-         <width>0</width>
+         <width>80</width>
          <height>741</height>
         </size>
        </property>
@@ -458,24 +495,24 @@ background-color: #23262b;
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>10</y>
-          <width>101</width>
-          <height>31</height>
+          <y>1</y>
+          <width>51</width>
+          <height>50</height>
          </rect>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="styleSheet">
          <string notr="true">QLabel {
 color: #fff;
 font-weight:bold;
-
-}
-
-QLabel:hover {
-background-color: #23262b;
+border-radius:10px;
+text-align:center;
 }</string>
         </property>
         <property name="text">
-         <string>Inicio</string>
+         <string> Inicio</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_deposito">
@@ -483,16 +520,19 @@ background-color: #23262b;
          <rect>
           <x>0</x>
           <y>130</y>
-          <width>101</width>
-          <height>20</height>
+          <width>71</width>
+          <height>31</height>
          </rect>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="styleSheet">
          <string notr="true">color:#fff;
 font-family:Roboto</string>
         </property>
         <property name="text">
-         <string>Depósito</string>
+         <string> Depósito</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_productos">
@@ -500,40 +540,43 @@ font-family:Roboto</string>
          <rect>
           <x>0</x>
           <y>65</y>
-          <width>101</width>
+          <width>71</width>
           <height>31</height>
          </rect>
         </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
         <property name="styleSheet">
          <string notr="true">QLabel {
-color: #fff;
-
+color: #fff
 
 }
 
-QLabel:hover {
-background-color: #23262b;
-}</string>
+</string>
         </property>
         <property name="text">
-         <string>Productos</string>
+         <string> Productos</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_usuarios">
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>190</y>
-          <width>101</width>
-          <height>20</height>
+          <y>186</y>
+          <width>71</width>
+          <height>31</height>
          </rect>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
         </property>
         <property name="styleSheet">
          <string notr="true">color:#fff;
 font-family:Roboto</string>
         </property>
         <property name="text">
-         <string>Usuarios</string>
+         <string> Usuarios</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_exit">
@@ -558,6 +601,26 @@ background-color: #23262b;
         </property>
         <property name="text">
          <string>Exit</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_exit_2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>451</y>
+          <width>71</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color:#fff;
+font-family:Roboto</string>
+        </property>
+        <property name="text">
+         <string> Salir</string>
         </property>
        </widget>
       </widget>
@@ -636,7 +699,7 @@ border: none;</string>
                <enum>QFrame::Raised</enum>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_5">
-               <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+               <item>
                 <widget class="QFrame" name="frame_2">
                  <property name="minimumSize">
                   <size>
@@ -761,12 +824,12 @@ background-color: #45a9f0;
                  </layout>
                 </widget>
                </item>
-               <item>
+               <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
                 <widget class="QTableWidget" name="tableWidget">
                  <property name="minimumSize">
                   <size>
-                   <width>800</width>
-                   <height>300</height>
+                   <width>900</width>
+                   <height>328</height>
                   </size>
                  </property>
                  <property name="maximumSize">
@@ -775,12 +838,16 @@ background-color: #45a9f0;
                    <height>500</height>
                   </size>
                  </property>
+                 <property name="cursor" stdset="0">
+                  <cursorShape>PointingHandCursor</cursorShape>
+                 </property>
                  <property name="styleSheet">
                   <string notr="true">QTableWidget{
 color:#fff;
 font-size: 20px;
 border-style: none;
-margin-left: 60px;
+margin-left: 0px;
+margin-top:15px
 }
 
 
@@ -817,7 +884,7 @@ QHeaderView::section:vertical
                   <bool>true</bool>
                  </property>
                  <attribute name="horizontalHeaderDefaultSectionSize">
-                  <number>180</number>
+                  <number>176</number>
                  </attribute>
                  <attribute name="horizontalHeaderHighlightSections">
                   <bool>false</bool>
@@ -902,11 +969,19 @@ QHeaderView::section:vertical
                     <widget class="QPushButton" name="pushButton_2">
                      <property name="geometry">
                       <rect>
-                       <x>470</x>
-                       <y>10</y>
+                       <x>690</x>
+                       <y>27</y>
                        <width>111</width>
-                       <height>31</height>
+                       <height>27</height>
                       </rect>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Roboto</family>
+                       <weight>50</weight>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                      </font>
                      </property>
                      <property name="cursor">
                       <cursorShape>PointingHandCursor</cursorShape>
@@ -916,7 +991,6 @@ QHeaderView::section:vertical
 background-color: #1173ff;
 color: #fff;
 border-radius:10px;
-font-weight:bold;
 }
 QPushButton:hover{
 background-color: #45a9f0;
@@ -929,11 +1003,17 @@ background-color: #45a9f0;
                     <widget class="QPushButton" name="pushButton_3">
                      <property name="geometry">
                       <rect>
-                       <x>610</x>
-                       <y>10</y>
+                       <x>820</x>
+                       <y>27</y>
                        <width>111</width>
-                       <height>31</height>
+                       <height>27</height>
                       </rect>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Roboto</family>
+                       <italic>false</italic>
+                      </font>
                      </property>
                      <property name="cursor">
                       <cursorShape>PointingHandCursor</cursorShape>
@@ -943,7 +1023,6 @@ background-color: #45a9f0;
 background-color: #1173ff;
 color: #fff;
 border-radius:10px;
-font-weight:bold;
 }
 QPushButton:hover{
 background-color: #45a9f0;
@@ -1037,7 +1116,7 @@ background-color: #45a9f0;
                  <widget class="QGroupBox" name="groupBox_usuarios_1">
                   <property name="minimumSize">
                    <size>
-                    <width>990</width>
+                    <width>1941</width>
                     <height>50</height>
                    </size>
                   </property>
@@ -1119,13 +1198,13 @@ background-color: #45a9f0;
               <widget class="QTableWidget" name="tableWidget_2">
                <property name="minimumSize">
                 <size>
-                 <width>800</width>
+                 <width>980</width>
                  <height>300</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>16777215</width>
+                 <width>801</width>
                  <height>500</height>
                 </size>
                </property>
@@ -1134,7 +1213,7 @@ background-color: #45a9f0;
 color:#fff;
 font-size: 20px;
 border-style: none;
-margin-left: 60px;
+margin-left: 55px;
 }
 
 
@@ -1163,7 +1242,7 @@ QHeaderView::section:vertical
 }</string>
                </property>
                <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>180</number>
+                <number>176</number>
                </attribute>
                <attribute name="horizontalHeaderHighlightSections">
                 <bool>false</bool>
