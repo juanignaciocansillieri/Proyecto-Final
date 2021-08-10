@@ -65,8 +65,9 @@ class Main(QMainWindow):
    #Listar productos from DB
 
     def listarProductos(self):
-       products = p.listar_prod2()
-       self.ui.tableWidget.setRowCount(10)
+       products = p.listar_prod()
+       n=p.contar_filas()
+       self.ui.tableWidget.setRowCount(n)
        tableRow = 0
        for row in products:
           self.ui.tableWidget.setItem(tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))

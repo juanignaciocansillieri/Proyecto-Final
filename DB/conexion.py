@@ -127,13 +127,16 @@ def contar_filas_tabla():  # despues hay que poner de que tabla queremos contar
 def controlador(con,tabla,columna):
     a=start_connection()
     cursor=a.cursor()
+    str(con)
+    str(tabla)
+    str(columna)
     try:
-        query = "SELECT * FROM %s WHERE %s= %s"
+        query = "SELECT * FROM %s WHERE %s = %s"
         values = (tabla,columna,con)
         cursor.execute(query, values)
         a.commit()
         b=cursor.fetchone()
-        control1=str(b[0])
+        control1=str(b)
         if control1 == "None" :#and 
             print("no se encuentra")
             return 0
