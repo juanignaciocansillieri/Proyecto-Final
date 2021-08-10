@@ -672,6 +672,8 @@ background-color: #23262b;
 border-radius: 10px;
 padding:0 10px;
 color: #b3b3b3;
+font-family:Roboto;
+
 }
 
 
@@ -704,6 +706,8 @@ background-color: #1173ff;
 color: #fff;
 border-radius:10px;
 font-weight:bold;
+font-family:Roboto;
+
 }
 QPushButton:hover{
 background-color: #45a9f0;
@@ -741,28 +745,41 @@ background-color: #45a9f0;
                    <layout class="QVBoxLayout" name="verticalLayout_7">
                     <item>
                      <widget class="QTableWidget" name="tableWidget">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
                       <property name="minimumSize">
                        <size>
                         <width>0</width>
                         <height>0</height>
                        </size>
                       </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>-1</pointsize>
+                       </font>
+                      </property>
                       <property name="styleSheet">
                        <string notr="true">QTableWidget{
 color:#fff;
 font-size: 20px;
 border-style: none;
-margin-left: 55px;
+margin-left: 60px;
 }
 
 
 QHeaderView::section {
     background-color: #12151a;
 	color:#fff;
-    font-size: 14pt;
+    font-size: 12pt;
     border-style: none;
     border-bottom: 1px solid #23262b;
     border-right: 1px solid #23262b;
+	font-family:Roboto;
+
 }
 
 QHeaderView::section:horizontal
@@ -776,6 +793,12 @@ QHeaderView::section:vertical
 
     border-left: 1px solid #23262b;
 }</string>
+                      </property>
+                      <property name="lineWidth">
+                       <number>1</number>
+                      </property>
+                      <property name="horizontalScrollBarPolicy">
+                       <enum>Qt::ScrollBarAsNeeded</enum>
                       </property>
                       <property name="editTriggers">
                        <set>QAbstractItemView::NoEditTriggers</set>
@@ -805,7 +828,7 @@ QHeaderView::section:vertical
                        <bool>false</bool>
                       </attribute>
                       <attribute name="horizontalHeaderDefaultSectionSize">
-                       <number>146</number>
+                       <number>154</number>
                       </attribute>
                       <attribute name="horizontalHeaderHighlightSections">
                        <bool>true</bool>
@@ -814,13 +837,19 @@ QHeaderView::section:vertical
                        <bool>false</bool>
                       </attribute>
                       <attribute name="verticalHeaderDefaultSectionSize">
-                       <number>40</number>
+                       <number>35</number>
                       </attribute>
                       <attribute name="verticalHeaderHighlightSections">
                        <bool>true</bool>
                       </attribute>
                       <attribute name="verticalHeaderMinimumSectionSize">
                        <number>20</number>
+                      </attribute>
+                      <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+                       <bool>false</bool>
+                      </attribute>
+                      <attribute name="verticalHeaderStretchLastSection">
+                       <bool>false</bool>
                       </attribute>
                       <row>
                        <property name="text">
@@ -921,6 +950,33 @@ background-color: #45a9f0;
                     </property>
                     <property name="text">
                      <string>Nuevo Pruducto</string>
+                    </property>
+                   </widget>
+                   <widget class="QPushButton" name="pushButton_3">
+                    <property name="geometry">
+                     <rect>
+                      <x>610</x>
+                      <y>10</y>
+                      <width>111</width>
+                      <height>31</height>
+                     </rect>
+                    </property>
+                    <property name="cursor">
+                     <cursorShape>PointingHandCursor</cursorShape>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{
+background-color: #1173ff;
+color: #fff;
+border-radius:10px;
+font-weight:bold;
+}
+QPushButton:hover{
+background-color: #45a9f0;
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>Listar Productos</string>
                     </property>
                    </widget>
                   </widget>
