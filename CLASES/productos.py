@@ -1,4 +1,4 @@
-from CLASES.alojamiento import alojamiento
+
 from sys import setprofile
 from typing import NoReturn
 import pymysql
@@ -27,8 +27,101 @@ class productos:
         pass
 
     def alta_producto(self):
-        a = c.start_connection()
-        cursor = a.cursor()
+            a=c.start_connection()
+            cursor=a.cursor()
+            try:
+                query = "INSERT INTO productos (codigo,nombre,marca,cantidad,descripcion,ubicacion,foto,lote,vencimiento,refrigeracion,inflamable,fragil) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+                values = (self.codigo,self.nombre,self.marca,self.cantidad,self.descripcion,self.ubicacion,self.foto,self.lote,self.vencimiento,self.refrigeracion,self.inflamable,self.fragil)
+                cursor.execute(query, values)
+                a.commit()
+                print("se dio alta producto correctamente")
+            except pymysql.err.OperationalError as err:
+                print("Hubo un error:", err)
+            c.close_connection(a)
+
+    def importar_datos_product(self,codigo):
+            a=c.start_connection()
+            cursor=a.cursor()
+            if c.controlador(codigo,"productos","codigo") ==1:
+                try:
+                    self.codigo=codigo
+                    query = "SELECT nombre FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    self.nombre=str(b[0][0]) 
+                    query = "SELECT marca FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    self.marca=str(b[0][0]) 
+                    query = "SELECT cantidad FROM productosWHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    self.cantidad=str(b[0][0]) 
+                    query = "SELECT descripcion FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    self.descripcion=str(b[0][0]) 
+                    query = "SELECT foto FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    self.foto=str(b[0][0]) 
+                    query = "SELECT lote FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    self.lote=str(b[0][0]) 
+                    query = "SELECT vencimiemto FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    self.vencimiento=str(b[0][0]) 
+                    query = "SELECT refrigeracion FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    self.refrigeracion=str(b[0][0]) 
+                    query = "SELECT inflamable FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    self.inflamable=str(b[0][0]) 
+                    query = "SELECT fragil FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    self.fragil=str(b[0][0])
+                    query = "SELECT ubicacion FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    self.ubicacion=str(b[0][0])  
+                    print("se importo producto correctamente")
+                except pymysql.err.OperationalError as err:
+                    print("Hubo un error:", err)
+            c.close_connection(a)
+            
+    
+    def mostrar_datos_product_importado(self):
+        #a=c.start_connection()
+        #cursor=a.cursor()
+        #if c.controlador(codigo,"productos","codigo") ==1:
+        #self.importar_datos_product(codigo) prefiero usar los 2 comandos por aparte
         try:
             query = "INSERT INTO productos (codigo,nombre,marca,cantidad,descripcion,ubicacion,foto,lote,vencimiento,refrigeracion,inflamable,fragil) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
             values = (self.codigo, self.nombre, self.marca, self.cantidad, self.descripcion, self.ubicacion,
@@ -38,7 +131,35 @@ class productos:
             print("se dio alta producto correctamente")
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
-        c.close_connection(a)
+        #c.close_connection(a)
+        return 0
+    
+     
+    def mostrar_datos_producto(self,codigo,nombre,marca,cantidad,descripcion,ubicacion,foto,lote,vencimiento,refrigeracion,inflamable,fragil):
+        #a=c.start_connection()
+        #cursor=a.cursor()
+        #if c.controlador(codigo,"productos","codigo") ==1:
+        #self.importar_datos_product(codigo) prefiero usar los 2 comandos por aparte
+        try:
+            if fragil=="1":
+                fragil="fragil"
+            else:
+                fragil="no fragil"
+            if refrigeracion=="1":
+                refrigeracion="refrigerado"
+            else:
+                refrigeracion="no refrigerado"
+            if inflamable=="1":
+                inflamable="inflamable"
+            else:
+                inflamable="no inflamable"
+            
+            print("\ncodigo: ",codigo,"\nnombre: ",nombre,"\nmarca: ",marca,"\ncantidad: ",cantidad,"\ndescripcion: ",descripcion,"\nubicacion: ",ubicacion,"\nfoto: ",foto,"\nlote: ",self.lote,"\nvencimiento: ",vencimiento,"\nrefrigeracion: ",refrigeracion,"\ninflamable: ",inflamable,"\nfragil: ",fragil)
+        except pymysql.err.OperationalError as err:
+            print("Hubo un error:", err)
+        #c.close_connection(a)
+        return 0
+
 
     def importar_datos_product(self, codigo):
         a = c.start_connection()
@@ -86,10 +207,8 @@ class productos:
                 values = codigo
                 cursor.execute(query, values)
                 a.commit()
-                b = cursor.fetchall()
-                self.vencimiento = str(b[0][0])
-                query = "SELECT refrigeracion FROM productos WHERE codigo=%s"
-                values = codigo
+                query = "UPDATE productos set vencimiemto=%s WHERE codigo=%s"
+                values = (vencimiento,self.codigo)
                 cursor.execute(query, values)
                 a.commit()
                 b = cursor.fetchall()
@@ -238,3 +357,177 @@ class productos:
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
         c.close_connection(a)
+
+    def buscar_productos(self,codigo):
+        try:
+            int(codigo)
+            tf=True
+        except ValueError:
+            tf=False
+        
+        if tf== True:
+            a=c.start_connection()
+            cursor=a.cursor()
+            if c.controlador(codigo,"productos","nombre") ==1:
+                try:
+                    codigo
+                    query = "SELECT nombre FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    nombre=str(b[0][0]) 
+                    query = "SELECT marca FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    marca=str(b[0][0]) 
+                    query = "SELECT cantidad FROM productosWHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    cantidad=str(b[0][0]) 
+                    query = "SELECT descripcion FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    descripcion=str(b[0][0]) 
+                    query = "SELECT foto FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    foto=str(b[0][0]) 
+                    query = "SELECT lote FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    lote=str(b[0][0]) 
+                    query = "SELECT vencimiemto FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    vencimiento=str(b[0][0]) 
+                    query = "SELECT refrigeracion FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    refrigeracion=str(b[0][0]) 
+                    query = "SELECT inflamable FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    inflamable=str(b[0][0]) 
+                    query = "SELECT fragil FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    fragil=str(b[0][0])
+                    query = "SELECT ubicacion FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    ubicacion=str(b[0][0])  
+                except pymysql.err.OperationalError as err:
+                    print("Hubo un error:", err)
+            c.close_connection(a)
+            self.mostrar_datos_producto(codigo,nombre,marca,cantidad,descripcion,ubicacion,foto,lote,vencimiento,refrigeracion,inflamable,fragil)
+
+        else:
+            a=c.start_connection()
+            cursor=a.cursor()
+            query = "SELECT codigo FROM productos WHERE nombre=%s"
+            values = codigo
+            cursor.execute(query, values)
+            a.commit()
+            b=cursor.fetchall() 
+            cadena=str(b[0][0])
+            a=c.start_connection()
+            cursor=a.cursor()
+            if c.controlador(codigo,"productos","codigo") ==1:
+                try:
+                    codigo
+                    query = "SELECT nombre FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    nombre=str(b[0][0]) 
+                    query = "SELECT marca FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    marca=str(b[0][0]) 
+                    query = "SELECT cantidad FROM productosWHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    cantidad=str(b[0][0]) 
+                    query = "SELECT descripcion FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    descripcion=str(b[0][0]) 
+                    query = "SELECT foto FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    foto=str(b[0][0]) 
+                    query = "SELECT lote FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    lote=str(b[0][0]) 
+                    query = "SELECT vencimiemto FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    vencimiento=str(b[0][0]) 
+                    query = "SELECT refrigeracion FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    refrigeracion=str(b[0][0]) 
+                    query = "SELECT inflamable FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    inflamable=str(b[0][0]) 
+                    query = "SELECT fragil FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    fragil=str(b[0][0])
+                    query = "SELECT ubicacion FROM productos WHERE codigo=%s"
+                    values = codigo
+                    cursor.execute(query, values)
+                    a.commit()
+                    b=cursor.fetchall() 
+                    ubicacion=str(b[0][0])  
+                except pymysql.err.OperationalError as err:
+                    print("Hubo un error:", err)
+            c.close_connection(a)
+            self.mostrar_datos_producto(codigo,nombre,marca,cantidad,descripcion,ubicacion,foto,lote,vencimiento,refrigeracion,inflamable,fragil)
+
+
+
+
+                                                           

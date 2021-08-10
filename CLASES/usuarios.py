@@ -74,7 +74,7 @@ class usuarios:
         #a=c.start_connection()
         #cursor=a.cursor()
         #if c.controlador(dni,"usuarios","dni") == 1:
-        self.importar_datos_user(dni)
+        #self.importar_datos_user(dni)
         try:
             if self.tipo=="1":
                 self.tipo="administrador"
