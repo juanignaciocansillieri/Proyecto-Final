@@ -323,7 +323,7 @@ background-color: #23262b;
                </property>
                <property name="icon">
                 <iconset resource="Imágenes .PNG Oficiales/img_oficiales.qrc">
-                 <normaloff>:/cct/Depósito.png</normaloff>:/cct/Depósito.png</iconset>
+                 <normaloff>:/cct/Deposito.png</normaloff>:/cct/Deposito.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -433,7 +433,7 @@ background-color: #23262b;
         <widget class="QFrame" name="slide_bar">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>100</width>
            <height>741</height>
           </size>
          </property>
@@ -482,7 +482,7 @@ background-color: #23262b;
             <x>0</x>
             <y>130</y>
             <width>101</width>
-            <height>20</height>
+            <height>31</height>
            </rect>
           </property>
           <property name="styleSheet">
