@@ -4,6 +4,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
 from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
 from PyQt5.QtWidgets import * 
+from nuevoProduct_func import ProductWindow
 sys.path.append(".")
 from CLASES import productos as p
 
@@ -47,6 +48,13 @@ class Main(QMainWindow):
         #buscamos productos a traves del buscador
         self.ui.pushButton.clicked.connect(self.buscarProducto)
         #self.ui.pushButton.clicked.connect(self.listarProductos)
+
+        #Nuevo producto
+        self.ui.pushButton_2.clicked.connect(self.mostrarNewProduct)
+
+        
+
+
         # DEPOSITO 
         self.ui.btn_depositos.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_depositos))
         self.ui.label_deposito.mousePressEvent = self.clickD
@@ -65,6 +73,14 @@ class Main(QMainWindow):
     def clickU(self,event): 
        return self.ui.Pages_Widget.setCurrentWidget(self.ui.page_usuarios)
 
+
+
+    def mostrarNewProduct(self):
+         self.newProductWindow = ProductWindow()
+         self.newProductWindow.show()
+        
+
+
    #Listar productos from DB
 
     def listarProductos(self):
@@ -80,16 +96,16 @@ class Main(QMainWindow):
           self.ui.tableWidget.setItem(tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
 
           tableRow += 1 
-    
+
+
+    #Buscar productos a traves del input, por parámetro ingresado
     def buscarProducto(self):
        parametro = self.ui.lineEdit.text()
        products = p.productos.buscar_product(parametro)
        n = p.productos.buscar_product_rows(parametro)
-       print(products)
        self.ui.tableWidget.setRowCount(n)
        tableRow = 0
        for row in products:
-          
           self.ui.tableWidget.setItem(tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
           self.ui.tableWidget.setItem(tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
           self.ui.tableWidget.setItem(tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
