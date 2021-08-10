@@ -83,6 +83,11 @@ class Ui_MainWindow(object):
 "\n"
 "QPushButton:hover {\n"
 "background-color: #23262b;\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton:focus {\n"
+"background-color: #23262b;\n"
 "}")
         self.btn_toggle.setText("")
         icon = QtGui.QIcon()
@@ -309,6 +314,11 @@ class Ui_MainWindow(object):
         self.lineEdit.setObjectName("lineEdit")
         self.pushButton = QtWidgets.QPushButton(self.groupBox)
         self.pushButton.setGeometry(QtCore.QRect(841, 21, 81, 25))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton.setFont(font)
         self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton.setStyleSheet("QPushButton{\n"
 "background-color: #1173ff;\n"
@@ -323,7 +333,7 @@ class Ui_MainWindow(object):
 "}")
         self.pushButton.setObjectName("pushButton")
         self.verticalLayout_6.addWidget(self.groupBox, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
-        self.verticalLayout_5.addWidget(self.frame_2, 0, QtCore.Qt.AlignTop)
+        self.verticalLayout_5.addWidget(self.frame_2, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
         self.tableWidget = QtWidgets.QTableWidget(self.frame)
         self.tableWidget.setMinimumSize(QtCore.QSize(800, 300))
         self.tableWidget.setMaximumSize(QtCore.QSize(16777215, 500))
