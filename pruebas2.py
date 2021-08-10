@@ -5,7 +5,7 @@ sys.path.append("C:\\proyecto-final\\DB\\")
 import conexion as c
 #a=c.start_connection()
 #c.borrar_tabla()
-#c.crear_tabla()
+c.crear_tabla()
 #c.contar_filas_tabla()
 #c.close_connection()
 
@@ -22,7 +22,7 @@ from CLASES import productos as pr
 from CLASES import alojamiento as al
 from CLASES import matriz as mz
 
-"""
+
 aa=us.usuarios("alex","arraya","123",1,"gerente","1999/05/14")
 aa.alta_usuario()
 aa.alta_login("asd")
@@ -32,7 +32,7 @@ bb.alta_login("zxc")
 cc=us.usuarios("nicolas","rija","789",0,"asistente","1999/04/26")
 cc.alta_usuario()
 cc.alta_login("qwe")
-"""
+
 """
 dd=pr.productos("123","leche","serenisima","10","clasica","...","147","2021/07/25",1,0,0)
 dd.alta_producto()
