@@ -4,8 +4,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
 from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
 from PyQt5.QtWidgets import * 
-sys.path.append("C:\\proyecto-final\\CLASES\\")
-import productos as p
+sys.path.append(".")
+from CLASES import productos as p
 
 #GUI File
 from main import Ui_MainWindow
@@ -42,7 +42,7 @@ class Main(QMainWindow):
         # PRODUCTOS 
         self.ui.btn_productos.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_productos))
         self.ui.label_productos.mousePressEvent = self.clickP
-        self.listarProductos()
+        self.ui.pushButton.clicked.connect(self.listarProductos)
         # DEPOSITO 
         self.ui.btn_depositos.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_depositos))
         self.ui.label_deposito.mousePressEvent = self.clickD
@@ -65,9 +65,11 @@ class Main(QMainWindow):
 
     def listarProductos(self):
        users = p.listar_prod2()
+       print("aca",users)
        self.ui.tableWidget.setRowCount(10)
        tableRow = 0
        for row in users:
+          print("si",row)
           self.ui.tableWidget.setItem(tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
 
           tableRow += 1 
