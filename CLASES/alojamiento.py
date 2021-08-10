@@ -42,59 +42,57 @@ class alojamiento:
     def ab_alojamiento(self,codigo):
         a=c.start_connection()
         cursor=a.cursor()
-        if c.controlador(codigo,"alojamiento","codigo") == 1:
-            try: 
-                query = "UPDATE alojaminto set disponibilidad= IF(disponibilidad = '0', disponibilidad + 1, disponibilidad-1) WHERE codigo=%s"
-                values = codigo
-                cursor.execute(query, values)
-                a.commit()
-                print("se MODIFICO alojamiento correctamente")
-            except pymysql.err.OperationalError as err:
-                print("Hubo un error:", err)
+        try: 
+            query = "UPDATE alojaminto set disponibilidad= IF(disponibilidad = '0', disponibilidad + 1, disponibilidad-1) WHERE codigo=%s"
+            values = codigo
+            cursor.execute(query, values)
+            a.commit()
+            print("se MODIFICO alojamiento correctamente")
+        except pymysql.err.OperationalError as err:
+            print("Hubo un error:", err)
         c.close_connection(a)
 
     def importar_datos_alojamiento(self,codigo):
             a=c.start_connection()
             cursor=a.cursor()
-            if c.controlador(codigo,"alojaminto","codigo") ==1:
-                try:
-                    self.codigo=codigo
-                    query = "SELECT dimensiones FROM alojamiento WHERE codigo=%s"
-                    values = codigo
-                    cursor.execute(query, values)
-                    a.commit()
-                    b=cursor.fetchall() 
-                    self.nombre=str(b[0][0]) 
-                    query = "SELECT disponibilidad FROM alojamiento WHERE codigo=%s"
-                    values = codigo
-                    cursor.execute(query, values)
-                    a.commit()
-                    b=cursor.fetchall() 
-                    self.marca=str(b[0][0]) 
-                    query = "SELECT posicion FROM alojamiento WHERE codigo=%s"
-                    values = codigo
-                    cursor.execute(query, values)
-                    a.commit()
-                    b=cursor.fetchall() 
-                    self.cantidad=str(b[0][0]) 
-                    query = "SELECT refrijeracion FROM alojamiento WHERE codigo=%s"
-                    values = codigo
-                    cursor.execute(query, values)
-                    a.commit()
-                    b=cursor.fetchall() 
-                    self.descripcion=str(b[0][0]) 
-                    query = "SELECT limite FROM alojamiento WHERE codigo=%s"
-                    values = codigo
-                    cursor.execute(query, values)
-                    a.commit()
-                    b=cursor.fetchall() 
-                    self.foto=str(b[0][0]) 
-                    print("se importo alojamiento correctamente")
-                except pymysql.err.OperationalError as err:
-                    print("Hubo un error:", err)
+            try:
+                self.codigo=codigo
+                query = "SELECT dimensiones FROM alojamiento WHERE codigo=%s"
+                values = codigo
+                cursor.execute(query, values)
+                a.commit()
+                b=cursor.fetchall() 
+                self.nombre=str(b[0][0]) 
+                query = "SELECT disponibilidad FROM alojamiento WHERE codigo=%s"
+                values = codigo
+                cursor.execute(query, values)
+                a.commit()
+                b=cursor.fetchall() 
+                self.marca=str(b[0][0]) 
+                query = "SELECT posicion FROM alojamiento WHERE codigo=%s"
+                values = codigo
+                cursor.execute(query, values)
+                a.commit()
+                b=cursor.fetchall() 
+                self.cantidad=str(b[0][0]) 
+                query = "SELECT refrijeracion FROM alojamiento WHERE codigo=%s"
+                values = codigo
+                cursor.execute(query, values)
+                a.commit()
+                b=cursor.fetchall() 
+                self.descripcion=str(b[0][0]) 
+                query = "SELECT limite FROM alojamiento WHERE codigo=%s"
+                values = codigo
+                cursor.execute(query, values)
+                a.commit()
+                b=cursor.fetchall() 
+                self.foto=str(b[0][0]) 
+                print("se importo alojamiento correctamente")
+            except pymysql.err.OperationalError as err:
+                print("Hubo un error:", err)
             c.close_connection(a)
 
-    def mostrar_datos_alojamiento(self,codigo):
+    def mostrar_datos_alojamiento_importado(self,codigo):
         #a=c.start_connection()
         #cursor=a.cursor()
         self.importar_datos_alojamiento(codigo)
@@ -134,46 +132,74 @@ class alojamiento:
                 print("Hubo un error:", err)
             c.close_connection(a)
 
-    def listar_alojamiento(self):
-        a=c.start_connection()
-        cursor=a.cursor()
-        try:
-            query = "SELECT COUNT (*) FROM alojamiento"
-            #values =
-            cursor.execute(query)
-            a.commit()
-            n=int(cursor.fetchall())
-            i=0
-            ii=0
-            while i<n:
-                query = "SELECT codigo FROM productos WHERE idproductos = %s"
-                values = ii
-                cursor.execute(query,values)
-                a.commit()
-                codigo=cursor.fetchall()
-                codigo=str(codigo[0][0])
-                if self.mostrar_datos_alojamiento(codigo) != NoReturn:
-
-                    ii=ii+1
-                else:
-                    i=i+1
-        except pymysql.err.OperationalError as err:
-            print("Hubo un error:", err)
-        c.close_connection(a)
 
     def ab_refrigeracion(self,codigo):
         a=c.start_connection()
         cursor=a.cursor()
-        if c.controlador(codigo,"alojamiento","codigo") == 1:
-            try: 
-                query = "UPDATE alojaminto set refrigeracion= IF(refrigeracion = '0', refrigeracion + 1, refrigeracion-1) WHERE codigo=%s"
-                values = codigo
-                cursor.execute(query, values)
-                a.commit()
-                print("se MODIFICO alojamiento correctamente")
-            except pymysql.err.OperationalError as err:
-                print("Hubo un error:", err)
+        try: 
+            query = "UPDATE alojaminto set refrigeracion= IF(refrigeracion = '0', refrigeracion + 1, refrigeracion-1) WHERE codigo=%s"
+            values = codigo
+            cursor.execute(query, values)
+            a.commit()
+            print("se MODIFICO alojamiento correctamente")
+        except pymysql.err.OperationalError as err:
+            print("Hubo un error:", err)
         c.close_connection(a)
+
+    def buscar_aloj(param):
+        a = c.start_connection()
+        cursor = a.cursor()
+        query = ("SELECT codigo,dimensiones,disponibilidad,posicion,refrigeracion FROM alojamiento WHERE codigo=%s")
+        cursor.execute(query, (param, param,param,param))
+        data = cursor.fetchall()
+        a.commit()
+        return data
+
+    def buscar_aloj_rows(param):
+        a = c.start_connection()
+        cursor = a.cursor()
+        query = ("SELECT codigo,dimensiones,disponibilidad,posicion,refrigeracion FROM alojamiento WHERE codigo=%s")
+        data = cursor.execute(query, (param, param,param,param))
+        a.commit()
+        return data
+
+    def mostrar_aloj(codigo):
+        a = c.start_connection()
+        cursor = a.cursor()
+        query = ("SELECT codigo,dimensiones,disponibilidad,posicion,refrigeracion FROM alojamiento WHERE codigo=%s")
+        cursor.execute(query,codigo)
+        data = cursor.fetchall()
+        a.commit()
+        return data
+
+    
+    def listar_alojamiento():
+        a = c.start_connection()
+        cursor = a.cursor()
+        try:
+            query = "SELECT codigo,dimensiones,disponibilidad,posicion,refrigeracion FROM alojamiento"
+            cursor.execute(query)
+            productos = cursor.fetchall()
+
+            a.commit()
+        except pymysql.err.OperationalError as err:
+            print("Hubo un error:", err)
+        c.close_connection(a)
+        print(productos)
+        return productos
+
+    def contar_filas():
+        a = c.start_connection()
+        cursor = a.cursor()
+        query = "SELECT COUNT(*) FROM alojamiento"
+        cursor.execute(query)
+        a.commit()
+        b = cursor.fetchall()
+        b = str(b[0][0])
+        n = int(b)
+        c.close_connection(a)
+        return n
+
 
 
 
