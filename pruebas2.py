@@ -2,8 +2,8 @@ from CLASES.productos import productos
 import pruebas as p
 #p.crear_vector()
 import sys
-#sys.path.append("C:\\proyecto-final\\DB\\")
-#import conexion as c
+sys.path.append("C:\\proyecto-final\\DB\\")
+import conexion as c
 #a=c.start_connection()
 #c.borrar_tabla()
 #c.crear_tabla()
@@ -42,10 +42,10 @@ ee=pr.productos("124","yerba","canaria","100","0000","...","258","2021/09/10",0,
 dd.alta_producto()
 ff=pr.productos("476","salame","paladini","50","integral","...","369","2021/08/05",0,0,0)
 ff.alta_producto()
+"""
 
-
-#lista=productos.buscar_productos("queso")
-#print(lista)
+lista=productos.buscar_productos()
+print(lista)
 
 
 #gg=mz.matriz(3,3,3)
@@ -68,7 +68,7 @@ ff.alta_producto()
 #from DB import login as log
 #log.log_in(132,132)
 
-
+"""
 """ aa=15
 bb=16
 cc=20
