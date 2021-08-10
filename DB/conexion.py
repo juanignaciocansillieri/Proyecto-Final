@@ -18,7 +18,7 @@ def start_connection():  # inicia conexion a db
         print(con, "\nse creo conexion")
     except pymysql.err.OperationalError as err:
         print("Hubo un error:", err)
-
+        
     return con
 
 

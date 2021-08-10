@@ -147,91 +147,91 @@ class productos:
         cursor=a.cursor()
         if c.controlador(codigo,"productos","codigo") ==1:
         #self.importar_datos_product(codigo) prefiero usar los 2 comandos por aparte
-        query = "SELECT nombre FROM productos WHERE codigo=%s"
-        values = codigo
-        cursor.execute(query, values)
-        a.commit()
-        b=cursor.fetchall() 
-        nombre=str(b[0][0]) 
-        query = "SELECT marca FROM productos WHERE codigo=%s"
-        values = codigo
-        cursor.execute(query, values)
-        a.commit()
-        b=cursor.fetchall() 
-        marca=str(b[0][0]) 
-        query = "SELECT cantidad FROM productosWHERE codigo=%s"
-        values = codigo
-        cursor.execute(query, values)
-        a.commit()
-        b=cursor.fetchall() 
-        cantidad=str(b[0][0]) 
-        query = "SELECT descripcion FROM productos WHERE codigo=%s"
-        values = codigo
-        cursor.execute(query, values)
-        a.commit()
-        b=cursor.fetchall() 
-        descripcion=str(b[0][0]) 
-        query = "SELECT foto FROM productos WHERE codigo=%s"
-        values = codigo
-        cursor.execute(query, values)
-        a.commit()
-        b=cursor.fetchall() 
-        foto=str(b[0][0]) 
-        query = "SELECT lote FROM productos WHERE codigo=%s"
-        values = codigo
-        cursor.execute(query, values)
-        a.commit()
-        b=cursor.fetchall() 
-        lote=str(b[0][0]) 
-        query = "SELECT vencimiemto FROM productos WHERE codigo=%s"
-        values = codigo
-        cursor.execute(query, values)
-        a.commit()
-        b=cursor.fetchall() 
-        vencimiento=str(b[0][0]) 
-        query = "SELECT refrigeracion FROM productos WHERE codigo=%s"
-        values = codigo
-        cursor.execute(query, values)
-        a.commit()
-        b=cursor.fetchall() 
-        refrigeracion=str(b[0][0]) 
-        query = "SELECT inflamable FROM productos WHERE codigo=%s"
-        values = codigo
-        cursor.execute(query, values)
-        a.commit()
-        b=cursor.fetchall() 
-        inflamable=str(b[0][0]) 
-        query = "SELECT fragil FROM productos WHERE codigo=%s"
-        values = codigo
-        cursor.execute(query, values)
-        a.commit()
-        b=cursor.fetchall() 
-        fragil=str(b[0][0])
-        query = "SELECT ubicacion FROM productos WHERE codigo=%s"
-        values = codigo
-        cursor.execute(query, values)
-        a.commit()
-        b=cursor.fetchall() 
-        ubicacion=str(b[0][0])  
-        try:
-            if fragil=="1":
-                fragil="fragil"
-            else:
-                fragil="no fragil"
-            if refrigeracion=="1":
-                refrigeracion="refrigerado"
-            else:
-                refrigeracion="no refrigerado"
-            if inflamable=="1":
-                inflamable="inflamable"
-            else:
-                inflamable="no inflamable"
-            
-            print("\ncodigo: ",codigo,"\nnombre: ",nombre,"\nmarca: ",marca,"\ncantidad: ",cantidad,"\ndescripcion: ",descripcion,"\nubicacion: ",ubicacion,"\nfoto: ",foto,"\nlote: ",lote,"\nvencimiento: ",vencimiento,"\nrefrigeracion: ",refrigeracion,"\ninflamable: ",inflamable,"\nfragil: ",fragil)
-        except pymysql.err.OperationalError as err:
-            print("Hubo un error:", err)
-        #c.close_connection(a)
-        return 0
+            query= "SELECT nombre FROM productos WHERE codigo=%s"
+            values = codigo
+            cursor.execute(query, values)
+            a.commit()
+            b=cursor.fetchall() 
+            nombre=str(b[0][0]) 
+            query = "SELECT marca FROM productos WHERE codigo=%s"
+            values = codigo
+            cursor.execute(query, values)
+            a.commit()
+            b=cursor.fetchall() 
+            marca=str(b[0][0]) 
+            query = "SELECT cantidad FROM productosWHERE codigo=%s"
+            values = codigo
+            cursor.execute(query, values)
+            a.commit()
+            b=cursor.fetchall() 
+            cantidad=str(b[0][0]) 
+            query = "SELECT descripcion FROM productos WHERE codigo=%s"
+            values = codigo
+            cursor.execute(query, values)
+            a.commit()
+            b=cursor.fetchall() 
+            descripcion=str(b[0][0]) 
+            query = "SELECT foto FROM productos WHERE codigo=%s"
+            values = codigo
+            cursor.execute(query, values)
+            a.commit()
+            b=cursor.fetchall() 
+            foto=str(b[0][0]) 
+            query = "SELECT lote FROM productos WHERE codigo=%s"
+            values = codigo
+            cursor.execute(query, values)
+            a.commit()
+            b=cursor.fetchall() 
+            lote=str(b[0][0]) 
+            query = "SELECT vencimiemto FROM productos WHERE codigo=%s"
+            values = codigo
+            cursor.execute(query, values)
+            a.commit()
+            b=cursor.fetchall() 
+            vencimiento=str(b[0][0]) 
+            query = "SELECT refrigeracion FROM productos WHERE codigo=%s"
+            values = codigo
+            cursor.execute(query, values)
+            a.commit()
+            b=cursor.fetchall() 
+            refrigeracion=str(b[0][0]) 
+            query = "SELECT inflamable FROM productos WHERE codigo=%s"
+            values = codigo
+            cursor.execute(query, values)
+            a.commit()
+            b=cursor.fetchall() 
+            inflamable=str(b[0][0]) 
+            query = "SELECT fragil FROM productos WHERE codigo=%s"
+            values = codigo
+            cursor.execute(query, values)
+            a.commit()
+            b=cursor.fetchall() 
+            fragil=str(b[0][0])
+            query = "SELECT ubicacion FROM productos WHERE codigo=%s"
+            values = codigo
+            cursor.execute(query, values)
+            a.commit()
+            b=cursor.fetchall() 
+            ubicacion=str(b[0][0])  
+            try:
+                if fragil=="1":
+                    fragil="fragil"
+                else:
+                    fragil="no fragil"
+                if refrigeracion=="1":
+                    refrigeracion="refrigerado"
+                else:
+                    refrigeracion="no refrigerado"
+                if inflamable=="1":
+                    inflamable="inflamable"
+                else:
+                    inflamable="no inflamable"
+                
+                print("\ncodigo: ",codigo,"\nnombre: ",nombre,"\nmarca: ",marca,"\ncantidad: ",cantidad,"\ndescripcion: ",descripcion,"\nubicacion: ",ubicacion,"\nfoto: ",foto,"\nlote: ",lote,"\nvencimiento: ",vencimiento,"\nrefrigeracion: ",refrigeracion,"\ninflamable: ",inflamable,"\nfragil: ",fragil)
+            except pymysql.err.OperationalError as err:
+                print("Hubo un error:", err)
+            #c.close_connection(a)
+            return 0
 
 
     def modificar_produc(self,codigo,nombre,marca,cantidad,descripcion,foto,lote,vencimiento,refrigeracion,inflamable,fragil):
