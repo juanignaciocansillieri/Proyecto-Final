@@ -41,7 +41,13 @@ dd.alta_producto()
 ff=pr.productos("789","fideos","gallo","50","integral","...","369","2021/08/05",0,0,0)
 ff.alta_producto()
 """
+
+lista=pr.listar_prod2()
+print(lista)
+
+
 #gg=mz.matriz(3,3,3)
+
 
 
 #al.generacion_posicion("12 1 5")
