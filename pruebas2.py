@@ -36,11 +36,11 @@ cc.alta_usuario()
 cc.alta_login("qwe")
 """
 
-dd=pr.productos("365","cacao","nesquick","10","clasica","...","147","2021/07/25",1,0,0)
+dd=pr.productos("365","queso","ilolay","10","clasica","...","147","2021/07/25",1,0,0)
 dd.alta_producto()
-ee=pr.productos("124","queso","finlandia","100","0000","...","258","2021/09/10",0,0,0)
+ee=pr.productos("124","yerba","canaria","100","0000","...","258","2021/09/10",0,0,0)
 dd.alta_producto()
-ff=pr.productos("476","jamon","paladini","50","integral","...","369","2021/08/05",0,0,0)
+ff=pr.productos("476","salame","paladini","50","integral","...","369","2021/08/05",0,0,0)
 ff.alta_producto()
 
 
