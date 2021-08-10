@@ -63,25 +63,6 @@
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QLabel" name="img_producto">
-          <property name="geometry">
-           <rect>
-            <x>240</x>
-            <y>20</y>
-            <width>251</width>
-            <height>221</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="Imágenes .PNG Oficiales/img_oficiales.qrc">:/cct/arroz.jpg</pixmap>
-          </property>
-          <property name="scaledContents">
-           <bool>true</bool>
-          </property>
-         </widget>
         </widget>
        </item>
        <item>
