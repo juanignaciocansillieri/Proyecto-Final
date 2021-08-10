@@ -400,33 +400,7 @@ class productos:
                 print("Hubo un error:", err)
         c.close_connection(a)
 
-    def listar_prod(self):
-        a = c.start_connection()
-        cursor = a.cursor()
-        try:
-            query = "SELECT COUNT (*) FROM productos"
-            # values =
-            cursor.execute(query)
-            a.commit()
-            n = int(cursor.fetchall())
-            i = 0
-            ii = 0
-            while i < n:
-                query = "SELECT codigo FROM productos WHERE idproductos = %s"
-                values = i
-                cursor.execute(query, values)
-                a.commit()
-                codigo = cursor.fetchall()
-                codigo = str(codigo[0][0])
-                self.mostrar_datos_product(codigo)
-                i=i+1
-                """if self.mostrar_datos_product(codigo) != NoReturn:
-                    ii = ii+1
-                else:
-                    i = i+1"""
-        except pymysql.err.OperationalError as err:
-            print("Hubo un error:", err)
-        c.close_connection(a)
+    
 
 
     def buscar_productos(self,codigo):
@@ -604,15 +578,43 @@ def listar_prod2():
     try:
         query = "SELECT codigo,nombre,marca,cantidad,vencimiento FROM productos"
         cursor.execute(query)
-        a.commit()
         p=""
         for product in cursor.fetchall():
-            p+=str(product)
+            p+="\n"+str(product)
         a.commit()
+        
     except pymysql.err.OperationalError as err:
         print("Hubo un error:", err)
     c.close_connection(a)
     return p
+
+def listar_prod(self):
+        a = c.start_connection()
+        cursor = a.cursor()
+        try:
+            query = "SELECT COUNT (*) FROM productos"
+            # values =
+            cursor.execute(query)
+            a.commit()
+            n = int(cursor.fetchall())
+            i = 0
+            ii = 0
+            while i < n:
+                query = "SELECT codigo FROM productos WHERE idproductos = %s"
+                values = i
+                cursor.execute(query, values)
+                a.commit()
+                codigo = cursor.fetchall()
+                codigo = str(codigo[0][0])
+                self.mostrar_datos_product(codigo)
+                i=i+1
+                """if self.mostrar_datos_product(codigo) != NoReturn:
+                    ii = ii+1
+                else:
+                    i = i+1"""
+        except pymysql.err.OperationalError as err:
+            print("Hubo un error:", err)
+        c.close_connection(a)
 
 
 
