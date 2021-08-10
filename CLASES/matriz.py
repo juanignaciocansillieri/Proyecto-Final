@@ -128,6 +128,15 @@ class matriz:
             print("Hubo un error:", err)
         c.close_connection(a)
 
+    def mostrar_datos_matriz():
+        a = c.start_connection()
+        cursor = a.cursor()
+        query = ("SELECT filas,columnas,altura FROM datosmatriz")
+        cursor.execute(query)
+        data = cursor.fetchall()
+        a.commit()
+        return data
+
     def modificar_matriz(self,filas,columnas,altura):
         if self.filas<filas or self.columnas<columnas or self.altura<altura:
             self.importar_datos_matriz()
@@ -203,82 +212,61 @@ class matriz:
                 i=i+1
                 j=0
 
-    def mostrar_datos_ubicaciones(self,codigo):
-        self.importar_datos_alojamiento(codigo)
-        try:
-            
-            
-            a=c.start_connection()
-            cursor=a.cursor()
-            if c.controlador(codigo,"matriz","codigo") ==1:
-                query = "SELECT codigo FROM matriz WHERE codigo=%s"
-                values = codigo
-                cursor.execute(query, values)
-                a.commit()
-                b=cursor.fetchall() 
-                codigo=str(b[0][0]) 
-                query = "SELECT fila FROM matriz WHERE codigo=%s"
-                values = codigo
-                cursor.execute(query, values)
-                a.commit()
-                b=cursor.fetchall() 
-                fila=str(b[0][0])
-                query = "SELECT fila FROM matriz WHERE codigo=%s"
-                values = codigo
-                cursor.execute(query, values)
-                a.commit()
-                b=cursor.fetchall() 
-                columna=str(b[0][0])
-                query = "SELECT fila FROM matriz WHERE codigo=%s"
-                values = codigo
-                cursor.execute(query, values)
-                a.commit()
-                b=cursor.fetchall() 
-                altura=str(b[0][0])
-                query = "SELECT fila FROM matriz WHERE codigo=%s"
-                values = codigo
-                cursor.execute(query, values)
-                a.commit()
-                b=cursor.fetchall() 
-                disponibilidad=str(b[0][0])
-                if disponibilidad=="1":
-                    disponibilidad="disponible"
-                else:
-                    disponibilidad="no disponible"
-
-
-
-            print("\ncodigo: ",self.codigo,"\nfila: ",fila,"\ncolumna: ",columna,"\naltura: ",altura,"\ndisponibilidad: ",disponibilidad)
-        except pymysql.err.OperationalError as err:
-            print("Hubo un error:", err)
-        #c.close_connection(a)
-        return 0
         
-    def listar_matriz(self):
-        a=c.start_connection()
-        cursor=a.cursor()
+    
+    def buscar_matriz(param):
+        a = c.start_connection()
+        cursor = a.cursor()
+        query = ("SELECT codigo,fila,columna,altura,disponibilidad FROM matriz WHERE codigo=%s")
+        cursor.execute(query, (param, param,param,param))
+        data = cursor.fetchall()
+        a.commit()
+        return data
+
+    def buscar_matriz_rows(param):
+        a = c.start_connection()
+        cursor = a.cursor()
+        query = ("SELECT codigo,fila,columna,altura,disponibilidad FROM matriz WHERE codigo=%s")
+        data = cursor.execute(query, (param, param,param,param))
+        a.commit()
+        return data
+
+    def mostrar_matriz(codigo):
+        a = c.start_connection()
+        cursor = a.cursor()
+        query = ("SELECT codigo,fila,columna,altura,disponibilidad FROM matriz WHERE codigo=%s")
+        cursor.execute(query,codigo)
+        data = cursor.fetchall()
+        a.commit()
+        return data
+
+    
+    def listar_matriz():
+        a = c.start_connection()
+        cursor = a.cursor()
         try:
-            query = "SELECT COUNT (*) FROM matriz"
-            #values =
+            query = "SELECT codigo,fila,columna,altura,disponibilidad FROM matriz"
             cursor.execute(query)
+            productos = cursor.fetchall()
+
             a.commit()
-            n=int(cursor.fetchall())
-            i=0
-            ii=0
-            while i<n:
-                query = "SELECT codigo FROM matriz WHERE idproductos = %s"
-                values = ii
-                cursor.execute(query,values)
-                a.commit()
-                codigo=cursor.fetchall()
-                codigo=str(codigo[0][0])
-                if self.mostrar_datos_matriz(codigo) != pymysql.NULL:
-                    ii=ii+1
-                else:
-                    i=i+1
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
         c.close_connection(a)
+        print(productos)
+        return productos
+
+    def contar_filas():
+        a = c.start_connection()
+        cursor = a.cursor()
+        query = "SELECT COUNT(*) FROM matriz"
+        cursor.execute(query)
+        a.commit()
+        b = cursor.fetchall()
+        b = str(b[0][0])
+        n = int(b)
+        c.close_connection(a)
+        return n
 
 
 
