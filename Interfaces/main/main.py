@@ -14,16 +14,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1133, 542)
+        MainWindow.resize(1134, 542)
         MainWindow.setStyleSheet("background-color: rgb(45, 45, 45);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setMinimumSize(QtCore.QSize(1000, 500))
         self.centralwidget.setObjectName("centralwidget")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout.setSpacing(0)
-        self.verticalLayout.setObjectName("verticalLayout")
         self.Top_Bar = QtWidgets.QFrame(self.centralwidget)
+        self.Top_Bar.setGeometry(QtCore.QRect(0, 0, 1133, 45))
         self.Top_Bar.setMinimumSize(QtCore.QSize(0, 45))
         self.Top_Bar.setMaximumSize(QtCore.QSize(16777215, 45))
         self.Top_Bar.setStyleSheet("background-color: #12151a;\n"
@@ -36,16 +33,16 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.label = QtWidgets.QLabel(self.Top_Bar)
-        self.label.setMinimumSize(QtCore.QSize(0, 49))
-        self.label.setMaximumSize(QtCore.QSize(200, 63))
+        self.label.setMinimumSize(QtCore.QSize(0, 45))
+        self.label.setMaximumSize(QtCore.QSize(200, 51))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap(":/cct/Logo.png"))
+        self.label.setPixmap(QtGui.QPixmap(":/cct/logo-18.png"))
         self.label.setScaledContents(True)
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.horizontalLayout.addWidget(self.label)
-        self.verticalLayout.addWidget(self.Top_Bar)
         self.Content = QtWidgets.QFrame(self.centralwidget)
+        self.Content.setGeometry(QtCore.QRect(0, 45, 1133, 497))
         self.Content.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.Content.setFrameShadow(QtWidgets.QFrame.Raised)
         self.Content.setObjectName("Content")
@@ -268,6 +265,8 @@ class Ui_MainWindow(object):
         self.page_productos = QtWidgets.QWidget()
         self.page_productos.setObjectName("page_productos")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.page_productos)
+        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_3.setSpacing(0)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.frame = QtWidgets.QFrame(self.page_productos)
         self.frame.setMinimumSize(QtCore.QSize(0, 503))
@@ -283,6 +282,8 @@ class Ui_MainWindow(object):
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
         self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.frame_2)
+        self.verticalLayout_6.setContentsMargins(9, 9, 9, 9)
+        self.verticalLayout_6.setSpacing(6)
         self.verticalLayout_6.setObjectName("verticalLayout_6")
         self.groupBox = QtWidgets.QGroupBox(self.frame_2)
         self.groupBox.setMinimumSize(QtCore.QSize(990, 50))
@@ -324,8 +325,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_6.addWidget(self.groupBox, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
         self.verticalLayout_5.addWidget(self.frame_2, 0, QtCore.Qt.AlignTop)
         self.tableWidget = QtWidgets.QTableWidget(self.frame)
-        self.tableWidget.setMinimumSize(QtCore.QSize(0, 334))
-        self.tableWidget.setMaximumSize(QtCore.QSize(1000, 16777215))
+        self.tableWidget.setMinimumSize(QtCore.QSize(800, 300))
+        self.tableWidget.setMaximumSize(QtCore.QSize(16777215, 500))
         self.tableWidget.setStyleSheet("QTableWidget{\n"
 "color:#fff;\n"
 "font-size: 20px;\n"
@@ -372,10 +373,11 @@ class Ui_MainWindow(object):
         self.tableWidget.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(4, item)
-        self.tableWidget.horizontalHeader().setDefaultSectionSize(178)
+        self.tableWidget.horizontalHeader().setDefaultSectionSize(180)
         self.tableWidget.horizontalHeader().setHighlightSections(False)
         self.tableWidget.verticalHeader().setVisible(False)
-        self.tableWidget.verticalHeader().setMinimumSectionSize(48)
+        self.tableWidget.verticalHeader().setDefaultSectionSize(30)
+        self.tableWidget.verticalHeader().setMinimumSectionSize(23)
         self.verticalLayout_5.addWidget(self.tableWidget)
         self.frame_3 = QtWidgets.QFrame(self.frame)
         self.frame_3.setMinimumSize(QtCore.QSize(0, 66))
@@ -437,7 +439,7 @@ class Ui_MainWindow(object):
         self.page_usuarios = QtWidgets.QWidget()
         self.page_usuarios.setObjectName("page_usuarios")
         self.frame_usuarios = QtWidgets.QFrame(self.page_usuarios)
-        self.frame_usuarios.setGeometry(QtCore.QRect(-10, 0, 1061, 503))
+        self.frame_usuarios.setGeometry(QtCore.QRect(-10, 0, 1081, 503))
         self.frame_usuarios.setMinimumSize(QtCore.QSize(0, 503))
         self.frame_usuarios.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_usuarios.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -563,7 +565,6 @@ class Ui_MainWindow(object):
         self.Pages_Widget.addWidget(self.page_usuarios)
         self.verticalLayout_4.addWidget(self.Pages_Widget)
         self.horizontalLayout_2.addWidget(self.frame_pages)
-        self.verticalLayout.addWidget(self.Content)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -610,7 +611,7 @@ class Ui_MainWindow(object):
         item = self.tableWidget_2.horizontalHeaderItem(4)
         item.setText(_translate("MainWindow", "Puesto"))
         self.pushButton_usuarios_2.setText(_translate("MainWindow", "Crear nuevo usuario"))
-import img_oficiales_rc
+import img.img
 
 
 if __name__ == "__main__":
