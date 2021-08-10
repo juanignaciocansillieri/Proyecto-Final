@@ -1,6 +1,5 @@
 
 
-import conexion as c
 import sys
 from sys import setprofile
 from typing import NoReturn
@@ -8,6 +7,7 @@ import pymysql
 import os
 #import alojamiento as aloj
 sys.path.append("C:\\proyecto-final\\DB\\")
+import conexion as c
 
 
 class productos():
@@ -582,6 +582,14 @@ class productos():
         data = cursor.fetchall()
         a.commit()
         return data
+    def buscar_product_rows(param):
+        a = c.start_connection()
+        cursor = a.cursor()
+        query = ("SELECT codigo,nombre,marca,cantidad,vencimiento FROM productos WHERE codigo=%s or nombre=%s or marca=%s or  cantidad=%s")
+        data = cursor.execute(query, (param, param,param,param))
+        a.commit()
+        return data
+
 
 
 def listar_prod():

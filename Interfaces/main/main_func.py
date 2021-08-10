@@ -42,7 +42,9 @@ class Main(QMainWindow):
         # PRODUCTOS 
         self.ui.btn_productos.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_productos))
         self.ui.label_productos.mousePressEvent = self.clickP
+        #Listamos productos al iniciar la ventana
         self.listarProductos()
+        #buscamos productos a traves del buscador
         self.ui.pushButton.clicked.connect(self.buscarProducto)
         #self.ui.pushButton.clicked.connect(self.listarProductos)
         # DEPOSITO 
@@ -82,8 +84,9 @@ class Main(QMainWindow):
     def buscarProducto(self):
        parametro = self.ui.lineEdit.text()
        products = p.productos.buscar_product(parametro)
+       n = p.productos.buscar_product_rows(parametro)
        print(products)
-       self.ui.tableWidget.setRowCount(1)
+       self.ui.tableWidget.setRowCount(n)
        tableRow = 0
        for row in products:
           
