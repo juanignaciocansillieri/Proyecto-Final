@@ -578,15 +578,15 @@ def listar_prod2():
     try:
         query = "SELECT codigo,nombre,marca,cantidad,vencimiento FROM productos"
         cursor.execute(query)
-        p=""
-        for product in cursor.fetchall():
-            p+="\n"+str(product)
+        productos = cursor.fetchall()
+        
         a.commit()
         
     except pymysql.err.OperationalError as err:
         print("Hubo un error:", err)
     c.close_connection(a)
-    return p
+    print(productos)
+    return productos
 
 def listar_prod(self):
         a = c.start_connection()

@@ -42,7 +42,8 @@ class Main(QMainWindow):
         # PRODUCTOS 
         self.ui.btn_productos.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_productos))
         self.ui.label_productos.mousePressEvent = self.clickP
-        self.ui.pushButton.clicked.connect(self.listarProductos)
+        self.listarProductos()
+        #self.ui.pushButton.clicked.connect(self.listarProductos)
         # DEPOSITO 
         self.ui.btn_depositos.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_depositos))
         self.ui.label_deposito.mousePressEvent = self.clickD
@@ -64,12 +65,14 @@ class Main(QMainWindow):
    #Listar productos from DB
 
     def listarProductos(self):
-       users = p.listar_prod2()
-       print("aca",users)
+       products = p.listar_prod2()
        self.ui.tableWidget.setRowCount(10)
        tableRow = 0
-       for row in users:
-          print("si",row)
+       for row in products:
           self.ui.tableWidget.setItem(tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
+          self.ui.tableWidget.setItem(tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
+          self.ui.tableWidget.setItem(tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
+          self.ui.tableWidget.setItem(tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+          self.ui.tableWidget.setItem(tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
 
           tableRow += 1 
