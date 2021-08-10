@@ -144,8 +144,6 @@ def verificar_usuario(cod,password):
         db.close_connection(c)
         return (o)  
  
-a = verificar_usuario(int("1"),"asd123")
-print(a)
 
 def mostrar_usuario(nombre,apellido):
     a=db.start_connection()

@@ -1,10 +1,12 @@
+import sys
 from sys import setprofile
 from typing import NoReturn
 import pymysql
 import os
-from DB import conexion as c
 import numpy as np
-from CLASES import matriz as mz
+import matriz as mz
+sys.path.append("C:\\proyecto-final\\DB\\")
+import conexion as c
 
 class alojamiento:
     def __init__(self,dimensiones,refrigeracion,limite):
