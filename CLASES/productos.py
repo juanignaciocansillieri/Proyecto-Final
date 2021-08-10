@@ -1,5 +1,6 @@
 
 
+import conexion as c
 import sys
 from sys import setprofile
 from typing import NoReturn
@@ -7,7 +8,6 @@ import pymysql
 import os
 #import alojamiento as aloj
 sys.path.append("C:\\proyecto-final\\DB\\")
-import conexion as c
 
 
 class productos():
@@ -483,7 +483,7 @@ class productos():
                     print("Hubo un error:", err)
             c.close_connection(a)
 
-            p = [str(codigo),nombre,marca,cantidad,descripcion,ubicacion ,foto,lote,vencimiento,refrigeracion,inflamable,fragil]
+            p = (str(codigo), nombre, marca, cantidad, vencimiento)
             return p
 
         else:
@@ -570,8 +570,18 @@ class productos():
                     print("Hubo un error:", err)
             c.close_connection(a)
 
-            p = [str(codigo),nombre,marca,cantidad,descripcion,ubicacion ,foto,lote,vencimiento,refrigeracion,inflamable,fragil]
+            p = [str(codigo), nombre, marca, cantidad, descripcion, ubicacion,
+                 foto, lote, vencimiento, refrigeracion, inflamable, fragil]
             return p
+
+    def buscar_product(param):
+        a = c.start_connection()
+        cursor = a.cursor()
+        query = ("SELECT codigo,nombre,marca,cantidad,vencimiento FROM productos WHERE codigo=%s or nombre=%s or marca=%s or  cantidad=%s")
+        cursor.execute(query, (param, param,param,param))
+        data = cursor.fetchall()
+        a.commit()
+        return data
 
 
 def listar_prod():

@@ -43,6 +43,7 @@ class Main(QMainWindow):
         self.ui.btn_productos.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_productos))
         self.ui.label_productos.mousePressEvent = self.clickP
         self.listarProductos()
+        self.ui.pushButton.clicked.connect(self.buscarProducto)
         #self.ui.pushButton.clicked.connect(self.listarProductos)
         # DEPOSITO 
         self.ui.btn_depositos.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_depositos))
@@ -70,6 +71,22 @@ class Main(QMainWindow):
        self.ui.tableWidget.setRowCount(n)
        tableRow = 0
        for row in products:
+          self.ui.tableWidget.setItem(tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
+          self.ui.tableWidget.setItem(tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
+          self.ui.tableWidget.setItem(tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
+          self.ui.tableWidget.setItem(tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+          self.ui.tableWidget.setItem(tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+
+          tableRow += 1 
+    
+    def buscarProducto(self):
+       parametro = self.ui.lineEdit.text()
+       products = p.productos.buscar_product(parametro)
+       print(products)
+       self.ui.tableWidget.setRowCount(1)
+       tableRow = 0
+       for row in products:
+          
           self.ui.tableWidget.setItem(tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
           self.ui.tableWidget.setItem(tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
           self.ui.tableWidget.setItem(tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
