@@ -1,5 +1,5 @@
 
-from _typeshed import Self
+#from _typeshed import Self
 from sys import setprofile
 from typing import NoReturn
 import pymysql
@@ -15,7 +15,7 @@ class productos:
         self.marca = marca
         self.cantidad = cantidad
         self.descripcion = descripcion
-        self.ubicacion = aloj.asignacion_de_ubicacion()
+        self.ubicacion = 1 #aloj.asignacion_de_ubicacion()
         self.foto = foto
         self.lote = lote
         self.vencimiento = vencimiento
@@ -427,6 +427,7 @@ class productos:
             print("Hubo un error:", err)
         c.close_connection(a)
 
+
     def buscar_productos(self,codigo):
         try:
             int(codigo)
@@ -595,6 +596,22 @@ class productos:
                     print("Hubo un error:", err)
             c.close_connection(a)
             self.mostrar_datos_producto(codigo,nombre,marca,cantidad,descripcion,ubicacion,foto,lote,vencimiento,refrigeracion,inflamable,fragil)
+
+def listar_prod2():
+    a = c.start_connection()
+    cursor = a.cursor()
+    try:
+        query = "SELECT codigo,nombre,marca,cantidad,vencimiento FROM productos"
+        cursor.execute(query)
+        a.commit()
+        p=""
+        for product in cursor.fetchall():
+            p+=str(product)
+        a.commit()
+    except pymysql.err.OperationalError as err:
+        print("Hubo un error:", err)
+    c.close_connection(a)
+    return p
 
 
 
