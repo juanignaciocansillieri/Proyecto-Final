@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import index as i
+from DB import index as i
 import DB.db as db
 
 

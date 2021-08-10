@@ -1,10 +1,11 @@
+from CLASES.productos import productos
 import pruebas as p
 #p.crear_vector()
 import sys
-sys.path.append("C:\\proyecto-final\\DB\\")
-import conexion as c
+#sys.path.append("C:\\proyecto-final\\DB\\")
+#import conexion as c
 #a=c.start_connection()
-c.borrar_tabla()
+#c.borrar_tabla()
 #c.crear_tabla()
 #c.contar_filas_tabla()
 #c.close_connection()
@@ -16,11 +17,12 @@ c.borrar_tabla()
 #puesto=input("ingrese el peusto:")
 #nacimiento=input("ingrese el fecha de nacimiento:")
 
-from CLASES import usuarios as us
 from DB import loginDB as log
-from CLASES import productos as pr
-from CLASES import alojamiento as al
-from CLASES import matriz as mz
+sys.path.append("C:\\proyecto-final\\CLASES\\")
+import usuarios as us
+import productos as pr
+import alojamiento as al
+import matriz as mz
 
 """
 aa=us.usuarios("alex","arraya","123",1,"gerente","1999/05/14")
@@ -33,15 +35,21 @@ cc=us.usuarios("nicolas","rija","789",0,"asistente","1999/04/26")
 cc.alta_usuario()
 cc.alta_login("qwe")
 """
-"""
-dd=pr.productos("123","leche","serenisima","10","clasica","...","147","2021/07/25",1,0,0)
+
+dd=pr.productos("365","cacao","nesquick","10","clasica","...","147","2021/07/25",1,0,0)
 dd.alta_producto()
-ee=pr.productos("456","harina","harina","100","0000","...","258","2021/09/10",0,0,0)
+ee=pr.productos("124","queso","finlandia","100","0000","...","258","2021/09/10",0,0,0)
 dd.alta_producto()
-ff=pr.productos("789","fideos","gallo","50","integral","...","369","2021/08/05",0,0,0)
+ff=pr.productos("476","jamon","paladini","50","integral","...","369","2021/08/05",0,0,0)
 ff.alta_producto()
-"""
+
+
+#lista=productos.buscar_productos("queso")
+#print(lista)
+
+
 #gg=mz.matriz(3,3,3)
+
 
 
 #al.generacion_posicion("12 1 5")

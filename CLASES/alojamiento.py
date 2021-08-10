@@ -1,14 +1,16 @@
+import sys
 from sys import setprofile
 from typing import NoReturn
 import pymysql
 import os
-from DB import conexion as c
 import numpy as np
-from CLASES import matriz as mz
+import matriz as mz
+sys.path.append("C:\\proyecto-final\\DB\\")
+import conexion as c
 
 class alojamiento:
     def __init__(self,dimensiones,refrigeracion,limite):
-        self.codigo=mz.asignacion_de_posicion()
+        self.codigo= mz.asignacion_de_posicion()
         self.dimensiones=dimensiones
         self.disponibilidad=1
         self.posicion=self.generacion_posicion()
@@ -175,14 +177,14 @@ class alojamiento:
 
 
 
-
+"""
 def asignacion_de_ubicacion():
     a=c.start_connection()
     cursor=a.cursor()
     try:
-        query = "SELECT COUNT (*) FROM alojamiento where disponibilidad = 1"
-        #values =
-        cursor.execute(query)
+        query = "SELECT COUNT (*) FROM alojamiento where disponibilidad = %s"
+        values = 1
+        cursor.execute(query,values)
         a.commit()
         n=int(cursor.fetchall())
         i=0
@@ -206,4 +208,4 @@ def asignacion_de_ubicacion():
     except pymysql.err.OperationalError as err:
         print("Hubo un error:", err)
     c.close_connection(a)
-        
+        """

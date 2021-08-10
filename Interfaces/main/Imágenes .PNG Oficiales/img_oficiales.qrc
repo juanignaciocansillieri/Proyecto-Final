@@ -1,9 +1,10 @@
 <RCC>
   <qresource prefix="cct">
-    <file>Depósito.png</file>
+    <file>arroz.jpg</file>
     <file>Exit.png</file>
     <file>Iconos Ventana.png</file>
     <file>Logo.png</file>
+    <file>Deposito.png</file>
     <file>Lupa.png</file>
     <file>Menú.png</file>
     <file>Productos.png</file>
