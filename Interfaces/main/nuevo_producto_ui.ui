@@ -60,7 +60,7 @@
          <x>80</x>
          <y>90</y>
          <width>381</width>
-         <height>491</height>
+         <height>481</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -79,7 +79,7 @@ border-radius: 20px;</string>
           <x>20</x>
           <y>20</y>
           <width>341</width>
-          <height>461</height>
+          <height>431</height>
          </rect>
         </property>
         <layout class="QFormLayout" name="formLayout">
@@ -93,7 +93,7 @@ border-radius: 20px;</string>
           <number>0</number>
          </property>
          <property name="topMargin">
-          <number>22</number>
+          <number>7</number>
          </property>
          <property name="rightMargin">
           <number>0</number>
@@ -610,8 +610,8 @@ background:none;</string>
       <widget class="QPushButton" name="pushButton">
        <property name="geometry">
         <rect>
-         <x>220</x>
-         <y>600</y>
+         <x>340</x>
+         <y>590</y>
          <width>121</width>
          <height>31</height>
         </rect>
