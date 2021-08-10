@@ -1,4 +1,5 @@
 
+from _typeshed import Self
 from sys import setprofile
 from typing import NoReturn
 import pymysql
@@ -118,8 +119,8 @@ class productos:
             
     
     def mostrar_datos_product_importado(self):
-        #a=c.start_connection()
-        #cursor=a.cursor()
+        a=c.start_connection()
+        cursor=a.cursor()
         #if c.controlador(codigo,"productos","codigo") ==1:
         #self.importar_datos_product(codigo) prefiero usar los 2 comandos por aparte
         try:
@@ -134,7 +135,7 @@ class productos:
         #c.close_connection(a)
         return 0
     
-     
+
     def mostrar_datos_producto(self,codigo):
         a=c.start_connection()
         cursor=a.cursor()
@@ -273,8 +274,8 @@ class productos:
                 values = codigo
                 cursor.execute(query, values)
                 a.commit()
-                query = "UPDATE productos set vencimiemto=%s WHERE codigo=%s"
-                values = (vencimiento,self.codigo)
+                query = "SELECT refrigeracion FROM productos WHERE codigo=%s"
+                values = codigo
                 cursor.execute(query, values)
                 a.commit()
                 b = cursor.fetchall()
@@ -302,7 +303,7 @@ class productos:
                 print("Hubo un error:", err)
         c.close_connection(a)
 
-    def mostrar_datos_product(self, codigo):
+    """def mostrar_datos_product(self, codigo):
         # a=c.start_connection()
         # cursor=a.cursor()
         # if c.controlador(codigo,"productos","codigo") ==1:
@@ -326,7 +327,7 @@ class productos:
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
         # c.close_connection(a)
-        return 0
+        return 0"""
 
     def modificar_produc(self, codigo, nombre, marca, cantidad, descripcion, foto, lote, vencimiento, refrigeracion, inflamable, fragil):
         a = c.start_connection()
@@ -411,15 +412,17 @@ class productos:
             ii = 0
             while i < n:
                 query = "SELECT codigo FROM productos WHERE idproductos = %s"
-                values = ii
+                values = i
                 cursor.execute(query, values)
                 a.commit()
                 codigo = cursor.fetchall()
                 codigo = str(codigo[0][0])
-                if self.mostrar_datos_product(codigo) != NoReturn:
+                self.mostrar_datos_product(codigo)
+                i=i+1
+                """if self.mostrar_datos_product(codigo) != NoReturn:
                     ii = ii+1
                 else:
-                    i = i+1
+                    i = i+1"""
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
         c.close_connection(a)
