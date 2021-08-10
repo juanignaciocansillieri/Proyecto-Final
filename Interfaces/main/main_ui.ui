@@ -322,8 +322,8 @@ background-color: #23262b;
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="Imágenes .PNG Oficiales/img_oficiales.qrc">
-                 <normaloff>:/cct/Deposito.png</normaloff>:/cct/Deposito.png</iconset>
+                <iconset>
+                 <normaloff>:/cct/Depósito.png</normaloff>:/cct/Depósito.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -433,7 +433,7 @@ background-color: #23262b;
         <widget class="QFrame" name="slide_bar">
          <property name="minimumSize">
           <size>
-           <width>100</width>
+           <width>0</width>
            <height>741</height>
           </size>
          </property>
@@ -482,7 +482,7 @@ background-color: #23262b;
             <x>0</x>
             <y>130</y>
             <width>101</width>
-            <height>31</height>
+            <height>20</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -824,7 +824,7 @@ QHeaderView::section:vertical
                       </attribute>
                       <row>
                        <property name="text">
-                        <string>1</string>
+                        <string>0</string>
                        </property>
                       </row>
                       <column>
@@ -854,27 +854,27 @@ QHeaderView::section:vertical
                       </column>
                       <item row="0" column="0">
                        <property name="text">
-                        <string>332231</string>
+                        <string/>
                        </property>
                       </item>
                       <item row="0" column="1">
                        <property name="text">
-                        <string>Arroz</string>
+                        <string/>
                        </property>
                       </item>
                       <item row="0" column="2">
                        <property name="text">
-                        <string>Aro</string>
+                        <string/>
                        </property>
                       </item>
                       <item row="0" column="3">
                        <property name="text">
-                        <string>2kg</string>
+                        <string/>
                        </property>
                       </item>
                       <item row="0" column="4">
                        <property name="text">
-                        <string>28/08/2025</string>
+                        <string/>
                        </property>
                       </item>
                      </widget>
