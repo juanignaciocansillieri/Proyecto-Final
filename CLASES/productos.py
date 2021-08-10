@@ -1,11 +1,12 @@
 
-#from _typeshed import Self
+import sys
 from sys import setprofile
 from typing import NoReturn
 import pymysql
 import os
-from DB import conexion as c
-from CLASES import alojamiento as aloj
+import alojamiento as aloj
+sys.path.append("C:\\proyecto-final\\DB\\")
+import conexion as c
 
 
 class productos:
