@@ -9,6 +9,8 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 import create_user
 from create_user import Ui_MainWindow
+sys.path.append("C:\\proyecto-final\\CLASES\\")
+import usuarios as us
 
 class UsuarioWindow(QMainWindow):
 
@@ -26,48 +28,37 @@ class UsuarioWindow(QMainWindow):
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
 
-        #self.ui.pushButton.clicked.connect(self.crearProducto)
+        self.ui.pushButton.clicked.connect(self.crearUser)
     
     #CREAR PRODUCTO NUEVO
-    def crearProducto(self):   
+    def crearUser(self):   
     
       #RECIBIR VALORES DE LA VENTANA
-      codigo = self.ui.codigo_input.text()
-      nombre = self.ui.nombre_input.text()
-      desc = self.ui.desc_input.text()
-      cantidad = self.ui.cantidad_input.text()
-      marca = self.ui.marca_input.text()
-      venc = self.ui.venc_date.date().toString("yyyy/MM/dd")
-      lote = self.ui.lote_input.text()
-      fragil = self.ui.fragil_rb.isChecked()
-      condicion = self.ui.condicion_cbox.currentText()
+      apellido = self.ui.apellido_input.text()
+      nom = self.ui.nombre_input.text()
+      dni = self.ui.mail_input.text()
+      nacimiento = self.ui.nac_date.date().toString("yyyy/MM/dd")
+      puesto = self.ui.puesto_input.text()
+      tipo = self.ui.tipo_cb.currentText()
+      contraseña = self.ui.pass_input.text()
+
       
-      if fragil==True:
-        fragil="1"
+      if tipo=="Admin":
+        tipo="1"
       else:
-        fragil="0"
-      if condicion=="Refrigerado":
-        refri=1
-        infla=0
-      elif condicion=="Inflamable": 
-        refri=0
-        infla=1
-      else:
-        refri=0
-        infla=0
-      product = pr.productos(codigo,nombre,marca,cantidad,desc,lote,venc,refri,infla,fragil)
-      product.alta_producto()
+        tipo="0"
+
+      user = us.usuarios(nom,apellido,dni,tipo,puesto,nacimiento)
+      user.alta_usuario()
+      user.alta_login(contraseña)
       self.clearInput()
-      print(codigo,nombre,desc,cantidad,marca,venc,condicion,lote,fragil)
       #return(codigo,nombre,desc,cantidad,marca,venc,condicion,lote,fragil)
       
 
 
     def clearInput(self):
-         self.ui.codigo_input.setText("")
+         self.ui.apellido_input.setText("")
          self.ui.nombre_input.setText("")
-         self.ui.desc_input.setText("")
-         self.ui.cantidad_input.setText("")
-         self.ui.marca_input.setText("")
-         #self.ui.venc_date.setDate("")
-         self.ui.lote_input.setText("")
+         self.ui.mail_input.setText("")
+         self.ui.puesto_input.setText("")
+         self.ui.pass_input.setText("")
