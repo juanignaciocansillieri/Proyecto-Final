@@ -14,9 +14,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(554, 492)
+        MainWindow.resize(554, 534)
         MainWindow.setMinimumSize(QtCore.QSize(0, 0))
-        MainWindow.setMaximumSize(QtCore.QSize(554, 492))
+        MainWindow.setMaximumSize(QtCore.QSize(554, 534))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -30,14 +30,14 @@ class Ui_MainWindow(object):
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.frame_3 = QtWidgets.QFrame(self.frame)
-        self.frame_3.setGeometry(QtCore.QRect(80, 90, 431, 311))
+        self.frame_3.setGeometry(QtCore.QRect(80, 90, 431, 371))
         self.frame_3.setStyleSheet("background-color: #12151a;\n"
 "border-radius: 20px;")
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_3.setObjectName("frame_3")
         self.formLayoutWidget = QtWidgets.QWidget(self.frame_3)
-        self.formLayoutWidget.setGeometry(QtCore.QRect(20, 20, 391, 281))
+        self.formLayoutWidget.setGeometry(QtCore.QRect(20, 20, 391, 321))
         self.formLayoutWidget.setObjectName("formLayoutWidget")
         self.formLayout = QtWidgets.QFormLayout(self.formLayoutWidget)
         self.formLayout.setContentsMargins(0, 22, 0, 3)
@@ -215,6 +215,35 @@ class Ui_MainWindow(object):
 "margin-top: 11px;")
         self.nac_date.setObjectName("nac_date")
         self.formLayout.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.nac_date)
+        self.label_7 = QtWidgets.QLabel(self.formLayoutWidget)
+        self.label_7.setStyleSheet("font-family: Roboto;\n"
+"font-weight: bold;\n"
+"font-size: 18px;\n"
+"color: #fff;\n"
+"margin-top:15px")
+        self.label_7.setObjectName("label_7")
+        self.formLayout.setWidget(9, QtWidgets.QFormLayout.LabelRole, self.label_7)
+        self.pass_input = QtWidgets.QLineEdit(self.formLayoutWidget)
+        self.pass_input.setMinimumSize(QtCore.QSize(0, 28))
+        self.pass_input.setStyleSheet("QLineEdit{\n"
+"background-color: #23262b;\n"
+"border-radius: 3px;\n"
+"padding: 4 10px;\n"
+"color: #fff;\n"
+"font-family:Roboto;\n"
+"margin-top: 3px;\n"
+"border: none;\n"
+"font-size:15px;\n"
+"font-weight: 400;\n"
+"margin-top:15px\n"
+"}\n"
+"\n"
+"\n"
+"QLineEdit:focus{\n"
+"}")
+        self.pass_input.setPlaceholderText("")
+        self.pass_input.setObjectName("pass_input")
+        self.formLayout.setWidget(9, QtWidgets.QFormLayout.FieldRole, self.pass_input)
         self.label = QtWidgets.QLabel(self.frame)
         self.label.setGeometry(QtCore.QRect(140, 0, 311, 91))
         font = QtGui.QFont()
@@ -230,7 +259,7 @@ class Ui_MainWindow(object):
 "background:none;")
         self.label.setObjectName("label")
         self.pushButton = QtWidgets.QPushButton(self.frame)
-        self.pushButton.setGeometry(QtCore.QRect(390, 430, 121, 31))
+        self.pushButton.setGeometry(QtCore.QRect(390, 478, 121, 31))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(-1)
@@ -262,11 +291,12 @@ class Ui_MainWindow(object):
         self.label_3.setText(_translate("MainWindow", "NOMBRE:"))
         self.label_5.setText(_translate("MainWindow", "NACIMIENTO:"))
         self.label_6.setText(_translate("MainWindow", "PUESTO:"))
-        self.label_8.setText(_translate("MainWindow", "MAIL:"))
+        self.label_8.setText(_translate("MainWindow", "DNI:"))
         self.label_10.setText(_translate("MainWindow", "TIPO:"))
         self.tipo_cb.setCurrentText(_translate("MainWindow", "Admin"))
         self.tipo_cb.setItemText(0, _translate("MainWindow", "Admin"))
         self.tipo_cb.setItemText(1, _translate("MainWindow", "Usuario"))
+        self.label_7.setText(_translate("MainWindow", "CONTRASEÑA:"))
         self.label.setText(_translate("MainWindow", "CREAR NUEVO USUARIO"))
         self.pushButton.setText(_translate("MainWindow", "Crear Usuario"))
 

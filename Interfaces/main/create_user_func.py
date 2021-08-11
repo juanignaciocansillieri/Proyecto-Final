@@ -26,4 +26,4 @@ class UsuarioWindow(QMainWindow):
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
 
-        #self.ui.pushButton.clicked.connect(self.crearProducto)
+        #self.ui.pushButton_usuarios_2.clicked.connect(self.crearProducto)
