@@ -58,6 +58,7 @@ class ProductWindow(QMainWindow):
       else:
         refri=0
         infla=0
+      
       product = pr.productos(codigo,nombre,marca,cantidad,desc,lote,venc,refri,infla,fragil)
       product.alta_producto()
       self.clearInput()
