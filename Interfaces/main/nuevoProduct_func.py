@@ -9,6 +9,8 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 import nuevo_producto_ui
 from nuevo_producto_ui import Ui_MainWindow
+sys.path.append("C:\\proyecto-final\\CLASES\\")
+import productos as pr
 
 class ProductWindow(QMainWindow):
 
@@ -42,9 +44,25 @@ class ProductWindow(QMainWindow):
       lote = self.ui.lote_input.text()
       fragil = self.ui.fragil_rb.isChecked()
       condicion = self.ui.condicion_cbox.currentText()
+      
+      if fragil==True:
+        fragil="1"
+      else:
+        fragil="0"
+      if condicion=="Refrigerado":
+        refri=1
+        infla=0
+      elif condicion=="Inflamable": 
+        refri=0
+        infla=1
+      else:
+        refri=0
+        infla=0
+      product=pr.productos(codigo,nombre,marca,cantidad,desc,lote,venc,refri,infla,fragil)
+      product.alta_producto()
       self.clearInput()
       print(codigo,nombre,desc,cantidad,marca,venc,condicion,lote,fragil)
-      return(codigo,nombre,desc,cantidad,marca,venc,condicion,lote,fragil)
+      #return(codigo,nombre,desc,cantidad,marca,venc,condicion,lote,fragil)
       
 
 

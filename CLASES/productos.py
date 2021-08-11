@@ -11,14 +11,14 @@ import conexion as c
 
 
 class productos():
-    def __init__(self, codigo, nombre, marca, cantidad, descripcion, foto, lote, vencimiento, refrigeracion, inflamable, fragil):
+    def __init__(self, codigo, nombre, marca, cantidad, descripcion, lote, vencimiento, refrigeracion, inflamable, fragil):
         self.codigo = codigo
         self.nombre = nombre
         self.marca = marca
         self.cantidad = cantidad
         self.descripcion = descripcion
         self.ubicacion = 1  # aloj.asignacion_de_ubicacion()
-        self.foto = foto
+        #self.foto = foto
         self.lote = lote
         self.vencimiento = vencimiento
         self.refrigeracion = refrigeracion
@@ -33,9 +33,8 @@ class productos():
         a = c.start_connection()
         cursor = a.cursor()
         try:
-            query = "INSERT INTO productos (codigo,nombre,marca,cantidad,descripcion,ubicacion,foto,lote,vencimiento,refrigeracion,inflamable,fragil) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-            values = (self.codigo, self.nombre, self.marca, self.cantidad, self.descripcion, self.ubicacion,
-                      self.foto, self.lote, self.vencimiento, self.refrigeracion, self.inflamable, self.fragil)
+            query = "INSERT INTO productos (codigo,nombre,marca,cantidad,descripcion,ubicacion,lote,vencimiento,refrigeracion,inflamable,fragil) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+            values = (self.codigo, self.nombre, self.marca, self.cantidad, self.descripcion, self.ubicacion, self.lote, self.vencimiento, self.refrigeracion, self.inflamable, self.fragil)
             cursor.execute(query, values)
             a.commit()
             print("se dio alta producto correctamente")
@@ -73,12 +72,12 @@ class productos():
             a.commit()
             b = cursor.fetchall()
             self.descripcion = str(b[0][0])
-            query = "SELECT foto FROM productos WHERE codigo=%s"
-            values = codigo
-            cursor.execute(query, values)
-            a.commit()
-            b = cursor.fetchall()
-            self.foto = str(b[0][0])
+            #query = "SELECT foto FROM productos WHERE codigo=%s"
+            #values = codigo
+            #cursor.execute(query, values)
+            #a.commit()
+            #b = cursor.fetchall()
+            #self.foto = str(b[0][0])
             query = "SELECT lote FROM productos WHERE codigo=%s"
             values = codigo
             cursor.execute(query, values)
@@ -119,7 +118,7 @@ class productos():
         c.close_connection(a)
 
 
-    def modificar_produc(self, codigo, nombre, marca, cantidad, descripcion, foto, lote, vencimiento, refrigeracion, inflamable, fragil):
+    def modificar_produc(self, codigo, nombre, marca, cantidad, descripcion, lote, vencimiento, refrigeracion, inflamable, fragil):
         a = c.start_connection()
         cursor = a.cursor()
         try:
@@ -143,10 +142,10 @@ class productos():
             values = (descripcion, self.codigo)
             cursor.execute(query, values)
             a.commit()
-            query = "UPDATE productos set foto=%s WHERE codigo=%s"
-            values = (foto, self.codigo)
-            cursor.execute(query, values)
-            a.commit()
+            #query = "UPDATE productos set foto=%s WHERE codigo=%s"
+            #values = (foto, self.codigo)
+            #cursor.execute(query, values)
+            #a.commit()
             query = "UPDATE productos set lote=%s WHERE codigo=%s"
             values = (lote, self.codigo)
             cursor.execute(query, values)

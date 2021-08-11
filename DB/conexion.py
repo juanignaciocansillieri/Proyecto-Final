@@ -62,7 +62,6 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
     cantidad INT NOT NULL,
     descripcion VARCHAR(50) NOT NULL,
     ubicacion VARCHAR(20) NOT NULL,
-    foto VARCHAR(45) NOT NULL,
     lote VARCHAR(20) NOT NULL,
     vencimiento DATE NOT NULL,
     refrigeracion BINARY(1) NOT NULL,
