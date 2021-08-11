@@ -72,8 +72,12 @@ class Main(QMainWindow):
 
         #Listamos usuarios al iniciar la ventana
         self.listarUsuarios()
+        #buscamos usuarios a traves del buscador
+        self.ui.pushButton_usuarios_1.clicked.connect(self.buscarUsuarios)
         #Abrir Ventana Nuevo user
         self.ui.pushButton_usuarios_2.clicked.connect(self.mostrarNewUser)
+        #Listamos al hacer click en el btn listar 
+        self.ui.pushButton_usuarios_3.clicked.connect(self.listarUsuarios)
 
         # Boton Exit
         self.ui.btn_exit.clicked.connect(self.close)
@@ -141,6 +145,21 @@ class Main(QMainWindow):
        self.ui.tableWidget_2.setRowCount(n)
        tableRow = 0
        for row in usuarios:
+          self.ui.tableWidget_2.setItem(tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
+          self.ui.tableWidget_2.setItem(tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
+          self.ui.tableWidget_2.setItem(tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
+          self.ui.tableWidget_2.setItem(tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+          self.ui.tableWidget_2.setItem(tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+
+          tableRow += 1 
+
+    def buscarUsuarios(self):
+       parametro = self.ui.lineEdit_usuarios_1.text()
+       products = u.usuarios.buscar_user(parametro)
+       n = u.usuarios.buscar_user_rows(parametro)
+       self.ui.tableWidget_2.setRowCount(n)
+       tableRow = 0
+       for row in products:
           self.ui.tableWidget_2.setItem(tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
           self.ui.tableWidget_2.setItem(tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
           self.ui.tableWidget_2.setItem(tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))

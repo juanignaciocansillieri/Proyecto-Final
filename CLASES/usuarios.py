@@ -71,7 +71,7 @@ class usuarios:
     def buscar_user_rows(param):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT dni,nombre,apellido,tipo,nacimiento FROM usuarios WHERE dni=%s or nombre=%s or apelldio=%s")
+        query = ("SELECT dni,nombre,apellido,tipo,nacimiento FROM usuarios WHERE dni=%s or nombre=%s or apellido=%s")
         data = cursor.execute(query, (param, param,param))
         a.commit()
         return data
