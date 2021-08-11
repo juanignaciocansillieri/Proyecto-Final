@@ -52,9 +52,9 @@ class Ui_MainWindow(object):
 "margin-top:5px")
         self.label_2.setObjectName("label_2")
         self.formLayout.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.label_2)
-        self.lineEdit = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.lineEdit.setMinimumSize(QtCore.QSize(0, 28))
-        self.lineEdit.setStyleSheet("QLineEdit{\n"
+        self.apellido_input = QtWidgets.QLineEdit(self.formLayoutWidget)
+        self.apellido_input.setMinimumSize(QtCore.QSize(0, 28))
+        self.apellido_input.setStyleSheet("QLineEdit{\n"
 "background-color: #23262b;\n"
 "border-radius: 3px;\n"
 "padding: 4 10px;\n"
@@ -70,9 +70,9 @@ class Ui_MainWindow(object):
 "\n"
 "QLineEdit:focus{\n"
 "}")
-        self.lineEdit.setPlaceholderText("")
-        self.lineEdit.setObjectName("lineEdit")
-        self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.lineEdit)
+        self.apellido_input.setPlaceholderText("")
+        self.apellido_input.setObjectName("apellido_input")
+        self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.apellido_input)
         self.label_3 = QtWidgets.QLabel(self.formLayoutWidget)
         self.label_3.setStyleSheet("font-family: Roboto;\n"
 "font-weight: bold;\n"
@@ -81,9 +81,9 @@ class Ui_MainWindow(object):
 "margin-top:15px")
         self.label_3.setObjectName("label_3")
         self.formLayout.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.label_3)
-        self.lineEdit_2 = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.lineEdit_2.setMinimumSize(QtCore.QSize(0, 28))
-        self.lineEdit_2.setStyleSheet("QLineEdit{\n"
+        self.nombre_input = QtWidgets.QLineEdit(self.formLayoutWidget)
+        self.nombre_input.setMinimumSize(QtCore.QSize(0, 28))
+        self.nombre_input.setStyleSheet("QLineEdit{\n"
 "background-color: #23262b;\n"
 "border-radius: 3px;\n"
 "padding: 4 10px;\n"
@@ -99,9 +99,9 @@ class Ui_MainWindow(object):
 "\n"
 "QLineEdit:focus{\n"
 "}")
-        self.lineEdit_2.setPlaceholderText("")
-        self.lineEdit_2.setObjectName("lineEdit_2")
-        self.formLayout.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.lineEdit_2)
+        self.nombre_input.setPlaceholderText("")
+        self.nombre_input.setObjectName("nombre_input")
+        self.formLayout.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.nombre_input)
         self.label_5 = QtWidgets.QLabel(self.formLayoutWidget)
         self.label_5.setStyleSheet("font-family: Roboto;\n"
 "font-weight: bold;\n"
@@ -118,9 +118,9 @@ class Ui_MainWindow(object):
 "margin-top:15px")
         self.label_6.setObjectName("label_6")
         self.formLayout.setWidget(4, QtWidgets.QFormLayout.LabelRole, self.label_6)
-        self.lineEdit_5 = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.lineEdit_5.setMinimumSize(QtCore.QSize(0, 28))
-        self.lineEdit_5.setStyleSheet("QLineEdit{\n"
+        self.puesto_input = QtWidgets.QLineEdit(self.formLayoutWidget)
+        self.puesto_input.setMinimumSize(QtCore.QSize(0, 28))
+        self.puesto_input.setStyleSheet("QLineEdit{\n"
 "background-color: #23262b;\n"
 "border-radius: 3px;\n"
 "padding: 4 10px;\n"
@@ -136,9 +136,9 @@ class Ui_MainWindow(object):
 "\n"
 "QLineEdit:focus{\n"
 "}")
-        self.lineEdit_5.setPlaceholderText("")
-        self.lineEdit_5.setObjectName("lineEdit_5")
-        self.formLayout.setWidget(4, QtWidgets.QFormLayout.FieldRole, self.lineEdit_5)
+        self.puesto_input.setPlaceholderText("")
+        self.puesto_input.setObjectName("puesto_input")
+        self.formLayout.setWidget(4, QtWidgets.QFormLayout.FieldRole, self.puesto_input)
         self.label_8 = QtWidgets.QLabel(self.formLayoutWidget)
         self.label_8.setStyleSheet("font-family: Roboto;\n"
 "font-weight: bold;\n"
@@ -147,9 +147,9 @@ class Ui_MainWindow(object):
 "margin-top:15px")
         self.label_8.setObjectName("label_8")
         self.formLayout.setWidget(5, QtWidgets.QFormLayout.LabelRole, self.label_8)
-        self.lineEdit_7 = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.lineEdit_7.setMinimumSize(QtCore.QSize(0, 28))
-        self.lineEdit_7.setStyleSheet("QLineEdit{\n"
+        self.mail_input = QtWidgets.QLineEdit(self.formLayoutWidget)
+        self.mail_input.setMinimumSize(QtCore.QSize(0, 28))
+        self.mail_input.setStyleSheet("QLineEdit{\n"
 "background-color: #23262b;\n"
 "border-radius: 3px;\n"
 "padding: 4 10px;\n"
@@ -165,9 +165,9 @@ class Ui_MainWindow(object):
 "\n"
 "QLineEdit:focus{\n"
 "}")
-        self.lineEdit_7.setPlaceholderText("")
-        self.lineEdit_7.setObjectName("lineEdit_7")
-        self.formLayout.setWidget(5, QtWidgets.QFormLayout.FieldRole, self.lineEdit_7)
+        self.mail_input.setPlaceholderText("")
+        self.mail_input.setObjectName("mail_input")
+        self.formLayout.setWidget(5, QtWidgets.QFormLayout.FieldRole, self.mail_input)
         self.label_10 = QtWidgets.QLabel(self.formLayoutWidget)
         self.label_10.setStyleSheet("font-family: Roboto;\n"
 "font-weight: bold;\n"
@@ -176,8 +176,8 @@ class Ui_MainWindow(object):
 "margin-top:15px")
         self.label_10.setObjectName("label_10")
         self.formLayout.setWidget(8, QtWidgets.QFormLayout.LabelRole, self.label_10)
-        self.comboBox = QtWidgets.QComboBox(self.formLayoutWidget)
-        self.comboBox.setStyleSheet("\n"
+        self.tipo_cb = QtWidgets.QComboBox(self.formLayoutWidget)
+        self.tipo_cb.setStyleSheet("\n"
 "background-color: #23262b;\n"
 "border-radius: 3px;\n"
 "padding: 4 10px;\n"
@@ -191,30 +191,30 @@ class Ui_MainWindow(object):
 "\n"
 "\n"
 "")
-        self.comboBox.setMaxVisibleItems(2)
-        self.comboBox.setInsertPolicy(QtWidgets.QComboBox.InsertAfterCurrent)
-        self.comboBox.setDuplicatesEnabled(False)
-        self.comboBox.setFrame(True)
-        self.comboBox.setObjectName("comboBox")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.setItemText(2, "")
-        self.formLayout.setWidget(8, QtWidgets.QFormLayout.FieldRole, self.comboBox)
-        self.dateEdit = QtWidgets.QDateEdit(self.formLayoutWidget)
+        self.tipo_cb.setMaxVisibleItems(2)
+        self.tipo_cb.setInsertPolicy(QtWidgets.QComboBox.InsertAfterCurrent)
+        self.tipo_cb.setDuplicatesEnabled(False)
+        self.tipo_cb.setFrame(True)
+        self.tipo_cb.setObjectName("tipo_cb")
+        self.tipo_cb.addItem("")
+        self.tipo_cb.addItem("")
+        self.tipo_cb.addItem("")
+        self.tipo_cb.setItemText(2, "")
+        self.formLayout.setWidget(8, QtWidgets.QFormLayout.FieldRole, self.tipo_cb)
+        self.nac_date = QtWidgets.QDateEdit(self.formLayoutWidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.dateEdit.sizePolicy().hasHeightForWidth())
-        self.dateEdit.setSizePolicy(sizePolicy)
-        self.dateEdit.setStyleSheet("background-color: #23262b;\n"
+        sizePolicy.setHeightForWidth(self.nac_date.sizePolicy().hasHeightForWidth())
+        self.nac_date.setSizePolicy(sizePolicy)
+        self.nac_date.setStyleSheet("background-color: #23262b;\n"
 "border-radius: 10px;\n"
 "padding:0 10px;\n"
 "color: #b3b3b3;\n"
 "font-family:Roboto;\n"
 "margin-top: 11px;")
-        self.dateEdit.setObjectName("dateEdit")
-        self.formLayout.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.dateEdit)
+        self.nac_date.setObjectName("nac_date")
+        self.formLayout.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.nac_date)
         self.label = QtWidgets.QLabel(self.frame)
         self.label.setGeometry(QtCore.QRect(140, 0, 311, 91))
         font = QtGui.QFont()
@@ -252,7 +252,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.comboBox.setCurrentIndex(0)
+        self.tipo_cb.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -264,9 +264,9 @@ class Ui_MainWindow(object):
         self.label_6.setText(_translate("MainWindow", "PUESTO:"))
         self.label_8.setText(_translate("MainWindow", "MAIL:"))
         self.label_10.setText(_translate("MainWindow", "TIPO:"))
-        self.comboBox.setCurrentText(_translate("MainWindow", "Admin"))
-        self.comboBox.setItemText(0, _translate("MainWindow", "Admin"))
-        self.comboBox.setItemText(1, _translate("MainWindow", "Usuario"))
+        self.tipo_cb.setCurrentText(_translate("MainWindow", "Admin"))
+        self.tipo_cb.setItemText(0, _translate("MainWindow", "Admin"))
+        self.tipo_cb.setItemText(1, _translate("MainWindow", "Usuario"))
         self.label.setText(_translate("MainWindow", "CREAR NUEVO USUARIO"))
         self.pushButton.setText(_translate("MainWindow", "Crear Usuario"))
 
