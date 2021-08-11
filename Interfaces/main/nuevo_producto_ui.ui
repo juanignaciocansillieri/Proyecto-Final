@@ -477,7 +477,7 @@ margin-top:15px
 </string>
            </property>
            <property name="currentText">
-            <string>Refrigerado</string>
+            <string>Ninguna</string>
            </property>
            <property name="currentIndex">
             <number>0</number>
@@ -494,6 +494,11 @@ margin-top:15px
            <property name="frame">
             <bool>true</bool>
            </property>
+           <item>
+            <property name="text">
+             <string>Ninguna</string>
+            </property>
+           </item>
            <item>
             <property name="text">
              <string>Refrigerado</string>
