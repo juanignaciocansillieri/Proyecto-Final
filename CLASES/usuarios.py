@@ -199,3 +199,17 @@ def contar_filas():
     n = int(b)
     c.close_connection(a)
     return n
+
+def listar_user():
+        a = c.start_connection()
+        cursor = a.cursor()
+        try:
+            query = "SELECT dni,nombre,apellido,tipo,nacimiento FROM usuarios"
+            cursor.execute(query)
+            user = cursor.fetchall()
+
+            a.commit()
+        except pymysql.err.OperationalError as err:
+            print("Hubo un error:", err)
+        c.close_connection(a)
+        return user

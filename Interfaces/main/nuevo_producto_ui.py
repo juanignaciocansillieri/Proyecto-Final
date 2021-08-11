@@ -226,27 +226,6 @@ class Ui_MainWindow(object):
         self.lote_input.setPlaceholderText("")
         self.lote_input.setObjectName("lote_input")
         self.formLayout.setWidget(5, QtWidgets.QFormLayout.FieldRole, self.lote_input)
-        self.venc_input = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.venc_input.setMinimumSize(QtCore.QSize(0, 28))
-        self.venc_input.setStyleSheet("QLineEdit{\n"
-"background-color: #23262b;\n"
-"border-radius: 3px;\n"
-"padding: 4 10px;\n"
-"color: #fff;\n"
-"font-family:Roboto;\n"
-"margin-top: 3px;\n"
-"border: none;\n"
-"font-size:15px;\n"
-"font-weight: 400;\n"
-"margin-top:15px\n"
-"}\n"
-"\n"
-"\n"
-"QLineEdit:focus{\n"
-"}")
-        self.venc_input.setPlaceholderText("")
-        self.venc_input.setObjectName("venc_input")
-        self.formLayout.setWidget(7, QtWidgets.QFormLayout.FieldRole, self.venc_input)
         self.label_9 = QtWidgets.QLabel(self.formLayoutWidget)
         self.label_9.setStyleSheet("font-family: Roboto;\n"
 "font-weight: bold;\n"
@@ -286,7 +265,7 @@ class Ui_MainWindow(object):
 "\n"
 "\n"
 "")
-        self.condicion_cbox.setMaxVisibleItems(2)
+        self.condicion_cbox.setMaxVisibleItems(3)
         self.condicion_cbox.setInsertPolicy(QtWidgets.QComboBox.InsertAfterCurrent)
         self.condicion_cbox.setDuplicatesEnabled(False)
         self.condicion_cbox.setFrame(True)
@@ -334,6 +313,23 @@ class Ui_MainWindow(object):
 "")
         self.fragil_rb.setObjectName("fragil_rb")
         self.formLayout.setWidget(9, QtWidgets.QFormLayout.FieldRole, self.fragil_rb)
+        self.venc_date = QtWidgets.QDateEdit(self.formLayoutWidget)
+        self.venc_date.setStyleSheet("QDateEdit{\n"
+"background-color: #23262b;\n"
+"border-radius: 3px;\n"
+"padding: 4 10px;\n"
+"color: #fff;\n"
+"font-family:Roboto;\n"
+"margin-top: 3px;\n"
+"border: none;\n"
+"font-size:15px;\n"
+"font-weight: 400;\n"
+"margin-top:15px\n"
+"}\n"
+"\n"
+"")
+        self.venc_date.setObjectName("venc_date")
+        self.formLayout.setWidget(7, QtWidgets.QFormLayout.FieldRole, self.venc_date)
         self.label = QtWidgets.QLabel(self.frame)
         self.label.setGeometry(QtCore.QRect(90, 10, 311, 91))
         font = QtGui.QFont()

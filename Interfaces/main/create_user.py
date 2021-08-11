@@ -70,6 +70,7 @@ class Ui_MainWindow(object):
 "\n"
 "QLineEdit:focus{\n"
 "}")
+        self.lineEdit.setPlaceholderText("")
         self.lineEdit.setObjectName("lineEdit")
         self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.lineEdit)
         self.label_3 = QtWidgets.QLabel(self.formLayoutWidget)
@@ -98,6 +99,7 @@ class Ui_MainWindow(object):
 "\n"
 "QLineEdit:focus{\n"
 "}")
+        self.lineEdit_2.setPlaceholderText("")
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.formLayout.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.lineEdit_2)
         self.label_5 = QtWidgets.QLabel(self.formLayoutWidget)
@@ -134,6 +136,7 @@ class Ui_MainWindow(object):
 "\n"
 "QLineEdit:focus{\n"
 "}")
+        self.lineEdit_5.setPlaceholderText("")
         self.lineEdit_5.setObjectName("lineEdit_5")
         self.formLayout.setWidget(4, QtWidgets.QFormLayout.FieldRole, self.lineEdit_5)
         self.label_8 = QtWidgets.QLabel(self.formLayoutWidget)
@@ -162,6 +165,7 @@ class Ui_MainWindow(object):
 "\n"
 "QLineEdit:focus{\n"
 "}")
+        self.lineEdit_7.setPlaceholderText("")
         self.lineEdit_7.setObjectName("lineEdit_7")
         self.formLayout.setWidget(5, QtWidgets.QFormLayout.FieldRole, self.lineEdit_7)
         self.label_10 = QtWidgets.QLabel(self.formLayoutWidget)
@@ -226,19 +230,16 @@ class Ui_MainWindow(object):
 "background:none;")
         self.label.setObjectName("label")
         self.pushButton = QtWidgets.QPushButton(self.frame)
-        self.pushButton.setGeometry(QtCore.QRect(230, 440, 121, 31))
+        self.pushButton.setGeometry(QtCore.QRect(390, 430, 121, 31))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(-1)
-        font.setBold(True)
-        font.setWeight(75)
         self.pushButton.setFont(font)
         self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton.setStyleSheet("QPushButton{\n"
 "background-color: #1173ff;\n"
 "color: #fff;\n"
 "border-radius:10px;\n"
-"font-weight:bold;\n"
 "font-family:Roboto;\n"
 "font-size: 14px\n"
 "\n"
@@ -258,14 +259,10 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label_2.setText(_translate("MainWindow", "APELLIDO:"))
-        self.lineEdit.setPlaceholderText(_translate("MainWindow", "Escribir..."))
         self.label_3.setText(_translate("MainWindow", "NOMBRE:"))
-        self.lineEdit_2.setPlaceholderText(_translate("MainWindow", "Escribir..."))
         self.label_5.setText(_translate("MainWindow", "NACIMIENTO:"))
         self.label_6.setText(_translate("MainWindow", "PUESTO:"))
-        self.lineEdit_5.setPlaceholderText(_translate("MainWindow", "Escribir..."))
         self.label_8.setText(_translate("MainWindow", "MAIL:"))
-        self.lineEdit_7.setPlaceholderText(_translate("MainWindow", "Escribir..."))
         self.label_10.setText(_translate("MainWindow", "TIPO:"))
         self.comboBox.setCurrentText(_translate("MainWindow", "Admin"))
         self.comboBox.setItemText(0, _translate("MainWindow", "Admin"))

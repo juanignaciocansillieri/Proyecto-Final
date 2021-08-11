@@ -385,37 +385,6 @@ QLineEdit:focus{
            </property>
           </widget>
          </item>
-         <item row="7" column="1">
-          <widget class="QLineEdit" name="venc_input">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>28</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QLineEdit{
-background-color: #23262b;
-border-radius: 3px;
-padding: 4 10px;
-color: #fff;
-font-family:Roboto;
-margin-top: 3px;
-border: none;
-font-size:15px;
-font-weight: 400;
-margin-top:15px
-}
-
-
-QLineEdit:focus{
-}</string>
-           </property>
-           <property name="placeholderText">
-            <string/>
-           </property>
-          </widget>
-         </item>
          <item row="9" column="0">
           <widget class="QLabel" name="label_9">
            <property name="styleSheet">
@@ -483,7 +452,7 @@ margin-top:15px
             <number>0</number>
            </property>
            <property name="maxVisibleItems">
-            <number>2</number>
+            <number>3</number>
            </property>
            <property name="insertPolicy">
             <enum>QComboBox::InsertAfterCurrent</enum>
@@ -569,6 +538,26 @@ margin-top:15px
            </property>
            <property name="text">
             <string>SI</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QDateEdit" name="venc_date">
+           <property name="styleSheet">
+            <string notr="true">QDateEdit{
+background-color: #23262b;
+border-radius: 3px;
+padding: 4 10px;
+color: #fff;
+font-family:Roboto;
+margin-top: 3px;
+border: none;
+font-size:15px;
+font-weight: 400;
+margin-top:15px
+}
+
+</string>
            </property>
           </widget>
          </item>

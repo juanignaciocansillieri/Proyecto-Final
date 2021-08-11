@@ -665,7 +665,7 @@ font-family:Roboto</string>
 border: none;</string>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="page_productos">
            <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -1241,10 +1241,16 @@ QHeaderView::section:vertical
     border-left: 1px solid #23262b;
 }</string>
                </property>
+               <attribute name="horizontalHeaderVisible">
+                <bool>true</bool>
+               </attribute>
                <attribute name="horizontalHeaderDefaultSectionSize">
                 <number>176</number>
                </attribute>
                <attribute name="horizontalHeaderHighlightSections">
+                <bool>false</bool>
+               </attribute>
+               <attribute name="verticalHeaderVisible">
                 <bool>false</bool>
                </attribute>
                <column>
@@ -1291,11 +1297,19 @@ QHeaderView::section:vertical
                <widget class="QPushButton" name="pushButton_usuarios_2">
                 <property name="geometry">
                  <rect>
-                  <x>470</x>
+                  <x>680</x>
                   <y>10</y>
                   <width>111</width>
-                  <height>31</height>
+                  <height>27</height>
                  </rect>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Roboto</family>
+                  <weight>50</weight>
+                  <italic>false</italic>
+                  <bold>false</bold>
+                 </font>
                 </property>
                 <property name="cursor">
                  <cursorShape>PointingHandCursor</cursorShape>
@@ -1305,14 +1319,47 @@ QHeaderView::section:vertical
 background-color: #1173ff;
 color: #fff;
 border-radius:10px;
-font-weight:bold;
 }
 QPushButton:hover{
 background-color: #45a9f0;
 }</string>
                 </property>
                 <property name="text">
-                 <string>Crear nuevo usuario</string>
+                 <string>Nuevo Usuario</string>
+                </property>
+               </widget>
+               <widget class="QPushButton" name="pushButton_usuarios_3">
+                <property name="geometry">
+                 <rect>
+                  <x>810</x>
+                  <y>10</y>
+                  <width>111</width>
+                  <height>27</height>
+                 </rect>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Roboto</family>
+                  <weight>50</weight>
+                  <italic>false</italic>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+background-color: #1173ff;
+color: #fff;
+border-radius:10px;
+}
+QPushButton:hover{
+background-color: #45a9f0;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Listar Usuarios</string>
                 </property>
                </widget>
               </widget>

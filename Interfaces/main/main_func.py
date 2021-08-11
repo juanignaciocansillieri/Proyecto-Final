@@ -3,10 +3,13 @@ import platform
 from PyQt5 import QtCore, QtGui, QtWidgets 
 from PyQt5.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
 from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
-from PyQt5.QtWidgets import * 
+from PyQt5.QtWidgets import *
+from create_user_func import UsuarioWindow 
 from nuevoProduct_func import ProductWindow
 sys.path.append(".")
 from CLASES import productos as p
+sys.path.append(".")
+from CLASES import usuarios as u
 
 #GUI File
 from main import Ui_MainWindow
@@ -40,11 +43,14 @@ class Main(QMainWindow):
 
         ## PAGINAS ##
 
-        # PRODUCTOS 
+        ########################## PRODUCTOS ##################################
+
         self.ui.btn_productos.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_productos))
         self.ui.label_productos.mousePressEvent = self.clickP
+
         #Listamos productos al iniciar la ventana
         self.listarProductos()
+        
         #Listamos al hacer click en el btn listar
         self.ui.listar_prod_btn.clicked.connect(self.listarProductos)
 
@@ -55,15 +61,20 @@ class Main(QMainWindow):
         #Abrir Ventana Nuevo producto
         self.ui.nuevo_prod_btn.clicked.connect(self.mostrarNewProduct)
        
-        
-
-
-        # DEPOSITO 
+        ############################# DEPOSITO #########################################
         self.ui.btn_depositos.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_depositos))
         self.ui.label_deposito.mousePressEvent = self.clickD
-        # Usuarios 
+
+        ####################### USUARIOS ################################################
+         
         self.ui.btn_usuarios.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_usuarios))
         self.ui.label_usuarios.mousePressEvent = self.clickU
+
+        #Listamos usuarios al iniciar la ventana
+        self.listarUsuarios()
+        #Abrir Ventana Nuevo user
+        self.ui.pushButton_usuarios_2.clicked.connect(self.mostrarNewUser)
+
         # Boton Exit
         self.ui.btn_exit.clicked.connect(self.close)
         #self.ui.label_exit.mousePressEvent(self.close)
@@ -80,11 +91,14 @@ class Main(QMainWindow):
        return self.close()
 
 
-
+   
     def mostrarNewProduct(self):
          self.newProductWindow = ProductWindow()
          self.newProductWindow.show()
-        
+
+    def mostrarNewUser(self):
+       self.newUserWindow = UsuarioWindow()
+       self.newUserWindow.show()
 
 
    #Listar productos from DB
@@ -121,4 +135,16 @@ class Main(QMainWindow):
           tableRow += 1 
 
 
-      
+    def listarUsuarios(self):
+       usuarios = u.listar_user()
+       n=u.contar_filas()
+       self.ui.tableWidget_2.setRowCount(n)
+       tableRow = 0
+       for row in usuarios:
+          self.ui.tableWidget_2.setItem(tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
+          self.ui.tableWidget_2.setItem(tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
+          self.ui.tableWidget_2.setItem(tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
+          self.ui.tableWidget_2.setItem(tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+          self.ui.tableWidget_2.setItem(tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+
+          tableRow += 1 

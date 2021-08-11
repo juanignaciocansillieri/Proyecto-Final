@@ -142,7 +142,7 @@ QLineEdit:focus{
 }</string>
            </property>
            <property name="placeholderText">
-            <string>Escribir...</string>
+            <string/>
            </property>
           </widget>
          </item>
@@ -187,7 +187,7 @@ QLineEdit:focus{
 }</string>
            </property>
            <property name="placeholderText">
-            <string>Escribir...</string>
+            <string/>
            </property>
           </widget>
          </item>
@@ -246,7 +246,7 @@ QLineEdit:focus{
 }</string>
            </property>
            <property name="placeholderText">
-            <string>Escribir...</string>
+            <string/>
            </property>
           </widget>
          </item>
@@ -291,7 +291,7 @@ QLineEdit:focus{
 }</string>
            </property>
            <property name="placeholderText">
-            <string>Escribir...</string>
+            <string/>
            </property>
           </widget>
          </item>
@@ -414,8 +414,8 @@ background:none;</string>
       <widget class="QPushButton" name="pushButton">
        <property name="geometry">
         <rect>
-         <x>230</x>
-         <y>440</y>
+         <x>390</x>
+         <y>430</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -424,8 +424,6 @@ background:none;</string>
         <font>
          <family>Roboto</family>
          <pointsize>-1</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
         </font>
        </property>
        <property name="cursor">
@@ -436,7 +434,6 @@ background:none;</string>
 background-color: #1173ff;
 color: #fff;
 border-radius:10px;
-font-weight:bold;
 font-family:Roboto;
 font-size: 14px
 

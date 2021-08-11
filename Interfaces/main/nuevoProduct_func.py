@@ -40,7 +40,7 @@ class ProductWindow(QMainWindow):
       desc = self.ui.desc_input.text()
       cantidad = self.ui.cantidad_input.text()
       marca = self.ui.marca_input.text()
-      venc = self.ui.venc_input.text()
+      venc = self.ui.venc_date.date().toString("yyyy/MM/dd")
       lote = self.ui.lote_input.text()
       fragil = self.ui.fragil_rb.isChecked()
       condicion = self.ui.condicion_cbox.currentText()
@@ -58,7 +58,7 @@ class ProductWindow(QMainWindow):
       else:
         refri=0
         infla=0
-      product=pr.productos(codigo,nombre,marca,cantidad,desc,lote,venc,refri,infla,fragil)
+      product = pr.productos(codigo,nombre,marca,cantidad,desc,lote,venc,refri,infla,fragil)
       product.alta_producto()
       self.clearInput()
       print(codigo,nombre,desc,cantidad,marca,venc,condicion,lote,fragil)
@@ -72,5 +72,5 @@ class ProductWindow(QMainWindow):
          self.ui.desc_input.setText("")
          self.ui.cantidad_input.setText("")
          self.ui.marca_input.setText("")
-         self.ui.venc_input.setText("")
+         #self.ui.venc_date.setDate("")
          self.ui.lote_input.setText("")

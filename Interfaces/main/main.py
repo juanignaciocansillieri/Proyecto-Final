@@ -599,8 +599,10 @@ class Ui_MainWindow(object):
         self.tableWidget_2.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_2.setHorizontalHeaderItem(4, item)
+        self.tableWidget_2.horizontalHeader().setVisible(True)
         self.tableWidget_2.horizontalHeader().setDefaultSectionSize(176)
         self.tableWidget_2.horizontalHeader().setHighlightSections(False)
+        self.tableWidget_2.verticalHeader().setVisible(False)
         self.verticalLayout_8.addWidget(self.tableWidget_2)
         self.frame_usuarios_3 = QtWidgets.QFrame(self.frame_usuarios)
         self.frame_usuarios_3.setMinimumSize(QtCore.QSize(0, 53))
@@ -608,18 +610,41 @@ class Ui_MainWindow(object):
         self.frame_usuarios_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_usuarios_3.setObjectName("frame_usuarios_3")
         self.pushButton_usuarios_2 = QtWidgets.QPushButton(self.frame_usuarios_3)
-        self.pushButton_usuarios_2.setGeometry(QtCore.QRect(470, 10, 111, 31))
+        self.pushButton_usuarios_2.setGeometry(QtCore.QRect(680, 10, 111, 27))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.pushButton_usuarios_2.setFont(font)
         self.pushButton_usuarios_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_usuarios_2.setStyleSheet("QPushButton{\n"
 "background-color: #1173ff;\n"
 "color: #fff;\n"
 "border-radius:10px;\n"
-"font-weight:bold;\n"
 "}\n"
 "QPushButton:hover{\n"
 "background-color: #45a9f0;\n"
 "}")
         self.pushButton_usuarios_2.setObjectName("pushButton_usuarios_2")
+        self.pushButton_usuarios_3 = QtWidgets.QPushButton(self.frame_usuarios_3)
+        self.pushButton_usuarios_3.setGeometry(QtCore.QRect(810, 10, 111, 27))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.pushButton_usuarios_3.setFont(font)
+        self.pushButton_usuarios_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_usuarios_3.setStyleSheet("QPushButton{\n"
+"background-color: #1173ff;\n"
+"color: #fff;\n"
+"border-radius:10px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #45a9f0;\n"
+"}")
+        self.pushButton_usuarios_3.setObjectName("pushButton_usuarios_3")
         self.verticalLayout_8.addWidget(self.frame_usuarios_3)
         self.Pages_Widget.addWidget(self.page_usuarios)
         self.verticalLayout_4.addWidget(self.Pages_Widget)
@@ -627,7 +652,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.Pages_Widget.setCurrentIndex(0)
+        self.Pages_Widget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.setTabOrder(self.btn_depositos, self.btn_usuarios)
         MainWindow.setTabOrder(self.btn_usuarios, self.btn_exit)
@@ -670,7 +695,8 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "Tipo"))
         item = self.tableWidget_2.horizontalHeaderItem(4)
         item.setText(_translate("MainWindow", "Puesto"))
-        self.pushButton_usuarios_2.setText(_translate("MainWindow", "Crear nuevo usuario"))
+        self.pushButton_usuarios_2.setText(_translate("MainWindow", "Nuevo Usuario"))
+        self.pushButton_usuarios_3.setText(_translate("MainWindow", "Listar Usuarios"))
 import img.img
 
 
