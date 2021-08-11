@@ -53,7 +53,8 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
     tipo BINARY(1) NOT NULL,
     alta BINARY(1) NOT NULL,
     puesto VARCHAR(20) NOT NULL,
-    nacimiento DATE NOT NULL);"""
+    nacimiento DATE NOT NULL,
+    mail VARCHAR(50) NOT NULL);"""
     q2 = """CREATE TABLE IF NOT EXISTS productos (
     idproductos INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     codigo VARCHAR(20) NOT NULL,
