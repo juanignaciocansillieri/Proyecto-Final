@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1134, 542)
+        MainWindow.resize(1134, 543)
         MainWindow.setStyleSheet("background-color: rgb(45, 45, 45);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setMinimumSize(QtCore.QSize(1000, 500))
@@ -334,9 +334,9 @@ class Ui_MainWindow(object):
         self.groupBox.setMaximumSize(QtCore.QSize(0, 70))
         self.groupBox.setTitle("")
         self.groupBox.setObjectName("groupBox")
-        self.lineEdit = QtWidgets.QLineEdit(self.groupBox)
-        self.lineEdit.setGeometry(QtCore.QRect(43, 21, 771, 25))
-        self.lineEdit.setStyleSheet("QLineEdit{\n"
+        self.buscar_input = QtWidgets.QLineEdit(self.groupBox)
+        self.buscar_input.setGeometry(QtCore.QRect(43, 21, 771, 25))
+        self.buscar_input.setStyleSheet("QLineEdit{\n"
 "background-color: #23262b;\n"
 "border-radius: 10px;\n"
 "padding:0 10px;\n"
@@ -349,17 +349,17 @@ class Ui_MainWindow(object):
 "QLineEdit:focus{\n"
 "border: 1px solid rgb(75, 75, 75);\n"
 "}")
-        self.lineEdit.setText("")
-        self.lineEdit.setObjectName("lineEdit")
-        self.pushButton = QtWidgets.QPushButton(self.groupBox)
-        self.pushButton.setGeometry(QtCore.QRect(841, 21, 81, 25))
+        self.buscar_input.setText("")
+        self.buscar_input.setObjectName("buscar_input")
+        self.buscar_btn = QtWidgets.QPushButton(self.groupBox)
+        self.buscar_btn.setGeometry(QtCore.QRect(841, 21, 81, 25))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton.setFont(font)
-        self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton.setStyleSheet("QPushButton{\n"
+        self.buscar_btn.setFont(font)
+        self.buscar_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.buscar_btn.setStyleSheet("QPushButton{\n"
 "background-color: #1173ff;\n"
 "color: #fff;\n"
 "border-radius:10px;\n"
@@ -370,7 +370,7 @@ class Ui_MainWindow(object):
 "QPushButton:hover{\n"
 "background-color: #45a9f0;\n"
 "}")
-        self.pushButton.setObjectName("pushButton")
+        self.buscar_btn.setObjectName("buscar_btn")
         self.verticalLayout_6.addWidget(self.groupBox, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
         self.verticalLayout_5.addWidget(self.frame_2)
         self.tableWidget = QtWidgets.QTableWidget(self.frame)
@@ -444,16 +444,16 @@ class Ui_MainWindow(object):
         self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_4.setObjectName("frame_4")
-        self.pushButton_2 = QtWidgets.QPushButton(self.frame_4)
-        self.pushButton_2.setGeometry(QtCore.QRect(690, 27, 111, 27))
+        self.nuevo_prod_btn = QtWidgets.QPushButton(self.frame_4)
+        self.nuevo_prod_btn.setGeometry(QtCore.QRect(690, 27, 111, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(50)
-        self.pushButton_2.setFont(font)
-        self.pushButton_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_2.setStyleSheet("QPushButton{\n"
+        self.nuevo_prod_btn.setFont(font)
+        self.nuevo_prod_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.nuevo_prod_btn.setStyleSheet("QPushButton{\n"
 "background-color: #1173ff;\n"
 "color: #fff;\n"
 "border-radius:10px;\n"
@@ -461,15 +461,15 @@ class Ui_MainWindow(object):
 "QPushButton:hover{\n"
 "background-color: #45a9f0;\n"
 "}")
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.pushButton_3 = QtWidgets.QPushButton(self.frame_4)
-        self.pushButton_3.setGeometry(QtCore.QRect(820, 27, 111, 27))
+        self.nuevo_prod_btn.setObjectName("nuevo_prod_btn")
+        self.listar_prod_btn = QtWidgets.QPushButton(self.frame_4)
+        self.listar_prod_btn.setGeometry(QtCore.QRect(820, 27, 111, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setItalic(False)
-        self.pushButton_3.setFont(font)
-        self.pushButton_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_3.setStyleSheet("QPushButton{\n"
+        self.listar_prod_btn.setFont(font)
+        self.listar_prod_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.listar_prod_btn.setStyleSheet("QPushButton{\n"
 "background-color: #1173ff;\n"
 "color: #fff;\n"
 "border-radius:10px;\n"
@@ -477,7 +477,7 @@ class Ui_MainWindow(object):
 "QPushButton:hover{\n"
 "background-color: #45a9f0;\n"
 "}")
-        self.pushButton_3.setObjectName("pushButton_3")
+        self.listar_prod_btn.setObjectName("listar_prod_btn")
         self.verticalLayout_7.addWidget(self.frame_4, 0, QtCore.Qt.AlignBottom)
         self.verticalLayout_5.addWidget(self.frame_3)
         self.horizontalLayout_3.addWidget(self.frame)
@@ -643,8 +643,8 @@ class Ui_MainWindow(object):
         self.label_usuarios.setText(_translate("MainWindow", " Usuarios"))
         self.label_exit.setText(_translate("MainWindow", "Exit"))
         self.label_exit_2.setText(_translate("MainWindow", " Salir"))
-        self.lineEdit.setPlaceholderText(_translate("MainWindow", "Buscar un producto"))
-        self.pushButton.setText(_translate("MainWindow", "Buscar"))
+        self.buscar_input.setPlaceholderText(_translate("MainWindow", "Buscar un producto"))
+        self.buscar_btn.setText(_translate("MainWindow", "Buscar"))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Código"))
         item = self.tableWidget.horizontalHeaderItem(1)
@@ -655,8 +655,8 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "Cantidad"))
         item = self.tableWidget.horizontalHeaderItem(4)
         item.setText(_translate("MainWindow", "Fecha de Vencimiento"))
-        self.pushButton_2.setText(_translate("MainWindow", "Nuevo Pruducto"))
-        self.pushButton_3.setText(_translate("MainWindow", "Listar Productos"))
+        self.nuevo_prod_btn.setText(_translate("MainWindow", "Nuevo Pruducto"))
+        self.listar_prod_btn.setText(_translate("MainWindow", "Listar Productos"))
         self.label_3.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">Depósito</span></p></body></html>"))
         self.lineEdit_usuarios_1.setPlaceholderText(_translate("MainWindow", "Buscar un usuario"))
         self.pushButton_usuarios_1.setText(_translate("MainWindow", "Buscar"))

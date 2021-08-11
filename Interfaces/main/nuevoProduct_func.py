@@ -25,13 +25,34 @@ class ProductWindow(QMainWindow):
         centerPoint = QDesktopWidget().availableGeometry().center()
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
-    def mousePressEvent(self, event):
-        self.offset = event.pos()
+        # Agregar Producto
+        self.ui.crearprod_btn.clicked.connect(self.crearProducto)
 
-    def mouseMoveEvent(self, event):
-        x=event.globalX()
-        y=event.globalY()
-        x_w = self.offset.x()
-        y_w = self.offset.y()
-        self.move(x-x_w, y-y_w)
     
+    #CREAR PRODUCTO NUEVO
+    def crearProducto(self):   
+    
+      #RECIBIR VALORES DE LA VENTANA
+      codigo = self.ui.codigo_input.text()
+      nombre = self.ui.nombre_input.text()
+      desc = self.ui.desc_input.text()
+      cantidad = self.ui.cantidad_input.text()
+      marca = self.ui.marca_input.text()
+      venc = self.ui.venc_input.text()
+      lote = self.ui.lote_input.text()
+      fragil = self.ui.fragil_rb.isChecked()
+      condicion = self.ui.condicion_cbox.currentText()
+      self.clearInput()
+      print(codigo,nombre,desc,cantidad,marca,venc,condicion,lote,fragil)
+      return(codigo,nombre,desc,cantidad,marca,venc,condicion,lote,fragil)
+      
+
+
+    def clearInput(self):
+         self.ui.codigo_input.setText("")
+         self.ui.nombre_input.setText("")
+         self.ui.desc_input.setText("")
+         self.ui.cantidad_input.setText("")
+         self.ui.marca_input.setText("")
+         self.ui.venc_input.setText("")
+         self.ui.lote_input.setText("")

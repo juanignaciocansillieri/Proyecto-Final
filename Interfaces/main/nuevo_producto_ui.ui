@@ -102,7 +102,7 @@ border-radius: 20px;</string>
           <number>3</number>
          </property>
          <item row="0" column="0">
-          <widget class="QLabel" name="label_2">
+          <widget class="QLabel" name="codigo_lbl">
            <property name="styleSheet">
             <string notr="true">font-family: Roboto;
 font-weight: bold;
@@ -130,7 +130,7 @@ margin-top:15px</string>
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QLineEdit" name="lineEdit">
+          <widget class="QLineEdit" name="codigo_input">
            <property name="minimumSize">
             <size>
              <width>0</width>
@@ -146,7 +146,7 @@ color: #fff;
 font-family:Roboto;
 margin-top: 3px;
 border: none;
-font-size:15px;
+font-size:12px;
 font-weight: 400;
 
 }
@@ -156,12 +156,12 @@ QLineEdit:focus{
 }</string>
            </property>
            <property name="placeholderText">
-            <string>Escribir...</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="QLineEdit" name="lineEdit_2">
+          <widget class="QLineEdit" name="nombre_input">
            <property name="minimumSize">
             <size>
              <width>0</width>
@@ -187,12 +187,12 @@ QLineEdit:focus{
 }</string>
            </property>
            <property name="placeholderText">
-            <string>Escribir...</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="QLineEdit" name="lineEdit_3">
+          <widget class="QLineEdit" name="marca_input">
            <property name="minimumSize">
             <size>
              <width>0</width>
@@ -218,7 +218,7 @@ QLineEdit:focus{
 }</string>
            </property>
            <property name="placeholderText">
-            <string>Escribir...</string>
+            <string/>
            </property>
           </widget>
          </item>
@@ -251,7 +251,7 @@ margin-top:15px</string>
           </widget>
          </item>
          <item row="3" column="1">
-          <widget class="QLineEdit" name="lineEdit_4">
+          <widget class="QLineEdit" name="cantidad_input">
            <property name="minimumSize">
             <size>
              <width>0</width>
@@ -277,7 +277,7 @@ QLineEdit:focus{
 }</string>
            </property>
            <property name="placeholderText">
-            <string>Escribir...</string>
+            <string/>
            </property>
           </widget>
          </item>
@@ -291,12 +291,12 @@ color: #fff;
 margin-top:15px</string>
            </property>
            <property name="text">
-            <string>UBICACIÓN:</string>
+            <string>DESCRIPCIÓN:</string>
            </property>
           </widget>
          </item>
          <item row="4" column="1">
-          <widget class="QLineEdit" name="lineEdit_5">
+          <widget class="QLineEdit" name="desc_input">
            <property name="minimumSize">
             <size>
              <width>0</width>
@@ -322,7 +322,7 @@ QLineEdit:focus{
 }</string>
            </property>
            <property name="placeholderText">
-            <string>Escribir...</string>
+            <string/>
            </property>
           </widget>
          </item>
@@ -336,7 +336,7 @@ color: #fff;
 margin-top:15px</string>
            </property>
            <property name="text">
-            <string>DESCRIPCIÓN:</string>
+            <string>LOTE:</string>
            </property>
           </widget>
          </item>
@@ -355,7 +355,7 @@ margin-top:15px</string>
           </widget>
          </item>
          <item row="5" column="1">
-          <widget class="QLineEdit" name="lineEdit_7">
+          <widget class="QLineEdit" name="lote_input">
            <property name="minimumSize">
             <size>
              <width>0</width>
@@ -381,12 +381,12 @@ QLineEdit:focus{
 }</string>
            </property>
            <property name="placeholderText">
-            <string>Escribir...</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item row="7" column="1">
-          <widget class="QLineEdit" name="lineEdit_6">
+          <widget class="QLineEdit" name="venc_input">
            <property name="minimumSize">
             <size>
              <width>0</width>
@@ -412,7 +412,7 @@ QLineEdit:focus{
 }</string>
            </property>
            <property name="placeholderText">
-            <string>Escribir...</string>
+            <string/>
            </property>
           </widget>
          </item>
@@ -426,38 +426,7 @@ color: #fff;
 margin-top:15px</string>
            </property>
            <property name="text">
-            <string>LOTE:</string>
-           </property>
-          </widget>
-         </item>
-         <item row="9" column="1">
-          <widget class="QLineEdit" name="lineEdit_8">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>28</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QLineEdit{
-background-color: #23262b;
-border-radius: 3px;
-padding: 4 10px;
-color: #fff;
-font-family:Roboto;
-margin-top: 3px;
-border: none;
-font-size:15px;
-font-weight: 400;
-margin-top:15px
-}
-
-
-QLineEdit:focus{
-}</string>
-           </property>
-           <property name="placeholderText">
-            <string>Escribir...</string>
+            <string>FRAGIL:</string>
            </property>
           </widget>
          </item>
@@ -490,7 +459,7 @@ margin-top:15px</string>
           </widget>
          </item>
          <item row="10" column="1">
-          <widget class="QComboBox" name="comboBox">
+          <widget class="QComboBox" name="condicion_cbox">
            <property name="styleSheet">
             <string notr="true">
 background-color: #23262b;
@@ -576,6 +545,28 @@ background-color: rgba(255,255,255,10);
            </property>
           </widget>
          </item>
+         <item row="9" column="1">
+          <widget class="QRadioButton" name="fragil_rb">
+           <property name="styleSheet">
+            <string notr="true">QRadioButton{
+
+border-radius: 3px;
+padding: 4 10px;
+color: #fff;
+font-family:Roboto;
+margin-top: 3px;
+border: none;
+font-size:15px;
+font-weight: 400;
+margin-top:15px
+}
+</string>
+           </property>
+           <property name="text">
+            <string>SI</string>
+           </property>
+          </widget>
+         </item>
         </layout>
        </widget>
       </widget>
@@ -607,7 +598,7 @@ background:none;</string>
         <string>CREAR NUEVO PRODUCTO</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="crearprod_btn">
        <property name="geometry">
         <rect>
          <x>340</x>
@@ -620,8 +611,6 @@ background:none;</string>
         <font>
          <family>Roboto</family>
          <pointsize>-1</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
         </font>
        </property>
        <property name="cursor">
@@ -632,7 +621,6 @@ background:none;</string>
 background-color: #1173ff;
 color: #fff;
 border-radius:10px;
-font-weight:bold;
 font-family:Roboto;
 font-size: 14px
 

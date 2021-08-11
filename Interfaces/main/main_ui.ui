@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1134</width>
-    <height>542</height>
+    <height>543</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -752,7 +752,7 @@ border: none;</string>
                     <property name="title">
                      <string/>
                     </property>
-                    <widget class="QLineEdit" name="lineEdit">
+                    <widget class="QLineEdit" name="buscar_input">
                      <property name="geometry">
                       <rect>
                        <x>43</x>
@@ -783,7 +783,7 @@ border: 1px solid rgb(75, 75, 75);
                       <string>Buscar un producto</string>
                      </property>
                     </widget>
-                    <widget class="QPushButton" name="pushButton">
+                    <widget class="QPushButton" name="buscar_btn">
                      <property name="geometry">
                       <rect>
                        <x>841</x>
@@ -966,7 +966,7 @@ QHeaderView::section:vertical
                     <property name="frameShadow">
                      <enum>QFrame::Raised</enum>
                     </property>
-                    <widget class="QPushButton" name="pushButton_2">
+                    <widget class="QPushButton" name="nuevo_prod_btn">
                      <property name="geometry">
                       <rect>
                        <x>690</x>
@@ -1000,7 +1000,7 @@ background-color: #45a9f0;
                       <string>Nuevo Pruducto</string>
                      </property>
                     </widget>
-                    <widget class="QPushButton" name="pushButton_3">
+                    <widget class="QPushButton" name="listar_prod_btn">
                      <property name="geometry">
                       <rect>
                        <x>820</x>

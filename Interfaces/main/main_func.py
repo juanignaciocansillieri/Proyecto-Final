@@ -45,13 +45,16 @@ class Main(QMainWindow):
         self.ui.label_productos.mousePressEvent = self.clickP
         #Listamos productos al iniciar la ventana
         self.listarProductos()
+        #Listamos al hacer click en el btn listar
+        self.ui.listar_prod_btn.clicked.connect(self.listarProductos)
+
         #buscamos productos a traves del buscador
-        self.ui.pushButton.clicked.connect(self.buscarProducto)
-        #self.ui.pushButton.clicked.connect(self.listarProductos)
+        self.ui.buscar_btn.clicked.connect(self.buscarProducto)
+        
 
-        #Nuevo producto
-        self.ui.pushButton_2.clicked.connect(self.mostrarNewProduct)
-
+        #Abrir Ventana Nuevo producto
+        self.ui.nuevo_prod_btn.clicked.connect(self.mostrarNewProduct)
+       
         
 
 
@@ -103,7 +106,7 @@ class Main(QMainWindow):
 
     #Buscar productos a traves del input, por parámetro ingresado
     def buscarProducto(self):
-       parametro = self.ui.lineEdit.text()
+       parametro = self.ui.buscar_input.text()
        products = p.productos.buscar_product(parametro)
        n = p.productos.buscar_product_rows(parametro)
        self.ui.tableWidget.setRowCount(n)
@@ -116,3 +119,6 @@ class Main(QMainWindow):
           self.ui.tableWidget.setItem(tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
 
           tableRow += 1 
+
+
+      
