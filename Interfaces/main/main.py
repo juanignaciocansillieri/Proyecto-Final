@@ -560,6 +560,7 @@ class Ui_MainWindow(object):
 "font-size: 20px;\n"
 "border-style: none;\n"
 "margin-left: 55px;\n"
+"margin-top:10px;\n"
 "}\n"
 "\n"
 "\n"
@@ -686,15 +687,15 @@ class Ui_MainWindow(object):
         self.lineEdit_usuarios_1.setPlaceholderText(_translate("MainWindow", "Buscar un usuario"))
         self.pushButton_usuarios_1.setText(_translate("MainWindow", "Buscar"))
         item = self.tableWidget_2.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Nombre"))
+        item.setText(_translate("MainWindow", "DNI"))
         item = self.tableWidget_2.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Apellido"))
+        item.setText(_translate("MainWindow", "Nombre"))
         item = self.tableWidget_2.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "Fecha de Nacimiento"))
+        item.setText(_translate("MainWindow", "Apellido"))
         item = self.tableWidget_2.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Tipo"))
         item = self.tableWidget_2.horizontalHeaderItem(4)
-        item.setText(_translate("MainWindow", "Puesto"))
+        item.setText(_translate("MainWindow", "Fecha de Nacimiento"))
         self.pushButton_usuarios_2.setText(_translate("MainWindow", "Nuevo Usuario"))
         self.pushButton_usuarios_3.setText(_translate("MainWindow", "Listar Usuarios"))
 import img.img

@@ -1214,6 +1214,7 @@ color:#fff;
 font-size: 20px;
 border-style: none;
 margin-left: 55px;
+margin-top:10px;
 }
 
 
@@ -1255,6 +1256,11 @@ QHeaderView::section:vertical
                </attribute>
                <column>
                 <property name="text">
+                 <string>DNI</string>
+                </property>
+               </column>
+               <column>
+                <property name="text">
                  <string>Nombre</string>
                 </property>
                </column>
@@ -1265,17 +1271,12 @@ QHeaderView::section:vertical
                </column>
                <column>
                 <property name="text">
-                 <string>Fecha de Nacimiento</string>
-                </property>
-               </column>
-               <column>
-                <property name="text">
                  <string>Tipo</string>
                 </property>
                </column>
                <column>
                 <property name="text">
-                 <string>Puesto</string>
+                 <string>Fecha de Nacimiento</string>
                 </property>
                </column>
               </widget>
