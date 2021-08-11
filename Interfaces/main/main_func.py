@@ -37,7 +37,13 @@ class Main(QMainWindow):
         centerPoint = QDesktopWidget().availableGeometry().center()
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
-        
+        self.ui.btn_depositos.setStyleSheet("""
+        QPushButton:fo   {
+            border: 20px solid black;
+            border-radius: 10px;
+            background-color: rgb(255, 255, 255);
+            }
+        """)
         ###################### ABRIR/CERRAR BARRA LATERAL #########################
         self.ui.btn_toggle.clicked.connect(lambda: UIFunctions.toggleMenu(self, 65, True))
 
