@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1134, 543)
+        MainWindow.resize(1133, 543)
         MainWindow.setStyleSheet("background-color: rgb(45, 45, 45);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setMinimumSize(QtCore.QSize(1000, 500))
@@ -71,7 +71,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.btn_toggle = QtWidgets.QPushButton(self.frame_top_menus)
-        self.btn_toggle.setEnabled(False)
+        self.btn_toggle.setEnabled(True)
         self.btn_toggle.setMinimumSize(QtCore.QSize(20, 20))
         font = QtGui.QFont()
         font.setStyleStrategy(QtGui.QFont.PreferDefault)
@@ -135,7 +135,7 @@ class Ui_MainWindow(object):
         self.btn_productos.setObjectName("btn_productos")
         self.verticalLayout_3.addWidget(self.btn_productos)
         self.btn_depositos = QtWidgets.QPushButton(self.frame_top_menus)
-        self.btn_depositos.setEnabled(False)
+        self.btn_depositos.setEnabled(True)
         self.btn_depositos.setMinimumSize(QtCore.QSize(0, 40))
         font = QtGui.QFont()
         font.setFamily("Roboto")
@@ -155,11 +155,15 @@ class Ui_MainWindow(object):
 "\n"
 "QPushButton:hover {\n"
 "background-color: #23262b;\n"
+"border: none;\n"
+"\n"
 "}\n"
 "\n"
 "\n"
 "QPushButton:focus {\n"
 "background-color: #23262b;\n"
+"border: none;\n"
+"\n"
 "}")
         self.btn_depositos.setText("")
         icon2 = QtGui.QIcon()
@@ -169,7 +173,7 @@ class Ui_MainWindow(object):
         self.btn_depositos.setObjectName("btn_depositos")
         self.verticalLayout_3.addWidget(self.btn_depositos)
         self.btn_usuarios = QtWidgets.QPushButton(self.frame_top_menus)
-        self.btn_usuarios.setEnabled(False)
+        self.btn_usuarios.setEnabled(True)
         self.btn_usuarios.setMinimumSize(QtCore.QSize(0, 40))
         font = QtGui.QFont()
         font.setFamily("Roboto")
@@ -204,7 +208,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.addWidget(self.btn_usuarios)
         self.verticalLayout_2.addWidget(self.frame_top_menus, 0, QtCore.Qt.AlignTop)
         self.btn_exit = QtWidgets.QPushButton(self.frame_left_menu)
-        self.btn_exit.setEnabled(False)
+        self.btn_exit.setEnabled(True)
         self.btn_exit.setMinimumSize(QtCore.QSize(0, 40))
         font = QtGui.QFont()
         font.setFamily("Roboto")
@@ -575,6 +579,8 @@ class Ui_MainWindow(object):
 "    border-style: none;\n"
 "    border-bottom: 1px solid #23262b;\n"
 "    border-right: 1px solid #23262b;\n"
+"    border-left: 1px solid #23262b;\n"
+"\n"
 "    font-family:Roboto;\n"
 "\n"
 "\n"
@@ -604,13 +610,13 @@ class Ui_MainWindow(object):
         self.tableWidget_2.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_2.setHorizontalHeaderItem(4, item)
-        self.tableWidget_2.horizontalHeader().setVisible(False)
+        self.tableWidget_2.horizontalHeader().setVisible(True)
         self.tableWidget_2.horizontalHeader().setDefaultSectionSize(176)
         self.tableWidget_2.horizontalHeader().setHighlightSections(False)
         self.tableWidget_2.verticalHeader().setVisible(False)
         self.verticalLayout_8.addWidget(self.tableWidget_2)
         self.frame_usuarios_3 = QtWidgets.QFrame(self.frame_usuarios)
-        self.frame_usuarios_3.setMinimumSize(QtCore.QSize(2000, 53))
+        self.frame_usuarios_3.setMinimumSize(QtCore.QSize(500, 53))
         self.frame_usuarios_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_usuarios_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_usuarios_3.setObjectName("frame_usuarios_3")
@@ -657,7 +663,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.Pages_Widget.setCurrentIndex(0)
+        self.Pages_Widget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.setTabOrder(self.btn_depositos, self.btn_usuarios)
         MainWindow.setTabOrder(self.btn_usuarios, self.btn_exit)

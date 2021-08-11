@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1134</width>
+    <width>1133</width>
     <height>543</height>
    </rect>
   </property>
@@ -203,7 +203,7 @@
            <item>
             <widget class="QPushButton" name="btn_toggle">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="minimumSize">
               <size>
@@ -309,7 +309,7 @@ background-color: #23262b;
            <item>
             <widget class="QPushButton" name="btn_depositos">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="minimumSize">
               <size>
@@ -340,11 +340,15 @@ padding:0 5px;
 
 QPushButton:hover {
 background-color: #23262b;
+border: none;
+
 }
 
 
 QPushButton:focus {
 background-color: #23262b;
+border: none;
+
 }</string>
              </property>
              <property name="text">
@@ -365,7 +369,7 @@ background-color: #23262b;
            <item>
             <widget class="QPushButton" name="btn_usuarios">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="minimumSize">
               <size>
@@ -424,7 +428,7 @@ background-color: #23262b;
         <item>
          <widget class="QPushButton" name="btn_exit">
           <property name="enabled">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <property name="minimumSize">
            <size>
@@ -677,7 +681,7 @@ font-family:Roboto</string>
 border: none;</string>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="page_productos">
            <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -1237,6 +1241,8 @@ QHeaderView::section {
     border-style: none;
     border-bottom: 1px solid #23262b;
     border-right: 1px solid #23262b;
+    border-left: 1px solid #23262b;
+
 	font-family:Roboto;
 
 
@@ -1255,7 +1261,7 @@ QHeaderView::section:vertical
 }</string>
                </property>
                <attribute name="horizontalHeaderVisible">
-                <bool>false</bool>
+                <bool>true</bool>
                </attribute>
                <attribute name="horizontalHeaderDefaultSectionSize">
                 <number>176</number>
@@ -1297,7 +1303,7 @@ QHeaderView::section:vertical
               <widget class="QFrame" name="frame_usuarios_3">
                <property name="minimumSize">
                 <size>
-                 <width>2000</width>
+                 <width>500</width>
                  <height>53</height>
                 </size>
                </property>
