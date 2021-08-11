@@ -41,16 +41,31 @@ class UsuarioWindow(QMainWindow):
       puesto = self.ui.puesto_input.text()
       tipo = self.ui.tipo_cb.currentText()
       contraseña = self.ui.pass_input.text()
+      
+      
 
+      if nom=="" or apellido=="" or dni=="" or tipo=="" or puesto=="" or nacimiento=="":
+        QtWidgets.QMessageBox.critical(self, "Error", "Ingrese todos los datos")
+        return None
+
+      if len(dni)!=8:
+        QtWidgets.QMessageBox.critical(self, "Error", "Ingrese un dni existente")
+        return None
       
       if tipo=="Admin":
         tipo="1"
       else:
         tipo="0"
 
-      user = us.usuarios(nom,apellido,dni,tipo,puesto,nacimiento)
-      user.alta_usuario()
-      user.alta_login(contraseña)
+      if us.ver_dni(dni) == 1:
+        QtWidgets.QMessageBox.critical(self, "Error", "DNI Existente")
+        return None
+      else:
+      
+        user = us.usuarios(nom,apellido,dni,tipo,puesto,nacimiento)
+        user.alta_usuario()
+        user.alta_login(contraseña)
+        self.close()
       self.clearInput()
       #return(codigo,nombre,desc,cantidad,marca,venc,condicion,lote,fragil)
       

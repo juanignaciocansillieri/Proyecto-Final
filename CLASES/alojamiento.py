@@ -159,7 +159,7 @@ class alojamiento:
         a = c.start_connection()
         cursor = a.cursor()
         query = ("SELECT codigo,dimensiones,disponibilidad,posicion,refrigeracion FROM alojamiento WHERE codigo=%s")
-        data = cursor.execute(query, (param, param,param,param))
+        data = cursor.execute(query, param)
         a.commit()
         return data
 
