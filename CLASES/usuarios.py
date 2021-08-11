@@ -19,6 +19,10 @@ class usuarios:
         self.nacimiento=nacimiento
         #self.mail=mail
         print("se creo usuario correctamente")
+        self.alta_usuario()
+
+    
+
 
 
     def alta_usuario(self):
@@ -47,21 +51,6 @@ class usuarios:
             print("Hubo un error:", err)
         c.close_connection(a)
 
-    def listar_user(self):
-        a = c.start_connection()
-        cursor = a.cursor()
-        try:
-            query = "SELECT dni,nombre,apellido,tipo,nacimiento FROM usuarios"
-            cursor.execute(query)
-            user = cursor.fetchall()
-
-            a.commit()
-        except pymysql.err.OperationalError as err:
-            print("Hubo un error:", err)
-        c.close_connection(a)
-        print(user)
-        return user
-    
     def buscar_user(param):
         a = c.start_connection()
         cursor = a.cursor()
@@ -226,3 +215,34 @@ def listar_user():
             print("Hubo un error:", err)
         c.close_connection(a)
         return user
+    
+def ver_dni(dni):
+        a=c.start_connection()
+        cursor=a.cursor()
+        query = "SELECT COUNT(*) FROM usuarios"
+        cursor.execute(query)
+        a.commit()
+        b = cursor.fetchall()
+        b = str(b[0][0])
+        n = int(b)
+        i=0
+        dni="(('"+dni+"',),)"
+        while i<n:
+            query = "SELECT dni FROM usuarios WHERE idusuarios = %s"
+            values=i
+            cursor.execute(query,values)
+            a.commit()
+            b = cursor.fetchall()
+            b = str(b)
+            print (b)
+            if b==dni:
+                i=n+1
+            else:               
+                i+=1
+        if i==n+1:
+            c.close_connection(a)
+            #dni existe
+            return 1
+        else: 
+            c.close_connection(a)
+            return 0

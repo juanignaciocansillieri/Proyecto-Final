@@ -44,6 +44,14 @@ class ProductWindow(QMainWindow):
       lote = self.ui.lote_input.text()
       fragil = self.ui.fragil_rb.isChecked()
       condicion = self.ui.condicion_cbox.currentText()
+
+      if codigo=="" or nombre=="" or desc=="" or cantidad=="" or marca=="" or venc=="" or lote=="":
+        QtWidgets.QMessageBox.critical(self, "Error", "Ingrese todos los datos")
+        return None
+
+     # if len(codigo)!=8:
+      #  QtWidgets.QMessageBox.critical(self, "Error", "Ingrese un dni existente")
+       # return None
       
       if fragil==True:
         fragil="1"
@@ -58,10 +66,18 @@ class ProductWindow(QMainWindow):
       else:
         refri=0
         infla=0
+
+      if pr.ver_cod(codigo) == 1:
+        QtWidgets.QMessageBox.critical(self, "Error", "Codigo Existente")
+        return None
+      else:
       
-      product = pr.productos(codigo,nombre,marca,cantidad,desc,lote,venc,refri,infla,fragil)
-      product.alta_producto()
+        product = pr.productos(codigo,nombre,marca,cantidad,desc,lote,venc,refri,infla,fragil)
+        product.alta_producto()
+        self.close()
       self.clearInput()
+      
+      
       print(codigo,nombre,desc,cantidad,marca,venc,condicion,lote,fragil)
       #return(codigo,nombre,desc,cantidad,marca,venc,condicion,lote,fragil)
       

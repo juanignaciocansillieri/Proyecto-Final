@@ -1,3 +1,9 @@
+from CLASES.usuarios import usuarios
+from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QApplication, QMainWindow,QDesktopWidget
+from PyQt5.QtCore import QFile,Qt
+
+
 from CLASES.productos import productos
 import pruebas as p
 #p.crear_vector()
@@ -6,7 +12,7 @@ sys.path.append("C:\\proyecto-final\\DB\\")
 import conexion as c
 #a=c.start_connection()
 #c.borrar_tabla()
-c.crear_tabla()
+#c.crear_tabla()
 #c.contar_filas_tabla()
 #c.close_connection()
 
@@ -24,6 +30,11 @@ import productos as pr
 import alojamiento as al
 import matriz as mz
 
+aa=1234567
+aa=str(aa)
+nn=len(aa)
+print(nn)
+
 """
 aa=us.usuarios("alex","arraya","123",1,"gerente","1999/05/14")
 aa.alta_usuario()
@@ -35,7 +46,7 @@ cc=us.usuarios("nicolas","rija","789",0,"asistente","1999/04/26")
 cc.alta_usuario()
 cc.alta_login("qwe")
 """
-
+"""
 dd=pr.productos("365","queso","ilolay","10","clasica","147","2021/07/25",1,0,0)
 dd.alta_producto()
 ee=pr.productos("124","yerba","canaria","100","0000","258","2021/09/10",0,0,0)
@@ -43,7 +54,7 @@ ee.alta_producto()
 ff=pr.productos("476","salame","paladini","50","integral","369","2021/08/05",0,0,0)
 ff.alta_producto()
 """
-
+"""
 lista=productos.buscar_productos()
 print(lista)
 
