@@ -242,3 +242,34 @@ def contar_filas():
     n = int(b)
     c.close_connection(a)
     return n
+
+def ver_cod(codigo):
+        a=c.start_connection()
+        cursor=a.cursor()
+        query = "SELECT COUNT(*) FROM productos"
+        cursor.execute(query)
+        a.commit()
+        b = cursor.fetchall()
+        b = str(b[0][0])
+        n = int(b)
+        i=0
+        dni="(('"+codigo+"',),)"
+        while i<n:
+            query = "SELECT codigo FROM productos WHERE idproductoss = %s"
+            values=i
+            cursor.execute(query,values)
+            a.commit()
+            b = cursor.fetchall()
+            b = str(b)
+            print (b)
+            if b==dni:
+                i=n+1
+            else:               
+                i+=1
+        if i==n+1:
+            c.close_connection(a)
+            # existe
+            return 1
+        else: 
+            c.close_connection(a)
+            return 0

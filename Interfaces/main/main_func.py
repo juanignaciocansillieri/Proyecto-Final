@@ -37,7 +37,6 @@ class Main(QMainWindow):
         centerPoint = QDesktopWidget().availableGeometry().center()
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
-        
         ###################### ABRIR/CERRAR BARRA LATERAL #########################
         self.ui.btn_toggle.clicked.connect(lambda: UIFunctions.toggleMenu(self, 65, True))
 
