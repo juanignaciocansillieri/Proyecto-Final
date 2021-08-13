@@ -65,7 +65,7 @@ class Main(QMainWindow):
         self.ui.nuevo_prod_btn.clicked.connect(self.mostrarNewProduct)
 
         # Abrir ventana para ver el producto
-        self.ui.tableWidget.doubleClicked.connect(self.bb)
+        self.ui.tableWidget.doubleClicked.connect(self.seleccionarProducto)
 
         ############################# DEPOSITO #########################################
         self.ui.btn_depositos.clicked.connect(
@@ -156,23 +156,24 @@ class Main(QMainWindow):
 
             tableRow += 1
 
-    # Seleccionar producto al hacer click
-    def seleccionarProducto(self):
-       global productId
-       n = p.contar_filas()
-       listaProductos = []
-       for i in range(0,6):
-         listaProductos.append(self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),i))
-       productId = listaProductos[0]
-       #print(listaProductos)
+    # Seleccionar producto al hacer click y abrir ventana
 
-    def bb(self):
-        item = self.ui.tableWidget.currentRow()
-        print (item)
+    def seleccionarProducto(self):
+        global productId
+        listaProductos = []
+        for i in range(0,5):
+            listaProductos.append(self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),i).text())
+        productId = listaProductos[0]
+        print(productId)
+            
 
 
 
 ###############################FUNCIONES USUARIOS########################################
+
+
+##Listar Usuarios
+
     def listarUsuarios(self):
         usuarios = u.listar_user()
         n = u.contar_filas()
@@ -196,6 +197,9 @@ class Main(QMainWindow):
                 tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
 
             tableRow += 1
+
+
+##Buscar Usuarios
 
     def buscarUsuarios(self):
         parametro = self.ui.lineEdit_usuarios_1.text()
