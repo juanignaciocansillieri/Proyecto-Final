@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>749</width>
-    <height>800</height>
+    <width>554</width>
+    <height>534</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -18,26 +18,14 @@
   </property>
   <property name="maximumSize">
    <size>
-    <width>749</width>
-    <height>800</height>
+    <width>554</width>
+    <height>534</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <property name="minimumSize">
-    <size>
-     <width>749</width>
-     <height>800</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>749</width>
-     <height>800</height>
-    </size>
-   </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <property name="spacing">
      <number>0</number>
@@ -56,9 +44,6 @@
     </property>
     <item>
      <widget class="QFrame" name="frame">
-      <property name="enabled">
-       <bool>true</bool>
-      </property>
       <property name="styleSheet">
        <string notr="true"> background-color: #1a1e23;
 </string>
@@ -72,10 +57,10 @@
       <widget class="QFrame" name="frame_3">
        <property name="geometry">
         <rect>
-         <x>90</x>
-         <y>100</y>
-         <width>621</width>
-         <height>621</height>
+         <x>80</x>
+         <y>90</y>
+         <width>431</width>
+         <height>371</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -91,10 +76,10 @@ border-radius: 20px;</string>
        <widget class="QWidget" name="formLayoutWidget">
         <property name="geometry">
          <rect>
-          <x>0</x>
-          <y>-20</y>
-          <width>611</width>
-          <height>681</height>
+          <x>20</x>
+          <y>20</y>
+          <width>391</width>
+          <height>321</height>
          </rect>
         </property>
         <layout class="QFormLayout" name="formLayout">
@@ -130,7 +115,7 @@ margin-top:5px</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="0" colspan="2">
+         <item row="0" column="1">
           <widget class="QLineEdit" name="apellido_input">
            <property name="minimumSize">
             <size>
@@ -161,7 +146,7 @@ QLineEdit:focus{
            </property>
           </widget>
          </item>
-         <item row="2" column="0">
+         <item row="1" column="0">
           <widget class="QLabel" name="label_3">
            <property name="styleSheet">
             <string notr="true">font-family: Roboto;
@@ -175,7 +160,7 @@ margin-top:15px</string>
            </property>
           </widget>
          </item>
-         <item row="3" column="0" colspan="2">
+         <item row="1" column="1">
           <widget class="QLineEdit" name="nombre_input">
            <property name="minimumSize">
             <size>
@@ -206,7 +191,7 @@ QLineEdit:focus{
            </property>
           </widget>
          </item>
-         <item row="4" column="0">
+         <item row="2" column="0">
           <widget class="QLabel" name="label_5">
            <property name="styleSheet">
             <string notr="true">font-family: Roboto;
@@ -220,25 +205,7 @@ margin-top:15px</string>
            </property>
           </widget>
          </item>
-         <item row="5" column="0">
-          <widget class="QDateEdit" name="nac_date">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: #23262b;
-border-radius: 10px;
-padding:0 10px;
-color: #b3b3b3;
-font-family:Roboto;
-margin-top: 11px;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="0">
+         <item row="4" column="0">
           <widget class="QLabel" name="label_6">
            <property name="styleSheet">
             <string notr="true">font-family: Roboto;
@@ -252,7 +219,7 @@ margin-top:15px</string>
            </property>
           </widget>
          </item>
-         <item row="7" column="0">
+         <item row="4" column="1">
           <widget class="QLineEdit" name="puesto_input">
            <property name="minimumSize">
             <size>
@@ -283,7 +250,21 @@ QLineEdit:focus{
            </property>
           </widget>
          </item>
-         <item row="11" column="0">
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_8">
+           <property name="styleSheet">
+            <string notr="true">font-family: Roboto;
+font-weight: bold;
+font-size: 18px;
+color: #fff;
+margin-top:15px</string>
+           </property>
+           <property name="text">
+            <string>DNI:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
           <widget class="QLineEdit" name="mail_input">
            <property name="minimumSize">
             <size>
@@ -314,7 +295,21 @@ QLineEdit:focus{
            </property>
           </widget>
          </item>
-         <item row="13" column="0">
+         <item row="8" column="0">
+          <widget class="QLabel" name="label_10">
+           <property name="styleSheet">
+            <string notr="true">font-family: Roboto;
+font-weight: bold;
+font-size: 18px;
+color: #fff;
+margin-top:15px</string>
+           </property>
+           <property name="text">
+            <string>TIPO:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
           <widget class="QComboBox" name="tipo_cb">
            <property name="styleSheet">
             <string notr="true">
@@ -367,7 +362,25 @@ margin-top:15px
            </item>
           </widget>
          </item>
-         <item row="14" column="0">
+         <item row="2" column="1">
+          <widget class="QDateEdit" name="nac_date">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: #23262b;
+border-radius: 10px;
+padding:0 10px;
+color: #b3b3b3;
+font-family:Roboto;
+margin-top: 11px;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="0">
           <widget class="QLabel" name="label_7">
            <property name="styleSheet">
             <string notr="true">font-family: Roboto;
@@ -381,7 +394,7 @@ margin-top:15px</string>
            </property>
           </widget>
          </item>
-         <item row="15" column="0" colspan="2">
+         <item row="9" column="1">
           <widget class="QLineEdit" name="pass_input">
            <property name="minimumSize">
             <size>
@@ -412,88 +425,15 @@ QLineEdit:focus{
            </property>
           </widget>
          </item>
-         <item row="16" column="0">
-          <widget class="QLabel" name="label_9">
-           <property name="styleSheet">
-            <string notr="true">font-family: Roboto;
-font-weight: bold;
-font-size: 18px;
-color: #fff;
-margin-top:15px</string>
-           </property>
-           <property name="text">
-            <string>REPETIR CONTRASEÑA:</string>
-           </property>
-          </widget>
-         </item>
-         <item row="17" column="0" colspan="2">
-          <widget class="QLineEdit" name="pass_input_2">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>28</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QLineEdit{
-background-color: #23262b;
-border-radius: 3px;
-padding: 4 10px;
-color: #fff;
-font-family:Roboto;
-margin-top: 3px;
-border: none;
-font-size:15px;
-font-weight: 400;
-margin-top:15px
-}
-
-
-QLineEdit:focus{
-}</string>
-           </property>
-           <property name="placeholderText">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="12" column="0">
-          <widget class="QLabel" name="label_10">
-           <property name="styleSheet">
-            <string notr="true">font-family: Roboto;
-font-weight: bold;
-font-size: 18px;
-color: #fff;
-margin-top:15px</string>
-           </property>
-           <property name="text">
-            <string>TIPO:</string>
-           </property>
-          </widget>
-         </item>
-         <item row="8" column="0">
-          <widget class="QLabel" name="label_8">
-           <property name="styleSheet">
-            <string notr="true">font-family: Roboto;
-font-weight: bold;
-font-size: 18px;
-color: #fff;
-margin-top:15px</string>
-           </property>
-           <property name="text">
-            <string>DNI:</string>
-           </property>
-          </widget>
-         </item>
         </layout>
        </widget>
       </widget>
       <widget class="QLabel" name="label">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>140</x>
          <y>0</y>
-         <width>315</width>
+         <width>311</width>
          <height>91</height>
         </rect>
        </property>
@@ -519,8 +459,8 @@ background:none;</string>
       <widget class="QPushButton" name="pushButton">
        <property name="geometry">
         <rect>
-         <x>420</x>
-         <y>750</y>
+         <x>390</x>
+         <y>478</y>
          <width>121</width>
          <height>31</height>
         </rect>
