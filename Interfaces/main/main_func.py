@@ -1,6 +1,6 @@
 from toggleFunction import *
 from main import Ui_MainWindow
-
+import os
 import sys
 import platform
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -164,9 +164,16 @@ class Main(QMainWindow):
         for i in range(0,5):
             listaProductos.append(self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),i).text())
         productId = listaProductos[0]
-        print(productId)
+        
             
-
+def uploadImg(self):
+        size =(256,256)
+        self.filename,ok =QFileDialog.getOpenFileName(self,'Upload Image','','Image files (*.jpg *.png)')
+        if ok:
+            self.productImg = os.path.basename(self.filename)
+            img=Image.open(self.filename)
+            img=img.resize(size)
+            img.save("img/{0}".format(self.productImg))
 
 
 ###############################FUNCIONES USUARIOS########################################
