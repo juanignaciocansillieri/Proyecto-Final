@@ -173,3 +173,9 @@ class Main(QMainWindow):
           self.ui.tableWidget_2.setItem(tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
 
           tableRow += 1 
+
+   
+  # def bm_user(self):
+   #    self.ui.btn_depositos.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_depositos))
+    #   self.ui.label_deposito.mousePressEvent = self.clickD
+      
