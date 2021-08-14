@@ -9,7 +9,7 @@ import conexion as c
 
 class usuarios:
     
-    def __init__(self,nombre,apellido,dni,tipo,puesto,nacimiento):
+    def __init__(self,nombre,apellido,dni,tipo,puesto,nacimiento,mail):
         self.nombre=nombre
         self.apellido=apellido
         self.dni= dni
@@ -17,7 +17,7 @@ class usuarios:
         self.alta=1
         self.puesto=puesto
         self.nacimiento=nacimiento
-        #self.mail=mail
+        self.mail=mail
         print("se creo usuario correctamente")
         self.alta_usuario()
 
@@ -29,8 +29,8 @@ class usuarios:
         a=c.start_connection()
         cursor=a.cursor()
         try:
-            query = "INSERT INTO usuarios(nombre,apellido,dni,tipo,alta,puesto,nacimiento) VALUES (%s,%s,%s,%s,%s,%s,%s)"
-            values = (self.nombre,self.apellido,self.dni,self.tipo,self.alta,self.puesto,self.nacimiento)
+            query = "INSERT INTO usuarios(nombre,apellido,dni,tipo,alta,puesto,nacimiento,mail) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
+            values = (self.nombre,self.apellido,self.dni,self.tipo,self.alta,self.puesto,self.nacimiento,self.mail)
             cursor.execute(query, values)
             a.commit()
             print("se dio alta usuario correctamente")
@@ -71,7 +71,7 @@ class usuarios:
     def mostrar_user(dni):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT dni,nombre,apellido,tipo,nacimiento,puesto FROM usuarios WHERE dni=%s")
+        query = ("SELECT dni,nombre,apellido,tipo,nacimiento,puesto,alta,mail FROM usuarios WHERE dni=%s")
         cursor.execute(query,dni)
         data = cursor.fetchall()
         a.commit()
@@ -88,7 +88,7 @@ class usuarios:
             else:
                 self.tipo="usuario"     
             print("Nombre: ",self.nombre,"\nApellido: ",self.apellido,"\nDNI: ",dni,"\nFecha de nacimiento: ",self.nacimiento,
-            "\nTipo: ",self.tipo,"\nPuesto: ",self.puesto)#,"\nMail: ",self.mail)
+            "\nTipo: ",self.tipo,"\nPuesto: ",self.puesto,"\nMail: ",self.mail)
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
         #c.close_connection(a)
@@ -142,12 +142,12 @@ class usuarios:
             a.commit()
             b=cursor.fetchall() 
             self.puesto=str(b[0][0])
-            #query = "SELECT mail FROM usuarios WHERE dni=%s"
-            #values = dni
-            #cursor.execute(query, values)
-            #a.commit()
-            #b=cursor.fetchall() 
-            #self.mail=str(b[0][0])        
+            query = "SELECT mail FROM usuarios WHERE dni=%s"
+            values = dni
+            cursor.execute(query, values)
+            a.commit()
+            b=cursor.fetchall() 
+            self.mail=str(b[0][0])        
             print("se importo usuario correctamente")
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
@@ -181,10 +181,10 @@ class usuarios:
             values = (puesto,dni)
             cursor.execute(query, values)
             a.commit()
-            #query = "UPDATE usuarios SET mail=%s WHERE dni=%s"
-            #values = (puesto,dni)
-            #cursor.execute(query, values)
-            #a.commit() 
+            query = "UPDATE usuarios SET mail=%s WHERE dni=%s"
+            values = (puesto,dni)
+            cursor.execute(query, values)
+            a.commit() 
             print("se modifico  usuario correctamente")
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
