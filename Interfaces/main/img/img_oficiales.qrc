@@ -2,6 +2,7 @@
   <qresource prefix="cct">
     <file>logo-18.png</file>
     <file>arroz.jpg</file>
+    <file>Alimento.png</file>
     <file>Exit.png</file>
     <file>Iconos Ventana.png</file>
     <file>Logo.png</file>

@@ -1224,6 +1224,9 @@ background-color: #45a9f0;
                  <height>500</height>
                 </size>
                </property>
+               <property name="cursor" stdset="0">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
                <property name="styleSheet">
                 <string notr="true">QTableWidget{
 color:#fff;
@@ -1242,7 +1245,6 @@ QHeaderView::section {
     border-bottom: 1px solid #23262b;
     border-right: 1px solid #23262b;
     border-left: 1px solid #23262b;
-
 	font-family:Roboto;
 
 
@@ -1259,6 +1261,9 @@ QHeaderView::section:vertical
 
     border-left: 1px solid #23262b;
 }</string>
+               </property>
+               <property name="editTriggers">
+                <set>QAbstractItemView::NoEditTriggers</set>
                </property>
                <attribute name="horizontalHeaderVisible">
                 <bool>true</bool>
