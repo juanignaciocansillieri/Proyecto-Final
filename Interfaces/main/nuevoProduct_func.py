@@ -44,14 +44,14 @@ class ProductWindow(QMainWindow):
       #RECIBIR VALORES DE LA VENTANA
       codigo = self.ui.codigo_input.text()
       nombre = self.ui.nombre_input.text()
-      desc = self.ui.desc_input.text()
+      descripcion = self.ui.descripcion_input.text()
       cantidad = self.ui.cantidad_input.text()
       marca = self.ui.marca_input.text()
       venc = self.ui.venc_date.date().toString("dd/MM/yyyy")
       lote = self.ui.lote_input.text()
       fragil = self.ui.fragil_rb.isChecked()
       condicion = self.ui.condicion_cbox.currentText()
-      if codigo=="" or nombre=="" or desc=="" or cantidad=="" or marca=="" or venc=="" or lote==""  :
+      if codigo=="" or nombre=="" or descripcion=="" or cantidad=="" or marca=="" or venc=="" or lote==""  :
         QtWidgets.QMessageBox.critical(self, "Error", "Ingrese todos los datos")
         return None
 
