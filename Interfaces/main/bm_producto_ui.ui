@@ -260,7 +260,7 @@ margin-left:10px
          <string>Fecha de Vencimiento</string>
         </property>
        </widget>
-       <widget class="QRadioButton" name="radioButton">
+       <widget class="QRadioButton" name="fragil_si">
         <property name="geometry">
          <rect>
           <x>442</x>
@@ -285,7 +285,7 @@ margin-top:15px
          <string>Si</string>
         </property>
        </widget>
-       <widget class="QRadioButton" name="radioButton_3">
+       <widget class="QRadioButton" name="fragil_no">
         <property name="geometry">
          <rect>
           <x>489</x>
@@ -320,7 +320,7 @@ margin-top:15px
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">
+         <string notr="true">padding:0 5px;
 background-color: #23262b;
 border-radius: 3px;
 color: #fff;
@@ -380,49 +380,6 @@ font-weight: 400;
          </property>
         </item>
        </widget>
-       <widget class="QLineEdit" name="apellido_input_17">
-        <property name="geometry">
-         <rect>
-          <x>229</x>
-          <y>232</y>
-          <width>170</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>25</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit{
-background-color: #23262b;
-border-radius: 3px;
-padding: 4 10px;
-color: #fff;
-font-family:Roboto;
-border: none;
-font-size:15px;
-font-weight: 400;
-margin-left: 10px;
-
-}
-
-
-QLineEdit:focus{
-}</string>
-        </property>
-        <property name="placeholderText">
-         <string/>
-        </property>
-       </widget>
        <widget class="QPushButton" name="subirFoto_btn">
         <property name="geometry">
          <rect>
@@ -475,12 +432,11 @@ color: #fff;
          <string notr="true">
 background-color: #23262b;
 border-radius: 3px;
-padding: 4 10px;
+padding: 4 5px;
 color: #fff;
-font-family:Roboto;
+font-family:Roboto lt;
 border: none;
 font-size:13px;
-font-weight: 500;
 margin-left: 10px;</string>
         </property>
         <property name="dateTime">
@@ -494,7 +450,7 @@ margin-left: 10px;</string>
          </datetime>
         </property>
        </widget>
-       <widget class="QSpinBox" name="spinBox">
+       <widget class="QSpinBox" name="peso_num">
         <property name="geometry">
          <rect>
           <x>20</x>
@@ -506,17 +462,17 @@ margin-left: 10px;</string>
         <property name="styleSheet">
          <string notr="true">background-color: #23262b;
 border-radius: 3px;
-padding: 4 10px;
+padding: 4 5px;
 color: #fff;
 font-family:Roboto;
 border: none;
-font-size:15px;
+font-size:13px;
 font-weight: 400;
 margin-left: 10px;
 </string>
         </property>
        </widget>
-       <widget class="QSpinBox" name="spinBox_2">
+       <widget class="QSpinBox" name="cantidad_num">
         <property name="geometry">
          <rect>
           <x>229</x>
@@ -528,17 +484,17 @@ margin-left: 10px;
         <property name="styleSheet">
          <string notr="true">background-color: #23262b;
 border-radius: 3px;
-padding: 4 10px;
+padding: 4 5px;
 color: #fff;
 font-family:Roboto;
 border: none;
-font-size:15px;
+font-size:13px;
 font-weight: 400;
 margin-left: 10px;
 </string>
         </property>
        </widget>
-       <widget class="QSpinBox" name="spinBox_3">
+       <widget class="QSpinBox" name="ancho_num">
         <property name="geometry">
          <rect>
           <x>230</x>
@@ -550,17 +506,17 @@ margin-left: 10px;
         <property name="styleSheet">
          <string notr="true">background-color: #23262b;
 border-radius: 3px;
-padding: 4 10px;
+padding: 4 5px;
 color: #fff;
 font-family:Roboto;
 border: none;
-font-size:15px;
+font-size:13px;
 font-weight: 400;
 margin-left: 10px;
 </string>
         </property>
        </widget>
-       <widget class="QSpinBox" name="spinBox_4">
+       <widget class="QSpinBox" name="altura_num">
         <property name="geometry">
          <rect>
           <x>230</x>
@@ -572,11 +528,11 @@ margin-left: 10px;
         <property name="styleSheet">
          <string notr="true">background-color: #23262b;
 border-radius: 3px;
-padding: 4 10px;
+padding: 4 5px;
 color: #fff;
 font-family:Roboto;
 border: none;
-font-size:15px;
+font-size:13px;
 font-weight: 400;
 margin-left: 10px;
 </string>
@@ -616,7 +572,7 @@ margin-left:10px
          <string>Ancho</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="apellido_input_3">
+       <widget class="QLineEdit" name="nombre_input">
         <property name="geometry">
          <rect>
           <x>20</x>
@@ -641,18 +597,14 @@ margin-left:10px
          <string notr="true">QLineEdit{
 background-color: #23262b;
 border-radius: 3px;
-padding: 4 10px;
+padding: 4 5px;
 color: #fff;
 font-family:Roboto;
 border: none;
-font-size:15px;
+font-size:13px;
 font-weight: 400;
 margin-left: 10px;
 
-}
-
-
-QLineEdit:focus{
 }</string>
         </property>
         <property name="placeholderText">
@@ -749,7 +701,7 @@ margin-left:10px
          <string>Código</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="apellido_input_2">
+       <widget class="QLineEdit" name="codigo_input">
         <property name="geometry">
          <rect>
           <x>20</x>
@@ -774,19 +726,19 @@ margin-left:10px
          <string notr="true">QLineEdit{
 background-color: #23262b;
 border-radius: 3px;
-padding: 4 10px;
+padding: 4 5px;
 color: #fff;
 font-family:Roboto;
 border: none;
-font-size:15px;
+font-size:13px;
 font-weight: 400;
 margin-left: 10px;
 
 }
-
-
-QLineEdit:focus{
-}</string>
+</string>
+        </property>
+        <property name="text">
+         <string/>
         </property>
         <property name="placeholderText">
          <string/>
@@ -854,7 +806,7 @@ margin-left:10px
          <string>Peso </string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="apellido_input_4">
+       <widget class="QLineEdit" name="marca_input">
         <property name="geometry">
          <rect>
           <x>20</x>
@@ -879,19 +831,16 @@ margin-left:10px
          <string notr="true">QLineEdit{
 background-color: #23262b;
 border-radius: 3px;
-padding: 4 10px;
+padding: 4 5px;
 color: #fff;
 font-family:Roboto;
 border: none;
-font-size:15px;
+font-size:13px;
 font-weight: 400;
 margin-left: 10px;
 
 }
-
-
-QLineEdit:focus{
-}</string>
+</string>
         </property>
         <property name="placeholderText">
          <string/>
@@ -957,6 +906,28 @@ margin-left:10px
         </property>
         <property name="text">
          <string>Cantidad</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="lote_num">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>230</y>
+          <width>170</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #23262b;
+border-radius: 3px;
+padding: 4 5px;
+color: #fff;
+font-family:Roboto;
+border: none;
+font-size:13px;
+font-weight: 400;
+margin-left: 10px;
+</string>
         </property>
        </widget>
       </widget>

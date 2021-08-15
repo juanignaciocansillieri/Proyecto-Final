@@ -1,4 +1,3 @@
-from _typeshed import Self
 import sys
 from sys import setprofile
 from typing import NoReturn

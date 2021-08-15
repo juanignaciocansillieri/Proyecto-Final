@@ -112,9 +112,9 @@ class Ui_MainWindow(object):
 "\n"
 "")
         self.label_22.setObjectName("label_22")
-        self.radioButton = QtWidgets.QRadioButton(self.frame_3)
-        self.radioButton.setGeometry(QtCore.QRect(442, 22, 41, 41))
-        self.radioButton.setStyleSheet("QRadioButton{\n"
+        self.fragil_si = QtWidgets.QRadioButton(self.frame_3)
+        self.fragil_si.setGeometry(QtCore.QRect(442, 22, 41, 41))
+        self.fragil_si.setStyleSheet("QRadioButton{\n"
 "border-radius: 3px;\n"
 "color: #fff;\n"
 "font-family:Roboto;\n"
@@ -124,10 +124,10 @@ class Ui_MainWindow(object):
 "margin-top:15px\n"
 "}\n"
 "")
-        self.radioButton.setObjectName("radioButton")
-        self.radioButton_3 = QtWidgets.QRadioButton(self.frame_3)
-        self.radioButton_3.setGeometry(QtCore.QRect(489, 22, 41, 41))
-        self.radioButton_3.setStyleSheet("QRadioButton{\n"
+        self.fragil_si.setObjectName("fragil_si")
+        self.fragil_no = QtWidgets.QRadioButton(self.frame_3)
+        self.fragil_no.setGeometry(QtCore.QRect(489, 22, 41, 41))
+        self.fragil_no.setStyleSheet("QRadioButton{\n"
 "border-radius: 3px;\n"
 "color: #fff;\n"
 "font-family:Roboto;\n"
@@ -137,10 +137,10 @@ class Ui_MainWindow(object):
 "margin-top:15px\n"
 "}\n"
 "")
-        self.radioButton_3.setObjectName("radioButton_3")
+        self.fragil_no.setObjectName("fragil_no")
         self.condicion_cbox = QtWidgets.QComboBox(self.frame_3)
         self.condicion_cbox.setGeometry(QtCore.QRect(439, 104, 161, 25))
-        self.condicion_cbox.setStyleSheet("\n"
+        self.condicion_cbox.setStyleSheet("padding:0 5px;\n"
 "background-color: #23262b;\n"
 "border-radius: 3px;\n"
 "color: #fff;\n"
@@ -161,28 +161,6 @@ class Ui_MainWindow(object):
         self.condicion_cbox.addItem("")
         self.condicion_cbox.addItem("")
         self.condicion_cbox.setItemText(4, "")
-        self.apellido_input_17 = QtWidgets.QLineEdit(self.frame_3)
-        self.apellido_input_17.setGeometry(QtCore.QRect(229, 232, 170, 25))
-        self.apellido_input_17.setMinimumSize(QtCore.QSize(0, 0))
-        self.apellido_input_17.setMaximumSize(QtCore.QSize(16777215, 25))
-        self.apellido_input_17.setStyleSheet("QLineEdit{\n"
-"background-color: #23262b;\n"
-"border-radius: 3px;\n"
-"padding: 4 10px;\n"
-"color: #fff;\n"
-"font-family:Roboto;\n"
-"border: none;\n"
-"font-size:15px;\n"
-"font-weight: 400;\n"
-"margin-left: 10px;\n"
-"\n"
-"}\n"
-"\n"
-"\n"
-"QLineEdit:focus{\n"
-"}")
-        self.apellido_input_17.setPlaceholderText("")
-        self.apellido_input_17.setObjectName("apellido_input_17")
         self.subirFoto_btn = QtWidgets.QPushButton(self.frame_3)
         self.subirFoto_btn.setGeometry(QtCore.QRect(440, 232, 157, 25))
         self.subirFoto_btn.setMaximumSize(QtCore.QSize(16777215, 16777215))
@@ -208,67 +186,66 @@ class Ui_MainWindow(object):
         self.venc_date.setStyleSheet("\n"
 "background-color: #23262b;\n"
 "border-radius: 3px;\n"
-"padding: 4 10px;\n"
+"padding: 4 5px;\n"
+"color: #fff;\n"
+"font-family:Roboto lt;\n"
+"border: none;\n"
+"font-size:13px;\n"
+"margin-left: 10px;")
+        self.venc_date.setDateTime(QtCore.QDateTime(QtCore.QDate(2021, 1, 1), QtCore.QTime(0, 0, 0)))
+        self.venc_date.setObjectName("venc_date")
+        self.peso_num = QtWidgets.QSpinBox(self.frame_3)
+        self.peso_num.setGeometry(QtCore.QRect(20, 230, 170, 25))
+        self.peso_num.setStyleSheet("background-color: #23262b;\n"
+"border-radius: 3px;\n"
+"padding: 4 5px;\n"
 "color: #fff;\n"
 "font-family:Roboto;\n"
 "border: none;\n"
 "font-size:13px;\n"
-"font-weight: 500;\n"
-"margin-left: 10px;")
-        self.venc_date.setDateTime(QtCore.QDateTime(QtCore.QDate(2021, 1, 1), QtCore.QTime(0, 0, 0)))
-        self.venc_date.setObjectName("venc_date")
-        self.spinBox = QtWidgets.QSpinBox(self.frame_3)
-        self.spinBox.setGeometry(QtCore.QRect(20, 230, 170, 25))
-        self.spinBox.setStyleSheet("background-color: #23262b;\n"
-"border-radius: 3px;\n"
-"padding: 4 10px;\n"
-"color: #fff;\n"
-"font-family:Roboto;\n"
-"border: none;\n"
-"font-size:15px;\n"
 "font-weight: 400;\n"
 "margin-left: 10px;\n"
 "")
-        self.spinBox.setObjectName("spinBox")
-        self.spinBox_2 = QtWidgets.QSpinBox(self.frame_3)
-        self.spinBox_2.setGeometry(QtCore.QRect(229, 168, 170, 25))
-        self.spinBox_2.setStyleSheet("background-color: #23262b;\n"
+        self.peso_num.setObjectName("peso_num")
+        self.cantidad_num = QtWidgets.QSpinBox(self.frame_3)
+        self.cantidad_num.setGeometry(QtCore.QRect(229, 168, 170, 25))
+        self.cantidad_num.setStyleSheet("background-color: #23262b;\n"
 "border-radius: 3px;\n"
-"padding: 4 10px;\n"
+"padding: 4 5px;\n"
 "color: #fff;\n"
 "font-family:Roboto;\n"
 "border: none;\n"
-"font-size:15px;\n"
+"font-size:13px;\n"
 "font-weight: 400;\n"
 "margin-left: 10px;\n"
 "")
-        self.spinBox_2.setObjectName("spinBox_2")
-        self.spinBox_3 = QtWidgets.QSpinBox(self.frame_3)
-        self.spinBox_3.setGeometry(QtCore.QRect(230, 104, 170, 25))
-        self.spinBox_3.setStyleSheet("background-color: #23262b;\n"
+        self.cantidad_num.setObjectName("cantidad_num")
+        self.ancho_num = QtWidgets.QSpinBox(self.frame_3)
+        self.ancho_num.setGeometry(QtCore.QRect(230, 104, 170, 25))
+        self.ancho_num.setStyleSheet("background-color: #23262b;\n"
 "border-radius: 3px;\n"
-"padding: 4 10px;\n"
+"padding: 4 5px;\n"
 "color: #fff;\n"
 "font-family:Roboto;\n"
 "border: none;\n"
-"font-size:15px;\n"
+"font-size:13px;\n"
 "font-weight: 400;\n"
 "margin-left: 10px;\n"
 "")
-        self.spinBox_3.setObjectName("spinBox_3")
-        self.spinBox_4 = QtWidgets.QSpinBox(self.frame_3)
-        self.spinBox_4.setGeometry(QtCore.QRect(230, 40, 170, 25))
-        self.spinBox_4.setStyleSheet("background-color: #23262b;\n"
+        self.ancho_num.setObjectName("ancho_num")
+        self.altura_num = QtWidgets.QSpinBox(self.frame_3)
+        self.altura_num.setGeometry(QtCore.QRect(230, 40, 170, 25))
+        self.altura_num.setStyleSheet("background-color: #23262b;\n"
 "border-radius: 3px;\n"
-"padding: 4 10px;\n"
+"padding: 4 5px;\n"
 "color: #fff;\n"
 "font-family:Roboto;\n"
 "border: none;\n"
-"font-size:15px;\n"
+"font-size:13px;\n"
 "font-weight: 400;\n"
 "margin-left: 10px;\n"
 "")
-        self.spinBox_4.setObjectName("spinBox_4")
+        self.altura_num.setObjectName("altura_num")
         self.label_8 = QtWidgets.QLabel(self.frame_3)
         self.label_8.setGeometry(QtCore.QRect(229, 71, 57, 27))
         self.label_8.setMaximumSize(QtCore.QSize(75, 16777215))
@@ -284,28 +261,24 @@ class Ui_MainWindow(object):
 "\n"
 "")
         self.label_8.setObjectName("label_8")
-        self.apellido_input_3 = QtWidgets.QLineEdit(self.frame_3)
-        self.apellido_input_3.setGeometry(QtCore.QRect(20, 104, 170, 25))
-        self.apellido_input_3.setMinimumSize(QtCore.QSize(0, 0))
-        self.apellido_input_3.setMaximumSize(QtCore.QSize(16777215, 25))
-        self.apellido_input_3.setStyleSheet("QLineEdit{\n"
+        self.nombre_input = QtWidgets.QLineEdit(self.frame_3)
+        self.nombre_input.setGeometry(QtCore.QRect(20, 104, 170, 25))
+        self.nombre_input.setMinimumSize(QtCore.QSize(0, 0))
+        self.nombre_input.setMaximumSize(QtCore.QSize(16777215, 25))
+        self.nombre_input.setStyleSheet("QLineEdit{\n"
 "background-color: #23262b;\n"
 "border-radius: 3px;\n"
-"padding: 4 10px;\n"
+"padding: 4 5px;\n"
 "color: #fff;\n"
 "font-family:Roboto;\n"
 "border: none;\n"
-"font-size:15px;\n"
+"font-size:13px;\n"
 "font-weight: 400;\n"
 "margin-left: 10px;\n"
 "\n"
-"}\n"
-"\n"
-"\n"
-"QLineEdit:focus{\n"
 "}")
-        self.apellido_input_3.setPlaceholderText("")
-        self.apellido_input_3.setObjectName("apellido_input_3")
+        self.nombre_input.setPlaceholderText("")
+        self.nombre_input.setObjectName("nombre_input")
         self.label_4 = QtWidgets.QLabel(self.frame_3)
         self.label_4.setGeometry(QtCore.QRect(20, 71, 67, 27))
         font = QtGui.QFont()
@@ -349,28 +322,26 @@ class Ui_MainWindow(object):
 "\n"
 "")
         self.label_3.setObjectName("label_3")
-        self.apellido_input_2 = QtWidgets.QLineEdit(self.frame_3)
-        self.apellido_input_2.setGeometry(QtCore.QRect(20, 40, 170, 25))
-        self.apellido_input_2.setMinimumSize(QtCore.QSize(0, 0))
-        self.apellido_input_2.setMaximumSize(QtCore.QSize(16777215, 25))
-        self.apellido_input_2.setStyleSheet("QLineEdit{\n"
+        self.codigo_input = QtWidgets.QLineEdit(self.frame_3)
+        self.codigo_input.setGeometry(QtCore.QRect(20, 40, 170, 25))
+        self.codigo_input.setMinimumSize(QtCore.QSize(0, 0))
+        self.codigo_input.setMaximumSize(QtCore.QSize(16777215, 25))
+        self.codigo_input.setStyleSheet("QLineEdit{\n"
 "background-color: #23262b;\n"
 "border-radius: 3px;\n"
-"padding: 4 10px;\n"
+"padding: 4 5px;\n"
 "color: #fff;\n"
 "font-family:Roboto;\n"
 "border: none;\n"
-"font-size:15px;\n"
+"font-size:13px;\n"
 "font-weight: 400;\n"
 "margin-left: 10px;\n"
 "\n"
 "}\n"
-"\n"
-"\n"
-"QLineEdit:focus{\n"
-"}")
-        self.apellido_input_2.setPlaceholderText("")
-        self.apellido_input_2.setObjectName("apellido_input_2")
+"")
+        self.codigo_input.setText("")
+        self.codigo_input.setPlaceholderText("")
+        self.codigo_input.setObjectName("codigo_input")
         self.label_10 = QtWidgets.QLabel(self.frame_3)
         self.label_10.setGeometry(QtCore.QRect(229, 199, 154, 27))
         self.label_10.setMaximumSize(QtCore.QSize(154, 16777215))
@@ -400,28 +371,25 @@ class Ui_MainWindow(object):
 "\n"
 "")
         self.label_6.setObjectName("label_6")
-        self.apellido_input_4 = QtWidgets.QLineEdit(self.frame_3)
-        self.apellido_input_4.setGeometry(QtCore.QRect(20, 168, 170, 25))
-        self.apellido_input_4.setMinimumSize(QtCore.QSize(0, 0))
-        self.apellido_input_4.setMaximumSize(QtCore.QSize(16777215, 25))
-        self.apellido_input_4.setStyleSheet("QLineEdit{\n"
+        self.marca_input = QtWidgets.QLineEdit(self.frame_3)
+        self.marca_input.setGeometry(QtCore.QRect(20, 168, 170, 25))
+        self.marca_input.setMinimumSize(QtCore.QSize(0, 0))
+        self.marca_input.setMaximumSize(QtCore.QSize(16777215, 25))
+        self.marca_input.setStyleSheet("QLineEdit{\n"
 "background-color: #23262b;\n"
 "border-radius: 3px;\n"
-"padding: 4 10px;\n"
+"padding: 4 5px;\n"
 "color: #fff;\n"
 "font-family:Roboto;\n"
 "border: none;\n"
-"font-size:15px;\n"
+"font-size:13px;\n"
 "font-weight: 400;\n"
 "margin-left: 10px;\n"
 "\n"
 "}\n"
-"\n"
-"\n"
-"QLineEdit:focus{\n"
-"}")
-        self.apellido_input_4.setPlaceholderText("")
-        self.apellido_input_4.setObjectName("apellido_input_4")
+"")
+        self.marca_input.setPlaceholderText("")
+        self.marca_input.setObjectName("marca_input")
         self.label_5 = QtWidgets.QLabel(self.frame_3)
         self.label_5.setGeometry(QtCore.QRect(20, 135, 57, 27))
         font = QtGui.QFont()
@@ -451,6 +419,19 @@ class Ui_MainWindow(object):
 "\n"
 "")
         self.label_9.setObjectName("label_9")
+        self.lote_num = QtWidgets.QSpinBox(self.frame_3)
+        self.lote_num.setGeometry(QtCore.QRect(230, 230, 170, 25))
+        self.lote_num.setStyleSheet("background-color: #23262b;\n"
+"border-radius: 3px;\n"
+"padding: 4 5px;\n"
+"color: #fff;\n"
+"font-family:Roboto;\n"
+"border: none;\n"
+"font-size:13px;\n"
+"font-weight: 400;\n"
+"margin-left: 10px;\n"
+"")
+        self.lote_num.setObjectName("lote_num")
         self.crearprod_btn = QtWidgets.QPushButton(self.frame_2)
         self.crearprod_btn.setGeometry(QtCore.QRect(380, 320, 121, 26))
         font = QtGui.QFont()
@@ -503,8 +484,8 @@ class Ui_MainWindow(object):
         self.label_20.setText(_translate("MainWindow", "Fragil"))
         self.label_21.setText(_translate("MainWindow", "Imagen"))
         self.label_22.setText(_translate("MainWindow", "Fecha de Vencimiento"))
-        self.radioButton.setText(_translate("MainWindow", "Si"))
-        self.radioButton_3.setText(_translate("MainWindow", "No"))
+        self.fragil_si.setText(_translate("MainWindow", "Si"))
+        self.fragil_no.setText(_translate("MainWindow", "No"))
         self.condicion_cbox.setCurrentText(_translate("MainWindow", "Ninguna"))
         self.condicion_cbox.setItemText(0, _translate("MainWindow", "Ninguna"))
         self.condicion_cbox.setItemText(1, _translate("MainWindow", "Refrigerado"))
@@ -521,14 +502,4 @@ class Ui_MainWindow(object):
         self.label_9.setText(_translate("MainWindow", "Cantidad"))
         self.crearprod_btn.setText(_translate("MainWindow", "Modificar Producto"))
         self.crearprod_btn_2.setText(_translate("MainWindow", "Eliminar Producto"))
-import img.img
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
+import img_oficiales_rc
