@@ -164,16 +164,17 @@ class Main(QMainWindow):
         for i in range(0,5):
             listaProductos.append(self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),i).text())
         productId = listaProductos[0]
+        print(productId)
         
             
-def uploadImg(self):
-        size =(256,256)
-        self.filename,ok =QFileDialog.getOpenFileName(self,'Upload Image','','Image files (*.jpg *.png)')
-        if ok:
-            self.productImg = os.path.basename(self.filename)
-            img=Image.open(self.filename)
-            img=img.resize(size)
-            img.save("img/{0}".format(self.productImg))
+#def uploadImg(self):
+ #       size =(256,256)
+ #       self.filename,ok =QFileDialog.getOpenFileName(self,'Upload Image','','Image files (*.jpg *.png)')
+  #      if ok:
+   #         self.productImg = os.path.basename(self.filename)
+    #        img=Image.open(self.filename)
+     #       img=img.resize(size)
+      #      img.save("img/{0}".format(self.productImg))
 
 
 ###############################FUNCIONES USUARIOS########################################
@@ -209,7 +210,6 @@ def uploadImg(self):
 ##Buscar Usuarios
 
     def buscarUsuarios(self):
-<<<<<<< HEAD
        parametro = self.ui.lineEdit_usuarios_1.text()
        products = u.usuarios.buscar_user(parametro)
        n = u.usuarios.buscar_user_rows(parametro)
@@ -232,27 +232,3 @@ def uploadImg(self):
    #    self.ui.btn_depositos.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_depositos))
     #   self.ui.label_deposito.mousePressEvent = self.clickD
       
-=======
-        parametro = self.ui.lineEdit_usuarios_1.text()
-        products = u.usuarios.buscar_user(parametro)
-        n = u.usuarios.buscar_user_rows(parametro)
-        self.ui.tableWidget_2.setRowCount(n)
-        tableRow = 0
-        for row in products:
-            self.ui.tableWidget_2.setItem(
-                tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
-            self.ui.tableWidget_2.setItem(
-                tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
-            self.ui.tableWidget_2.setItem(
-                tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
-            if str(row[3]) == "b'1'":
-                self.ui.tableWidget_2.setItem(
-                    tableRow, 3, QtWidgets.QTableWidgetItem("Admin"))
-            else:
-                self.ui.tableWidget_2.setItem(
-                    tableRow, 3, QtWidgets.QTableWidgetItem("Usuario"))
-            self.ui.tableWidget_2.setItem(
-                tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
-
-            tableRow += 1
->>>>>>> 734014599a5ba224d3c6c276b8b7131344c68be6

@@ -1,5 +1,6 @@
 import sys
 import os
+from PIL import Image
 from PyQt5 import QtWidgets
 from PyQt5 import QtGui
 from PyQt5 import QtCore
@@ -11,6 +12,11 @@ import nuevo_producto_ui
 from nuevo_producto_ui import Ui_MainWindow
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import productos as pr
+
+
+
+
+defaultImg = "Error.png"
 
 class ProductWindow(QMainWindow):
 
@@ -44,7 +50,7 @@ class ProductWindow(QMainWindow):
       lote = self.ui.lote_input.text()
       fragil = self.ui.fragil_rb.isChecked()
       condicion = self.ui.condicion_cbox.currentText()
-
+      self.ui.subirFoto_btn.clicked.connect(self.uploadImg)
       if codigo=="" or nombre=="" or desc=="" or cantidad=="" or marca=="" or venc=="" or lote=="":
         QtWidgets.QMessageBox.critical(self, "Error", "Ingrese todos los datos")
         return None
@@ -82,6 +88,17 @@ class ProductWindow(QMainWindow):
       #return(codigo,nombre,desc,cantidad,marca,venc,condicion,lote,fragil)
       
 
+    def uploadImg(self):
+        global defaultImg 
+        size=(256,256)
+        self.filename,ok = QFileDialog.getOpenFileName(self,"Upload Image","","Image Files (*.jpg *.png)")
+        if ok:
+            print(self.filename)
+            defaultImg = os.path.basename(self.filename)
+            print(defaultImg)
+            img=Image.open(self.filename)
+            img=img.resize(size)
+            img.save("C:\proyecto-final\Interfaces\main\img/{0}".format(defaultImg))
 
     def clearInput(self):
          self.ui.codigo_input.setText("")
