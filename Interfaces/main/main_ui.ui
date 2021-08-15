@@ -860,7 +860,7 @@ background-color: #45a9f0;
                  <property name="styleSheet">
                   <string notr="true">QTableWidget{
 color:#fff;
-font-size: 11pt;
+font-size: 12pt;
 border-style: none;
 margin-left: 0px;
 margin-top:15px
