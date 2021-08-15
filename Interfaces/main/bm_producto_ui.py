@@ -521,7 +521,7 @@ class Ui_MainWindow(object):
         self.label_9.setText(_translate("MainWindow", "Cantidad"))
         self.crearprod_btn.setText(_translate("MainWindow", "Modificar Producto"))
         self.crearprod_btn_2.setText(_translate("MainWindow", "Eliminar Producto"))
-import img_oficiales_rc
+import img.img
 
 
 if __name__ == "__main__":
