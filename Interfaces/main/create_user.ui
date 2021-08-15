@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>640</height>
+    <height>715</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -29,13 +29,13 @@
    <property name="minimumSize">
     <size>
      <width>400</width>
-     <height>640</height>
+     <height>715</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
      <width>400</width>
-     <height>640</height>
+     <height>715</height>
     </size>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -62,13 +62,13 @@
       <property name="minimumSize">
        <size>
         <width>400</width>
-        <height>640</height>
+        <height>715</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>400</width>
-        <height>640</height>
+        <height>715</height>
        </size>
       </property>
       <property name="styleSheet">
@@ -87,19 +87,19 @@
          <x>20</x>
          <y>10</y>
          <width>400</width>
-         <height>640</height>
+         <height>715</height>
         </rect>
        </property>
        <property name="minimumSize">
         <size>
          <width>400</width>
-         <height>640</height>
+         <height>715</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
          <width>400</width>
-         <height>640</height>
+         <height>715</height>
         </size>
        </property>
        <property name="styleSheet">
@@ -117,8 +117,8 @@ border-radius: 20px;</string>
          <rect>
           <x>0</x>
           <y>-20</y>
-          <width>351</width>
-          <height>591</height>
+          <width>371</width>
+          <height>673</height>
          </rect>
         </property>
         <layout class="QFormLayout" name="formLayout">
@@ -172,14 +172,14 @@ margin-top:20px</string>
           <widget class="QLineEdit" name="nombre_input">
            <property name="minimumSize">
             <size>
-             <width>0</width>
-             <height>10</height>
+             <width>300</width>
+             <height>30</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
              <width>300</width>
-             <height>20</height>
+             <height>30</height>
             </size>
            </property>
            <property name="styleSheet">
@@ -191,7 +191,7 @@ color: #fff;
 font-family:Roboto;
 margin-top: 3px;
 border: none;
-font-size:15px;
+font-size:11px;
 font-weight: 400;
 
 }
@@ -256,14 +256,14 @@ margin-top:20px;</string>
           <widget class="QLineEdit" name="puesto_input">
            <property name="minimumSize">
             <size>
-             <width>0</width>
-             <height>10</height>
+             <width>300</width>
+             <height>30</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
              <width>300</width>
-             <height>20</height>
+             <height>30</height>
             </size>
            </property>
            <property name="styleSheet">
@@ -275,7 +275,7 @@ color: #fff;
 font-family:Roboto;
 margin-top: 3px;
 border: none;
-font-size:15px;
+font-size:11px;
 font-weight: 400;
 
 }
@@ -293,14 +293,14 @@ QLineEdit:focus{
           <widget class="QLineEdit" name="mail_input">
            <property name="minimumSize">
             <size>
-             <width>0</width>
-             <height>10</height>
+             <width>300</width>
+             <height>30</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
              <width>300</width>
-             <height>20</height>
+             <height>30</height>
             </size>
            </property>
            <property name="styleSheet">
@@ -312,7 +312,7 @@ color: #fff;
 font-family:Roboto;
 margin-top: 3px;
 border: none;
-font-size:15px;
+font-size:11px;
 font-weight: 400;
 
 }
@@ -331,14 +331,14 @@ QLineEdit:focus{
           <widget class="QLineEdit" name="pass_input">
            <property name="minimumSize">
             <size>
-             <width>0</width>
-             <height>10</height>
+             <width>300</width>
+             <height>30</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
              <width>300</width>
-             <height>20</height>
+             <height>30</height>
             </size>
            </property>
            <property name="styleSheet">
@@ -350,7 +350,7 @@ color: #fff;
 font-family:Roboto;
 margin-top: 3px;
 border: none;
-font-size:15px;
+font-size:11px;
 font-weight: 400;
 
 }
@@ -368,14 +368,14 @@ QLineEdit:focus{
           <widget class="QLineEdit" name="pass_input_2">
            <property name="minimumSize">
             <size>
-             <width>0</width>
-             <height>10</height>
+             <width>300</width>
+             <height>30</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
              <width>300</width>
-             <height>20</height>
+             <height>30</height>
             </size>
            </property>
            <property name="styleSheet">
@@ -387,7 +387,7 @@ color: #fff;
 font-family:Roboto;
 margin-top: 3px;
 border: none;
-font-size:15px;
+font-size:11px;
 font-weight: 400;
 
 }
@@ -434,25 +434,25 @@ margin-top:20px</string>
            <property name="minimumSize">
             <size>
              <width>0</width>
-             <height>10</height>
+             <height>25</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
              <width>300</width>
-             <height>20</height>
+             <height>25</height>
             </size>
            </property>
            <property name="styleSheet">
             <string notr="true">QLineEdit{
 background-color: #23262b;
 border-radius: 3px;
-padding: 4 10px;
+padding: 4 15px;
 color: #fff;
 font-family:Roboto;
 margin-top: 3px;
 border: none;
-font-size:15px;
+font-size:11px;
 font-weight: 400;
 
 }
@@ -523,14 +523,14 @@ margin-top:5px
           <widget class="QLineEdit" name="pass_input_3">
            <property name="minimumSize">
             <size>
-             <width>0</width>
-             <height>10</height>
+             <width>300</width>
+             <height>30</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
              <width>300</width>
-             <height>20</height>
+             <height>30</height>
             </size>
            </property>
            <property name="styleSheet">
@@ -542,7 +542,7 @@ color: #fff;
 font-family:Roboto;
 margin-top: 3px;
 border: none;
-font-size:15px;
+font-size:11px;
 font-weight: 400;
 
 }
@@ -560,8 +560,8 @@ QLineEdit:focus{
           <widget class="QLineEdit" name="pass_input_4">
            <property name="minimumSize">
             <size>
-             <width>0</width>
-             <height>10</height>
+             <width>300</width>
+             <height>30</height>
             </size>
            </property>
            <property name="maximumSize">
@@ -579,7 +579,7 @@ color: #fff;
 font-family:Roboto;
 margin-top: 3px;
 border: none;
-font-size:15px;
+font-size:11px;
 font-weight: 400;
 
 }
@@ -651,26 +651,27 @@ margin-top:20px</string>
          </item>
         </layout>
        </widget>
-       <widget class="QPushButton" name="pushButton">
-        <property name="geometry">
-         <rect>
-          <x>120</x>
-          <y>590</y>
-          <width>121</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>-1</pointsize>
-         </font>
-        </property>
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{
+      </widget>
+      <widget class="QPushButton" name="pushButton">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>670</y>
+         <width>121</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>-1</pointsize>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
 background-color: #1173ff;
 color: #fff;
 border-radius:10px;
@@ -681,11 +682,10 @@ font-size: 14px
 QPushButton:hover{
 background-color: #45a9f0;
 }</string>
-        </property>
-        <property name="text">
-         <string>Crear Usuario</string>
-        </property>
-       </widget>
+       </property>
+       <property name="text">
+        <string>Crear Usuario</string>
+       </property>
       </widget>
      </widget>
     </item>

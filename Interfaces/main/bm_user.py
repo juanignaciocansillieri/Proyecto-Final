@@ -14,34 +14,37 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(400, 640)
-        MainWindow.setMinimumSize(QtCore.QSize(400, 640))
-        MainWindow.setMaximumSize(QtCore.QSize(570, 16777215))
+        MainWindow.resize(400, 715)
+        MainWindow.setMinimumSize(QtCore.QSize(0, 0))
+        MainWindow.setMaximumSize(QtCore.QSize(749, 800))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
-        self.centralwidget.setMinimumSize(QtCore.QSize(400, 640))
-        self.centralwidget.setMaximumSize(QtCore.QSize(400, 640))
+        self.centralwidget.setMinimumSize(QtCore.QSize(400, 715))
+        self.centralwidget.setMaximumSize(QtCore.QSize(400, 715))
         self.centralwidget.setObjectName("centralwidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setSpacing(0)
+        self.verticalLayout.setObjectName("verticalLayout")
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setEnabled(True)
-        self.frame.setGeometry(QtCore.QRect(0, 0, 400, 640))
-        self.frame.setMinimumSize(QtCore.QSize(400, 640))
-        self.frame.setMaximumSize(QtCore.QSize(400, 640))
+        self.frame.setMinimumSize(QtCore.QSize(400, 715))
+        self.frame.setMaximumSize(QtCore.QSize(400, 715))
         self.frame.setStyleSheet(" background-color: #1a1e23;\n"
 "")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.frame_3 = QtWidgets.QFrame(self.frame)
-        self.frame_3.setGeometry(QtCore.QRect(20, 10, 400, 640))
-        self.frame_3.setMinimumSize(QtCore.QSize(400, 640))
-        self.frame_3.setMaximumSize(QtCore.QSize(400, 640))
+        self.frame_3.setGeometry(QtCore.QRect(20, 10, 400, 715))
+        self.frame_3.setMinimumSize(QtCore.QSize(400, 715))
+        self.frame_3.setMaximumSize(QtCore.QSize(400, 715))
         self.frame_3.setStyleSheet("background-color: #12151a;\n"
 "border-radius: 20px;")
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_3.setObjectName("frame_3")
         self.formLayoutWidget = QtWidgets.QWidget(self.frame_3)
-        self.formLayoutWidget.setGeometry(QtCore.QRect(0, -20, 351, 591))
+        self.formLayoutWidget.setGeometry(QtCore.QRect(0, -20, 371, 673))
         self.formLayoutWidget.setObjectName("formLayoutWidget")
         self.formLayout = QtWidgets.QFormLayout(self.formLayoutWidget)
         self.formLayout.setContentsMargins(0, 22, 0, 3)
@@ -65,8 +68,8 @@ class Ui_MainWindow(object):
         self.label_3.setObjectName("label_3")
         self.formLayout.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.label_3)
         self.nombre_input = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.nombre_input.setMinimumSize(QtCore.QSize(0, 10))
-        self.nombre_input.setMaximumSize(QtCore.QSize(300, 20))
+        self.nombre_input.setMinimumSize(QtCore.QSize(300, 30))
+        self.nombre_input.setMaximumSize(QtCore.QSize(300, 30))
         self.nombre_input.setStyleSheet("QLineEdit{\n"
 "background-color: #23262b;\n"
 "border-radius: 3px;\n"
@@ -75,7 +78,7 @@ class Ui_MainWindow(object):
 "font-family:Roboto;\n"
 "margin-top: 3px;\n"
 "border: none;\n"
-"font-size:15px;\n"
+"font-size:11px;\n"
 "font-weight: 400;\n"
 "\n"
 "}\n"
@@ -118,8 +121,8 @@ class Ui_MainWindow(object):
         self.label_6.setObjectName("label_6")
         self.formLayout.setWidget(6, QtWidgets.QFormLayout.LabelRole, self.label_6)
         self.puesto_input = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.puesto_input.setMinimumSize(QtCore.QSize(0, 10))
-        self.puesto_input.setMaximumSize(QtCore.QSize(300, 20))
+        self.puesto_input.setMinimumSize(QtCore.QSize(300, 30))
+        self.puesto_input.setMaximumSize(QtCore.QSize(300, 30))
         self.puesto_input.setStyleSheet("QLineEdit{\n"
 "background-color: #23262b;\n"
 "border-radius: 3px;\n"
@@ -128,7 +131,7 @@ class Ui_MainWindow(object):
 "font-family:Roboto;\n"
 "margin-top: 3px;\n"
 "border: none;\n"
-"font-size:15px;\n"
+"font-size:11px;\n"
 "font-weight: 400;\n"
 "\n"
 "}\n"
@@ -140,8 +143,8 @@ class Ui_MainWindow(object):
         self.puesto_input.setObjectName("puesto_input")
         self.formLayout.setWidget(7, QtWidgets.QFormLayout.LabelRole, self.puesto_input)
         self.mail_input = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.mail_input.setMinimumSize(QtCore.QSize(0, 10))
-        self.mail_input.setMaximumSize(QtCore.QSize(300, 20))
+        self.mail_input.setMinimumSize(QtCore.QSize(300, 30))
+        self.mail_input.setMaximumSize(QtCore.QSize(300, 30))
         self.mail_input.setStyleSheet("QLineEdit{\n"
 "background-color: #23262b;\n"
 "border-radius: 3px;\n"
@@ -150,7 +153,7 @@ class Ui_MainWindow(object):
 "font-family:Roboto;\n"
 "margin-top: 3px;\n"
 "border: none;\n"
-"font-size:15px;\n"
+"font-size:11px;\n"
 "font-weight: 400;\n"
 "\n"
 "}\n"
@@ -163,8 +166,8 @@ class Ui_MainWindow(object):
         self.mail_input.setObjectName("mail_input")
         self.formLayout.setWidget(11, QtWidgets.QFormLayout.LabelRole, self.mail_input)
         self.pass_input = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.pass_input.setMinimumSize(QtCore.QSize(0, 10))
-        self.pass_input.setMaximumSize(QtCore.QSize(300, 20))
+        self.pass_input.setMinimumSize(QtCore.QSize(300, 30))
+        self.pass_input.setMaximumSize(QtCore.QSize(300, 30))
         self.pass_input.setStyleSheet("QLineEdit{\n"
 "background-color: #23262b;\n"
 "border-radius: 3px;\n"
@@ -173,7 +176,7 @@ class Ui_MainWindow(object):
 "font-family:Roboto;\n"
 "margin-top: 3px;\n"
 "border: none;\n"
-"font-size:15px;\n"
+"font-size:11px;\n"
 "font-weight: 400;\n"
 "\n"
 "}\n"
@@ -183,10 +186,10 @@ class Ui_MainWindow(object):
 "}")
         self.pass_input.setPlaceholderText("")
         self.pass_input.setObjectName("pass_input")
-        self.formLayout.setWidget(16, QtWidgets.QFormLayout.SpanningRole, self.pass_input)
+        self.formLayout.setWidget(15, QtWidgets.QFormLayout.SpanningRole, self.pass_input)
         self.pass_input_2 = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.pass_input_2.setMinimumSize(QtCore.QSize(0, 10))
-        self.pass_input_2.setMaximumSize(QtCore.QSize(300, 20))
+        self.pass_input_2.setMinimumSize(QtCore.QSize(300, 30))
+        self.pass_input_2.setMaximumSize(QtCore.QSize(300, 30))
         self.pass_input_2.setStyleSheet("QLineEdit{\n"
 "background-color: #23262b;\n"
 "border-radius: 3px;\n"
@@ -195,7 +198,7 @@ class Ui_MainWindow(object):
 "font-family:Roboto;\n"
 "margin-top: 3px;\n"
 "border: none;\n"
-"font-size:15px;\n"
+"font-size:11px;\n"
 "font-weight: 400;\n"
 "\n"
 "}\n"
@@ -205,7 +208,7 @@ class Ui_MainWindow(object):
 "}")
         self.pass_input_2.setPlaceholderText("")
         self.pass_input_2.setObjectName("pass_input_2")
-        self.formLayout.setWidget(19, QtWidgets.QFormLayout.SpanningRole, self.pass_input_2)
+        self.formLayout.setWidget(17, QtWidgets.QFormLayout.SpanningRole, self.pass_input_2)
         self.label_10 = QtWidgets.QLabel(self.formLayoutWidget)
         self.label_10.setStyleSheet("font-family: Roboto;\n"
 "font-weight: bold;\n"
@@ -223,17 +226,17 @@ class Ui_MainWindow(object):
         self.label_8.setObjectName("label_8")
         self.formLayout.setWidget(8, QtWidgets.QFormLayout.LabelRole, self.label_8)
         self.apellido_input = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.apellido_input.setMinimumSize(QtCore.QSize(0, 10))
-        self.apellido_input.setMaximumSize(QtCore.QSize(300, 20))
+        self.apellido_input.setMinimumSize(QtCore.QSize(0, 25))
+        self.apellido_input.setMaximumSize(QtCore.QSize(300, 25))
         self.apellido_input.setStyleSheet("QLineEdit{\n"
 "background-color: #23262b;\n"
 "border-radius: 3px;\n"
-"padding: 4 10px;\n"
+"padding: 4 15px;\n"
 "color: #fff;\n"
 "font-family:Roboto;\n"
 "margin-top: 3px;\n"
 "border: none;\n"
-"font-size:15px;\n"
+"font-size:11px;\n"
 "font-weight: 400;\n"
 "\n"
 "}\n"
@@ -270,8 +273,8 @@ class Ui_MainWindow(object):
         self.tipo_cb.setItemText(2, "")
         self.formLayout.setWidget(13, QtWidgets.QFormLayout.LabelRole, self.tipo_cb)
         self.pass_input_3 = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.pass_input_3.setMinimumSize(QtCore.QSize(0, 10))
-        self.pass_input_3.setMaximumSize(QtCore.QSize(300, 20))
+        self.pass_input_3.setMinimumSize(QtCore.QSize(300, 30))
+        self.pass_input_3.setMaximumSize(QtCore.QSize(300, 30))
         self.pass_input_3.setStyleSheet("QLineEdit{\n"
 "background-color: #23262b;\n"
 "border-radius: 3px;\n"
@@ -280,7 +283,7 @@ class Ui_MainWindow(object):
 "font-family:Roboto;\n"
 "margin-top: 3px;\n"
 "border: none;\n"
-"font-size:15px;\n"
+"font-size:11px;\n"
 "font-weight: 400;\n"
 "\n"
 "}\n"
@@ -290,9 +293,9 @@ class Ui_MainWindow(object):
 "}")
         self.pass_input_3.setPlaceholderText("")
         self.pass_input_3.setObjectName("pass_input_3")
-        self.formLayout.setWidget(22, QtWidgets.QFormLayout.SpanningRole, self.pass_input_3)
+        self.formLayout.setWidget(20, QtWidgets.QFormLayout.SpanningRole, self.pass_input_3)
         self.pass_input_4 = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.pass_input_4.setMinimumSize(QtCore.QSize(0, 10))
+        self.pass_input_4.setMinimumSize(QtCore.QSize(300, 30))
         self.pass_input_4.setMaximumSize(QtCore.QSize(300, 20))
         self.pass_input_4.setStyleSheet("QLineEdit{\n"
 "background-color: #23262b;\n"
@@ -302,7 +305,7 @@ class Ui_MainWindow(object):
 "font-family:Roboto;\n"
 "margin-top: 3px;\n"
 "border: none;\n"
-"font-size:15px;\n"
+"font-size:11px;\n"
 "font-weight: 400;\n"
 "\n"
 "}\n"
@@ -312,15 +315,7 @@ class Ui_MainWindow(object):
 "}")
         self.pass_input_4.setPlaceholderText("")
         self.pass_input_4.setObjectName("pass_input_4")
-        self.formLayout.setWidget(25, QtWidgets.QFormLayout.SpanningRole, self.pass_input_4)
-        self.label_11 = QtWidgets.QLabel(self.formLayoutWidget)
-        self.label_11.setStyleSheet("font-family: Roboto;\n"
-"font-weight: bold;\n"
-"font-size: 15px;\n"
-"color: #fff;\n"
-"margin-top:20px")
-        self.label_11.setObjectName("label_11")
-        self.formLayout.setWidget(15, QtWidgets.QFormLayout.LabelRole, self.label_11)
+        self.formLayout.setWidget(23, QtWidgets.QFormLayout.SpanningRole, self.pass_input_4)
         self.label_7 = QtWidgets.QLabel(self.formLayoutWidget)
         self.label_7.setStyleSheet("font-family: Roboto;\n"
 "font-weight: bold;\n"
@@ -328,7 +323,15 @@ class Ui_MainWindow(object):
 "color: #fff;\n"
 "margin-top:20px")
         self.label_7.setObjectName("label_7")
-        self.formLayout.setWidget(21, QtWidgets.QFormLayout.LabelRole, self.label_7)
+        self.formLayout.setWidget(19, QtWidgets.QFormLayout.LabelRole, self.label_7)
+        self.label_11 = QtWidgets.QLabel(self.formLayoutWidget)
+        self.label_11.setStyleSheet("font-family: Roboto;\n"
+"font-weight: bold;\n"
+"font-size: 15px;\n"
+"color: #fff;\n"
+"margin-top:20px")
+        self.label_11.setObjectName("label_11")
+        self.formLayout.setWidget(14, QtWidgets.QFormLayout.LabelRole, self.label_11)
         self.label_9 = QtWidgets.QLabel(self.formLayoutWidget)
         self.label_9.setStyleSheet("font-family: Roboto;\n"
 "font-weight: bold;\n"
@@ -336,7 +339,7 @@ class Ui_MainWindow(object):
 "color: #fff;\n"
 "margin-top:20px")
         self.label_9.setObjectName("label_9")
-        self.formLayout.setWidget(24, QtWidgets.QFormLayout.LabelRole, self.label_9)
+        self.formLayout.setWidget(22, QtWidgets.QFormLayout.LabelRole, self.label_9)
         self.label_12 = QtWidgets.QLabel(self.formLayoutWidget)
         self.label_12.setStyleSheet("font-family: Roboto;\n"
 "font-weight: bold;\n"
@@ -344,9 +347,9 @@ class Ui_MainWindow(object):
 "color: #fff;\n"
 "margin-top:20px")
         self.label_12.setObjectName("label_12")
-        self.formLayout.setWidget(18, QtWidgets.QFormLayout.LabelRole, self.label_12)
+        self.formLayout.setWidget(16, QtWidgets.QFormLayout.LabelRole, self.label_12)
         self.pushButton = QtWidgets.QPushButton(self.frame_3)
-        self.pushButton.setGeometry(QtCore.QRect(0, 590, 121, 31))
+        self.pushButton.setGeometry(QtCore.QRect(10, 660, 121, 31))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(-1)
@@ -365,7 +368,7 @@ class Ui_MainWindow(object):
 "}")
         self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(self.frame_3)
-        self.pushButton_2.setGeometry(QtCore.QRect(250, 590, 121, 31))
+        self.pushButton_2.setGeometry(QtCore.QRect(250, 660, 121, 31))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(-1)
@@ -383,6 +386,7 @@ class Ui_MainWindow(object):
 "background-color: #45a9f0;\n"
 "}")
         self.pushButton_2.setObjectName("pushButton_2")
+        self.verticalLayout.addWidget(self.frame)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -401,12 +405,12 @@ class Ui_MainWindow(object):
         self.tipo_cb.setCurrentText(_translate("MainWindow", "Admin"))
         self.tipo_cb.setItemText(0, _translate("MainWindow", "Admin"))
         self.tipo_cb.setItemText(1, _translate("MainWindow", "Usuario"))
-        self.label_11.setText(_translate("MainWindow", "MAIL:"))
         self.label_7.setText(_translate("MainWindow", "CONTRASEÑA:"))
+        self.label_11.setText(_translate("MainWindow", "MAIL:"))
         self.label_9.setText(_translate("MainWindow", "REPETIR CONTRASEÑA:"))
         self.label_12.setText(_translate("MainWindow", "REPETIR MAIL:"))
-        self.pushButton.setText(_translate("MainWindow", "Modificar Usuario"))
-        self.pushButton_2.setText(_translate("MainWindow", "Eliminar Usuario"))
+        self.pushButton.setText(_translate("MainWindow", "Eliminar Usuario"))
+        self.pushButton_2.setText(_translate("MainWindow", "Modificar Usuario"))
 
 
 if __name__ == "__main__":
