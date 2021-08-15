@@ -53,7 +53,8 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
     tipo BINARY(1) NOT NULL,
     alta BINARY(1) NOT NULL,
     puesto VARCHAR(20) NOT NULL,
-    nacimiento DATE NOT NULL);"""
+    nacimiento DATE NOT NULL,
+    mail VARCHAR(20) NOT NULL);"""
     q2 = """CREATE TABLE IF NOT EXISTS productos (
     idproductos INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     codigo VARCHAR(20) NOT NULL,
@@ -66,11 +67,18 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
     vencimiento DATE NOT NULL,
     refrigeracion BINARY(1) NOT NULL,
     inflamable BINARY(1) NOT NULL,
-    fragil BINARY(1) NOT NULL);"""
+    fragil BINARY(1) NOT NULL,
+    foto VARCHAR(50) NOT NULL,
+    peso VARCHAR(20) NOT NULL,
+    largo VARCHAR(20) NOT NULL,
+    ancho VARCHAR(20) NOT NULL,
+    alto VARCHAR(20) NOT NULL);"""
     q3 = """CREATE TABLE IF NOT EXISTS alojamiento (
     idalojamiento INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     codigo VARCHAR(20) NOT NULL,
-    dimensiones VARCHAR(20) NOT NULL,
+    largo VARCHAR(20) NOT NULL,
+    ancho VARCHAR(20) NOT NULL,
+    alto VARCHAR(20) NOT NULL,
     disponibilidad BINARY(1) NOT NULL,
     posicion VARCHAR(20) NOT NULL,
     refrigeracion BINARY(1) NOT NULL,
