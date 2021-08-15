@@ -35,6 +35,7 @@ class ProductWindow(QMainWindow):
         self.move(qtRectangle.topLeft())
         # Agregar Producto
         self.ui.crearprod_btn.clicked.connect(self.crearProducto)
+        self.ui.subirFoto_btn.clicked.connect(self.uploadImg)
 
     
     #CREAR PRODUCTO NUEVO
@@ -46,12 +47,11 @@ class ProductWindow(QMainWindow):
       desc = self.ui.desc_input.text()
       cantidad = self.ui.cantidad_input.text()
       marca = self.ui.marca_input.text()
-      venc = self.ui.venc_date.date().toString("yyyy/MM/dd")
+      venc = self.ui.venc_date.date().toString("dd/MM/yyyy")
       lote = self.ui.lote_input.text()
       fragil = self.ui.fragil_rb.isChecked()
       condicion = self.ui.condicion_cbox.currentText()
-      self.ui.subirFoto_btn.clicked.connect(self.uploadImg)
-      if codigo=="" or nombre=="" or desc=="" or cantidad=="" or marca=="" or venc=="" or lote=="":
+      if codigo=="" or nombre=="" or desc=="" or cantidad=="" or marca=="" or venc=="" or lote==""  :
         QtWidgets.QMessageBox.critical(self, "Error", "Ingrese todos los datos")
         return None
 
