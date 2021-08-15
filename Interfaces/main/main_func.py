@@ -73,8 +73,8 @@ class Main(QMainWindow):
         self.ui.tableWidget.doubleClicked.connect(self.mostrarBmProduct)
 
         # Abrir ventana para bm usuario
-        self.ui.tableWidget.doubleClicked.connect(self.listarUsuarios)
-        self.ui.tableWidget.doubleClicked.connect(self.)
+        self.ui.tableWidget.doubleClicked.connect(self.seleccionarusuario)
+        self.ui.tableWidget.doubleClicked.connect(self.mostrarNewUser)
 
         ############################# DEPOSITO #########################################
         self.ui.btn_depositos.clicked.connect(
