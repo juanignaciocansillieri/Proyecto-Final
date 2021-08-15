@@ -1,6 +1,6 @@
+from numpy import product
 from toggleFunction import *
 from main import Ui_MainWindow
-
 import sys
 import platform
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -11,9 +11,12 @@ from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFont
 from PyQt5.QtWidgets import *
 from create_user_func import UsuarioWindow
 from nuevoProduct_func import ProductWindow
-sys.path.append(".")
-from CLASES import usuarios as u
-from CLASES import productos as p
+from bm_producto import BMProduct as bm
+from bm_producto_ui import Ui_MainWindow as ui_bm
+sys.path.append("C:\\proyecto-final\\CLASES\\")
+import usuarios as u
+import productos as p
+
 
 # GUI File
 
@@ -66,6 +69,7 @@ class Main(QMainWindow):
 
         # Abrir ventana para ver el producto
         self.ui.tableWidget.doubleClicked.connect(self.seleccionarProducto)
+        self.ui.tableWidget.doubleClicked.connect(self.mostrarBmProduct)
 
         ############################# DEPOSITO #########################################
         self.ui.btn_depositos.clicked.connect(
@@ -111,6 +115,10 @@ class Main(QMainWindow):
         self.newUserWindow = UsuarioWindow()
         self.newUserWindow.show()
 
+    def mostrarBmProduct(self):
+        self.newBmProduct = BMProduct()
+        self.newBmProduct.show()
+        
 ###############################FUNCIONES PRODUCTOS########################################
 
     # Listar productos from DB
@@ -164,9 +172,6 @@ class Main(QMainWindow):
         for i in range(0,5):
             listaProductos.append(self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),i).text())
         productId = listaProductos[0]
-        print(productId)
-            
-
 
 
 ###############################FUNCIONES USUARIOS########################################
@@ -202,7 +207,6 @@ class Main(QMainWindow):
 ##Buscar Usuarios
 
     def buscarUsuarios(self):
-<<<<<<< HEAD
        parametro = self.ui.lineEdit_usuarios_1.text()
        products = u.usuarios.buscar_user(parametro)
        n = u.usuarios.buscar_user_rows(parametro)
@@ -224,28 +228,36 @@ class Main(QMainWindow):
   # def bm_user(self):
    #    self.ui.btn_depositos.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_depositos))
     #   self.ui.label_deposito.mousePressEvent = self.clickD
-      
-=======
-        parametro = self.ui.lineEdit_usuarios_1.text()
-        products = u.usuarios.buscar_user(parametro)
-        n = u.usuarios.buscar_user_rows(parametro)
-        self.ui.tableWidget_2.setRowCount(n)
-        tableRow = 0
-        for row in products:
-            self.ui.tableWidget_2.setItem(
-                tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
-            self.ui.tableWidget_2.setItem(
-                tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
-            self.ui.tableWidget_2.setItem(
-                tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
-            if str(row[3]) == "b'1'":
-                self.ui.tableWidget_2.setItem(
-                    tableRow, 3, QtWidgets.QTableWidgetItem("Admin"))
-            else:
-                self.ui.tableWidget_2.setItem(
-                    tableRow, 3, QtWidgets.QTableWidgetItem("Usuario"))
-            self.ui.tableWidget_2.setItem(
-                tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+class BMProduct(QMainWindow):
 
-            tableRow += 1
->>>>>>> 734014599a5ba224d3c6c276b8b7131344c68be6
+    def __init__(self):
+        super(BMProduct, self).__init__()
+        self.ui = ui_bm()
+        self.ui.setupUi(self)
+        ############# RECIBIMOS PROPORCIONES DE LA PANTALLA ###########
+        qtRectangle = self.frameGeometry()
+        centerPoint = QDesktopWidget().availableGeometry().center()
+        qtRectangle.moveCenter(centerPoint)
+        self.move(qtRectangle.topLeft())
+        ############## CENTRAMOS LA VENTANA #############
+        centerPoint = QDesktopWidget().availableGeometry().center()
+        qtRectangle.moveCenter(centerPoint)
+        self.move(qtRectangle.topLeft())
+        self.rellenarCampos()
+        self.show()
+
+    def rellenarCampos(self):
+        global productId
+        producto = p.productos.mostrar_product(productId)
+        atributos = list(producto[0])
+        print(atributos)
+        self.ui.codigo_input.setText(atributos[0])
+        self.ui.nombre_input.setText(atributos[1])
+        self.ui.marca_input.setText(atributos[2])
+        self.ui.venc_date.setDate(atributos[4])
+        self.ui.lote_num.setValue(atributos[3])
+        #self.ui.peso_num
+        #self.ui.ancho_num
+        #self.ui.altura_num
+        #self.ui.cantidad_num
+        #self.ui.condicion_cbox

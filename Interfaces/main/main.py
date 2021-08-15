@@ -563,6 +563,7 @@ class Ui_MainWindow(object):
         self.tableWidget_2 = QtWidgets.QTableWidget(self.frame_usuarios)
         self.tableWidget_2.setMinimumSize(QtCore.QSize(980, 300))
         self.tableWidget_2.setMaximumSize(QtCore.QSize(801, 500))
+        self.tableWidget_2.viewport().setProperty("cursor", QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.tableWidget_2.setStyleSheet("QTableWidget{\n"
 "color:#fff;\n"
 "font-size: 20px;\n"
@@ -580,7 +581,6 @@ class Ui_MainWindow(object):
 "    border-bottom: 1px solid #23262b;\n"
 "    border-right: 1px solid #23262b;\n"
 "    border-left: 1px solid #23262b;\n"
-"\n"
 "    font-family:Roboto;\n"
 "\n"
 "\n"
@@ -597,6 +597,7 @@ class Ui_MainWindow(object):
 "\n"
 "    border-left: 1px solid #23262b;\n"
 "}")
+        self.tableWidget_2.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableWidget_2.setObjectName("tableWidget_2")
         self.tableWidget_2.setColumnCount(5)
         self.tableWidget_2.setRowCount(0)
