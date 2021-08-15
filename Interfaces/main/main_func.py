@@ -72,6 +72,10 @@ class Main(QMainWindow):
         self.ui.tableWidget.doubleClicked.connect(self.seleccionarProducto)
         self.ui.tableWidget.doubleClicked.connect(self.mostrarBmProduct)
 
+        # Abrir ventana para bm usuario
+        self.ui.tableWidget.doubleClicked.connect(self.listarUsuarios)
+        self.ui.tableWidget.doubleClicked.connect(self.)
+
         ############################# DEPOSITO #########################################
         self.ui.btn_depositos.clicked.connect(
             lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_depositos))
@@ -176,6 +180,16 @@ class Main(QMainWindow):
         print(productId)
         
             
+ # Seleccionar usuario al hacer click y abrir ventana
+
+    def seleccionarusuario(self):
+        global userid
+        seleccionarusuario = []
+        for i in range(0,5):
+            seleccionarusuario.append(self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),i).text())
+        userid = seleccionarusuario[0]
+        print(userid)
+                    
 #def uploadImg(self):
  #       size =(256,256)
  #       self.filename,ok =QFileDialog.getOpenFileName(self,'Upload Image','','Image files (*.jpg *.png)')
