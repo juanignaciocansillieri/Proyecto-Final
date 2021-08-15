@@ -291,6 +291,7 @@ class Ui_MainWindow(object):
 "\n"
 "QLineEdit:focus{\n"
 "}")
+        self.pass_input_3.setEchoMode(QtWidgets.QLineEdit.Password)
         self.pass_input_3.setPlaceholderText("")
         self.pass_input_3.setObjectName("pass_input_3")
         self.formLayout.setWidget(20, QtWidgets.QFormLayout.SpanningRole, self.pass_input_3)
@@ -313,6 +314,7 @@ class Ui_MainWindow(object):
 "\n"
 "QLineEdit:focus{\n"
 "}")
+        self.pass_input_4.setEchoMode(QtWidgets.QLineEdit.Password)
         self.pass_input_4.setPlaceholderText("")
         self.pass_input_4.setObjectName("pass_input_4")
         self.formLayout.setWidget(23, QtWidgets.QFormLayout.SpanningRole, self.pass_input_4)

@@ -551,6 +551,9 @@ font-weight: 400;
 QLineEdit:focus{
 }</string>
            </property>
+           <property name="echoMode">
+            <enum>QLineEdit::Password</enum>
+           </property>
            <property name="placeholderText">
             <string/>
            </property>
@@ -587,6 +590,9 @@ font-weight: 400;
 
 QLineEdit:focus{
 }</string>
+           </property>
+           <property name="echoMode">
+            <enum>QLineEdit::Password</enum>
            </property>
            <property name="placeholderText">
             <string/>
