@@ -709,7 +709,7 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "Fecha de Nacimiento"))
         self.pushButton_usuarios_2.setText(_translate("MainWindow", "Nuevo Usuario"))
         self.pushButton_usuarios_3.setText(_translate("MainWindow", "Listar Usuarios"))
-import img_oficiales_rc
+import img.img
 
 
 if __name__ == "__main__":
