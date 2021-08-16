@@ -82,7 +82,6 @@ class Main(QMainWindow):
         self.ui.label_deposito.mousePressEvent = self.clickD
 
         ####################### USUARIOS ################################################
-
         self.ui.btn_usuarios.clicked.connect(
             lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_usuarios))
         self.ui.label_usuarios.mousePressEvent = self.clickU
