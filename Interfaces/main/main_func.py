@@ -1,5 +1,7 @@
+from collections import defaultdict
 from typing import DefaultDict
 from numpy import product
+from numpy.core.shape_base import atleast_1d
 from toggleFunction import *
 from main import Ui_MainWindow 
 import os
@@ -18,12 +20,14 @@ from bm_producto_ui import Ui_MainWindow as ui_bm
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import usuarios as u
 import productos as p
+from PIL import Image
 
 
 # GUI File
 
 # Import Functions
 
+defaultImg = ""
 codigoViejo = ""
 
 class Main(QMainWindow):
@@ -179,23 +183,15 @@ class Main(QMainWindow):
 
     def seleccionarProducto(self):
         global productId
+        global defaultImg
         listaProductos = []
         for i in range(0,5):
             listaProductos.append(self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),i).text())
         productId = listaProductos[0]
-        print(productId)
         
             
 
                     
-#def uploadImg(self):
- #       size =(256,256)
- #       self.filename,ok =QFileDialog.getOpenFileName(self,'Upload Image','','Image files (*.jpg *.png)')
-  #      if ok:
-   #         self.productImg = os.path.basename(self.filename)
-    #        img=Image.open(self.filename)
-     #       img=img.resize(size)
-      #      img.save("img/{0}".format(self.productImg))
 
 
 ###############################FUNCIONES USUARIOS########################################
@@ -276,12 +272,16 @@ class BMProduct(QMainWindow):
         self.move(qtRectangle.topLeft())
         self.rellenarCampos()
 
+        #Subir foto btn
+        self.ui.subirFoto_btn.clicked.connect(self.uploadImg)
+
         #Modificar producto btn
         self.ui.modificarprod_btn.clicked.connect(self.modificarProducto)
 
         #Eliminar producto btn
         self.ui.eliminarprod_btn.clicked.connect(self.borrarProducto)
         
+
         #Mostrar Ventana
         self.show()
 
@@ -289,9 +289,9 @@ class BMProduct(QMainWindow):
     def rellenarCampos(self):
         global productId
         global codigoViejo
+        global defaultImg
         producto = p.productos.mostrar_product(productId)
         atributos = list(producto[0])
-        print(atributos)
         self.ui.codigo_input.setText(atributos[0])
         codigoViejo = atributos[0]
         self.ui.nombre_input.setText(atributos[1])
@@ -300,10 +300,12 @@ class BMProduct(QMainWindow):
         self.ui.cantidad_num.setValue(atributos[3])
         self.ui.descripcion_input.setText(atributos[5])
         self.ui.ubicacion_input.setText(atributos[6])
-        self.ui.label.setText(atributos[7])
+        self.productImg = self.ui.label
+        self.img = QPixmap("C:\proyecto-final\Interfaces\main\img/{0}".format(atributos[7]))
+        self.productImg.setPixmap(self.img)
+        defaultImg = atributos[7]
         self.ui.lote_num.setValue(atributos[8])
-        #foto
-        print(type(atributos[9]))
+        
         if  str(atributos[9]) == "b'1'":
             print("1")
             self.ui.condicion_cbox.setCurrentText("Refrigerado")
@@ -326,6 +328,8 @@ class BMProduct(QMainWindow):
         
     def modificarProducto(self):
         global codigoViejo
+        global defaultImg
+        print(defaultImg)
         codigo = self.ui.codigo_input.text()
         nombre = self.ui.nombre_input.text()
         descripcion = self.ui.descripcion_input.toPlainText()
@@ -354,17 +358,28 @@ class BMProduct(QMainWindow):
         ancho = self.ui.ancho_num.value()
         altura = self.ui.altura_num.value()
         largo = self.ui.largo_num.value()
-        foto = "..."
-        print(venc)
+        foto = defaultImg
         p.productos.modificar_produc(codigoViejo,codigo,nombre,marca,cantidad,descripcion,lote,venc,refri,infla,fragil,foto,peso,largo,ancho,altura)
         self.close()
 
     def borrarProducto(self):
         global productId
-        p.productos.borrar_producto(productId)
-        self.close()
-        
+        qm = QMessageBox
 
+        ret = qm.warning(self,'Esta acción es irreversible', "¿Estás seguro que quieres eliminar el producto?", qm.Yes | qm.No)
+        if ret == qm.Yes:
+            p.productos.borrar_producto(productId)
+            self.close()
+        
+    def uploadImg(self):
+      global defaultImg
+      size =(256,256)
+      self.filename,ok =QFileDialog.getOpenFileName(self,'Upload Image','','Image files (*.jpg *.png)')
+      if ok:
+            defaultImg = os.path.basename(self.filename)
+            img=Image.open(self.filename)
+            img=img.resize(size)
+            img.save("C:\proyecto-final\Interfaces\main\img/{0}".format(defaultImg))
 
     #def bm_user(self):
      #  self.ui.btn_.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_usuarios))

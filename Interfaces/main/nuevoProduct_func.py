@@ -49,6 +49,7 @@ class ProductWindow(QMainWindow):
       marca = self.ui.marca_input.text()
       venc = self.ui.venc_date.date().toString("yyyy/MM/dd")
       lote = self.ui.lote_num.value()
+      imagen = defaultImg
       if self.ui.fragil_si.isChecked():
         fragil = "1"
       else :
@@ -106,6 +107,7 @@ class ProductWindow(QMainWindow):
             img=Image.open(self.filename)
             img=img.resize(size)
             img.save("C:\proyecto-final\Interfaces\main\img/{0}".format(defaultImg))
+            print(defaultImg)
 
     def clearInput(self):
          self.ui.codigo_input.setText("")
