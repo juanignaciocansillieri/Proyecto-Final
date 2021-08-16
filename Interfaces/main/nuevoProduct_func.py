@@ -78,7 +78,7 @@ class ProductWindow(QMainWindow):
         return None
       else:
       
-        product = pr.productos(codigo,nombre,marca,cantidad,desc,lote,venc,refri,infla,fragil)
+        product = pr.productos(codigo,nombre,marca,cantidad,desc,lote,venc,refri,infla,fragil,foto,largo,alto,ancho)
         product.alta_producto()
         self.close()
       self.clearInput()
