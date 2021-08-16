@@ -69,16 +69,16 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
     inflamable BINARY(1) NOT NULL,
     fragil BINARY(1) NOT NULL,
     foto VARCHAR(50) NOT NULL,
-    peso VARCHAR(20) NOT NULL,
-    largo VARCHAR(20) NOT NULL,
-    ancho VARCHAR(20) NOT NULL,
-    alto VARCHAR(20) NOT NULL);"""
+    peso INT NOT NULL,
+    largo INT NOT NULL,
+    ancho INT NOT NULL,
+    alto INT NOT NULL);"""
     q3 = """CREATE TABLE IF NOT EXISTS alojamiento (
     idalojamiento INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     codigo VARCHAR(20) NOT NULL,
-    largo VARCHAR(20) NOT NULL,
-    ancho VARCHAR(20) NOT NULL,
-    alto VARCHAR(20) NOT NULL,
+    largo INT NOT NULL,
+    ancho INT NOT NULL,
+    alto INT NOT NULL,
     disponibilidad BINARY(1) NOT NULL,
     posicion VARCHAR(20) NOT NULL,
     refrigeracion BINARY(1) NOT NULL,

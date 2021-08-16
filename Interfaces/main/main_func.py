@@ -279,12 +279,17 @@ class BMProduct(QMainWindow):
         self.ui.nombre_input.setText(atributos[1])
         self.ui.marca_input.setText(atributos[2])
         self.ui.venc_date.setDate(atributos[4])
-        self.ui.lote_num.setValue(atributos[3])
-        #self.ui.peso_num
-        #self.ui.ancho_num
-        #self.ui.altura_num
-        #self.ui.cantidad_num
-        #self.ui.condicion_cbox
+        self.ui.cantidad_num_2.setValue(atributos[3])
+        self.ui.descripcion_input.setText(atributos[5])
+        self.ui.ubicacion_input.setText(atributos[6])
+        self.ui.label.setText(atributos[7])
+        self.ui.lote_num.setValue(atributos[8])
+        self.ui.condicion_cbox
+        self.ui.peso_num.setValue(atributos[12])
+        self.ui.ancho_num.setValue(atributos[13])
+        self.ui.altura_num.setValue(atributos[14])
+        
+        
 
     #def bm_user(self):
      #  self.ui.btn_.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_usuarios))
