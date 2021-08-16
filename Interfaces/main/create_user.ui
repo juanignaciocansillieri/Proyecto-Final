@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>778</width>
+    <width>480</width>
     <height>467</height>
    </rect>
   </property>
@@ -34,13 +34,13 @@
    </property>
    <property name="minimumSize">
     <size>
-     <width>778</width>
+     <width>480</width>
      <height>467</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
-     <width>778</width>
+     <width>480</width>
      <height>467</height>
     </size>
    </property>
@@ -67,19 +67,19 @@
       </property>
       <property name="minimumSize">
        <size>
-        <width>0</width>
-        <height>0</height>
+        <width>480</width>
+        <height>467</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>8000</width>
+        <width>480</width>
         <height>8000</height>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true"> background-color: #1a1e23;
-</string>
+       <string notr="true">
+ background-color: #1a1e23;</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -92,13 +92,13 @@
         <rect>
          <x>20</x>
          <y>10</y>
-         <width>400</width>
+         <width>230</width>
          <height>500</height>
         </rect>
        </property>
        <property name="minimumSize">
         <size>
-         <width>400</width>
+         <width>0</width>
          <height>0</height>
         </size>
        </property>
@@ -109,7 +109,7 @@
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: #12151a;
+        <string notr="true"> background-color: #1a1e23;
 border-radius: 20px;</string>
        </property>
        <property name="frameShape">
@@ -122,9 +122,9 @@ border-radius: 20px;</string>
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>0</y>
+          <y>3</y>
           <width>1142</width>
-          <height>421</height>
+          <height>591</height>
          </rect>
         </property>
         <layout class="QFormLayout" name="formLayout">
@@ -150,13 +150,12 @@ border-radius: 20px;</string>
           <widget class="QLabel" name="label_nombre">
            <property name="styleSheet">
             <string notr="true">font-family: Roboto;
-font-weight: bold;
-font-size: 15px;
+font-size: 14px;
 color: #fff;
 margin-top:5px</string>
            </property>
            <property name="text">
-            <string>NOMBRE</string>
+            <string>Nombre:</string>
            </property>
           </widget>
          </item>
@@ -170,7 +169,7 @@ margin-top:5px</string>
            </property>
            <property name="maximumSize">
             <size>
-             <width>300</width>
+             <width>200</width>
              <height>25</height>
             </size>
            </property>
@@ -197,31 +196,17 @@ QLineEdit:focus{
            </property>
           </widget>
          </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="label_apellido">
-           <property name="styleSheet">
-            <string notr="true">font-family: Roboto;
-font-weight: bold;
-font-size: 15px;
-color: #fff;
-margin-top:20px</string>
-           </property>
-           <property name="text">
-            <string>APELLIDO</string>
-           </property>
-          </widget>
-         </item>
          <item row="3" column="0" colspan="2">
           <widget class="QLineEdit" name="apellido_input">
            <property name="minimumSize">
             <size>
-             <width>300</width>
+             <width>200</width>
              <height>30</height>
             </size>
            </property>
            <property name="maximumSize">
             <size>
-             <width>300</width>
+             <width>200</width>
              <height>30</height>
             </size>
            </property>
@@ -252,130 +237,12 @@ QLineEdit:focus{
           <widget class="QLabel" name="label_nacimiento">
            <property name="styleSheet">
             <string notr="true">font-family: Roboto;
-font-weight: bold;
-font-size: 15px;
+font-size: 14px;
 color: #fff;
 margin-top:20px</string>
            </property>
            <property name="text">
-            <string>NACIMIENTO</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="0">
-          <widget class="QLabel" name="label_puesto">
-           <property name="styleSheet">
-            <string notr="true">font-family: Roboto;
-font-weight: bold;
-font-size: 15px;
-color: #fff;
-margin-top:20px;</string>
-           </property>
-           <property name="text">
-            <string>PUESTO</string>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="0">
-          <widget class="QLineEdit" name="puesto_input">
-           <property name="minimumSize">
-            <size>
-             <width>300</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>300</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QLineEdit{
-background-color: #23262b;
-border-radius: 3px;
-padding: 4 10px;
-color: #fff;
-font-family:Roboto;
-margin-top: 3px;
-border: none;
-font-size:11px;
-font-weight: 400;
-
-}
-
-
-QLineEdit:focus{
-}</string>
-           </property>
-           <property name="placeholderText">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="8" column="0">
-          <widget class="QLabel" name="label_dni">
-           <property name="styleSheet">
-            <string notr="true">font-family: Roboto;
-font-weight: bold;
-font-size: 15px;
-color: #fff;
-margin-top:20px</string>
-           </property>
-           <property name="text">
-            <string>DNI</string>
-           </property>
-          </widget>
-         </item>
-         <item row="11" column="0">
-          <widget class="QLineEdit" name="dni_input">
-           <property name="minimumSize">
-            <size>
-             <width>300</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>300</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QLineEdit{
-background-color: #23262b;
-border-radius: 3px;
-padding: 4 10px;
-color: #fff;
-font-family:Roboto;
-margin-top: 3px;
-border: none;
-font-size:11px;
-font-weight: 400;
-
-}
-
-
-QLineEdit:focus{
-}
-</string>
-           </property>
-           <property name="placeholderText">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="12" column="0">
-          <widget class="QLabel" name="label_tipo">
-           <property name="styleSheet">
-            <string notr="true">font-family: Roboto;
-font-weight: bold;
-font-size: 15px;
-color: #fff;
-margin-top:20px</string>
-           </property>
-           <property name="text">
-            <string>TIPO</string>
+            <string>Nacimiento:</string>
            </property>
           </widget>
          </item>
@@ -414,6 +281,120 @@ margin-top: 3 px;</string>
            </property>
            <property name="calendarPopup">
             <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_puesto">
+           <property name="styleSheet">
+            <string notr="true">font-family: Roboto;
+font-size: 14px;
+color: #fff;
+margin-top:20px;</string>
+           </property>
+           <property name="text">
+            <string>Puesto:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLineEdit" name="puesto_input">
+           <property name="minimumSize">
+            <size>
+             <width>200</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLineEdit{
+background-color: #23262b;
+border-radius: 3px;
+padding: 4 10px;
+color: #fff;
+font-family:Roboto;
+margin-top: 3px;
+border: none;
+font-size:11px;
+font-weight: 400;
+
+}
+
+
+QLineEdit:focus{
+}</string>
+           </property>
+           <property name="placeholderText">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="0">
+          <widget class="QLabel" name="label_dni">
+           <property name="styleSheet">
+            <string notr="true">font-family: Roboto;
+font-size: 14px;
+color: #fff;
+margin-top:20px</string>
+           </property>
+           <property name="text">
+            <string>DNI:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="11" column="0">
+          <widget class="QLineEdit" name="dni_input">
+           <property name="minimumSize">
+            <size>
+             <width>200</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLineEdit{
+background-color: #23262b;
+border-radius: 3px;
+padding: 4 10px;
+color: #fff;
+font-family:Roboto;
+margin-top: 3px;
+border: none;
+font-size:11px;
+font-weight: 400;
+
+}
+
+
+QLineEdit:focus{
+}
+</string>
+           </property>
+           <property name="placeholderText">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="0">
+          <widget class="QLabel" name="label_tipo">
+           <property name="styleSheet">
+            <string notr="true">font-family: Roboto;
+font-size: 14px;
+color: #fff;
+margin-top:20px</string>
+           </property>
+           <property name="text">
+            <string>Tipo:</string>
            </property>
           </widget>
          </item>
@@ -482,15 +463,28 @@ margin-top:5px
            </item>
           </widget>
          </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_apellido">
+           <property name="styleSheet">
+            <string notr="true">font-family: Roboto;
+font-size: 14px;
+color: #fff;
+margin-top:20px</string>
+           </property>
+           <property name="text">
+            <string>Apellido:</string>
+           </property>
+          </widget>
+         </item>
         </layout>
        </widget>
       </widget>
       <widget class="QWidget" name="formLayoutWidget_2">
        <property name="geometry">
         <rect>
-         <x>390</x>
+         <x>260</x>
          <y>10</y>
-         <width>371</width>
+         <width>211</width>
          <height>381</height>
         </rect>
        </property>
@@ -517,13 +511,12 @@ margin-top:5px
          <widget class="QLabel" name="label_mail">
           <property name="styleSheet">
            <string notr="true">font-family: Roboto;
-font-weight: bold;
-font-size: 15px;
+font-size: 14px;
 color: #fff;
 margin-top:5px</string>
           </property>
           <property name="text">
-           <string>MAIL</string>
+           <string>Mail:</string>
           </property>
          </widget>
         </item>
@@ -531,13 +524,13 @@ margin-top:5px</string>
          <widget class="QLineEdit" name="mail_input">
           <property name="minimumSize">
            <size>
-            <width>300</width>
+            <width>200</width>
             <height>30</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>300</width>
+            <width>200</width>
             <height>30</height>
            </size>
           </property>
@@ -569,13 +562,12 @@ QLineEdit:focus{
          <widget class="QLabel" name="label_rep_mail">
           <property name="styleSheet">
            <string notr="true">font-family: Roboto;
-font-weight: bold;
-font-size: 15px;
+font-size: 14px;
 color: #fff;
 margin-top:20px</string>
           </property>
           <property name="text">
-           <string>REPETIR MAIL</string>
+           <string>Repetir mail:</string>
           </property>
          </widget>
         </item>
@@ -583,13 +575,13 @@ margin-top:20px</string>
          <widget class="QLineEdit" name="mail_rep_input">
           <property name="minimumSize">
            <size>
-            <width>300</width>
+            <width>200</width>
             <height>30</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>300</width>
+            <width>200</width>
             <height>30</height>
            </size>
           </property>
@@ -620,13 +612,12 @@ QLineEdit:focus{
          <widget class="QLabel" name="label_password">
           <property name="styleSheet">
            <string notr="true">font-family: Roboto;
-font-weight: bold;
-font-size: 15px;
+font-size: 14px;
 color: #fff;
 margin-top:20px</string>
           </property>
           <property name="text">
-           <string>CONTRASEÑA</string>
+           <string>Contraseña:</string>
           </property>
          </widget>
         </item>
@@ -634,13 +625,13 @@ margin-top:20px</string>
          <widget class="QLineEdit" name="pass_input">
           <property name="minimumSize">
            <size>
-            <width>300</width>
+            <width>200</width>
             <height>30</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>300</width>
+            <width>200</width>
             <height>30</height>
            </size>
           </property>
@@ -674,13 +665,12 @@ QLineEdit:focus{
          <widget class="QLabel" name="label_rep_password">
           <property name="styleSheet">
            <string notr="true">font-family: Roboto;
-font-weight: bold;
-font-size: 15px;
+font-size: 14px;
 color: #fff;
 margin-top:20px</string>
           </property>
           <property name="text">
-           <string>REPETIR CONTRASEÑA</string>
+           <string>Repetir contraseña:</string>
           </property>
          </widget>
         </item>
@@ -688,13 +678,13 @@ margin-top:20px</string>
          <widget class="QLineEdit" name="pass_rep_input">
           <property name="minimumSize">
            <size>
-            <width>300</width>
+            <width>200</width>
             <height>30</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>300</width>
+            <width>200</width>
             <height>20</height>
            </size>
           </property>
@@ -729,8 +719,8 @@ QLineEdit:focus{
       <widget class="QPushButton" name="pushButton_crear_usuario">
        <property name="geometry">
         <rect>
-         <x>640</x>
-         <y>410</y>
+         <x>330</x>
+         <y>420</y>
          <width>121</width>
          <height>31</height>
         </rect>
