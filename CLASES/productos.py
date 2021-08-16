@@ -312,7 +312,7 @@ def ver_cod(codigo):
         i=0
         dni="(('"+codigo+"',),)"
         while i<n:
-            query = "SELECT codigo FROM productos WHERE idproductoss = %s"
+            query = "SELECT codigo FROM productos WHERE idproductos = %s"
             values=i
             cursor.execute(query,values)
             a.commit()

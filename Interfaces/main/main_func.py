@@ -284,7 +284,23 @@ class BMProduct(QMainWindow):
         self.ui.ubicacion_input.setText(atributos[6])
         self.ui.label.setText(atributos[7])
         self.ui.lote_num.setValue(atributos[8])
-        self.ui.condicion_cbox
+        #foto
+        print(type(atributos[9]))
+        if  str(atributos[9]) == "b'1'":
+            print("1")
+            self.ui.condicion_cbox.setCurrentText("Refrigerado")
+
+        elif str(atributos[10]) == "b'1'":
+            print("1")
+            self.ui.condicion_cbox.setCurrentText("Inflamable")
+        else:
+            self.ui.condicion_cbox.setCurrentText("Ninguna")
+        
+        if str(atributos[11]) == "b'1'":
+            self.ui.fragil_si.setChecked(1)
+        else:
+            self.ui.fragil_no.setChecked(1)
+
         self.ui.peso_num.setValue(atributos[12])
         self.ui.ancho_num.setValue(atributos[13])
         self.ui.altura_num.setValue(atributos[14])
