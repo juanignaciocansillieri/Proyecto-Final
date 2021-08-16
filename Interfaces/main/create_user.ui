@@ -323,7 +323,7 @@ color: #fff;
 margin-top:20px</string>
            </property>
            <property name="text">
-            <string>DNI:</string>
+            <string>DNI</string>
            </property>
           </widget>
          </item>
@@ -375,7 +375,7 @@ color: #fff;
 margin-top:20px</string>
            </property>
            <property name="text">
-            <string>TIPO:</string>
+            <string>TIPO</string>
            </property>
           </widget>
          </item>
@@ -523,7 +523,7 @@ color: #fff;
 margin-top:5px</string>
           </property>
           <property name="text">
-           <string>MAIL:</string>
+           <string>MAIL</string>
           </property>
          </widget>
         </item>
@@ -575,7 +575,7 @@ color: #fff;
 margin-top:20px</string>
           </property>
           <property name="text">
-           <string>REPETIR MAIL:</string>
+           <string>REPETIR MAIL</string>
           </property>
          </widget>
         </item>
@@ -626,7 +626,7 @@ color: #fff;
 margin-top:20px</string>
           </property>
           <property name="text">
-           <string>CONTRASEÑA:</string>
+           <string>CONTRASEÑA</string>
           </property>
          </widget>
         </item>
@@ -680,7 +680,7 @@ color: #fff;
 margin-top:20px</string>
           </property>
           <property name="text">
-           <string>REPETIR CONTRASEÑA:</string>
+           <string>REPETIR CONTRASEÑA</string>
           </property>
          </widget>
         </item>
