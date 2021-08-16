@@ -2,7 +2,6 @@ from typing import DefaultDict
 from numpy import product
 from toggleFunction import *
 from main import Ui_MainWindow 
-from main import bm_user
 import os
 import sys
 import platform
@@ -77,7 +76,7 @@ class Main(QMainWindow):
 
         # Abrir ventana para bm usuario
         self.ui.tableWidget_2.doubleClicked.connect(self.seleccionarusuario)
-        self.ui.tableWidget_2.doubleClicked.connect(self.mostrarBmUser)
+        #self.ui.tableWidget_2.doubleClicked.connect(self.mostrarBmUser)
 
         ############################# DEPOSITO #########################################
         self.ui.btn_depositos.clicked.connect(
@@ -127,8 +126,9 @@ class Main(QMainWindow):
         self.newBmProduct.show()
         
     def mostrarBmUser(self):
-        self.newBmProduct = bm_user()
-        self.newBmProduct.show()
+        pass
+        #self.newBmProduct = bm_user()
+        #self.newBmProduct.show()
         
 ###############################FUNCIONES PRODUCTOS########################################
 
