@@ -73,8 +73,8 @@ class Main(QMainWindow):
         self.ui.tableWidget.doubleClicked.connect(self.mostrarBmProduct)
 
         # Abrir ventana para bm usuario
-        # self.ui.tableWidget.doubleClicked.connect(self.seleccionarusuario)
-        # self.ui.tableWidget.doubleClicked.connect(self.mostrarNewUser)
+        self.ui.tableWidget_2.doubleClicked.connect(self.seleccionarusuario)
+        self.ui.tableWidget_2.doubleClicked.connect(self.mostrarNewUser)
 
         ############################# DEPOSITO #########################################
         self.ui.btn_depositos.clicked.connect(
@@ -195,13 +195,13 @@ class Main(QMainWindow):
 
  # Seleccionar usuario al hacer click y abrir ventana
 
-    #def seleccionarusuario(self):
-        #global userid
-        #seleccionarusuario = []
-        #for i in range(0,5):
-            #seleccionarusuario.append(self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),i).text())
-            #userid = seleccionarusuario[0]
-            #print(userid)
+    def seleccionarusuario(self):
+        global userid
+        seleccionarusuario = []
+        for i in range(0,5):
+            seleccionarusuario.append(self.ui.tableWidget_2.item(self.ui.tableWidget_2.currentRow(),i).text())
+            userid = seleccionarusuario[0]
+            print(userid)
 
 ##Listar Usuarios
 
