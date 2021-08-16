@@ -179,15 +179,7 @@ class Main(QMainWindow):
         print(productId)
         
             
- # Seleccionar usuario al hacer click y abrir ventana
 
-    #def seleccionarusuario(self):
-     #   global userid
-      #  seleccionarusuario = []
-       # for i in range(0,5):
-        #    seleccionarusuario.append(self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),i).text())
-        # userid = seleccionarusuario[0]
-        # print(userid)
                     
 #def uploadImg(self):
  #       size =(256,256)
@@ -201,6 +193,15 @@ class Main(QMainWindow):
 
 ###############################FUNCIONES USUARIOS########################################
 
+ # Seleccionar usuario al hacer click y abrir ventana
+
+    def seleccionarusuario(self):
+        global userid
+        seleccionarusuario = []
+        for i in range(0,5):
+            seleccionarusuario.append(self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),i).text())
+            userid = seleccionarusuario[0]
+            print(userid)
 
 ##Listar Usuarios
 
@@ -250,9 +251,7 @@ class Main(QMainWindow):
           tableRow += 1 
 
    
-  # def bm_user(self):
-   #    self.ui.btn_depositos.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_depositos))
-    #   self.ui.label_deposito.mousePressEvent = self.clickD
+  
 class BMProduct(QMainWindow):
 
     def __init__(self):
@@ -286,3 +285,7 @@ class BMProduct(QMainWindow):
         #self.ui.altura_num
         #self.ui.cantidad_num
         #self.ui.condicion_cbox
+
+    def bm_user(self):
+       self.ui.btn_.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_usuarios))
+       self.ui.label_de.mousePressEvent = self.clickD

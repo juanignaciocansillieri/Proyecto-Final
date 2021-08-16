@@ -23,6 +23,9 @@ class UsuarioWindow(QMainWindow):
         centerPoint = QDesktopWidget().availableGeometry().center()
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
+        ######## SACAR BARRA DE TÍTULO#####################
+        #self.setWindowFlag(Qt.FramelessWindowHint)
+        #self.setAttribute(Qt.WA_TranslucentBackground)
         ############## CENTRAMOS LA VENTANA #############
         centerPoint = QDesktopWidget().availableGeometry().center()
         qtRectangle.moveCenter(centerPoint)
