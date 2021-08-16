@@ -195,13 +195,13 @@ class Main(QMainWindow):
 
  # Seleccionar usuario al hacer click y abrir ventana
 
-    def seleccionarusuario(self):
-        global userid
-        seleccionarusuario = []
-        for i in range(0,5):
-            seleccionarusuario.append(self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),i).text())
-            userid = seleccionarusuario[0]
-            print(userid)
+    #def seleccionarusuario(self):
+        #global userid
+        #seleccionarusuario = []
+        #for i in range(0,5):
+            #seleccionarusuario.append(self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),i).text())
+            #userid = seleccionarusuario[0]
+            #print(userid)
 
 ##Listar Usuarios
 
@@ -286,6 +286,6 @@ class BMProduct(QMainWindow):
         #self.ui.cantidad_num
         #self.ui.condicion_cbox
 
-    def bm_user(self):
-       self.ui.btn_.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_usuarios))
-       self.ui.label_de.mousePressEvent = self.clickD
+    #def bm_user(self):
+     #  self.ui.btn_.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_usuarios))
+     # self.ui.label_de.mousePressEvent = self.clickD
