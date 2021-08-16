@@ -158,10 +158,16 @@ class productos():
         return idp
 
 
-    def modificar_produc(self,codigov, codigon, nombre, marca, cantidad, descripcion, lote, vencimiento, refrigeracion, inflamable, fragil,foto,peso,largo,ancho,alto):
-        idp=self.obtener_idp(codigov)
+    def modificar_produc(codigov, codigon, nombre, marca, cantidad, descripcion, lote, vencimiento, refrigeracion, inflamable, fragil,foto,peso,largo,ancho,alto):
         a = c.start_connection()
         cursor = a.cursor()
+        query = "SELECT idproductos FROM productos WHERE codigo=%s"
+        values = codigov
+        cursor.execute(query, values)
+        a.commit()
+        b = cursor.fetchall()
+        idp = str(b[0][0])
+        
         try:
             query = "UPDATE productos set codigo=%s WHERE idproductos=%s"
             values = (codigon, idp)
@@ -191,7 +197,7 @@ class productos():
             values = (lote, idp)
             cursor.execute(query, values)
             a.commit()
-            query = "UPDATE productos set vemcimiemto=%s WHERE idproductos=%s"
+            query = "UPDATE productos set vencimiento=%s WHERE idproductos=%s"
             values = (vencimiento, idp)
             cursor.execute(query, values)
             a.commit()
@@ -208,19 +214,19 @@ class productos():
             cursor.execute(query, values)
             a.commit()
             query = "UPDATE productos set peso=%s WHERE idproductos=%s"
-            values = (fragil, self.peso)
+            values = (peso, idp)
             cursor.execute(query, values)
             a.commit()
             query = "UPDATE productos set largo=%s WHERE idproductos=%s"
-            values = (fragil, idp)
+            values = (largo, idp)
             cursor.execute(query, values)
             a.commit()
             query = "UPDATE productos set ancho=%s WHERE idproductos=%s"
-            values = (fragil, idp)
+            values = (ancho, idp)
             cursor.execute(query, values)
             a.commit()
             query = "UPDATE productos set alto=%s WHERE idproductos=%s"
-            values = (fragil, idp)
+            values = (alto, idp)
             cursor.execute(query, values)
             a.commit()
 

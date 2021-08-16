@@ -1,3 +1,4 @@
+from typing import DefaultDict
 from numpy import product
 from toggleFunction import *
 from main import Ui_MainWindow
@@ -23,6 +24,7 @@ import productos as p
 
 # Import Functions
 
+codigoViejo = ""
 
 class Main(QMainWindow):
     def __init__(self):
@@ -268,14 +270,22 @@ class BMProduct(QMainWindow):
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
         self.rellenarCampos()
+
+        #Modificar producto btn
+        self.ui.crearprod_btn.clicked.connect(self.modificarProducto)
+        
+        #Mostrar Ventana
         self.show()
 
+    #Rellenar los campos con los atributos del producto seleccionado
     def rellenarCampos(self):
         global productId
+        global codigoViejo
         producto = p.productos.mostrar_product(productId)
         atributos = list(producto[0])
         print(atributos)
         self.ui.codigo_input.setText(atributos[0])
+        codigoViejo = atributos[0]
         self.ui.nombre_input.setText(atributos[1])
         self.ui.marca_input.setText(atributos[2])
         self.ui.venc_date.setDate(atributos[4])
@@ -306,6 +316,47 @@ class BMProduct(QMainWindow):
         self.ui.altura_num.setValue(atributos[14])
         
         
+    def modificarProducto(self):
+        global codigoViejo
+        codigo = self.ui.codigo_input.text()
+        nombre = self.ui.nombre_input.text()
+        descripcion = self.ui.descripcion_input.toPlainText()
+        cantidad = self.ui.cantidad_num_2.value()
+        marca = self.ui.marca_input.text()
+        venc = self.ui.venc_date.date().toString("yyyy/MM/dd")
+        lote = self.ui.lote_num.value()
+        if self.ui.fragil_si.isChecked():
+            fragil = "1"
+        else :
+            fragil = "0"
+
+        condicion = self.ui.condicion_cbox.currentText()
+
+        if condicion=="Refrigerado":
+            refri=1
+            infla=0
+        elif condicion=="Inflamable": 
+            refri=0
+            infla=1
+        else:
+            refri=0
+            infla=0
+
+        peso = self.ui.peso_num.value()
+        ancho = self.ui.ancho_num.value()
+        altura = self.ui.altura_num.value()
+        largo = self.ui.largo_num.value()
+        foto = "..."
+        print(venc)
+        p.productos.modificar_produc(codigoViejo,codigo,nombre,marca,cantidad,descripcion,lote,venc,refri,infla,fragil,foto,peso,largo,ancho,altura)
+        self.close()
+
+    def borrarProducto(self):
+        global productId
+        p.productos.borrar_producto(productId)
+        self.close()
+        
+
 
     #def bm_user(self):
      #  self.ui.btn_.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_usuarios))
