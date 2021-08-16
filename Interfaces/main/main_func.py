@@ -273,6 +273,9 @@ class BMProduct(QMainWindow):
 
         #Modificar producto btn
         self.ui.crearprod_btn.clicked.connect(self.modificarProducto)
+
+        #Eliminar producto btn
+        self.ui.crearprod_btn_2.clicked.connect(self.borrarProducto)
         
         #Mostrar Ventana
         self.show()

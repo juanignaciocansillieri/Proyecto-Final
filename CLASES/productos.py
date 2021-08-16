@@ -146,16 +146,13 @@ class productos():
         c.close_connection(a)
 
     
-    def obtener_idp(self,codigo):
+    def borrar_producto(codigo):
         a = c.start_connection()
         cursor = a.cursor()
-        query = "SELECT idproductos FROM productos WHERE codigo=%s"
-        values = codigo
-        cursor.execute(query, values)
+        query = ("DELETE from productos WHERE codigo =%s")
+        cursor.execute(query, codigo)
+        print("Se elimino producto correctamente")
         a.commit()
-        b = cursor.fetchall()
-        idp = str(b[0][0])
-        return idp
 
 
     def modificar_produc(codigov, codigon, nombre, marca, cantidad, descripcion, lote, vencimiento, refrigeracion, inflamable, fragil,foto,peso,largo,ancho,alto):
