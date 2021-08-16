@@ -488,7 +488,7 @@ background-color: #23262b;
       <widget class="QFrame" name="slide_bar">
        <property name="minimumSize">
         <size>
-         <width>80</width>
+         <width>0</width>
          <height>741</height>
         </size>
        </property>
@@ -860,7 +860,7 @@ background-color: #45a9f0;
                  <property name="styleSheet">
                   <string notr="true">QTableWidget{
 color:#fff;
-font-size: 20px;
+font-size: 12pt;
 border-style: none;
 margin-left: 0px;
 margin-top:15px
@@ -870,7 +870,7 @@ margin-top:15px
 QHeaderView::section {
     background-color: #12151a;
 	color:#fff;
-    font-size: 12pt;
+    font-size: 11pt;
     border-style: none;
     border-bottom: 1px solid #23262b;
     border-right: 1px solid #23262b;
@@ -1013,7 +1013,7 @@ background-color: #45a9f0;
 }</string>
                      </property>
                      <property name="text">
-                      <string>Nuevo Pruducto</string>
+                      <string>Nuevo Producto</string>
                      </property>
                     </widget>
                     <widget class="QPushButton" name="listar_prod_btn">
@@ -1132,7 +1132,7 @@ background-color: #45a9f0;
                  <widget class="QGroupBox" name="groupBox_usuarios_1">
                   <property name="minimumSize">
                    <size>
-                    <width>1941</width>
+                    <width>990</width>
                     <height>50</height>
                    </size>
                   </property>
@@ -1210,17 +1210,17 @@ background-color: #45a9f0;
                </layout>
               </widget>
              </item>
-             <item>
+             <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
               <widget class="QTableWidget" name="tableWidget_2">
                <property name="minimumSize">
                 <size>
                  <width>980</width>
-                 <height>300</height>
+                 <height>328</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>801</width>
+                 <width>1666666</width>
                  <height>500</height>
                 </size>
                </property>
@@ -1232,7 +1232,7 @@ background-color: #45a9f0;
 color:#fff;
 font-size: 20px;
 border-style: none;
-margin-left: 55px;
+margin-left: 35px;
 margin-top:10px;
 }
 

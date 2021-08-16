@@ -243,7 +243,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.addWidget(self.btn_exit)
         self.horizontalLayout_2.addWidget(self.frame_left_menu)
         self.slide_bar = QtWidgets.QFrame(self.Content)
-        self.slide_bar.setMinimumSize(QtCore.QSize(80, 741))
+        self.slide_bar.setMinimumSize(QtCore.QSize(0, 741))
         self.slide_bar.setMaximumSize(QtCore.QSize(0, 750))
         self.slide_bar.setStyleSheet("background-color: #12151a;")
         self.slide_bar.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -387,7 +387,7 @@ class Ui_MainWindow(object):
         self.tableWidget.viewport().setProperty("cursor", QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.tableWidget.setStyleSheet("QTableWidget{\n"
 "color:#fff;\n"
-"font-size: 20px;\n"
+"font-size: 12pt;\n"
 "border-style: none;\n"
 "margin-left: 0px;\n"
 "margin-top:15px\n"
@@ -397,7 +397,7 @@ class Ui_MainWindow(object):
 "QHeaderView::section {\n"
 "    background-color: #12151a;\n"
 "    color:#fff;\n"
-"    font-size: 12pt;\n"
+"    font-size: 11pt;\n"
 "    border-style: none;\n"
 "    border-bottom: 1px solid #23262b;\n"
 "    border-right: 1px solid #23262b;\n"
@@ -522,7 +522,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.frame_usuarios_1)
         self.verticalLayout_9.setObjectName("verticalLayout_9")
         self.groupBox_usuarios_1 = QtWidgets.QGroupBox(self.frame_usuarios_1)
-        self.groupBox_usuarios_1.setMinimumSize(QtCore.QSize(1941, 50))
+        self.groupBox_usuarios_1.setMinimumSize(QtCore.QSize(990, 50))
         self.groupBox_usuarios_1.setMaximumSize(QtCore.QSize(0, 70))
         self.groupBox_usuarios_1.setTitle("")
         self.groupBox_usuarios_1.setObjectName("groupBox_usuarios_1")
@@ -561,14 +561,14 @@ class Ui_MainWindow(object):
         self.verticalLayout_9.addWidget(self.groupBox_usuarios_1, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
         self.verticalLayout_8.addWidget(self.frame_usuarios_1, 0, QtCore.Qt.AlignTop)
         self.tableWidget_2 = QtWidgets.QTableWidget(self.frame_usuarios)
-        self.tableWidget_2.setMinimumSize(QtCore.QSize(980, 300))
-        self.tableWidget_2.setMaximumSize(QtCore.QSize(801, 500))
+        self.tableWidget_2.setMinimumSize(QtCore.QSize(980, 328))
+        self.tableWidget_2.setMaximumSize(QtCore.QSize(1666666, 500))
         self.tableWidget_2.viewport().setProperty("cursor", QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.tableWidget_2.setStyleSheet("QTableWidget{\n"
 "color:#fff;\n"
 "font-size: 20px;\n"
 "border-style: none;\n"
-"margin-left: 55px;\n"
+"margin-left: 35px;\n"
 "margin-top:10px;\n"
 "}\n"
 "\n"
@@ -615,7 +615,7 @@ class Ui_MainWindow(object):
         self.tableWidget_2.horizontalHeader().setDefaultSectionSize(176)
         self.tableWidget_2.horizontalHeader().setHighlightSections(False)
         self.tableWidget_2.verticalHeader().setVisible(False)
-        self.verticalLayout_8.addWidget(self.tableWidget_2)
+        self.verticalLayout_8.addWidget(self.tableWidget_2, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
         self.frame_usuarios_3 = QtWidgets.QFrame(self.frame_usuarios)
         self.frame_usuarios_3.setMinimumSize(QtCore.QSize(500, 53))
         self.frame_usuarios_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -692,7 +692,7 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "Cantidad"))
         item = self.tableWidget.horizontalHeaderItem(4)
         item.setText(_translate("MainWindow", "Fecha de Vencimiento"))
-        self.nuevo_prod_btn.setText(_translate("MainWindow", "Nuevo Pruducto"))
+        self.nuevo_prod_btn.setText(_translate("MainWindow", "Nuevo Producto"))
         self.listar_prod_btn.setText(_translate("MainWindow", "Listar Productos"))
         self.label_3.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">Depósito</span></p></body></html>"))
         self.lineEdit_usuarios_1.setPlaceholderText(_translate("MainWindow", "Buscar un usuario"))
