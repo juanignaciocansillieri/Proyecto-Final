@@ -277,10 +277,10 @@ class BMProduct(QMainWindow):
         self.rellenarCampos()
 
         #Modificar producto btn
-        self.ui.crearprod_btn.clicked.connect(self.modificarProducto)
+        self.ui.modificarprod_btn.clicked.connect(self.modificarProducto)
 
         #Eliminar producto btn
-        self.ui.crearprod_btn_2.clicked.connect(self.borrarProducto)
+        self.ui.eliminarprod_btn.clicked.connect(self.borrarProducto)
         
         #Mostrar Ventana
         self.show()
@@ -297,7 +297,7 @@ class BMProduct(QMainWindow):
         self.ui.nombre_input.setText(atributos[1])
         self.ui.marca_input.setText(atributos[2])
         self.ui.venc_date.setDate(atributos[4])
-        self.ui.cantidad_num_2.setValue(atributos[3])
+        self.ui.cantidad_num.setValue(atributos[3])
         self.ui.descripcion_input.setText(atributos[5])
         self.ui.ubicacion_input.setText(atributos[6])
         self.ui.label.setText(atributos[7])
@@ -329,7 +329,7 @@ class BMProduct(QMainWindow):
         codigo = self.ui.codigo_input.text()
         nombre = self.ui.nombre_input.text()
         descripcion = self.ui.descripcion_input.toPlainText()
-        cantidad = self.ui.cantidad_num_2.value()
+        cantidad = self.ui.cantidad_num.value()
         marca = self.ui.marca_input.text()
         venc = self.ui.venc_date.date().toString("yyyy/MM/dd")
         lote = self.ui.lote_num.value()

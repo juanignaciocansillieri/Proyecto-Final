@@ -922,7 +922,7 @@ margin-left:10px
          <string>Cantidad</string>
         </property>
        </widget>
-       <widget class="QSpinBox" name="cantidad_num_2">
+       <widget class="QSpinBox" name="cantidad_num">
         <property name="geometry">
          <rect>
           <x>230</x>
@@ -1063,7 +1063,7 @@ margin-left:10px
         </property>
        </widget>
       </widget>
-      <widget class="QPushButton" name="crearprod_btn">
+      <widget class="QPushButton" name="modificarprod_btn">
        <property name="geometry">
         <rect>
          <x>390</x>
@@ -1098,7 +1098,7 @@ background-color: #45a9f0;
         <string>Modificar Producto</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="crearprod_btn_2">
+      <widget class="QPushButton" name="eliminarprod_btn">
        <property name="geometry">
         <rect>
          <x>530</x>
