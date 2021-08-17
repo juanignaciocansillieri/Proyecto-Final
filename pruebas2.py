@@ -35,7 +35,7 @@ import matriz as mz
 #nn=len(aa)
 #print(nn)
 
-
+"""
 aa=us.usuarios("alex","arraya","123",1,"gerente","1999/05/14","alex@gmail.com")
 #aa.alta_usuario()
 aa.alta_login("asd")
@@ -53,7 +53,7 @@ ee=pr.productos("124","yerba","canaria","100","0000","258","2021/09/10",0,0,0,".
 ee.alta_producto()
 ff=pr.productos("476","salame","paladini","50","integral","369","2021/08/05",0,0,0,"..","50","100","60","50")
 ff.alta_producto()
-
+"""
 
 #lista=productos.buscar_productos()
 #print(lista)
@@ -85,5 +85,7 @@ bb=16
 cc=20
 union=str(aa)+str(bb)+str(cc)
 print(union)"""
+
+#print(us.ver_tipo(154))
 
 

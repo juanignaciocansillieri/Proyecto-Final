@@ -17,6 +17,8 @@ from create_user_func import UsuarioWindow
 from nuevoProduct_func import ProductWindow
 from bm_producto import BMProduct as bm
 from bm_producto_ui import Ui_MainWindow as ui_bm
+
+import os
 sys.path.append("C:\\proyecto-final\\")
 from DB import loginDB as login
 sys.path.append("C:\\proyecto-final\\CLASES\\")
@@ -37,7 +39,8 @@ DNI_Viejo = ""
 DNI = ""
 
 class Main(QMainWindow):
-    def __init__(self):
+    def __init__(self,admin_user):
+        
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
@@ -94,18 +97,30 @@ class Main(QMainWindow):
         self.ui.label_deposito.mousePressEvent = self.clickD
 
         ####################### USUARIOS ################################################
-        self.ui.btn_usuarios.clicked.connect(
-            lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_usuarios))
-        self.ui.label_usuarios.mousePressEvent = self.clickU
+        if self.ui.btn_usuarios.clicked:
+            print("hola")
+        if admin_user==True:
+            self.ui.btn_usuarios.clicked.connect(
+                lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_usuarios))
+            self.ui.label_usuarios.mousePressEvent = self.clickU
+            # Listamos usuarios al iniciar la ventana
+            self.listarUsuarios()
+            # buscamos usuarios a traves del buscador
+            self.ui.pushButton_usuarios_1.clicked.connect(self.buscarUsuarios)
+            # Abrir Ventana Nuevo user
+            self.ui.pushButton_usuarios_2.clicked.connect(self.mostrarNewUser)
+            # Listamos al hacer click en el btn listar
+            self.ui.pushButton_usuarios_3.clicked.connect(self.listarUsuarios)
+        else: 
+            QtWidgets.QMessageBox.critical(self, "Error", "No tiene los permisos suficientes")
+            self.ui.Pages_Widget.setCurrentWidget(self.ui.page_productos)
+                
+             
+             
+            
+            
 
-        # Listamos usuarios al iniciar la ventana
-        self.listarUsuarios()
-        # buscamos usuarios a traves del buscador
-        self.ui.pushButton_usuarios_1.clicked.connect(self.buscarUsuarios)
-        # Abrir Ventana Nuevo user
-        self.ui.pushButton_usuarios_2.clicked.connect(self.mostrarNewUser)
-        # Listamos al hacer click en el btn listar
-        self.ui.pushButton_usuarios_3.clicked.connect(self.listarUsuarios)
+        
 
         # Boton Exit
         self.ui.btn_exit.clicked.connect(self.close)

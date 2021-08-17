@@ -5,8 +5,13 @@ from PyQt5.QtCore import QFile,Qt
 from login import Ui_MainWindow
 sys.path.append("C:\\proyecto-final\\DB\\")
 import loginDB as l
+sys.path.append("C:\\proyecto-final\\CLASES\\")
+import usuarios as u
 sys.path.append("C:\\proyecto-final\\Interfaces\\main\\")
 import main_func as m
+
+admin_user=True
+
 class LoginWindow(QMainWindow):
     def __init__(self):
         super(LoginWindow, self).__init__()
@@ -32,13 +37,15 @@ class LoginWindow(QMainWindow):
 
 ### VERIFICAR DATOS INGRESADOS LA DB ####
     def verificacion(self):
+            global admin_user
             user = self.ui.user_login_input.text()
             password = self.ui.pass_login_input.text()
             usuario = l.log_in(user,password)
             
             if usuario==1:
                 #inicia
-                self.main = m.Main()
+                admin_user=u.ver_tipo(user)
+                self.main = m.Main(admin_user)
                 self.close()
             if usuario==2:
                 #no se encuentra dni

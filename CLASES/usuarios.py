@@ -263,3 +263,17 @@ def ver_dni(dni):
         else: 
             c.close_connection(a)
             return 0
+
+def ver_tipo(dni):
+    a=c.start_connection()
+    cursor=a.cursor()
+    query = "SELECT tipo FROM usuarios where dni=%s"
+    values=dni
+    cursor.execute(query,values)
+    a.commit()
+    b = cursor.fetchall()
+    b = str(b[0][0])
+    if b=="b'1'":
+        admin=True
+    else: admin=False
+    return admin
