@@ -3,7 +3,7 @@ from typing import DefaultDict
 from numpy import product
 from numpy.core.shape_base import atleast_1d
 from toggleFunction import *
-from main import Ui_MainWindow 
+from main import Ui_MainWindow
 import os
 import sys
 import platform
@@ -21,6 +21,7 @@ sys.path.append("C:\\proyecto-final\\CLASES\\")
 import usuarios as u
 import productos as p
 from PIL import Image
+from bm_user import Ui_MainWindow as bmu 
 
 
 # GUI File
@@ -29,6 +30,8 @@ from PIL import Image
 
 defaultImg = ""
 codigoViejo = ""
+DNI_Viejo = ""
+DNI = ""
 
 class Main(QMainWindow):
     def __init__(self):
@@ -80,7 +83,7 @@ class Main(QMainWindow):
 
         # Abrir ventana para bm usuario
         self.ui.tableWidget_2.doubleClicked.connect(self.seleccionarusuario)
-        #self.ui.tableWidget_2.doubleClicked.connect(self.mostrarBmUser)
+        self.ui.tableWidget_2.doubleClicked.connect(self.mostrarBmUser)
 
         ############################# DEPOSITO #########################################
         self.ui.btn_depositos.clicked.connect(
@@ -130,9 +133,8 @@ class Main(QMainWindow):
         self.newBmProduct.show()
         
     def mostrarBmUser(self):
-        pass
-        #self.newBmProduct = bm_user()
-        #self.newBmProduct.show()
+        self.BM_Usuario = BM_Usuario ()
+        self.BM_Usuario.show()
         
 ###############################FUNCIONES PRODUCTOS########################################
 
@@ -196,15 +198,17 @@ class Main(QMainWindow):
 
 ###############################FUNCIONES USUARIOS########################################
 
+
+
  # Seleccionar usuario al hacer click y abrir ventana
 
     def seleccionarusuario(self):
-        global userid
+        global DNI
         seleccionarusuario = []
         for i in range(0,5):
             seleccionarusuario.append(self.ui.tableWidget_2.item(self.ui.tableWidget_2.currentRow(),i).text())
-            userid = seleccionarusuario[0]
-            print(userid)
+            DNI = seleccionarusuario[0]
+            #print(DNI)
 
 ##Listar Usuarios
 
@@ -253,6 +257,26 @@ class Main(QMainWindow):
 
           tableRow += 1 
 
+
+# Seleccionar DNI al hacer click y abrir ventana
+ 
+    def SeleccionarDNI(self):
+        global DNI
+        SeleccionarDNI = []
+        for i in range(0,5):
+            SeleccionarDNI.append(self.ui.tableWidget_2.item(self.ui.tableWidget_2.currentRow(),i).text())
+            DNI = SeleccionarDNI[0]
+            print(DNI)
+
+# Seleccionar DNI Viejo al hacer click y abrir ventana
+ 
+    def SeleccionarDNI(self):
+        global DNI
+        SeleccionarDNI = []
+        for i in range(0,5):
+            SeleccionarDNI.append(self.ui.tableWidget_2.item(self.ui.tableWidget_2.currentRow(),i).text())
+            DNI = SeleccionarDNI[0]
+            print(DNI)
    
   
 class BMProduct(QMainWindow):
@@ -384,3 +408,111 @@ class BMProduct(QMainWindow):
     #def bm_user(self):
      #  self.ui.btn_.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_usuarios))
      # self.ui.label_de.mousePressEvent = self.clickD
+
+
+#############################################################  CLASS BM_USUARIOS ######################################################
+ 
+
+
+
+class BM_Usuario(QMainWindow):
+
+    def __init__(self):
+        super(BM_Usuario, self).__init__()
+        self.ui = bmu()
+        self.ui.setupUi(self)
+        ############# RECIBIMOS PROPORCIONES DE LA PANTALLA ###########
+        qtRectangle = self.frameGeometry()
+        centerPoint = QDesktopWidget().availableGeometry().center()
+        qtRectangle.moveCenter(centerPoint)
+        self.move(qtRectangle.topLeft())
+        ############## CENTRAMOS LA VENTANA #############
+        centerPoint = QDesktopWidget().availableGeometry().center()
+        qtRectangle.moveCenter(centerPoint)
+        self.move(qtRectangle.topLeft())
+        self.rellenarCampos()
+
+        #Subir foto btn
+        #self.ui.subirFoto_btn.clicked.connect(self.uploadImg)
+
+        #Modificar usuario btn
+        self.ui.pushButton_modificar_usuario.clicked.connect(self.ModificarUsuario)
+
+        #Eliminar usuario btn
+        self.ui.pushButton_eliminar_usuario.clicked.connect(self.DarDeBajaUsuario)
+        
+
+        #Mostrar Ventana
+        self.show()
+
+
+
+    #Rellenar los campos con los atributos del producto seleccionado
+    def rellenarCampos(self):
+        global userid
+        global DNI
+        global DNI_Viejo
+        #global defaultImg        
+        usuario = u.usuarios.mostrar_user(DNI)
+        print(usuario)
+        atributos = list(usuario[0])
+        DNI_Viejo = atributos[0]
+        self.ui.dni_input.setText(atributos[0])
+        self.ui.nombre_input.setText(atributos[1])
+        self.ui.apellido_input.setText(atributos[2])
+        self.ui.nacimiento_date.setDate(atributos[4])
+        self.ui.puesto_input.setText(atributos[5])
+        self.ui.mail_input.setText(atributos[7])
+
+        
+        if  str(atributos[3]) == "b'1'":
+            
+            self.ui.tipo_cb.setCurrentText("Admin")
+
+        else:
+            self.ui.tipo_cb.setCurrentText("Usuario")
+        
+        """
+        CAMBIAR BOTÓN PARA QUE INFORME SI SE DA DE ALTA O NO
+        if str(atributos[6]) == "b'1'":
+            self.ui.
+        else:
+            self.ui.fragil_no.setChecked(1)
+
+        self.ui.peso_num.setValue(atributos[12])
+        self.ui.ancho_num.setValue(atributos[13])
+        self.ui.altura_num.setValue(atributos[14])
+        """
+        
+    def ModificarUsuario(self):
+        #atributos = list(usuario[0])
+        global DNI_Viejo
+        #global defaultImg
+        #print(defaultImg)
+        dni = self.ui.dni_input.text()
+        nombre = self.ui.nombre_input.text()
+        apellido = self.ui.apellido_input.text()
+        tipo = self.ui.tipo_cb.currentText()
+        if tipo == "admin": 
+            tipo = 1 
+        else:
+                tipo = 0
+        nacimiento = self.ui.nacimiento_date.date().toString("yyyy/MM/dd")
+        puesto = self.ui.puesto_input.text()
+        mail = self.ui.mail_input.text()
+        u.usuarios.modificar_datos_user(DNI_Viejo,dni,nombre,apellido,tipo,puesto,nacimiento,mail)
+        self.close()
+        
+        
+
+    def DarDeBajaUsuario(self):
+        global DNI
+        qm = QMessageBox
+
+        ret = qm.warning(self,'Esta acción es irreversible', "¿Está seguro que quieres dar de baja el usuario?", qm.Yes | qm.No)
+        if ret == qm.Yes:
+            u.usuarios.ab_usuario(DNI)
+            self.close()
+
+
+  

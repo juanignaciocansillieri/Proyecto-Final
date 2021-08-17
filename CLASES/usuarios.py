@@ -164,10 +164,15 @@ class usuarios:
         idu = str(b[0][0])
         return idu
 
-    def modificar_datos_user(self,dniv,dnin,nombre,apellido,tipo,puesto,nacimiento):
-        idu=self.obtener_idu(dniv)
+    def modificar_datos_user(dniv,dnin,nombre,apellido,tipo,puesto,nacimiento,mail):
         a=c.start_connection()
         cursor=a.cursor()
+        query = "SELECT idusuarios FROM usuarios WHERE dni=%s"
+        values = dniv
+        cursor.execute(query, values)
+        a.commit()
+        b = cursor.fetchall()
+        idu = str(b[0][0])
         try:
             query = "UPDATE usuarios SET nombre=%s WHERE idusuarios=%s"
             values = (nombre,idu)
@@ -194,7 +199,7 @@ class usuarios:
             cursor.execute(query, values)
             a.commit()
             query = "UPDATE usuarios SET mail=%s WHERE idusuarios=%s"
-            values = (puesto,idu)
+            values = (mail,idu)
             cursor.execute(query, values)
             a.commit() 
             print("se modifico  usuario correctamente")
