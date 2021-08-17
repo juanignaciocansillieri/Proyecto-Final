@@ -429,9 +429,9 @@ class Ui_MainWindow(object):
 "\n"
 "")
         self.label_11.setObjectName("label_11")
-        self.cantidad_num_2 = QtWidgets.QSpinBox(self.frame_3)
-        self.cantidad_num_2.setGeometry(QtCore.QRect(230, 270, 170, 25))
-        self.cantidad_num_2.setStyleSheet("background-color: #23262b;\n"
+        self.cantidad_num = QtWidgets.QSpinBox(self.frame_3)
+        self.cantidad_num.setGeometry(QtCore.QRect(230, 270, 170, 25))
+        self.cantidad_num.setStyleSheet("background-color: #23262b;\n"
 "border-radius: 3px;\n"
 "padding: 4 5px;\n"
 "color: #fff;\n"
@@ -441,7 +441,7 @@ class Ui_MainWindow(object):
 "font-weight: 400;\n"
 "margin-left: 10px;\n"
 "")
-        self.cantidad_num_2.setObjectName("cantidad_num_2")
+        self.cantidad_num.setObjectName("cantidad_num")
         self.descripcion_input = QtWidgets.QTextEdit(self.frame_3)
         self.descripcion_input.setGeometry(QtCore.QRect(430, 210, 170, 43))
         self.descripcion_input.setStyleSheet("\n"
@@ -502,14 +502,14 @@ class Ui_MainWindow(object):
 "\n"
 "")
         self.label_13.setObjectName("label_13")
-        self.crearprod_btn = QtWidgets.QPushButton(self.frame_2)
-        self.crearprod_btn.setGeometry(QtCore.QRect(390, 350, 121, 26))
+        self.modificarprod_btn = QtWidgets.QPushButton(self.frame_2)
+        self.modificarprod_btn.setGeometry(QtCore.QRect(390, 350, 121, 26))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(-1)
-        self.crearprod_btn.setFont(font)
-        self.crearprod_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.crearprod_btn.setStyleSheet("QPushButton{\n"
+        self.modificarprod_btn.setFont(font)
+        self.modificarprod_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.modificarprod_btn.setStyleSheet("QPushButton{\n"
 "background-color: #1173ff;\n"
 "color: #fff;\n"
 "border-radius:10px;\n"
@@ -520,15 +520,15 @@ class Ui_MainWindow(object):
 "QPushButton:hover{\n"
 "background-color: #45a9f0;\n"
 "}")
-        self.crearprod_btn.setObjectName("crearprod_btn")
-        self.crearprod_btn_2 = QtWidgets.QPushButton(self.frame_2)
-        self.crearprod_btn_2.setGeometry(QtCore.QRect(530, 350, 121, 26))
+        self.modificarprod_btn.setObjectName("modificarprod_btn")
+        self.eliminarprod_btn = QtWidgets.QPushButton(self.frame_2)
+        self.eliminarprod_btn.setGeometry(QtCore.QRect(530, 350, 121, 26))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(-1)
-        self.crearprod_btn_2.setFont(font)
-        self.crearprod_btn_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.crearprod_btn_2.setStyleSheet("QPushButton{\n"
+        self.eliminarprod_btn.setFont(font)
+        self.eliminarprod_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.eliminarprod_btn.setStyleSheet("QPushButton{\n"
 "background-color: #1173ff;\n"
 "color: #fff;\n"
 "border-radius:10px;\n"
@@ -539,7 +539,7 @@ class Ui_MainWindow(object):
 "QPushButton:hover{\n"
 "background-color: #45a9f0;\n"
 "}")
-        self.crearprod_btn_2.setObjectName("crearprod_btn_2")
+        self.eliminarprod_btn.setObjectName("eliminarprod_btn")
         self.verticalLayout.addWidget(self.frame_2)
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -571,8 +571,8 @@ class Ui_MainWindow(object):
         self.label_11.setText(_translate("MainWindow", "Cantidad"))
         self.label_12.setText(_translate("MainWindow", "Descripción"))
         self.label_13.setText(_translate("MainWindow", "Ubicación"))
-        self.crearprod_btn.setText(_translate("MainWindow", "Modificar Producto"))
-        self.crearprod_btn_2.setText(_translate("MainWindow", "Eliminar Producto"))
+        self.modificarprod_btn.setText(_translate("MainWindow", "Modificar Producto"))
+        self.eliminarprod_btn.setText(_translate("MainWindow", "Eliminar Producto"))
 import img_oficiales_rc
 
 

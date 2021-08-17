@@ -146,22 +146,25 @@ class productos():
         c.close_connection(a)
 
     
-    def obtener_idp(self,codigo):
+    def borrar_producto(codigo):
+        a = c.start_connection()
+        cursor = a.cursor()
+        query = ("DELETE from productos WHERE codigo =%s")
+        cursor.execute(query, codigo)
+        print("Se elimino producto correctamente")
+        a.commit()
+
+
+    def modificar_produc(codigov, codigon, nombre, marca, cantidad, descripcion, lote, vencimiento, refrigeracion, inflamable, fragil,foto,peso,largo,ancho,alto):
         a = c.start_connection()
         cursor = a.cursor()
         query = "SELECT idproductos FROM productos WHERE codigo=%s"
-        values = codigo
+        values = codigov
         cursor.execute(query, values)
         a.commit()
         b = cursor.fetchall()
         idp = str(b[0][0])
-        return idp
-
-
-    def modificar_produc(self,codigov, codigon, nombre, marca, cantidad, descripcion, lote, vencimiento, refrigeracion, inflamable, fragil,foto,peso,largo,ancho,alto):
-        idp=self.obtener_idp(codigov)
-        a = c.start_connection()
-        cursor = a.cursor()
+        
         try:
             query = "UPDATE productos set codigo=%s WHERE idproductos=%s"
             values = (codigon, idp)
@@ -191,7 +194,7 @@ class productos():
             values = (lote, idp)
             cursor.execute(query, values)
             a.commit()
-            query = "UPDATE productos set vemcimiemto=%s WHERE idproductos=%s"
+            query = "UPDATE productos set vencimiento=%s WHERE idproductos=%s"
             values = (vencimiento, idp)
             cursor.execute(query, values)
             a.commit()
@@ -208,19 +211,19 @@ class productos():
             cursor.execute(query, values)
             a.commit()
             query = "UPDATE productos set peso=%s WHERE idproductos=%s"
-            values = (fragil, self.peso)
+            values = (peso, idp)
             cursor.execute(query, values)
             a.commit()
             query = "UPDATE productos set largo=%s WHERE idproductos=%s"
-            values = (fragil, idp)
+            values = (largo, idp)
             cursor.execute(query, values)
             a.commit()
             query = "UPDATE productos set ancho=%s WHERE idproductos=%s"
-            values = (fragil, idp)
+            values = (ancho, idp)
             cursor.execute(query, values)
             a.commit()
             query = "UPDATE productos set alto=%s WHERE idproductos=%s"
-            values = (fragil, idp)
+            values = (alto, idp)
             cursor.execute(query, values)
             a.commit()
 
@@ -312,7 +315,7 @@ def ver_cod(codigo):
         i=0
         dni="(('"+codigo+"',),)"
         while i<n:
-            query = "SELECT codigo FROM productos WHERE idproductoss = %s"
+            query = "SELECT codigo FROM productos WHERE idproductos = %s"
             values=i
             cursor.execute(query,values)
             a.commit()

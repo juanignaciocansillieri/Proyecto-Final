@@ -36,13 +36,16 @@ class BMProduct(QMainWindow):
     def rellenarCampos(self):
         producto = p.productos.mostrar_product(productId)
         atributos = list(producto[0])
-        atributos[0] = self.ui.codigo_input
-        atributos[1] = self.ui.nombre_input
-        atributos[2] = self.ui.marca_input
-        atributos[3] = self.ui.venc_date
-        atributos[4] = self.ui.lote_input
-        #atributos[3] = self.ui.peso_num
-        #atributos[4] = self.ui.ancho_num
-        #atributos[5] = self.ui.altura_num
-        #atributos[6] = self.ui.cantidad_num
-        #atributos[8] = self.ui.condicion_cbox
+        atributos[0]=self.ui.codigo_input
+        atributos[1]=self.ui.nombre_input
+        atributos[2]=self.ui.marca_input
+        atributos[4]=self.ui.venc_date
+        atributos[3]=self.ui.cantidad_num_2
+        atributos[5]=self.ui.descripcion_input
+        atributos[6]=self.ui.ubicacion_input
+        atributos[7]=self.ui.label
+        atributos[8]=self.ui.lote_num
+        atributos[0]=self.ui.condicion_cbox
+        atributos[12]=self.ui.peso_num
+        atributos[13]=self.ui.ancho_num
+        atributos[14]=self.ui.altura_num
