@@ -97,8 +97,6 @@ class Main(QMainWindow):
         self.ui.label_deposito.mousePressEvent = self.clickD
 
         ####################### USUARIOS ################################################
-        if self.ui.btn_usuarios.clicked:
-            print("hola")
         if admin_user==True:
             self.ui.btn_usuarios.clicked.connect(
                 lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_usuarios))
@@ -112,7 +110,7 @@ class Main(QMainWindow):
             # Listamos al hacer click en el btn listar
             self.ui.pushButton_usuarios_3.clicked.connect(self.listarUsuarios)
         else: 
-            QtWidgets.QMessageBox.critical(self, "Error", "No tiene los permisos suficientes")
+            self.ui.btn_usuarios.clicked.connect(lambda:QtWidgets.QMessageBox.critical(self, "Error", "No tiene los permisos suficientes"))
             self.ui.Pages_Widget.setCurrentWidget(self.ui.page_productos)
                 
              
