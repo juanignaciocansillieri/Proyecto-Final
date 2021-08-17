@@ -58,7 +58,7 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
     q2 = """CREATE TABLE IF NOT EXISTS productos (
     idproductos INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     codigo VARCHAR(20) NOT NULL,
-    nombre VARCHAR(20) NOT NULL,
+    nombre VARCHAR(50) NOT NULL,
     marca VARCHAR(20) NOT NULL,
     cantidad INT NOT NULL,
     descripcion VARCHAR(50) NOT NULL,
