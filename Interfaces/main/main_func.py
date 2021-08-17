@@ -17,9 +17,12 @@ from create_user_func import UsuarioWindow
 from nuevoProduct_func import ProductWindow
 from bm_producto import BMProduct as bm
 from bm_producto_ui import Ui_MainWindow as ui_bm
+sys.path.append("C:\\proyecto-final\\")
+from DB import loginDB as login
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import usuarios as u
 import productos as p
+
 from PIL import Image
 from bm_user import Ui_MainWindow as bmu 
 
@@ -485,10 +488,7 @@ class BM_Usuario(QMainWindow):
         """
         
     def ModificarUsuario(self):
-        #atributos = list(usuario[0])
         global DNI_Viejo
-        #global defaultImg
-        #print(defaultImg)
         dni = self.ui.dni_input.text()
         nombre = self.ui.nombre_input.text()
         apellido = self.ui.apellido_input.text()
@@ -496,11 +496,20 @@ class BM_Usuario(QMainWindow):
         if tipo == "admin": 
             tipo = 1 
         else:
-                tipo = 0
+            tipo = 0
         nacimiento = self.ui.nacimiento_date.date().toString("yyyy/MM/dd")
         puesto = self.ui.puesto_input.text()
         mail = self.ui.mail_input.text()
-        u.usuarios.modificar_datos_user(DNI_Viejo,dni,nombre,apellido,tipo,puesto,nacimiento,mail)
+        if self.ui.pass_input.text() != "" or self.ui.pass_rep_input.text != "":
+            if self.ui.pass_input.text() == self.ui.pass_rep_input.text():
+                u.usuarios.modificar_datos_user(DNI_Viejo,dni,nombre,apellido,tipo,puesto,nacimiento,mail)
+                login.cambiar_conrasena(DNI_Viejo,dni,self.ui.pass_input.text())
+            else:
+                QtWidgets.QMessageBox.critical(self, "Error", "Contraseñas diferentes")
+                return None
+        else:
+            u.usuarios.modificar_datos_user(DNI_Viejo,dni,nombre,apellido,tipo,puesto,nacimiento,mail)
+
         self.close()
         
         
@@ -509,7 +518,7 @@ class BM_Usuario(QMainWindow):
         global DNI
         qm = QMessageBox
 
-        ret = qm.warning(self,'Esta acción es irreversible', "¿Está seguro que quieres dar de baja el usuario?", qm.Yes | qm.No)
+        ret = qm.warning(self,'Advertencia', "¿Está seguro que quieres dar de baja el usuario?", qm.Yes | qm.No)
         if ret == qm.Yes:
             u.usuarios.ab_usuario(DNI)
             self.close()
