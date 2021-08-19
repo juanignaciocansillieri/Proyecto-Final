@@ -3,7 +3,7 @@ from typing import DefaultDict
 from numpy import product
 from numpy.core.shape_base import atleast_1d
 from toggleFunction import *
-from main import Ui_MainWindow 
+from main import Ui_MainWindow
 import os
 import sys
 import platform
@@ -17,10 +17,16 @@ from create_user_func import UsuarioWindow
 from nuevoProduct_func import ProductWindow
 from bm_producto import BMProduct as bm
 from bm_producto_ui import Ui_MainWindow as ui_bm
+
+import os
+sys.path.append("C:\\proyecto-final\\")
+from DB import loginDB as login
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import usuarios as u
 import productos as p
+
 from PIL import Image
+from bm_user import Ui_MainWindow as bmu 
 
 
 # GUI File
@@ -29,9 +35,12 @@ from PIL import Image
 
 defaultImg = ""
 codigoViejo = ""
+DNI_Viejo = ""
+DNI = ""
 
 class Main(QMainWindow):
-    def __init__(self):
+    def __init__(self,admin_user):
+        
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
@@ -80,7 +89,7 @@ class Main(QMainWindow):
 
         # Abrir ventana para bm usuario
         self.ui.tableWidget_2.doubleClicked.connect(self.seleccionarusuario)
-        #self.ui.tableWidget_2.doubleClicked.connect(self.mostrarBmUser)
+        self.ui.tableWidget_2.doubleClicked.connect(self.mostrarBmUser)
 
         ############################# DEPOSITO #########################################
         self.ui.btn_depositos.clicked.connect(
@@ -88,18 +97,28 @@ class Main(QMainWindow):
         self.ui.label_deposito.mousePressEvent = self.clickD
 
         ####################### USUARIOS ################################################
-        self.ui.btn_usuarios.clicked.connect(
-            lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_usuarios))
-        self.ui.label_usuarios.mousePressEvent = self.clickU
+        if admin_user==True:
+            self.ui.btn_usuarios.clicked.connect(
+                lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_usuarios))
+            self.ui.label_usuarios.mousePressEvent = self.clickU
+            # Listamos usuarios al iniciar la ventana
+            self.listarUsuarios()
+            # buscamos usuarios a traves del buscador
+            self.ui.pushButton_usuarios_1.clicked.connect(self.buscarUsuarios)
+            # Abrir Ventana Nuevo user
+            self.ui.pushButton_usuarios_2.clicked.connect(self.mostrarNewUser)
+            # Listamos al hacer click en el btn listar
+            self.ui.pushButton_usuarios_3.clicked.connect(self.listarUsuarios)
+        else: 
+            self.ui.btn_usuarios.clicked.connect(lambda:QtWidgets.QMessageBox.critical(self, "Error", "No tiene los permisos suficientes"))
+            self.ui.Pages_Widget.setCurrentWidget(self.ui.page_productos)
+                
+             
+             
+            
+            
 
-        # Listamos usuarios al iniciar la ventana
-        self.listarUsuarios()
-        # buscamos usuarios a traves del buscador
-        self.ui.pushButton_usuarios_1.clicked.connect(self.buscarUsuarios)
-        # Abrir Ventana Nuevo user
-        self.ui.pushButton_usuarios_2.clicked.connect(self.mostrarNewUser)
-        # Listamos al hacer click en el btn listar
-        self.ui.pushButton_usuarios_3.clicked.connect(self.listarUsuarios)
+        
 
         # Boton Exit
         self.ui.btn_exit.clicked.connect(self.close)
@@ -130,9 +149,8 @@ class Main(QMainWindow):
         self.newBmProduct.show()
         
     def mostrarBmUser(self):
-        pass
-        #self.newBmProduct = bm_user()
-        #self.newBmProduct.show()
+        self.BM_Usuario = BM_Usuario ()
+        self.BM_Usuario.show()
         
 ###############################FUNCIONES PRODUCTOS########################################
 
@@ -196,15 +214,17 @@ class Main(QMainWindow):
 
 ###############################FUNCIONES USUARIOS########################################
 
+
+
  # Seleccionar usuario al hacer click y abrir ventana
 
     def seleccionarusuario(self):
-        global userid
+        global DNI
         seleccionarusuario = []
         for i in range(0,5):
             seleccionarusuario.append(self.ui.tableWidget_2.item(self.ui.tableWidget_2.currentRow(),i).text())
-            userid = seleccionarusuario[0]
-            print(userid)
+            DNI = seleccionarusuario[0]
+            #print(DNI)
 
 ##Listar Usuarios
 
@@ -253,6 +273,26 @@ class Main(QMainWindow):
 
           tableRow += 1 
 
+
+# Seleccionar DNI al hacer click y abrir ventana
+ 
+    def SeleccionarDNI(self):
+        global DNI
+        SeleccionarDNI = []
+        for i in range(0,5):
+            SeleccionarDNI.append(self.ui.tableWidget_2.item(self.ui.tableWidget_2.currentRow(),i).text())
+            DNI = SeleccionarDNI[0]
+            print(DNI)
+
+# Seleccionar DNI Viejo al hacer click y abrir ventana
+ 
+    def SeleccionarDNI(self):
+        global DNI
+        SeleccionarDNI = []
+        for i in range(0,5):
+            SeleccionarDNI.append(self.ui.tableWidget_2.item(self.ui.tableWidget_2.currentRow(),i).text())
+            DNI = SeleccionarDNI[0]
+            print(DNI)
    
   
 class BMProduct(QMainWindow):
@@ -386,3 +426,117 @@ class BMProduct(QMainWindow):
     #def bm_user(self):
      #  self.ui.btn_.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_usuarios))
      # self.ui.label_de.mousePressEvent = self.clickD
+
+
+#############################################################  CLASS BM_USUARIOS ######################################################
+ 
+
+
+
+class BM_Usuario(QMainWindow):
+
+    def __init__(self):
+        super(BM_Usuario, self).__init__()
+        self.ui = bmu()
+        self.ui.setupUi(self)
+        ############# RECIBIMOS PROPORCIONES DE LA PANTALLA ###########
+        qtRectangle = self.frameGeometry()
+        centerPoint = QDesktopWidget().availableGeometry().center()
+        qtRectangle.moveCenter(centerPoint)
+        self.move(qtRectangle.topLeft())
+        ############## CENTRAMOS LA VENTANA #############
+        centerPoint = QDesktopWidget().availableGeometry().center()
+        qtRectangle.moveCenter(centerPoint)
+        self.move(qtRectangle.topLeft())
+        self.rellenarCampos()
+
+        #Subir foto btn
+        #self.ui.subirFoto_btn.clicked.connect(self.uploadImg)
+
+        #Modificar usuario btn
+        self.ui.pushButton_modificar_usuario.clicked.connect(self.ModificarUsuario)
+
+        #Eliminar usuario btn
+        self.ui.pushButton_eliminar_usuario.clicked.connect(self.DarDeBajaUsuario)
+        
+
+        #Mostrar Ventana
+        self.show()
+
+
+
+    #Rellenar los campos con los atributos del producto seleccionado
+    def rellenarCampos(self):
+        global userid
+        global DNI
+        global DNI_Viejo
+        #global defaultImg        
+        usuario = u.usuarios.mostrar_user(DNI)
+        print(usuario)
+        atributos = list(usuario[0])
+        DNI_Viejo = atributos[0]
+        self.ui.dni_input.setText(atributos[0])
+        self.ui.nombre_input.setText(atributos[1])
+        self.ui.apellido_input.setText(atributos[2])
+        self.ui.nacimiento_date.setDate(atributos[4])
+        self.ui.puesto_input.setText(atributos[5])
+        self.ui.mail_input.setText(atributos[7])
+
+        
+        if  str(atributos[3]) == "b'1'":
+            
+            self.ui.tipo_cb.setCurrentText("Admin")
+
+        else:
+            self.ui.tipo_cb.setCurrentText("Usuario")
+        
+        """
+        CAMBIAR BOTÓN PARA QUE INFORME SI SE DA DE ALTA O NO
+        if str(atributos[6]) == "b'1'":
+            self.ui.
+        else:
+            self.ui.fragil_no.setChecked(1)
+
+        self.ui.peso_num.setValue(atributos[12])
+        self.ui.ancho_num.setValue(atributos[13])
+        self.ui.altura_num.setValue(atributos[14])
+        """
+        
+    def ModificarUsuario(self):
+        global DNI_Viejo
+        dni = self.ui.dni_input.text()
+        nombre = self.ui.nombre_input.text()
+        apellido = self.ui.apellido_input.text()
+        tipo = self.ui.tipo_cb.currentText()
+        if tipo == "admin": 
+            tipo = 1 
+        else:
+            tipo = 0
+        nacimiento = self.ui.nacimiento_date.date().toString("yyyy/MM/dd")
+        puesto = self.ui.puesto_input.text()
+        mail = self.ui.mail_input.text()
+        if self.ui.pass_input.text() != "" or self.ui.pass_rep_input.text != "":
+            if self.ui.pass_input.text() == self.ui.pass_rep_input.text():
+                u.usuarios.modificar_datos_user(DNI_Viejo,dni,nombre,apellido,tipo,puesto,nacimiento,mail)
+                login.cambiar_conrasena(DNI_Viejo,dni,self.ui.pass_input.text())
+            else:
+                QtWidgets.QMessageBox.critical(self, "Error", "Contraseñas diferentes")
+                return None
+        else:
+            u.usuarios.modificar_datos_user(DNI_Viejo,dni,nombre,apellido,tipo,puesto,nacimiento,mail)
+
+        self.close()
+        
+        
+
+    def DarDeBajaUsuario(self):
+        global DNI
+        qm = QMessageBox
+
+        ret = qm.warning(self,'Advertencia', "¿Está seguro que quieres dar de baja el usuario?", qm.Yes | qm.No)
+        if ret == qm.Yes:
+            u.usuarios.ab_usuario(DNI)
+            self.close()
+
+
+  

@@ -748,7 +748,7 @@ background-color: #45a9f0;
 }</string>
        </property>
        <property name="text">
-        <string>Borrar Usuario</string>
+        <string>Dar de baja</string>
        </property>
       </widget>
       <widget class="QPushButton" name="pushButton_modificar_usuario">
@@ -783,7 +783,7 @@ background-color: #45a9f0;
 }</string>
        </property>
        <property name="text">
-        <string>Modificar Usuario</string>
+        <string>Modificar</string>
        </property>
       </widget>
      </widget>
