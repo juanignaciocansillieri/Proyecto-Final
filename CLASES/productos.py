@@ -155,7 +155,7 @@ class productos():
         a.commit()
 
 
-    def modificar_produc(codigov, codigon, nombre, marca, cantidad, descripcion, lote, vencimiento, refrigeracion, inflamable, fragil,foto,peso,largo,ancho,alto):
+    def modificar_produc(codigov, codigon, nombre, marca, cantidad,ubicacion, descripcion, lote, vencimiento, refrigeracion, inflamable, fragil,foto,peso,largo,ancho,alto):
         a = c.start_connection()
         cursor = a.cursor()
         query = "SELECT idproductos FROM productos WHERE codigo=%s"
@@ -208,6 +208,10 @@ class productos():
             a.commit()
             query = "UPDATE productos set fragil=%s WHERE idproductos=%s"
             values = (fragil, idp)
+            cursor.execute(query, values)
+            a.commit()
+            query = "UPDATE productos set ubicacion=%s WHERE idproductos=%s"
+            values = (ubicacion, idp)
             cursor.execute(query, values)
             a.commit()
             query = "UPDATE productos set peso=%s WHERE idproductos=%s"
@@ -267,7 +271,7 @@ class productos():
     def mostrar_product(codigo):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT codigo,nombre,marca,cantidad,vencimiento,descripcion,ubicacion,foto,lote,refrigeracion,inflamable,fragil,peso,alto,ancho,alto FROM productos WHERE codigo=%s")
+        query = ("SELECT codigo,nombre,marca,cantidad,vencimiento,descripcion,ubicacion,foto,lote,refrigeracion,inflamable,fragil,peso,largo,ancho,alto FROM productos WHERE codigo=%s")
         cursor.execute(query,codigo)
         data = cursor.fetchall()
         a.commit()

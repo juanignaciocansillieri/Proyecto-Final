@@ -292,6 +292,7 @@ class BMProduct(QMainWindow):
         global defaultImg
         producto = p.productos.mostrar_product(productId)
         atributos = list(producto[0])
+        print(atributos)
         self.ui.codigo_input.setText(atributos[0])
         codigoViejo = atributos[0]
         self.ui.nombre_input.setText(atributos[1])
@@ -322,19 +323,19 @@ class BMProduct(QMainWindow):
             self.ui.fragil_no.setChecked(1)
 
         self.ui.peso_num.setValue(atributos[12])
-        self.ui.ancho_num.setValue(atributos[13])
-        self.ui.altura_num.setValue(atributos[14])
-        
+        self.ui.largo_num.setValue(atributos[13])
+        self.ui.ancho_num.setValue(atributos[14])
+        self.ui.altura_num.setValue(atributos[15])
         
     def modificarProducto(self):
         global codigoViejo
         global defaultImg
-        print(defaultImg)
         codigo = self.ui.codigo_input.text()
         nombre = self.ui.nombre_input.text()
         descripcion = self.ui.descripcion_input.toPlainText()
         cantidad = self.ui.cantidad_num.value()
         marca = self.ui.marca_input.text()
+        ubicacion = self.ui.ubicacion_input.text()
         venc = self.ui.venc_date.date().toString("yyyy/MM/dd")
         lote = self.ui.lote_num.value()
         if self.ui.fragil_si.isChecked():
@@ -359,7 +360,8 @@ class BMProduct(QMainWindow):
         altura = self.ui.altura_num.value()
         largo = self.ui.largo_num.value()
         foto = defaultImg
-        p.productos.modificar_produc(codigoViejo,codigo,nombre,marca,cantidad,descripcion,lote,venc,refri,infla,fragil,foto,peso,largo,ancho,altura)
+        print(lote,largo,ubicacion)
+        p.productos.modificar_produc(codigoViejo,codigo,nombre,marca,cantidad,ubicacion,descripcion,lote,venc,refri,infla,fragil,foto,peso,largo,ancho,altura)
         self.close()
 
     def borrarProducto(self):
