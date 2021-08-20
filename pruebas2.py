@@ -37,13 +37,13 @@ import matriz as mz
 
 """
 aa=us.usuarios("alex","arraya","123",1,"gerente","1999/05/14","alex@gmail.com")
-#aa.alta_usuario()
+aa.alta_usuario()
 aa.alta_login("asd")
 bb=us.usuarios("juan","cansillieri","456",1,"productor","1999/07/20","juan@gmail.com")
-#bb.alta_usuario()
+bb.alta_usuario()
 bb.alta_login("zxc")
 cc=us.usuarios("nicolas","rija","789",0,"asistente","1999/04/26","nico@gmail.com")
-#cc.alta_usuario()
+cc.alta_usuario()
 cc.alta_login("qwe")
 
 
