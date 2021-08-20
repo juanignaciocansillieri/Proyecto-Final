@@ -10,6 +10,8 @@ from numpy import pi
 import splash
 import Img.img
 import circularProgress as c
+sys.path.append("C:\\proyecto-final\\DB\\")
+import conexion as conexion
 sys.path.append("C:\\proyecto-final\\Interfaces\\login\\")
 import login_funcional as l
 sys.path.append("C:\\proyecto-final\\Interfaces\\main\\")
@@ -47,6 +49,7 @@ class Splash(QMainWindow):
             self.time = self.time.addSecs(1)
             if str(self.time) == "PyQt5.QtCore.QTime(0, 0, 1)":
                 self.close()
+                conexion.crear_tabla()
                 self.login = l.LoginWindow()
                 #self.m = m.Main()
         self.timer.timeout.connect(timerEvent)
