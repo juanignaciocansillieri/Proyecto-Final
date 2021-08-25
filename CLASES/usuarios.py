@@ -226,7 +226,6 @@ def listar_user():
             query = "SELECT dni,nombre,apellido,tipo,nacimiento FROM usuarios"
             cursor.execute(query)
             user = cursor.fetchall()
-
             a.commit()
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)

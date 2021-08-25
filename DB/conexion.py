@@ -73,36 +73,29 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
     );"""
     q5="""CREATE TABLE IF NOT EXISTS lote (
     idlote INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    nlote VARCHAR(20) NOT NULL,
     idproducto VARCHAR(20) NOT NULL,
     vencimiento DATE NOT NULL
     );"""
+
     q6="""CREATE TABLE IF NOT EXISTS condicion (
     idcondicion INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     nombre VARCHAR(20) NOT NULL,
     identificador VARCHAR(20) NOT NULL
     );"""
+
     q7 = """CREATE TABLE IF NOT EXISTS alojamiento (
     idalojamiento INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     codigo VARCHAR(20) NOT NULL,
     largo INT NOT NULL,
     ancho INT NOT NULL,
     alto INT NOT NULL,
-    disponibilidad BINARY(1) NOT NULL,
+    disponibilidad VARCHAR(20) NOT NULL,
     posicion VARCHAR(20) NOT NULL,
     refrigeracion BINARY(1) NOT NULL,
     limite VARCHAR(20) NOT NULL
     );"""
-    q8 = """CREATE TABLE IF NOT EXISTS alojamiento (
-    idalojamiento INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    codigo VARCHAR(20) NOT NULL,
-    largo INT NOT NULL,
-    ancho INT NOT NULL,
-    alto INT NOT NULL,
-    disponibilidad BINARY(1) NOT NULL,
-    posicion VARCHAR(20) NOT NULL,
-    refrigeracion BINARY(1) NOT NULL,
-    limite VARCHAR(20) NOT NULL
-    );"""
+    
     q9=""" CREATE TABLE IF NOT EXISTS matriz (
     idmatriz INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     codigo VARCHAR(20) NOT NULL,
@@ -111,12 +104,14 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
     altura VARCHAR(20) NOT NULL,
     disponibilidad BINARY(1) NOT NULL
     );"""
+
     q10="""CREATE TABLE IF NOT EXISTS datosmatriz (
     iddatosmatriz INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     filas INT NOT NULL,
     columnas INT NOT NULL,
     altura INT NOT NULL
     );"""
+
     q11="""CREATE TABLE IF NOT EXISTS area (
     idarea INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     nombre VARCHAR(20) NOT NULL,
@@ -126,21 +121,27 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
     q12= """CREATE TABLE IF NOT EXISTS productos (
     idproductos INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     codigo VARCHAR(20) NOT NULL,
-    nombre VARCHAR(50) NOT NULL,
     marca VARCHAR(20) NOT NULL,
     cantidad INT NOT NULL,
     descripcion VARCHAR(50) NOT NULL,
     ubicacion VARCHAR(20) NOT NULL,
-    lote INT NOT NULL,
-    vencimiento DATE NOT NULL,
-    refrigeracion BINARY(1) NOT NULL,
-    inflamable BINARY(1) NOT NULL,
+    lote VARCHAR(20) NOT NULL,
+    vencimiento DATE,
+    condicion VARCHAR(20) NOT NULL,
     fragil BINARY(1) NOT NULL,
     foto VARCHAR(50) NOT NULL,
     peso INT NOT NULL,
     largo INT NOT NULL,
     ancho INT NOT NULL,
     alto INT NOT NULL
+    );"""
+
+    q13="""CREATE TABLE IF NOT EXISTS movimientos (
+    idmovimientos INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    codigo VARCHAR(20) NOT NULL,
+    cantidad VARCHAR(50) NOT NULL,
+    desc VARCHAR(20) NOT NULL,
+    fecha DATE NOT NULL
     );"""
     
     
@@ -155,7 +156,7 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
         cur.execute(q5)
         cur.execute(q6)
         cur.execute(q7)
-        cur.execute(q8)
+        #cur.execute(q8)
         cur.execute(q9)
         cur.execute(q10)
         cur.execute(q11)
