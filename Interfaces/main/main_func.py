@@ -113,11 +113,6 @@ class Main(QMainWindow):
             self.ui.btn_usuarios.clicked.connect(lambda:QtWidgets.QMessageBox.critical(self, "Error", "No tiene los permisos suficientes"))
             self.ui.Pages_Widget.setCurrentWidget(self.ui.page_productos)
                 
-             
-             
-            
-            
-
         
 
         # Boton Exit
