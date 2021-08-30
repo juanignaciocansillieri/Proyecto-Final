@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>678</width>
-    <height>421</height>
+    <width>668</width>
+    <height>420</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -45,7 +45,7 @@
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background: #1a1e23;
+       <string notr="true">background: #fff;
 </string>
       </property>
       <property name="frameShape">
@@ -58,7 +58,7 @@
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>30</y>
+         <y>40</y>
          <width>631</width>
          <height>321</height>
         </rect>
@@ -70,7 +70,8 @@
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background: #12151a;border-radius: 10px;
+        <string notr="true">border-radius: 10px;
+background-color: rgb(240, 242, 255);
 </string>
        </property>
        <property name="frameShape">
@@ -98,12 +99,13 @@
          <font>
           <family>Roboto</family>
           <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">font-family: Roboto;
 font-size: 14px;
-color: #fff;
 margin-top:10px;
 margin-left:10px
 
@@ -132,12 +134,13 @@ margin-left:10px
          <font>
           <family>Roboto</family>
           <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">font-family: Roboto;
 font-size: 14px;
-color: #fff;
 margin-top:10px;
 margin-left:10px
 
@@ -166,12 +169,13 @@ margin-left:10px
          <font>
           <family>Roboto</family>
           <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">font-family: Roboto;
 font-size: 14px;
-color: #fff;
 margin-top:10px;
 margin-left:10px
 
@@ -190,10 +194,17 @@ margin-left:10px
           <height>31</height>
          </rect>
         </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>-1</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">QRadioButton{
 border-radius: 3px;
-color: #fff;
 font-family:Roboto;
 border: none;
 font-size:13px;
@@ -215,10 +226,17 @@ margin-top:15px
           <height>31</height>
          </rect>
         </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>-1</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">QRadioButton{
 border-radius: 3px;
-color: #fff;
 font-family:Roboto;
 border: none;
 font-size:13px;
@@ -242,13 +260,15 @@ margin-top:15px
         </property>
         <property name="styleSheet">
          <string notr="true">padding:0 5px;
-background-color: #23262b;
 border-radius: 3px;
-color: #fff;
 font-family:Roboto Lt;
 border: none;
 font-size:13px;
 font-weight: 400;
+background-color: #fff;
+border: 0.5px solid #c1c1c1;
+color: #000;
+
 </string>
         </property>
         <property name="currentText">
@@ -314,17 +334,17 @@ font-weight: 400;
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton{
-background-color: #b3b3b3;
+background-color: rgba(71, 71, 103,180);
 border-radius: 7px;
 padding: 4 10px;
-color: #12151a;
+color: #fff;
 font-family:Roboto;
 border: none;
 font-size:13px;
 font-weight: 500;
 }
 QPushButton:hover{
-background-color: rgba(255,255,255,50);
+background-color: rgba(71, 71, 103);
 color: #fff;
 
 }</string>
@@ -344,14 +364,17 @@ color: #fff;
         </property>
         <property name="styleSheet">
          <string notr="true">
-background-color: #23262b;
+background-color: #fff;
+border: 0.5px solid #c1c1c1;
 border-radius: 3px;
 padding: 4 5px;
-color: #fff;
-font-family:Roboto lt;
-border: none;
+color: #000;
+font-family:Roboto;
 font-size:13px;
-margin-left: 10px;</string>
+font-weight: 400;
+margin-left: 10px;
+
+</string>
         </property>
         <property name="dateTime">
          <datetime>
@@ -374,15 +397,17 @@ margin-left: 10px;</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: #23262b;
+         <string notr="true">
+background-color: #fff;
+border: 0.5px solid #c1c1c1;
 border-radius: 3px;
 padding: 4 5px;
-color: #fff;
+color: #000;
 font-family:Roboto;
-border: none;
 font-size:13px;
 font-weight: 400;
 margin-left: 10px;
+
 </string>
         </property>
        </widget>
@@ -396,15 +421,17 @@ margin-left: 10px;
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: #23262b;
+         <string notr="true">
+background-color: #fff;
+border: 0.5px solid #c1c1c1;
 border-radius: 3px;
 padding: 4 5px;
-color: #fff;
+color: #000;
 font-family:Roboto;
-border: none;
 font-size:13px;
 font-weight: 400;
 margin-left: 10px;
+
 </string>
         </property>
        </widget>
@@ -418,15 +445,17 @@ margin-left: 10px;
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: #23262b;
+         <string notr="true">
+background-color: #fff;
+border: 0.5px solid #c1c1c1;
 border-radius: 3px;
 padding: 4 5px;
-color: #fff;
+color: #000;
 font-family:Roboto;
-border: none;
 font-size:13px;
 font-weight: 400;
 margin-left: 10px;
+
 </string>
         </property>
        </widget>
@@ -440,15 +469,17 @@ margin-left: 10px;
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: #23262b;
+         <string notr="true">
+background-color: #fff;
+border: 0.5px solid #c1c1c1;
 border-radius: 3px;
 padding: 4 5px;
-color: #fff;
+color: #000;
 font-family:Roboto;
-border: none;
 font-size:13px;
 font-weight: 400;
 margin-left: 10px;
+
 </string>
         </property>
        </widget>
@@ -471,12 +502,14 @@ margin-left: 10px;
          <font>
           <family>Roboto</family>
           <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">font-family: Roboto;
 font-size: 14px;
-color: #fff;
+color: #000;
 margin-top:10px;
 margin-left:10px
 
@@ -509,17 +542,18 @@ margin-left:10px
         </property>
         <property name="styleSheet">
          <string notr="true">QLineEdit{
-background-color: #23262b;
+background-color: #fff;
+border: 0.5px solid #c1c1c1;
 border-radius: 3px;
 padding: 4 5px;
 color: #fff;
 font-family:Roboto;
-border: none;
 font-size:13px;
 font-weight: 400;
 margin-left: 10px;
 
-}</string>
+}
+</string>
         </property>
         <property name="placeholderText">
          <string/>
@@ -538,12 +572,13 @@ margin-left: 10px;
          <font>
           <family>Roboto</family>
           <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">font-family: Roboto;
 font-size: 14px;
-color: #fff;
 margin-top:10px;
 margin-left:10px
 
@@ -572,12 +607,13 @@ margin-left:10px
          <font>
           <family>Roboto</family>
           <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">font-family: Roboto;
 font-size: 14px;
-color: #fff;
 margin-top:10px;
 margin-left:10px
 
@@ -600,12 +636,13 @@ margin-left:10px
          <font>
           <family>Roboto</family>
           <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">font-family: Roboto;
 font-size: 14px;
-color: #fff;
 margin-top:10px;
 margin-left:10px
 
@@ -638,12 +675,12 @@ margin-left:10px
         </property>
         <property name="styleSheet">
          <string notr="true">QLineEdit{
-background-color: #23262b;
+background-color: #fff;
+border: 0.5px solid #c1c1c1;
 border-radius: 3px;
 padding: 4 5px;
 color: #fff;
 font-family:Roboto;
-border: none;
 font-size:13px;
 font-weight: 400;
 margin-left: 10px;
@@ -677,12 +714,13 @@ margin-left: 10px;
          <font>
           <family>Roboto</family>
           <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">font-family: Roboto;
 font-size: 14px;
-color: #fff;
 margin-top:10px;
 margin-left:10px
 
@@ -705,12 +743,13 @@ margin-left:10px
          <font>
           <family>Roboto</family>
           <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">font-family: Roboto;
 font-size: 14px;
-color: #fff;
 margin-top:10px;
 margin-left:10px
 
@@ -743,12 +782,12 @@ margin-left:10px
         </property>
         <property name="styleSheet">
          <string notr="true">QLineEdit{
-background-color: #23262b;
+background-color: #fff;
+border: 0.5px solid #c1c1c1;
 border-radius: 3px;
 padding: 4 5px;
 color: #fff;
 font-family:Roboto;
-border: none;
 font-size:13px;
 font-weight: 400;
 margin-left: 10px;
@@ -773,12 +812,13 @@ margin-left: 10px;
          <font>
           <family>Roboto</family>
           <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">font-family: Roboto;
 font-size: 14px;
-color: #fff;
 margin-top:10px;
 margin-left:10px
 
@@ -807,12 +847,13 @@ margin-left:10px
          <font>
           <family>Roboto</family>
           <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">font-family: Roboto;
 font-size: 14px;
-color: #fff;
 margin-top:10px;
 margin-left:10px
 
@@ -832,15 +873,17 @@ margin-left:10px
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: #23262b;
+         <string notr="true">
+background-color: #fff;
+border: 0.5px solid #c1c1c1;
 border-radius: 3px;
 padding: 4 5px;
-color: #fff;
+color: #000;
 font-family:Roboto;
-border: none;
 font-size:13px;
 font-weight: 400;
 margin-left: 10px;
+
 </string>
         </property>
        </widget>
@@ -863,12 +906,13 @@ margin-left: 10px;
          <font>
           <family>Roboto</family>
           <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">font-family: Roboto;
 font-size: 14px;
-color: #fff;
 margin-top:10px;
 margin-left:10px
 
@@ -888,15 +932,17 @@ margin-left:10px
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: #23262b;
+         <string notr="true">
+background-color: #fff;
+border: 0.5px solid #c1c1c1;
 border-radius: 3px;
 padding: 4 5px;
-color: #fff;
+color: #000;
 font-family:Roboto;
-border: none;
 font-size:13px;
 font-weight: 400;
 margin-left: 10px;
+
 </string>
         </property>
        </widget>
@@ -910,13 +956,12 @@ margin-left: 10px;
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">
-background-color: #23262b;
+         <string notr="true">border: 1px solid #c1c1c1;
+background-color: #fff;
 border-radius: 3px;
 padding: 4 5px;
-color: #fff;
+color: #000;
 font-family:Roboto;
-border: none;
 font-size:13px;
 font-weight: 400;
 margin-left: 10px</string>
@@ -935,12 +980,13 @@ margin-left: 10px</string>
          <font>
           <family>Roboto</family>
           <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">font-family: Roboto;
 font-size: 14px;
-color: #fff;
 margin-top:10px;
 margin-left:10px
 
@@ -973,12 +1019,12 @@ margin-left:10px
         </property>
         <property name="styleSheet">
          <string notr="true">QLineEdit{
-background-color: #23262b;
+background-color: #fff;
+border: 0.5px solid #c1c1c1;
 border-radius: 3px;
 padding: 4 5px;
 color: #fff;
 font-family:Roboto;
-border: none;
 font-size:13px;
 font-weight: 400;
 margin-left: 10px;
@@ -1003,12 +1049,13 @@ margin-left: 10px;
          <font>
           <family>Roboto</family>
           <pointsize>-1</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">font-family: Roboto;
 font-size: 14px;
-color: #fff;
 margin-top:10px;
 margin-left:10px
 
@@ -1022,8 +1069,8 @@ margin-left:10px
       <widget class="QPushButton" name="crearprod_btn">
        <property name="geometry">
         <rect>
-         <x>528</x>
-         <y>370</y>
+         <x>530</x>
+         <y>380</y>
          <width>121</width>
          <height>26</height>
         </rect>
@@ -1032,6 +1079,8 @@ margin-left:10px
         <font>
          <family>Roboto</family>
          <pointsize>-1</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="cursor">
@@ -1039,15 +1088,15 @@ margin-left:10px
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton{
-background-color: #1173ff;
+background-color: rgba(71, 71, 103);
 color: #fff;
-border-radius:10px;
+border-radius:5px;
 font-family:Roboto;
 font-size: 13px
 
 }
 QPushButton:hover{
-background-color: #45a9f0;
+background-color: rgba(71, 71, 103,180);
 }</string>
        </property>
        <property name="text">

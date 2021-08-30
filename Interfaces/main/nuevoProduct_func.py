@@ -13,9 +13,6 @@ from nuevo_producto_ui import Ui_MainWindow
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import productos as pr
 
-
-
-
 defaultImg = "Error.png"
 
 class ProductWindow(QMainWindow):

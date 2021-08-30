@@ -17,6 +17,7 @@ from create_user_func import UsuarioWindow
 from nuevoProduct_func import ProductWindow
 from bm_producto import BMProduct as bm
 from bm_producto_ui import Ui_MainWindow as ui_bm
+from bm_user import Ui_MainWindow as bmu 
 
 import os
 sys.path.append("C:\\proyecto-final\\")
@@ -26,7 +27,6 @@ import usuarios as u
 import productos as p
 
 from PIL import Image
-from bm_user import Ui_MainWindow as bmu 
 
 
 # GUI File
@@ -224,7 +224,7 @@ class Main(QMainWindow):
         for i in range(0,5):
             seleccionarusuario.append(self.ui.tableWidget_2.item(self.ui.tableWidget_2.currentRow(),i).text())
             DNI = seleccionarusuario[0]
-            #print(DNI)
+           
 
 ##Listar Usuarios
 
