@@ -33,10 +33,13 @@ def close_connection(con):  # cierra conexion a db
 def borrar_tabla():  # borra tablas (posible modificacion futura: ingresar el nombre de la tabla y que la borre)
     # se usa "," para mas de una
     con=start_connection()
-    q = "DROP TABLE IF EXISTS productos, usuarios,alojamiento,login,matriz,datosmatriz;"
+    q1="""drop database prueba1;"""
+    q2="""create database prueba1;"""
+    #q = "DROP TABLE IF EXISTS productos, usuarios,alojamiento,login,matriz,datosmatriz;"
     try:
         cur = con.cursor()
-        cur.execute(q)
+        cur.execute(q1)
+        cur.execute(q2)
         cur.close()
         print("se borro las tablas con exito")
     except pymysql.err.OperationalError as err:
@@ -45,68 +48,119 @@ def borrar_tabla():  # borra tablas (posible modificacion futura: ingresar el no
 
 def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se crearan todas)
     con=start_connection()
-    q1 = """CREATE TABLE IF NOT EXISTS usuarios (
+    q0="""CREATE DATABASE IF NOT EXISTS prueba1;"""
+    q1="""USE prueba1;"""
+    q2 ="""CREATE TABLE IF NOT EXISTS login (
+    idlogin INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    dni VARCHAR(20) NOT NULL,
+    contraseña VARCHAR(20) NOT NULL
+    );"""
+    q3="""CREATE TABLE IF NOT EXISTS tipouser (
+    idtipouser INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    tipo VARCHAR(20) NOT NULL,
+    identificador VARCHAR(20) NOT NULL
+    );"""
+    q4 = """CREATE TABLE IF NOT EXISTS usuarios (
     idusuarios INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     nombre VARCHAR(20) NOT NULL,
     apellido VARCHAR(20) NOT NULL,
     dni VARCHAR(20) NOT NULL,
-    tipo BINARY(1) NOT NULL,
+    tipo VARCHAR(20) NOT NULL,
     alta BINARY(1) NOT NULL,
     puesto VARCHAR(20) NOT NULL,
     nacimiento DATE NOT NULL,
-    mail VARCHAR(20) NOT NULL);"""
-    q2 = """CREATE TABLE IF NOT EXISTS productos (
-    idproductos INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    codigo VARCHAR(20) NOT NULL,
-    nombre VARCHAR(50) NOT NULL,
-    marca VARCHAR(20) NOT NULL,
-    cantidad INT NOT NULL,
-    descripcion VARCHAR(50) NOT NULL,
-    ubicacion VARCHAR(20) NOT NULL,
-    lote INT NOT NULL,
-    vencimiento DATE NOT NULL,
-    refrigeracion BINARY(1) NOT NULL,
-    inflamable BINARY(1) NOT NULL,
-    fragil BINARY(1) NOT NULL,
-    foto VARCHAR(50) NOT NULL,
-    peso INT NOT NULL,
-    largo INT NOT NULL,
-    ancho INT NOT NULL,
-    alto INT NOT NULL);"""
-    q3 = """CREATE TABLE IF NOT EXISTS alojamiento (
+    mail VARCHAR(20) NOT NULL
+    );"""
+    q5="""CREATE TABLE IF NOT EXISTS lote (
+    idlote INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    nlote VARCHAR(20) NOT NULL,
+    idproducto VARCHAR(20) NOT NULL,
+    vencimiento DATE NOT NULL
+    );"""
+
+    q6="""CREATE TABLE IF NOT EXISTS condicion (
+    idcondicion INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    nombre VARCHAR(20) NOT NULL,
+    identificador VARCHAR(20) NOT NULL
+    );"""
+
+    q7 = """CREATE TABLE IF NOT EXISTS alojamiento (
     idalojamiento INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     codigo VARCHAR(20) NOT NULL,
     largo INT NOT NULL,
     ancho INT NOT NULL,
     alto INT NOT NULL,
-    disponibilidad BINARY(1) NOT NULL,
+    disponibilidad VARCHAR(20) NOT NULL,
     posicion VARCHAR(20) NOT NULL,
     refrigeracion BINARY(1) NOT NULL,
-    limite VARCHAR(20) NOT NULL);"""
-    q4 ="""CREATE TABLE IF NOT EXISTS login (
-    idlogin INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    dni VARCHAR(20) NOT NULL,
-    contraseña VARCHAR(20) NOT NULL);"""
-    q5="""CREATE TABLE IF NOT EXISTS datosmatriz (
-    filas INT NOT NULL,
-    columnas INT NOT NULL,
-    altura INT NOT NULL);"""
-    q6=""" CREATE TABLE IF NOT EXISTS matriz (
+    limite VARCHAR(20) NOT NULL
+    );"""
+    
+    q9=""" CREATE TABLE IF NOT EXISTS matriz (
     idmatriz INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     codigo VARCHAR(20) NOT NULL,
     fila VARCHAR(20) NOT NULL,
     columna VARCHAR(20) NOT NULL,
     altura VARCHAR(20) NOT NULL,
-    disponibilidad BINARY(1) NOT NULL);"""
+    disponibilidad BINARY(1) NOT NULL
+    );"""
+
+    q10="""CREATE TABLE IF NOT EXISTS datosmatriz (
+    iddatosmatriz INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    filas INT NOT NULL,
+    columnas INT NOT NULL,
+    altura INT NOT NULL
+    );"""
+
+    q11="""CREATE TABLE IF NOT EXISTS area (
+    idarea INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    nombre VARCHAR(20) NOT NULL,
+    identificador VARCHAR(20) NOT NULL
+    );"""
+
+    q12= """CREATE TABLE IF NOT EXISTS productos (
+    idproductos INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    codigo VARCHAR(20) NOT NULL,
+    marca VARCHAR(20) NOT NULL,
+    cantidad INT NOT NULL,
+    descripcion VARCHAR(50) NOT NULL,
+    ubicacion VARCHAR(20) NOT NULL,
+    lote VARCHAR(20) NOT NULL,
+    vencimiento DATE,
+    condicion VARCHAR(20) NOT NULL,
+    fragil BINARY(1) NOT NULL,
+    foto VARCHAR(50) NOT NULL,
+    peso INT NOT NULL,
+    largo INT NOT NULL,
+    ancho INT NOT NULL,
+    alto INT NOT NULL
+    );"""
+
+    q13="""CREATE TABLE IF NOT EXISTS movimientos (
+    idmovimientos INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    codigo VARCHAR(20) NOT NULL,
+    cantidad VARCHAR(50) NOT NULL,
+    desc VARCHAR(20) NOT NULL,
+    fecha DATE NOT NULL
+    );"""
+    
+    
 
     try:
         cur = con.cursor()
+        cur.execute(q0)
         cur.execute(q1)
         cur.execute(q2)
         cur.execute(q3)
         cur.execute(q4)
         cur.execute(q5)
         cur.execute(q6)
+        cur.execute(q7)
+        #cur.execute(q8)
+        cur.execute(q9)
+        cur.execute(q10)
+        cur.execute(q11)
+        cur.execute(q12)
         cur.close()
         print("se creo las tablas con exito")
     except pymysql.err.OperationalError as err:
