@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'u.ui'
+# Form implementation generated from reading ui file 'splash_ui.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -52,9 +52,9 @@ class Ui_MainWindow(object):
 "background:none")
         self.label_2.setObjectName("label_2")
         self.label = QtWidgets.QLabel(self.frame_2)
-        self.label.setGeometry(QtCore.QRect(0, 10, 941, 200))
+        self.label.setGeometry(QtCore.QRect(0, 10, 941, 141))
         self.label.setMaximumSize(QtCore.QSize(2000, 200))
-        self.label.setStyleSheet("image: url(:/Icon/iconos logo-05.png);\n"
+        self.label.setStyleSheet("image: url(:/Icon/Warehouse_Bull_Soft_Logo.png);\n"
 "background:none")
         self.label.setText("")
         self.label.setObjectName("label")
@@ -64,6 +64,15 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.label_3 = QtWidgets.QLabel(self.frame_2)
+        self.label_3.setGeometry(QtCore.QRect(360, 140, 231, 21))
+        self.label_3.setStyleSheet("font-family:     Roboto;\n"
+"font-weight: bold;\n"
+"color:#FFF;\n"
+"font-size: 19px;\n"
+"background:none")
+        self.label_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_3.setObjectName("label_3")
         self.horizontalLayout_2.addWidget(self.frame_2)
         self.verticalLayout.addWidget(self.frame)
         self.horizontalLayout.addLayout(self.verticalLayout)
@@ -76,7 +85,8 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label_2.setText(_translate("MainWindow", "Cargando..."))
-import Img.img
+        self.label_3.setText(_translate("MainWindow", "WAREHOUSE BULL SOFT"))
+#import img_rc
 
 
 if __name__ == "__main__":
