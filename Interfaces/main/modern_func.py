@@ -1,55 +1,43 @@
-from collections import defaultdict
-from typing import DefaultDict
-from numpy import product
-from numpy.core.shape_base import atleast_1d
-from toggleFunction import *
-from main import Ui_MainWindow
-import os
 import sys
-import platform
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime,
-                          QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
-from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase,
-                         QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
+import os
+from PIL import Image
+from PyQt5 import QtWidgets
+from PyQt5 import QtGui
+from PyQt5 import QtCore
+import PyQt5
+from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
+from PyQt5.QtGui import *
+import nuevo_producto_ui
+from modern import Ui_MainWindow
+from toggleFunction import UIFunctions
+from nuevoProduct_func import ProductWindow
+from create_user_func import UsuarioWindow
 from create_user_func import UsuarioWindow
 from nuevoProduct_func import ProductWindow
 from bm_producto import BMProduct as bm
 from bm_producto_ui import Ui_MainWindow as ui_bm
 from bm_user import Ui_MainWindow as bmu 
 
-import os
-sys.path.append("C:\\proyecto-final\\")
-from DB import loginDB as login
+sys.path.append("C:\\proyecto-final\\CLASES\\")
+import productos as pr
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import usuarios as u
 import productos as p
 
-from PIL import Image
 
-
-# GUI File
-
-# Import Functions
 
 defaultImg = ""
 codigoViejo = ""
 DNI_Viejo = ""
 DNI = ""
 
-class Main(QMainWindow):
-    def __init__(self,admin_user):
-        
-        QMainWindow.__init__(self)
+class Modern(QMainWindow):
+
+    def __init__(self):
+        super(Modern, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.setWindowFlag(Qt.FramelessWindowHint)
-        self.setAttribute(Qt.WA_TranslucentBackground)
-        self.show()
-
-        self.setWindowFlag(Qt.FramelessWindowHint)
-        self.setAttribute(Qt.WA_TranslucentBackground)
         ############# RECIBIMOS PROPORCIONES DE LA PANTALLA ###########
         qtRectangle = self.frameGeometry()
         centerPoint = QDesktopWidget().availableGeometry().center()
@@ -60,77 +48,25 @@ class Main(QMainWindow):
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
         ###################### ABRIR/CERRAR BARRA LATERAL #########################
-        self.ui.btn_toggle.clicked.connect(
-            lambda: UIFunctions.toggleMenu(self, 65, True))
+        self.ui.products_btn.clicked.connect(
+            lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_stock))
+        self.ui.products_btn.clicked.connect(
+            lambda: self.ui.stackedWidget_3.setCurrentWidget(self.ui.product_subpage))
 
-        ##                          PAGINAS                                ##
+        self.ui.users_btn.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_usuarios))
+        self.ui.users_btn.clicked.connect(
+            lambda: self.ui.stackedWidget_3.setCurrentWidget(self.ui.user_subpage))
+        self.ui.users_btn.clicked.connect(self.listarUsuarios)
 
-        ########################## PRODUCTOS ##################################
+        self.ui.products_btn_stock.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_stock))
+        self.ui.products_btn_movimiento.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_movimientos))
 
-        self.ui.btn_productos.clicked.connect(
-            lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_productos))
-        self.ui.label_productos.mousePressEvent = self.clickP
+        self.ui.product_new_btn.clicked.connect(self.mostrarNewProduct)
+        self.ui.user_new_btn.clicked.connect(self.mostrarNewUser)
 
         # Listamos productos al iniciar la ventana
-        self.listarProductos()
-
-        # Listamos al hacer click en el btn listar
-        self.ui.listar_prod_btn.clicked.connect(self.listarProductos)
-
-        # buscamos productos a traves del buscador
-        self.ui.buscar_btn.clicked.connect(self.buscarProducto)
-
-        # Abrir Ventana Nuevo producto
-        self.ui.nuevo_prod_btn.clicked.connect(self.mostrarNewProduct)
-
-        # Abrir ventana para ver el producto
-        self.ui.tableWidget.doubleClicked.connect(self.seleccionarProducto)
-        self.ui.tableWidget.doubleClicked.connect(self.mostrarBmProduct)
-
-        # Abrir ventana para bm usuario
-        self.ui.tableWidget_2.doubleClicked.connect(self.seleccionarusuario)
-        self.ui.tableWidget_2.doubleClicked.connect(self.mostrarBmUser)
-
-        ############################# DEPOSITO #########################################
-        self.ui.btn_depositos.clicked.connect(
-            lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_depositos))
-        self.ui.label_deposito.mousePressEvent = self.clickD
-
-        ####################### USUARIOS ################################################
-        if admin_user==True:
-            self.ui.btn_usuarios.clicked.connect(
-                lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_usuarios))
-            self.ui.label_usuarios.mousePressEvent = self.clickU
-            # Listamos usuarios al iniciar la ventana
-            self.listarUsuarios()
-            # buscamos usuarios a traves del buscador
-            self.ui.pushButton_usuarios_1.clicked.connect(self.buscarUsuarios)
-            # Abrir Ventana Nuevo user
-            self.ui.pushButton_usuarios_2.clicked.connect(self.mostrarNewUser)
-            # Listamos al hacer click en el btn listar
-            self.ui.pushButton_usuarios_3.clicked.connect(self.listarUsuarios)
-        else: 
-            self.ui.btn_usuarios.clicked.connect(lambda:QtWidgets.QMessageBox.critical(self, "Error", "No tiene los permisos suficientes"))
-            self.ui.Pages_Widget.setCurrentWidget(self.ui.page_productos)
-                
-        
-
-        # Boton Exit
-        self.ui.btn_exit.clicked.connect(self.close)
-        # self.ui.label_exit.mousePressEvent(self.close)
-
-    def clickP(self, event):
-        return self.ui.Pages_Widget.setCurrentWidget(self.ui.page_productos)
-
-    def clickD(self, event):
-        return self.ui.Pages_Widget.setCurrentWidget(self.ui.page_depositos)
-
-    def clickU(self, event):
-        return self.ui.Pages_Widget.setCurrentWidget(self.ui.page_usuarios)
-
-    def clickE(self, event):
-        return self.close()
-
+        self.listarProductos(self.ui.tableWidget_stock_2)
+    
     def mostrarNewProduct(self):
         self.newProductWindow = ProductWindow()
         self.newProductWindow.show()
@@ -138,6 +74,9 @@ class Main(QMainWindow):
     def mostrarNewUser(self):
         self.newUserWindow = UsuarioWindow()
         self.newUserWindow.show()
+
+
+ 
 
     def mostrarBmProduct(self):
         self.newBmProduct = BMProduct()
@@ -147,25 +86,45 @@ class Main(QMainWindow):
         self.BM_Usuario = BM_Usuario ()
         self.BM_Usuario.show()
         
-###############################FUNCIONES PRODUCTOS########################################
+    def listarUsuarios(self):
+        usuarios = u.listar_user()
+        n = u.contar_filas()
+        self.ui.tableWidget_3.setRowCount(n)
+        tableRow = 0
+        for row in usuarios:
+            self.ui.tableWidget_3.setItem(
+                tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
+            self.ui.tableWidget_3.setItem(
+                tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
+            self.ui.tableWidget_3.setItem(
+                tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
+            if str(row[3]) == "b'1'":
+                self.ui.tableWidget_3.setItem(
+                    tableRow, 3, QtWidgets.QTableWidgetItem("Admin"))
+            else:
+                self.ui.tableWidget_3.setItem(
+                    tableRow, 3, QtWidgets.QTableWidgetItem("Usuario"))
 
-    # Listar productos from DB
+            self.ui.tableWidget_3.setItem(
+                tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
 
-    def listarProductos(self):
+            tableRow += 1
+
+    def listarProductos(self,tablewidget):
         products = p.listar_prod()
         n = p.contar_filas()
-        self.ui.tableWidget.setRowCount(n)
+        tablewidget.setRowCount(n)
         tableRow = 0
         for row in products:
-            self.ui.tableWidget.setItem(
+            tablewidget.setItem(
                 tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
-            self.ui.tableWidget.setItem(
+            tablewidget.setItem(
                 tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
-            self.ui.tableWidget.setItem(
+            tablewidget.setItem(
                 tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
-            self.ui.tableWidget.setItem(
+            tablewidget.setItem(
                 tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
-            self.ui.tableWidget.setItem(
+            tablewidget.setItem(
                 tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
 
             tableRow += 1
@@ -192,104 +151,7 @@ class Main(QMainWindow):
 
             tableRow += 1
 
-    # Seleccionar producto al hacer click y abrir ventana
 
-    def seleccionarProducto(self):
-        global productId
-        global defaultImg
-        listaProductos = []
-        for i in range(0,5):
-            listaProductos.append(self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),i).text())
-        productId = listaProductos[0]
-        
-            
-
-                    
-
-
-###############################FUNCIONES USUARIOS########################################
-
-
-
- # Seleccionar usuario al hacer click y abrir ventana
-
-    def seleccionarusuario(self):
-        global DNI
-        seleccionarusuario = []
-        for i in range(0,5):
-            seleccionarusuario.append(self.ui.tableWidget_2.item(self.ui.tableWidget_2.currentRow(),i).text())
-            DNI = seleccionarusuario[0]
-           
-
-##Listar Usuarios
-
-    def listarUsuarios(self):
-        usuarios = u.listar_user()
-        n = u.contar_filas()
-        self.ui.tableWidget_2.setRowCount(n)
-        tableRow = 0
-        for row in usuarios:
-            self.ui.tableWidget_2.setItem(
-                tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
-            self.ui.tableWidget_2.setItem(
-                tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
-            self.ui.tableWidget_2.setItem(
-                tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
-            if str(row[3]) == "b'1'":
-                self.ui.tableWidget_2.setItem(
-                    tableRow, 3, QtWidgets.QTableWidgetItem("Admin"))
-            else:
-                self.ui.tableWidget_2.setItem(
-                    tableRow, 3, QtWidgets.QTableWidgetItem("Usuario"))
-
-            self.ui.tableWidget_2.setItem(
-                tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
-
-            tableRow += 1
-
-
-##Buscar Usuarios
-
-    def buscarUsuarios(self):
-       parametro = self.ui.lineEdit_usuarios_1.text()
-       products = u.usuarios.buscar_user(parametro)
-       n = u.usuarios.buscar_user_rows(parametro)
-       self.ui.tableWidget_2.setRowCount(n)
-       tableRow = 0
-       for row in products:
-          self.ui.tableWidget_2.setItem(tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
-          self.ui.tableWidget_2.setItem(tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
-          self.ui.tableWidget_2.setItem(tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
-          if str(row[3])=="b'1'":
-             self.ui.tableWidget_2.setItem(tableRow, 3, QtWidgets.QTableWidgetItem("Admin"))
-          else:
-             self.ui.tableWidget_2.setItem(tableRow, 3, QtWidgets.QTableWidgetItem("Usuario"))
-          self.ui.tableWidget_2.setItem(tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
-
-          tableRow += 1 
-
-
-# Seleccionar DNI al hacer click y abrir ventana
- 
-    def SeleccionarDNI(self):
-        global DNI
-        SeleccionarDNI = []
-        for i in range(0,5):
-            SeleccionarDNI.append(self.ui.tableWidget_2.item(self.ui.tableWidget_2.currentRow(),i).text())
-            DNI = SeleccionarDNI[0]
-            print(DNI)
-
-# Seleccionar DNI Viejo al hacer click y abrir ventana
- 
-    def SeleccionarDNI(self):
-        global DNI
-        SeleccionarDNI = []
-        for i in range(0,5):
-            SeleccionarDNI.append(self.ui.tableWidget_2.item(self.ui.tableWidget_2.currentRow(),i).text())
-            DNI = SeleccionarDNI[0]
-            print(DNI)
-   
-  
 class BMProduct(QMainWindow):
 
     def __init__(self):
@@ -535,3 +397,9 @@ class BM_Usuario(QMainWindow):
 
 
   
+    
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = Modern()
+    window.show()
+    sys.exit(app.exec())
