@@ -14,373 +14,400 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(480, 467)
-        MainWindow.setMinimumSize(QtCore.QSize(0, 0))
-        MainWindow.setMaximumSize(QtCore.QSize(7000, 7000))
+        MainWindow.resize(479, 433)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.centralwidget.sizePolicy().hasHeightForWidth())
-        self.centralwidget.setSizePolicy(sizePolicy)
-        self.centralwidget.setMinimumSize(QtCore.QSize(480, 467))
-        self.centralwidget.setMaximumSize(QtCore.QSize(480, 467))
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.frame_principal = QtWidgets.QFrame(self.centralwidget)
-        self.frame_principal.setEnabled(True)
-        self.frame_principal.setMinimumSize(QtCore.QSize(480, 467))
-        self.frame_principal.setMaximumSize(QtCore.QSize(480, 8000))
-        self.frame_principal.setStyleSheet("\n"
-" background-color: #1a1e23;")
-        self.frame_principal.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_principal.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_principal.setObjectName("frame_principal")
-        self.frame_3 = QtWidgets.QFrame(self.frame_principal)
-        self.frame_3.setGeometry(QtCore.QRect(20, 10, 230, 500))
-        self.frame_3.setMinimumSize(QtCore.QSize(0, 0))
-        self.frame_3.setMaximumSize(QtCore.QSize(400, 715))
-        self.frame_3.setStyleSheet(" background-color: #1a1e23;\n"
-"border-radius: 20px;")
+        self.frame_2 = QtWidgets.QFrame(self.centralwidget)
+        self.frame_2.setMinimumSize(QtCore.QSize(0, 300))
+        self.frame_2.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.frame_2.setStyleSheet("background: #fff;\n"
+"")
+        self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_2.setObjectName("frame_2")
+        self.frame_3 = QtWidgets.QFrame(self.frame_2)
+        self.frame_3.setGeometry(QtCore.QRect(20, 40, 431, 351))
+        self.frame_3.setMaximumSize(QtCore.QSize(16777215, 400))
+        self.frame_3.setStyleSheet("border-radius: 10px;\n"
+"background-color: rgb(240, 242, 255);\n"
+"")
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_3.setObjectName("frame_3")
-        self.formLayoutWidget = QtWidgets.QWidget(self.frame_3)
-        self.formLayoutWidget.setGeometry(QtCore.QRect(0, 3, 1142, 591))
-        self.formLayoutWidget.setObjectName("formLayoutWidget")
-        self.formLayout = QtWidgets.QFormLayout(self.formLayoutWidget)
-        self.formLayout.setContentsMargins(0, 0, 0, 0)
-        self.formLayout.setSpacing(0)
-        self.formLayout.setObjectName("formLayout")
-        self.label_nombre = QtWidgets.QLabel(self.formLayoutWidget)
-        self.label_nombre.setStyleSheet("font-family: Roboto;\n"
+        self.label_rep_password = QtWidgets.QLabel(self.frame_3)
+        self.label_rep_password.setGeometry(QtCore.QRect(230, 250, 158, 27))
+        self.label_rep_password.setMaximumSize(QtCore.QSize(500, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(-1)
+        self.label_rep_password.setFont(font)
+        self.label_rep_password.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
-"color: #fff;\n"
-"margin-top:5px")
-        self.label_nombre.setObjectName("label_nombre")
-        self.formLayout.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.label_nombre)
-        self.nombre_input = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.nombre_input.setMinimumSize(QtCore.QSize(0, 25))
-        self.nombre_input.setMaximumSize(QtCore.QSize(200, 25))
-        self.nombre_input.setStyleSheet("QLineEdit{\n"
-"background-color: #23262b;\n"
-"border-radius: 3px;\n"
-"padding: 4 15px;\n"
-"color: #fff;\n"
-"font-family:Roboto;\n"
-"margin-top: 3px;\n"
-"border: none;\n"
-"font-size:11px;\n"
-"font-weight: 400;\n"
-"\n"
-"}\n"
-"\n"
-"\n"
-"QLineEdit:focus{\n"
-"}")
-        self.nombre_input.setPlaceholderText("")
-        self.nombre_input.setObjectName("nombre_input")
-        self.formLayout.setWidget(1, QtWidgets.QFormLayout.SpanningRole, self.nombre_input)
-        self.apellido_input = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.apellido_input.setMinimumSize(QtCore.QSize(200, 30))
-        self.apellido_input.setMaximumSize(QtCore.QSize(200, 30))
-        self.apellido_input.setStyleSheet("QLineEdit{\n"
-"background-color: #23262b;\n"
-"border-radius: 3px;\n"
-"padding: 4 10px;\n"
-"color: #fff;\n"
-"font-family:Roboto;\n"
-"margin-top: 3px;\n"
-"border: none;\n"
-"font-size:11px;\n"
-"font-weight: 400;\n"
-"\n"
-"}\n"
-"\n"
-"\n"
-"QLineEdit:focus{\n"
-"}")
-        self.apellido_input.setPlaceholderText("")
-        self.apellido_input.setObjectName("apellido_input")
-        self.formLayout.setWidget(3, QtWidgets.QFormLayout.SpanningRole, self.apellido_input)
-        self.label_nacimiento = QtWidgets.QLabel(self.formLayoutWidget)
-        self.label_nacimiento.setStyleSheet("font-family: Roboto;\n"
-"font-size: 14px;\n"
-"color: #fff;\n"
-"margin-top:20px")
-        self.label_nacimiento.setObjectName("label_nacimiento")
-        self.formLayout.setWidget(4, QtWidgets.QFormLayout.LabelRole, self.label_nacimiento)
-        self.nacimiento_date = QtWidgets.QDateEdit(self.formLayoutWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.nacimiento_date.sizePolicy().hasHeightForWidth())
-        self.nacimiento_date.setSizePolicy(sizePolicy)
-        self.nacimiento_date.setMinimumSize(QtCore.QSize(120, 0))
-        self.nacimiento_date.setStyleSheet("background-color: #23262b;\n"
-"border-radius: 10px;\n"
-"padding:0 10px;\n"
-"color: #b3b3b3;\n"
-"font-size:30;\n"
-"font-family:Roboto;\n"
-"margin-top: 3 px;")
-        self.nacimiento_date.setDateTime(QtCore.QDateTime(QtCore.QDate(2021, 9, 1), QtCore.QTime(0, 0, 0)))
-        self.nacimiento_date.setCalendarPopup(True)
-        self.nacimiento_date.setObjectName("nacimiento_date")
-        self.formLayout.setWidget(5, QtWidgets.QFormLayout.LabelRole, self.nacimiento_date)
-        self.label_puesto = QtWidgets.QLabel(self.formLayoutWidget)
-        self.label_puesto.setStyleSheet("font-family: Roboto;\n"
-"font-size: 14px;\n"
-"color: #fff;\n"
-"margin-top:20px;")
-        self.label_puesto.setObjectName("label_puesto")
-        self.formLayout.setWidget(6, QtWidgets.QFormLayout.LabelRole, self.label_puesto)
-        self.puesto_input = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.puesto_input.setMinimumSize(QtCore.QSize(200, 30))
-        self.puesto_input.setMaximumSize(QtCore.QSize(200, 30))
-        self.puesto_input.setStyleSheet("QLineEdit{\n"
-"background-color: #23262b;\n"
-"border-radius: 3px;\n"
-"padding: 4 10px;\n"
-"color: #fff;\n"
-"font-family:Roboto;\n"
-"margin-top: 3px;\n"
-"border: none;\n"
-"font-size:11px;\n"
-"font-weight: 400;\n"
-"\n"
-"}\n"
-"\n"
-"\n"
-"QLineEdit:focus{\n"
-"}")
-        self.puesto_input.setPlaceholderText("")
-        self.puesto_input.setObjectName("puesto_input")
-        self.formLayout.setWidget(7, QtWidgets.QFormLayout.LabelRole, self.puesto_input)
-        self.label_dni = QtWidgets.QLabel(self.formLayoutWidget)
-        self.label_dni.setStyleSheet("font-family: Roboto;\n"
-"font-size: 14px;\n"
-"color: #fff;\n"
-"margin-top:20px")
-        self.label_dni.setObjectName("label_dni")
-        self.formLayout.setWidget(8, QtWidgets.QFormLayout.LabelRole, self.label_dni)
-        self.dni_input = QtWidgets.QLineEdit(self.formLayoutWidget)
-        self.dni_input.setMinimumSize(QtCore.QSize(200, 30))
-        self.dni_input.setMaximumSize(QtCore.QSize(200, 30))
-        self.dni_input.setStyleSheet("QLineEdit{\n"
-"background-color: #23262b;\n"
-"border-radius: 3px;\n"
-"padding: 4 10px;\n"
-"color: #fff;\n"
-"font-family:Roboto;\n"
-"margin-top: 3px;\n"
-"border: none;\n"
-"font-size:11px;\n"
-"font-weight: 400;\n"
-"\n"
-"}\n"
-"\n"
-"\n"
-"QLineEdit:focus{\n"
-"}\n"
-"")
-        self.dni_input.setPlaceholderText("")
-        self.dni_input.setObjectName("dni_input")
-        self.formLayout.setWidget(11, QtWidgets.QFormLayout.LabelRole, self.dni_input)
-        self.label_tipo = QtWidgets.QLabel(self.formLayoutWidget)
-        self.label_tipo.setStyleSheet("font-family: Roboto;\n"
-"font-size: 14px;\n"
-"color: #fff;\n"
-"margin-top:20px")
-        self.label_tipo.setObjectName("label_tipo")
-        self.formLayout.setWidget(12, QtWidgets.QFormLayout.LabelRole, self.label_tipo)
-        self.tipo_cb = QtWidgets.QComboBox(self.formLayoutWidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.tipo_cb.sizePolicy().hasHeightForWidth())
-        self.tipo_cb.setSizePolicy(sizePolicy)
-        self.tipo_cb.setMinimumSize(QtCore.QSize(120, 0))
-        self.tipo_cb.setStyleSheet("\n"
-"background-color: #23262b;\n"
-"border-radius: 3px;\n"
-"padding: 4 10px;\n"
-"color: #fff;\n"
-"font-family:Roboto;\n"
-"margin-top: 0px;\n"
-"border: none;\n"
-"font-size:13;\n"
-"font-weight: 400;\n"
-"margin-top:5px\n"
-"\n"
+"margin-top:10px;\n"
+"margin-left:10px\n"
 "\n"
 "")
-        self.tipo_cb.setMaxVisibleItems(2)
+        self.label_rep_password.setObjectName("label_rep_password")
+        self.tipo_cb = QtWidgets.QComboBox(self.frame_3)
+        self.tipo_cb.setGeometry(QtCore.QRect(240, 40, 161, 25))
+        self.tipo_cb.setStyleSheet("padding:0 5px;\n"
+"border-radius: 3px;\n"
+"font-family:Roboto Lt;\n"
+"border: none;\n"
+"font-size:13px;\n"
+"font-weight: 400;\n"
+"background-color: #fff;\n"
+"border: 0.5px solid #c1c1c1;\n"
+"color: #000;\n"
+"\n"
+"")
+        self.tipo_cb.setMaxVisibleItems(3)
+        self.tipo_cb.setMaxCount(3)
         self.tipo_cb.setInsertPolicy(QtWidgets.QComboBox.InsertAfterCurrent)
+        self.tipo_cb.setIconSize(QtCore.QSize(16, 0))
         self.tipo_cb.setDuplicatesEnabled(False)
-        self.tipo_cb.setFrame(True)
+        self.tipo_cb.setFrame(False)
         self.tipo_cb.setObjectName("tipo_cb")
         self.tipo_cb.addItem("")
         self.tipo_cb.addItem("")
-        self.tipo_cb.addItem("")
-        self.tipo_cb.setItemText(2, "")
-        self.formLayout.setWidget(13, QtWidgets.QFormLayout.LabelRole, self.tipo_cb)
-        self.label_apellido = QtWidgets.QLabel(self.formLayoutWidget)
-        self.label_apellido.setStyleSheet("font-family: Roboto;\n"
-"font-size: 14px;\n"
-"color: #fff;\n"
-"margin-top:20px")
-        self.label_apellido.setObjectName("label_apellido")
-        self.formLayout.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.label_apellido)
-        self.formLayoutWidget_2 = QtWidgets.QWidget(self.frame_principal)
-        self.formLayoutWidget_2.setGeometry(QtCore.QRect(260, 10, 211, 381))
-        self.formLayoutWidget_2.setObjectName("formLayoutWidget_2")
-        self.formLayout_2 = QtWidgets.QFormLayout(self.formLayoutWidget_2)
-        self.formLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.formLayout_2.setSpacing(0)
-        self.formLayout_2.setObjectName("formLayout_2")
-        self.label_mail = QtWidgets.QLabel(self.formLayoutWidget_2)
+        self.label_mail = QtWidgets.QLabel(self.frame_3)
+        self.label_mail.setGeometry(QtCore.QRect(229, 70, 90, 27))
+        self.label_mail.setMaximumSize(QtCore.QSize(90, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(-1)
+        self.label_mail.setFont(font)
         self.label_mail.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
-"color: #fff;\n"
-"margin-top:5px")
+"color: #000;\n"
+"margin-top:10px;\n"
+"margin-left:10px\n"
+"\n"
+"")
         self.label_mail.setObjectName("label_mail")
-        self.formLayout_2.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.label_mail)
-        self.mail_input = QtWidgets.QLineEdit(self.formLayoutWidget_2)
-        self.mail_input.setMinimumSize(QtCore.QSize(200, 30))
-        self.mail_input.setMaximumSize(QtCore.QSize(200, 30))
-        self.mail_input.setStyleSheet("QLineEdit{\n"
-"background-color: #23262b;\n"
+        self.apellido_input = QtWidgets.QLineEdit(self.frame_3)
+        self.apellido_input.setGeometry(QtCore.QRect(20, 100, 170, 25))
+        self.apellido_input.setMinimumSize(QtCore.QSize(0, 0))
+        self.apellido_input.setMaximumSize(QtCore.QSize(16777215, 25))
+        self.apellido_input.setStyleSheet("QLineEdit{\n"
+"background-color: #fff;\n"
+"border: 0.5px solid #c1c1c1;\n"
 "border-radius: 3px;\n"
-"padding: 4 10px;\n"
-"color: #fff;\n"
+"padding: 4 5px;\n"
+"color: #e9e9;\n"
 "font-family:Roboto;\n"
-"margin-top: 3px;\n"
-"border: none;\n"
-"font-size:11px;\n"
+"font-size:13px;\n"
 "font-weight: 400;\n"
+"margin-left: 10px;\n"
 "\n"
 "}\n"
+"")
+        self.apellido_input.setPlaceholderText("")
+        self.apellido_input.setObjectName("apellido_input")
+        self.label_apellido = QtWidgets.QLabel(self.frame_3)
+        self.label_apellido.setGeometry(QtCore.QRect(20, 70, 67, 27))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(-1)
+        self.label_apellido.setFont(font)
+        self.label_apellido.setStyleSheet("font-family: Roboto;\n"
+"font-size: 14px;\n"
+"margin-top:10px;\n"
+"margin-left:10px\n"
 "\n"
+"")
+        self.label_apellido.setObjectName("label_apellido")
+        self.label_tipo = QtWidgets.QLabel(self.frame_3)
+        self.label_tipo.setGeometry(QtCore.QRect(229, 10, 90, 27))
+        self.label_tipo.setMaximumSize(QtCore.QSize(90, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(-1)
+        self.label_tipo.setFont(font)
+        self.label_tipo.setStyleSheet("font-family: Roboto;\n"
+"font-size: 14px;\n"
+"margin-top:10px;\n"
+"margin-left:10px\n"
 "\n"
-"QLineEdit:focus{\n"
+"")
+        self.label_tipo.setObjectName("label_tipo")
+        self.label_nombre = QtWidgets.QLabel(self.frame_3)
+        self.label_nombre.setGeometry(QtCore.QRect(20, 10, 71, 27))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(-1)
+        self.label_nombre.setFont(font)
+        self.label_nombre.setStyleSheet("font-family: Roboto;\n"
+"font-size: 14px;\n"
+"margin-top:10px;\n"
+"margin-left:10px\n"
+"\n"
+"")
+        self.label_nombre.setObjectName("label_nombre")
+        self.nombre_input_2 = QtWidgets.QLineEdit(self.frame_3)
+        self.nombre_input_2.setGeometry(QtCore.QRect(20, 40, 170, 25))
+        self.nombre_input_2.setMinimumSize(QtCore.QSize(0, 0))
+        self.nombre_input_2.setMaximumSize(QtCore.QSize(16777215, 25))
+        self.nombre_input_2.setStyleSheet("QLineEdit{\n"
+"background-color: #fff;\n"
+"border: 0.5px solid #c1c1c1;\n"
+"border-radius: 3px;\n"
+"padding: 4 5px;\n"
+"color: #e9e9;\n"
+"font-family:Roboto;\n"
+"font-size:13px;\n"
+"font-weight: 400;\n"
+"margin-left: 10px;\n"
+"\n"
+"}\n"
+"")
+        self.nombre_input_2.setText("")
+        self.nombre_input_2.setPlaceholderText("")
+        self.nombre_input_2.setObjectName("nombre_input_2")
+        self.label_password = QtWidgets.QLabel(self.frame_3)
+        self.label_password.setGeometry(QtCore.QRect(230, 190, 154, 27))
+        self.label_password.setMaximumSize(QtCore.QSize(154, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(-1)
+        self.label_password.setFont(font)
+        self.label_password.setStyleSheet("font-family: Roboto;\n"
+"font-size: 14px;\n"
+"margin-top:10px;\n"
+"margin-left:10px\n"
+"\n"
+"")
+        self.label_password.setObjectName("label_password")
+        self.label_dni = QtWidgets.QLabel(self.frame_3)
+        self.label_dni.setGeometry(QtCore.QRect(20, 250, 71, 27))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(-1)
+        self.label_dni.setFont(font)
+        self.label_dni.setStyleSheet("font-family: Roboto;\n"
+"font-size: 14px;\n"
+"margin-top:10px;\n"
+"margin-left:10px\n"
+"\n"
+"")
+        self.label_dni.setObjectName("label_dni")
+        self.label_nacimiento = QtWidgets.QLabel(self.frame_3)
+        self.label_nacimiento.setGeometry(QtCore.QRect(20, 130, 91, 27))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(-1)
+        self.label_nacimiento.setFont(font)
+        self.label_nacimiento.setStyleSheet("font-family: Roboto;\n"
+"font-size: 14px;\n"
+"margin-top:10px;\n"
+"margin-left:10px\n"
+"\n"
+"")
+        self.label_nacimiento.setObjectName("label_nacimiento")
+        self.label_rep_mail = QtWidgets.QLabel(self.frame_3)
+        self.label_rep_mail.setGeometry(QtCore.QRect(229, 130, 90, 27))
+        self.label_rep_mail.setMaximumSize(QtCore.QSize(90, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(-1)
+        self.label_rep_mail.setFont(font)
+        self.label_rep_mail.setStyleSheet("font-family: Roboto;\n"
+"font-size: 14px;\n"
+"margin-top:10px;\n"
+"margin-left:10px\n"
+"\n"
+"")
+        self.label_rep_mail.setObjectName("label_rep_mail")
+        self.puesto_input = QtWidgets.QLineEdit(self.frame_3)
+        self.puesto_input.setGeometry(QtCore.QRect(20, 220, 170, 25))
+        self.puesto_input.setMinimumSize(QtCore.QSize(0, 0))
+        self.puesto_input.setMaximumSize(QtCore.QSize(16777215, 25))
+        self.puesto_input.setStyleSheet("QLineEdit{\n"
+"background-color: #fff;\n"
+"border: 0.5px solid #c1c1c1;\n"
+"border-radius: 3px;\n"
+"padding: 4 5px;\n"
+"color: #e9e9;\n"
+"font-family:Roboto;\n"
+"font-size:13px;\n"
+"font-weight: 400;\n"
+"margin-left: 10px;\n"
+"\n"
+"}\n"
+"")
+        self.puesto_input.setPlaceholderText("")
+        self.puesto_input.setObjectName("puesto_input")
+        self.label_puesto = QtWidgets.QLabel(self.frame_3)
+        self.label_puesto.setGeometry(QtCore.QRect(20, 190, 84, 27))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(-1)
+        self.label_puesto.setFont(font)
+        self.label_puesto.setStyleSheet("font-family: Roboto;\n"
+"font-size: 14px;\n"
+"margin-top:10px;\n"
+"margin-left:10px\n"
+"\n"
+"")
+        self.label_puesto.setObjectName("label_puesto")
+        self.nacimiento_date = QtWidgets.QDateEdit(self.frame_3)
+        self.nacimiento_date.setGeometry(QtCore.QRect(20, 160, 170, 25))
+        self.nacimiento_date.setStyleSheet("\n"
+"background-color: #fff;\n"
+"border: 0.5px solid #c1c1c1;\n"
+"border-radius: 3px;\n"
+"padding: 4 5px;\n"
+"color: #000;\n"
+"font-family:Roboto;\n"
+"font-size:13px;\n"
+"font-weight: 400;\n"
+"margin-left: 10px;\n"
+"\n"
+"")
+        self.nacimiento_date.setDateTime(QtCore.QDateTime(QtCore.QDate(2021, 1, 1), QtCore.QTime(0, 0, 0)))
+        self.nacimiento_date.setObjectName("nacimiento_date")
+        self.mail_input = QtWidgets.QLineEdit(self.frame_3)
+        self.mail_input.setGeometry(QtCore.QRect(230, 100, 170, 25))
+        self.mail_input.setMinimumSize(QtCore.QSize(0, 0))
+        self.mail_input.setMaximumSize(QtCore.QSize(16777215, 25))
+        self.mail_input.setStyleSheet("QLineEdit{\n"
+"background-color: #fff;\n"
+"border: 0.5px solid #c1c1c1;\n"
+"border-radius: 3px;\n"
+"padding: 4 5px;\n"
+"color: #e9e9;\n"
+"font-family:Roboto;\n"
+"font-size:13px;\n"
+"font-weight: 400;\n"
+"margin-left: 10px;\n"
+"\n"
 "}\n"
 "")
         self.mail_input.setPlaceholderText("")
         self.mail_input.setObjectName("mail_input")
-        self.formLayout_2.setWidget(3, QtWidgets.QFormLayout.LabelRole, self.mail_input)
-        self.label_rep_mail = QtWidgets.QLabel(self.formLayoutWidget_2)
-        self.label_rep_mail.setStyleSheet("font-family: Roboto;\n"
-"font-size: 14px;\n"
-"color: #fff;\n"
-"margin-top:20px")
-        self.label_rep_mail.setObjectName("label_rep_mail")
-        self.formLayout_2.setWidget(4, QtWidgets.QFormLayout.LabelRole, self.label_rep_mail)
-        self.mail_rep_input = QtWidgets.QLineEdit(self.formLayoutWidget_2)
-        self.mail_rep_input.setMinimumSize(QtCore.QSize(200, 30))
-        self.mail_rep_input.setMaximumSize(QtCore.QSize(200, 30))
+        self.mail_rep_input = QtWidgets.QLineEdit(self.frame_3)
+        self.mail_rep_input.setGeometry(QtCore.QRect(230, 160, 170, 25))
+        self.mail_rep_input.setMinimumSize(QtCore.QSize(0, 0))
+        self.mail_rep_input.setMaximumSize(QtCore.QSize(16777215, 25))
         self.mail_rep_input.setStyleSheet("QLineEdit{\n"
-"background-color: #23262b;\n"
+"background-color: #fff;\n"
+"border: 0.5px solid #c1c1c1;\n"
 "border-radius: 3px;\n"
-"padding: 4 10px;\n"
-"color: #fff;\n"
+"padding: 4 5px;\n"
+"color: #e9e9;\n"
 "font-family:Roboto;\n"
-"margin-top: 3px;\n"
-"border: none;\n"
-"font-size:11px;\n"
+"font-size:13px;\n"
 "font-weight: 400;\n"
+"margin-left: 10px;\n"
 "\n"
 "}\n"
-"\n"
-"\n"
-"QLineEdit:focus{\n"
-"}")
+"")
         self.mail_rep_input.setPlaceholderText("")
         self.mail_rep_input.setObjectName("mail_rep_input")
-        self.formLayout_2.setWidget(5, QtWidgets.QFormLayout.SpanningRole, self.mail_rep_input)
-        self.label_password = QtWidgets.QLabel(self.formLayoutWidget_2)
-        self.label_password.setStyleSheet("font-family: Roboto;\n"
-"font-size: 14px;\n"
-"color: #fff;\n"
-"margin-top:20px")
-        self.label_password.setObjectName("label_password")
-        self.formLayout_2.setWidget(7, QtWidgets.QFormLayout.LabelRole, self.label_password)
-        self.pass_input = QtWidgets.QLineEdit(self.formLayoutWidget_2)
-        self.pass_input.setMinimumSize(QtCore.QSize(200, 30))
-        self.pass_input.setMaximumSize(QtCore.QSize(200, 30))
-        self.pass_input.setStyleSheet("QLineEdit{\n"
-"background-color: #23262b;\n"
-"border-radius: 3px;\n"
-"padding: 4 10px;\n"
-"color: #fff;\n"
-"font-family:Roboto;\n"
-"margin-top: 3px;\n"
-"border: none;\n"
-"font-size:11px;\n"
-"font-weight: 400;\n"
-"\n"
-"}\n"
-"\n"
-"\n"
-"QLineEdit:focus{\n"
-"}")
-        self.pass_input.setEchoMode(QtWidgets.QLineEdit.Password)
-        self.pass_input.setPlaceholderText("")
-        self.pass_input.setObjectName("pass_input")
-        self.formLayout_2.setWidget(8, QtWidgets.QFormLayout.SpanningRole, self.pass_input)
-        self.label_rep_password = QtWidgets.QLabel(self.formLayoutWidget_2)
-        self.label_rep_password.setStyleSheet("font-family: Roboto;\n"
-"font-size: 14px;\n"
-"color: #fff;\n"
-"margin-top:20px")
-        self.label_rep_password.setObjectName("label_rep_password")
-        self.formLayout_2.setWidget(10, QtWidgets.QFormLayout.LabelRole, self.label_rep_password)
-        self.pass_rep_input = QtWidgets.QLineEdit(self.formLayoutWidget_2)
-        self.pass_rep_input.setMinimumSize(QtCore.QSize(200, 30))
-        self.pass_rep_input.setMaximumSize(QtCore.QSize(200, 20))
+        self.pass_rep_input = QtWidgets.QLineEdit(self.frame_3)
+        self.pass_rep_input.setGeometry(QtCore.QRect(230, 280, 170, 25))
+        self.pass_rep_input.setMinimumSize(QtCore.QSize(0, 0))
+        self.pass_rep_input.setMaximumSize(QtCore.QSize(16777215, 25))
         self.pass_rep_input.setStyleSheet("QLineEdit{\n"
-"background-color: #23262b;\n"
+"background-color: #fff;\n"
+"border: 0.5px solid #c1c1c1;\n"
 "border-radius: 3px;\n"
-"padding: 4 10px;\n"
-"color: #fff;\n"
+"padding: 4 5px;\n"
+"color: #e9e9;\n"
 "font-family:Roboto;\n"
-"margin-top: 3px;\n"
-"border: none;\n"
-"font-size:11px;\n"
+"font-size:13px;\n"
 "font-weight: 400;\n"
+"margin-left: 10px;\n"
 "\n"
 "}\n"
-"\n"
-"\n"
-"QLineEdit:focus{\n"
-"}")
+"")
         self.pass_rep_input.setEchoMode(QtWidgets.QLineEdit.Password)
         self.pass_rep_input.setPlaceholderText("")
         self.pass_rep_input.setObjectName("pass_rep_input")
-        self.formLayout_2.setWidget(11, QtWidgets.QFormLayout.SpanningRole, self.pass_rep_input)
-        self.pushButton_crear_usuario = QtWidgets.QPushButton(self.frame_principal)
-        self.pushButton_crear_usuario.setGeometry(QtCore.QRect(330, 420, 121, 31))
+        self.pass_input = QtWidgets.QLineEdit(self.frame_3)
+        self.pass_input.setGeometry(QtCore.QRect(230, 220, 170, 25))
+        self.pass_input.setMinimumSize(QtCore.QSize(0, 0))
+        self.pass_input.setMaximumSize(QtCore.QSize(16777215, 25))
+        self.pass_input.setStyleSheet("QLineEdit{\n"
+"background-color: #fff;\n"
+"border: 0.5px solid #c1c1c1;\n"
+"border-radius: 3px;\n"
+"padding: 4 5px;\n"
+"color: #e9e9;\n"
+"font-family:Roboto;\n"
+"font-size:13px;\n"
+"font-weight: 400;\n"
+"margin-left: 10px;\n"
+"\n"
+"}\n"
+"")
+        self.pass_input.setInputMethodHints(QtCore.Qt.ImhHiddenText|QtCore.Qt.ImhNoAutoUppercase|QtCore.Qt.ImhNoPredictiveText|QtCore.Qt.ImhSensitiveData)
+        self.pass_input.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.pass_input.setPlaceholderText("")
+        self.pass_input.setObjectName("pass_input")
+        self.dni_input = QtWidgets.QLineEdit(self.frame_3)
+        self.dni_input.setGeometry(QtCore.QRect(20, 280, 170, 25))
+        self.dni_input.setMinimumSize(QtCore.QSize(0, 0))
+        self.dni_input.setMaximumSize(QtCore.QSize(16777215, 25))
+        self.dni_input.setStyleSheet("QLineEdit{\n"
+"background-color: #fff;\n"
+"border: 0.5px solid #c1c1c1;\n"
+"border-radius: 3px;\n"
+"padding: 4 5px;\n"
+"color: #e9e9;\n"
+"font-family:Roboto;\n"
+"font-size:13px;\n"
+"font-weight: 400;\n"
+"margin-left: 10px;\n"
+"\n"
+"}\n"
+"")
+        self.dni_input.setPlaceholderText("")
+        self.dni_input.setObjectName("dni_input")
+        self.crearprod_btn = QtWidgets.QPushButton(self.frame_2)
+        self.crearprod_btn.setGeometry(QtCore.QRect(330, 400, 121, 26))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(-1)
-        self.pushButton_crear_usuario.setFont(font)
-        self.pushButton_crear_usuario.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_crear_usuario.setStyleSheet("QPushButton{\n"
-"background-color: #1173ff;\n"
+        self.crearprod_btn.setFont(font)
+        self.crearprod_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.crearprod_btn.setStyleSheet("QPushButton{\n"
+"background-color: rgba(71, 71, 103);\n"
 "color: #fff;\n"
-"border-radius:10px;\n"
+"border-radius:5px;\n"
 "font-family:Roboto;\n"
-"font-size: 14px\n"
+"font-size: 13px\n"
 "\n"
 "}\n"
 "QPushButton:hover{\n"
-"background-color: #45a9f0;\n"
+"background-color: rgba(71, 71, 103,180);\n"
 "}")
-        self.pushButton_crear_usuario.setObjectName("pushButton_crear_usuario")
-        self.verticalLayout.addWidget(self.frame_principal)
+        self.crearprod_btn.setObjectName("crearprod_btn")
+        self.subirFoto_btn = QtWidgets.QPushButton(self.frame_2)
+        self.subirFoto_btn.setGeometry(QtCore.QRect(160, 360, 160, 25))
+        self.subirFoto_btn.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.subirFoto_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.subirFoto_btn.setStyleSheet("QPushButton{\n"
+"background-color: rgba(71, 71, 103,180);\n"
+"border-radius: 7px;\n"
+"padding: 4 10px;\n"
+"color: #fff;\n"
+"font-family:Roboto;\n"
+"border: none;\n"
+"font-size:13px;\n"
+"font-weight: 500;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: rgba(71, 71, 103);\n"
+"color: #fff;\n"
+"\n"
+"}")
+        self.subirFoto_btn.setObjectName("subirFoto_btn")
+        self.verticalLayout.addWidget(self.frame_2)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -390,20 +417,22 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label_nombre.setText(_translate("MainWindow", "Nombre:"))
-        self.label_nacimiento.setText(_translate("MainWindow", "Nacimiento:"))
-        self.label_puesto.setText(_translate("MainWindow", "Puesto:"))
-        self.label_dni.setText(_translate("MainWindow", "DNI:"))
-        self.label_tipo.setText(_translate("MainWindow", "Tipo:"))
-        self.tipo_cb.setCurrentText(_translate("MainWindow", "Admin"))
-        self.tipo_cb.setItemText(0, _translate("MainWindow", "Admin"))
-        self.tipo_cb.setItemText(1, _translate("MainWindow", "Usuario"))
-        self.label_apellido.setText(_translate("MainWindow", "Apellido:"))
-        self.label_mail.setText(_translate("MainWindow", "Mail:"))
-        self.label_rep_mail.setText(_translate("MainWindow", "Repetir mail:"))
-        self.label_password.setText(_translate("MainWindow", "Contraseña:"))
-        self.label_rep_password.setText(_translate("MainWindow", "Repetir contraseña:"))
-        self.pushButton_crear_usuario.setText(_translate("MainWindow", "Crear Usuario"))
+        self.label_rep_password.setText(_translate("MainWindow", "Repetir Contraseña"))
+        self.tipo_cb.setCurrentText(_translate("MainWindow", "Usuario"))
+        self.tipo_cb.setItemText(0, _translate("MainWindow", "Usuario"))
+        self.tipo_cb.setItemText(1, _translate("MainWindow", "Administrador"))
+        self.label_mail.setText(_translate("MainWindow", "Mail"))
+        self.label_apellido.setText(_translate("MainWindow", "Apellido"))
+        self.label_tipo.setText(_translate("MainWindow", "Tipo"))
+        self.label_nombre.setText(_translate("MainWindow", "Nombre"))
+        self.label_password.setText(_translate("MainWindow", "Contraseña"))
+        self.label_dni.setText(_translate("MainWindow", "DNI"))
+        self.label_nacimiento.setText(_translate("MainWindow", "Nacimiento"))
+        self.label_rep_mail.setText(_translate("MainWindow", "Repetir Mail"))
+        self.label_puesto.setText(_translate("MainWindow", "Puesto"))
+        self.crearprod_btn.setText(_translate("MainWindow", "Crear Usuario"))
+        self.subirFoto_btn.setText(_translate("MainWindow", "Subir Imagen"))
+import img_oficiales_rc
 
 
 if __name__ == "__main__":

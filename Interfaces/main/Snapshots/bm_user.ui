@@ -716,11 +716,11 @@ QLineEdit:focus{
         </item>
        </layout>
       </widget>
-      <widget class="QPushButton" name="pushButton_crear_usuario">
+      <widget class="QPushButton" name="pushButton_eliminar_usuario">
        <property name="geometry">
         <rect>
-         <x>330</x>
-         <y>420</y>
+         <x>350</x>
+         <y>430</y>
          <width>121</width>
          <height>31</height>
         </rect>
@@ -748,7 +748,42 @@ background-color: #45a9f0;
 }</string>
        </property>
        <property name="text">
-        <string>Crear Usuario</string>
+        <string>Dar de baja</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_modificar_usuario">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>430</y>
+         <width>121</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Roboto</family>
+         <pointsize>-1</pointsize>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+background-color: #1173ff;
+color: #fff;
+border-radius:10px;
+font-family:Roboto;
+font-size: 14px
+
+}
+QPushButton:hover{
+background-color: #45a9f0;
+}</string>
+       </property>
+       <property name="text">
+        <string>Modificar</string>
        </property>
       </widget>
      </widget>

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'create_user.ui'
+# Form implementation generated from reading ui file 'bm_user.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -361,14 +361,14 @@ class Ui_MainWindow(object):
         self.pass_rep_input.setPlaceholderText("")
         self.pass_rep_input.setObjectName("pass_rep_input")
         self.formLayout_2.setWidget(11, QtWidgets.QFormLayout.SpanningRole, self.pass_rep_input)
-        self.pushButton_crear_usuario = QtWidgets.QPushButton(self.frame_principal)
-        self.pushButton_crear_usuario.setGeometry(QtCore.QRect(330, 420, 121, 31))
+        self.pushButton_eliminar_usuario = QtWidgets.QPushButton(self.frame_principal)
+        self.pushButton_eliminar_usuario.setGeometry(QtCore.QRect(350, 430, 121, 31))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(-1)
-        self.pushButton_crear_usuario.setFont(font)
-        self.pushButton_crear_usuario.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_crear_usuario.setStyleSheet("QPushButton{\n"
+        self.pushButton_eliminar_usuario.setFont(font)
+        self.pushButton_eliminar_usuario.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_eliminar_usuario.setStyleSheet("QPushButton{\n"
 "background-color: #1173ff;\n"
 "color: #fff;\n"
 "border-radius:10px;\n"
@@ -379,7 +379,26 @@ class Ui_MainWindow(object):
 "QPushButton:hover{\n"
 "background-color: #45a9f0;\n"
 "}")
-        self.pushButton_crear_usuario.setObjectName("pushButton_crear_usuario")
+        self.pushButton_eliminar_usuario.setObjectName("pushButton_eliminar_usuario")
+        self.pushButton_modificar_usuario = QtWidgets.QPushButton(self.frame_principal)
+        self.pushButton_modificar_usuario.setGeometry(QtCore.QRect(160, 430, 121, 31))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(-1)
+        self.pushButton_modificar_usuario.setFont(font)
+        self.pushButton_modificar_usuario.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_modificar_usuario.setStyleSheet("QPushButton{\n"
+"background-color: #1173ff;\n"
+"color: #fff;\n"
+"border-radius:10px;\n"
+"font-family:Roboto;\n"
+"font-size: 14px\n"
+"\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #45a9f0;\n"
+"}")
+        self.pushButton_modificar_usuario.setObjectName("pushButton_modificar_usuario")
         self.verticalLayout.addWidget(self.frame_principal)
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -403,7 +422,8 @@ class Ui_MainWindow(object):
         self.label_rep_mail.setText(_translate("MainWindow", "Repetir mail:"))
         self.label_password.setText(_translate("MainWindow", "Contraseña:"))
         self.label_rep_password.setText(_translate("MainWindow", "Repetir contraseña:"))
-        self.pushButton_crear_usuario.setText(_translate("MainWindow", "Crear Usuario"))
+        self.pushButton_eliminar_usuario.setText(_translate("MainWindow", "Borrar Usuario"))
+        self.pushButton_modificar_usuario.setText(_translate("MainWindow", "Modificar Usuario"))
 
 
 if __name__ == "__main__":
