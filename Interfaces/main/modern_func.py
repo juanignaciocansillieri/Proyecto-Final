@@ -58,25 +58,26 @@ class Modern(QMainWindow):
             lambda: self.ui.stackedWidget_3.setCurrentWidget(self.ui.user_subpage))
         self.ui.users_btn.clicked.connect(self.listarUsuarios)
 
+        self.ui.deposito_btn.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_deposito))
+
         self.ui.products_btn_stock.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_stock))
         self.ui.products_btn_movimiento.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_movimientos))
 
         self.ui.product_new_btn.clicked.connect(self.mostrarNewProduct)
         self.ui.user_new_btn.clicked.connect(self.mostrarNewUser)
-
+    
         # Listamos productos al iniciar la ventana
         self.listarProductos(self.ui.tableWidget_stock_2)
-    
+
     def mostrarNewProduct(self):
         self.newProductWindow = ProductWindow()
         self.newProductWindow.show()
+
 
     def mostrarNewUser(self):
         self.newUserWindow = UsuarioWindow()
         self.newUserWindow.show()
 
-
- 
 
     def mostrarBmProduct(self):
         self.newBmProduct = BMProduct()
