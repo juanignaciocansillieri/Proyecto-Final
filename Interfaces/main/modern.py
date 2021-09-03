@@ -278,13 +278,13 @@ class Ui_MainWindow(object):
         self.products_btn_movimiento.setIconSize(QtCore.QSize(30, 35))
         self.products_btn_movimiento.setObjectName("products_btn_movimiento")
         self.stackedWidget_3.addWidget(self.product_subpage)
-        self.page_2 = QtWidgets.QWidget()
-        self.page_2.setObjectName("page_2")
-        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.page_2)
+        self.deposito_subpage = QtWidgets.QWidget()
+        self.deposito_subpage.setObjectName("deposito_subpage")
+        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.deposito_subpage)
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.frame_6 = QtWidgets.QFrame(self.page_2)
+        self.frame_6 = QtWidgets.QFrame(self.deposito_subpage)
         self.frame_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_6.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_6.setObjectName("frame_6")
@@ -314,8 +314,9 @@ class Ui_MainWindow(object):
         self.frame_14.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_14.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_14.setObjectName("frame_14")
+        self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.frame_14)
+        self.verticalLayout_8.setObjectName("verticalLayout_8")
         self.label_12 = QtWidgets.QLabel(self.frame_14)
-        self.label_12.setGeometry(QtCore.QRect(0, 0, 128, 31))
         self.label_12.setMinimumSize(QtCore.QSize(128, 0))
         self.label_12.setMaximumSize(QtCore.QSize(120, 40))
         font = QtGui.QFont()
@@ -328,66 +329,17 @@ class Ui_MainWindow(object):
 "")
         self.label_12.setAlignment(QtCore.Qt.AlignCenter)
         self.label_12.setObjectName("label_12")
+        self.verticalLayout_8.addWidget(self.label_12)
         self.frame_5 = QtWidgets.QFrame(self.frame_14)
-        self.frame_5.setGeometry(QtCore.QRect(0, 30, 131, 121))
         self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_5.setObjectName("frame_5")
         self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.frame_5)
         self.verticalLayout_7.setObjectName("verticalLayout_7")
-        self.products_btn_7 = QtWidgets.QPushButton(self.frame_5)
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(9)
-        font.setBold(True)
-        font.setWeight(75)
-        self.products_btn_7.setFont(font)
-        self.products_btn_7.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.products_btn_7.setStyleSheet("QPushButton{\n"
-"border:none;\n"
-"font-family: Roboto;\n"
-"border-radius:5px;\n"
-"text-align: center;\n"
-"color: #282830 ;\n"
-"padding:5px\n"
-"\n"
-"\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(105, 105, 226, 50);\n"
-"}")
-        self.products_btn_7.setIconSize(QtCore.QSize(30, 30))
-        self.products_btn_7.setObjectName("products_btn_7")
-        self.verticalLayout_7.addWidget(self.products_btn_7)
-        self.products_btn_6 = QtWidgets.QPushButton(self.frame_5)
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(9)
-        font.setBold(True)
-        font.setWeight(75)
-        self.products_btn_6.setFont(font)
-        self.products_btn_6.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.products_btn_6.setStyleSheet("QPushButton{\n"
-"border:none;\n"
-"font-family: Roboto;\n"
-"border-radius:5px;\n"
-"text-align: center;\n"
-"color: #282830 ;\n"
-"padding:5px;\n"
-"\n"
-"\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"    background-color: rgba(105, 105, 226, 50);\n"
-"}")
-        self.products_btn_6.setIconSize(QtCore.QSize(30, 30))
-        self.products_btn_6.setObjectName("products_btn_6")
-        self.verticalLayout_7.addWidget(self.products_btn_6)
+        self.verticalLayout_8.addWidget(self.frame_5, 0, QtCore.Qt.AlignTop)
         self.verticalLayout_6.addWidget(self.frame_14)
         self.verticalLayout_4.addWidget(self.frame_6)
-        self.stackedWidget_3.addWidget(self.page_2)
+        self.stackedWidget_3.addWidget(self.deposito_subpage)
         self.user_subpage = QtWidgets.QWidget()
         self.user_subpage.setObjectName("user_subpage")
         self.products_btn_4 = QtWidgets.QPushButton(self.user_subpage)
@@ -1244,14 +1196,8 @@ class Ui_MainWindow(object):
         self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_3.setObjectName("frame_3")
-        self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.frame_3)
-        self.horizontalLayout_5.setObjectName("horizontalLayout_5")
-        self.pushButton_2 = QtWidgets.QPushButton(self.frame_3)
-        self.pushButton_2.setMinimumSize(QtCore.QSize(0, 200))
-        self.pushButton_2.setMaximumSize(QtCore.QSize(125, 16777215))
-        self.pushButton_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.horizontalLayout_5.addWidget(self.pushButton_2)
+        self.gridLayout = QtWidgets.QGridLayout(self.frame_3)
+        self.gridLayout.setObjectName("gridLayout")
         self.top_frame_stock_4 = QtWidgets.QFrame(self.frame_2)
         self.top_frame_stock_4.setGeometry(QtCore.QRect(0, 0, 346, 80))
         self.top_frame_stock_4.setMinimumSize(QtCore.QSize(0, 80))
@@ -1297,9 +1243,34 @@ class Ui_MainWindow(object):
         self.pushButton_11.setIcon(icon9)
         self.pushButton_11.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_11.setObjectName("pushButton_11")
+        self.newArea_btn = QtWidgets.QPushButton(self.groupBox_5)
+        self.newArea_btn.setGeometry(QtCore.QRect(200, 20, 101, 31))
+        self.newArea_btn.setMinimumSize(QtCore.QSize(0, 26))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.newArea_btn.setFont(font)
+        self.newArea_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.newArea_btn.setStyleSheet("QPushButton{\n"
+"background-color: rgb(71, 71, 103);\n"
+"color:#fff;\n"
+"padding-left:10px;\n"
+"border-radius: 5px;\n"
+"text-align:left;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgba(71, 71, 103,180);\n"
+"\n"
+"}")
+        self.newArea_btn.setIcon(icon6)
+        self.newArea_btn.setIconSize(QtCore.QSize(13, 13))
+        self.newArea_btn.setObjectName("newArea_btn")
         self.verticalLayout_33.addWidget(self.groupBox_5)
         self.user_new_btn_3 = QtWidgets.QPushButton(self.frame_2)
-        self.user_new_btn_3.setGeometry(QtCore.QRect(360, 180, 101, 31))
+        self.user_new_btn_3.setGeometry(QtCore.QRect(310, 190, 101, 31))
         self.user_new_btn_3.setMinimumSize(QtCore.QSize(0, 26))
         font = QtGui.QFont()
         font.setFamily("Roboto")
@@ -1324,7 +1295,7 @@ class Ui_MainWindow(object):
         self.user_new_btn_3.setIconSize(QtCore.QSize(13, 13))
         self.user_new_btn_3.setObjectName("user_new_btn_3")
         self.user_new_btn_4 = QtWidgets.QPushButton(self.frame_2)
-        self.user_new_btn_4.setGeometry(QtCore.QRect(470, 180, 101, 31))
+        self.user_new_btn_4.setGeometry(QtCore.QRect(460, 190, 101, 31))
         self.user_new_btn_4.setMinimumSize(QtCore.QSize(0, 26))
         font = QtGui.QFont()
         font.setFamily("Roboto")
@@ -1348,31 +1319,6 @@ class Ui_MainWindow(object):
         self.user_new_btn_4.setIcon(icon6)
         self.user_new_btn_4.setIconSize(QtCore.QSize(13, 13))
         self.user_new_btn_4.setObjectName("user_new_btn_4")
-        self.user_new_btn_2 = QtWidgets.QPushButton(self.frame_2)
-        self.user_new_btn_2.setGeometry(QtCore.QRect(250, 180, 101, 31))
-        self.user_new_btn_2.setMinimumSize(QtCore.QSize(0, 26))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(9)
-        font.setBold(True)
-        font.setWeight(75)
-        self.user_new_btn_2.setFont(font)
-        self.user_new_btn_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.user_new_btn_2.setStyleSheet("QPushButton{\n"
-"background-color: rgb(71, 71, 103);\n"
-"color:#fff;\n"
-"padding-left:10px;\n"
-"border-radius: 5px;\n"
-"text-align:left;\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"background-color: rgba(71, 71, 103,180);\n"
-"\n"
-"}")
-        self.user_new_btn_2.setIcon(icon6)
-        self.user_new_btn_2.setIconSize(QtCore.QSize(13, 13))
-        self.user_new_btn_2.setObjectName("user_new_btn_2")
         self.verticalLayout_3.addWidget(self.frame_2)
         self.stackedWidget_main.addWidget(self.page_deposito)
         self.page_usuarios = QtWidgets.QWidget()
@@ -1785,8 +1731,6 @@ class Ui_MainWindow(object):
         self.products_btn_movimiento.setText(_translate("MainWindow", "Movimientos"))
         self.label_9.setText(_translate("MainWindow", "Depósito"))
         self.label_12.setText(_translate("MainWindow", "Áreas"))
-        self.products_btn_7.setText(_translate("MainWindow", "Refigerado"))
-        self.products_btn_6.setText(_translate("MainWindow", "Farmacia"))
         self.products_btn_4.setText(_translate("MainWindow", "Productos"))
         self.products_btn_5.setText(_translate("MainWindow", "Productos"))
         self.label_10.setText(_translate("MainWindow", "Usuarios"))
@@ -2040,11 +1984,10 @@ class Ui_MainWindow(object):
         self.label_32.setText(_translate("MainWindow", " Motivo"))
         self.label_31.setText(_translate("MainWindow", " Fecha"))
         self.label_33.setText(_translate("MainWindow", "Cantidad"))
-        self.pushButton_2.setText(_translate("MainWindow", "Nombre Área"))
         self.label_34.setText(_translate("MainWindow", "Áreas"))
+        self.newArea_btn.setText(_translate("MainWindow", "Nueva Área"))
         self.user_new_btn_3.setText(_translate("MainWindow", "Nueva Área"))
         self.user_new_btn_4.setText(_translate("MainWindow", "Nueva Área"))
-        self.user_new_btn_2.setText(_translate("MainWindow", "Nueva Área"))
         self.label_17.setText(_translate("MainWindow", "Usuarios"))
         self.user_new_btn.setText(_translate("MainWindow", "Nuevo Usuario"))
         self.lineEdit_3.setPlaceholderText(_translate("MainWindow", "Buscar Productos por nombre o palabra clave"))

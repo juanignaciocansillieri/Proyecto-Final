@@ -15,6 +15,7 @@ from nuevoProduct_func import ProductWindow
 from create_user_func import UsuarioWindow
 from create_user_func import UsuarioWindow
 from nuevoProduct_func import ProductWindow
+from nueva_area_func import NewArea
 from bm_producto import BMProduct as bm
 from bm_producto_ui import Ui_MainWindow as ui_bm
 from bm_user import Ui_MainWindow as bmu 
@@ -24,6 +25,7 @@ import productos as pr
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import usuarios as u
 import productos as p
+import area as a
 
 
 
@@ -52,23 +54,90 @@ class Modern(QMainWindow):
             lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_stock))
         self.ui.products_btn.clicked.connect(
             lambda: self.ui.stackedWidget_3.setCurrentWidget(self.ui.product_subpage))
-
+        self.a()
         self.ui.users_btn.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_usuarios))
         self.ui.users_btn.clicked.connect(
             lambda: self.ui.stackedWidget_3.setCurrentWidget(self.ui.user_subpage))
         self.ui.users_btn.clicked.connect(self.listarUsuarios)
 
         self.ui.deposito_btn.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_deposito))
+        self.ui.deposito_btn.clicked.connect(lambda: self.ui.stackedWidget_3.setCurrentWidget(self.ui.deposito_subpage))
+        self.ui.deposito_btn.clicked.connect(self.mostrarAreas)
+
 
         self.ui.products_btn_stock.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_stock))
         self.ui.products_btn_movimiento.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_movimientos))
 
         self.ui.product_new_btn.clicked.connect(self.mostrarNewProduct)
         self.ui.user_new_btn.clicked.connect(self.mostrarNewUser)
-    
-        # Listamos productos al iniciar la ventana
-        self.listarProductos(self.ui.tableWidget_stock_2)
+        self.ui.newArea_btn.clicked.connect(self.mostrarNewArea)
 
+    def a(self):
+        areas = a.area.listar_area()
+        for area in areas:
+            btn1 = QtWidgets.QPushButton(self.ui.frame_5)
+            btn1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+            btn1.setStyleSheet("QPushButton{\n"
+        "border:none;\n"
+        "font-family: Roboto;\n"
+        "border-radius:5px;\n"
+        "text-align: center;\n"
+        "color: #282830 ;\n"
+        "padding:5px;\n"
+        "\n"
+        "\n"
+        "}\n"
+        "\n"
+        "QPushButton:hover{\n"
+        "    background-color: rgba(105, 105, 226, 50);\n"
+        "}")
+            btn1.setObjectName("btn_{area[0]}")
+            btn1.setText(area[0])
+            self.ui.verticalLayout_7.addWidget(btn1)
+            font = QtGui.QFont()
+            font.setFamily("Roboto")
+            font.setPointSize(10)
+            font.setBold(True)
+            font.setWeight(75)
+            btn1.setFont(font)
+
+    def mostrarAreas(self):
+        areas = a.area.listar_area()
+        i = 1
+        for area in areas:
+            frame = QtWidgets.QFrame(self.ui.frame_3)
+            frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+            frame.setFrameShadow(QtWidgets.QFrame.Raised)
+            frame.setObjectName(area[0])
+            verticalLayout = QtWidgets.QVBoxLayout(frame)
+            verticalLayout.setObjectName("verticalLay{i}")
+            verticalLayout.addWidget(frame)
+            btn = QPushButton(frame)
+            btn.setText("Ver")
+            btn.setObjectName("btn{i}")
+            btn.setGeometry(QtCore.QRect(5, 109, 50, 71))
+            btn.setMaximumSize(QtCore.QSize(50, 16777215))
+            btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+            label = QtWidgets.QLabel(frame)
+            self.ui.gridLayout.addWidget(frame, 1, i, 1, 1)
+            font = QtGui.QFont()
+            font.setFamily("Roboto")
+            font.setPointSize(10)
+            font.setBold(True)
+            font.setWeight(75)
+            label.setFont(font)
+            label.setText(area[0])
+            label.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+            i+=1
+
+    def agregarArea(self):
+        areas = a.area.listar_areas()
+
+        
+
+    def mostrarNewArea(self):
+        self.newArea = NewArea()
+        self.newArea.show()
     def mostrarNewProduct(self):
         self.newProductWindow = ProductWindow()
         self.newProductWindow.show()
@@ -404,3 +473,4 @@ if __name__ == "__main__":
     window = Modern()
     window.show()
     sys.exit(app.exec())
+    print('\n'.join(repr(w) for w in app.allWidgets()))

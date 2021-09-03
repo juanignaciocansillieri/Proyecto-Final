@@ -10,6 +10,12 @@
     <height>686</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>686</height>
+   </size>
+  </property>
   <property name="maximumSize">
    <size>
     <width>1150</width>
@@ -612,7 +618,7 @@ QPushButton:hover{
                  </property>
                 </widget>
                </widget>
-               <widget class="QWidget" name="page_2">
+               <widget class="QWidget" name="deposito_subpage">
                 <layout class="QVBoxLayout" name="verticalLayout_4">
                  <property name="spacing">
                   <number>0</number>
@@ -702,144 +708,53 @@ QPushButton:hover{
                       <property name="frameShadow">
                        <enum>QFrame::Raised</enum>
                       </property>
-                      <widget class="QLabel" name="label_12">
-                       <property name="geometry">
-                        <rect>
-                         <x>0</x>
-                         <y>0</y>
-                         <width>128</width>
-                         <height>31</height>
-                        </rect>
-                       </property>
-                       <property name="minimumSize">
-                        <size>
-                         <width>128</width>
-                         <height>0</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>120</width>
-                         <height>40</height>
-                        </size>
-                       </property>
-                       <property name="font">
-                        <font>
-                         <family>Roboto</family>
-                         <pointsize>14</pointsize>
-                         <weight>75</weight>
-                         <bold>true</bold>
-                        </font>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">color: #282830 ;
+                      <layout class="QVBoxLayout" name="verticalLayout_8">
+                       <item>
+                        <widget class="QLabel" name="label_12">
+                         <property name="minimumSize">
+                          <size>
+                           <width>128</width>
+                           <height>0</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>120</width>
+                           <height>40</height>
+                          </size>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <family>Roboto</family>
+                           <pointsize>14</pointsize>
+                           <weight>75</weight>
+                           <bold>true</bold>
+                          </font>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">color: #282830 ;
 </string>
-                       </property>
-                       <property name="text">
-                        <string>Áreas</string>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
-                       </property>
-                      </widget>
-                      <widget class="QFrame" name="frame_5">
-                       <property name="geometry">
-                        <rect>
-                         <x>0</x>
-                         <y>30</y>
-                         <width>131</width>
-                         <height>121</height>
-                        </rect>
-                       </property>
-                       <property name="frameShape">
-                        <enum>QFrame::StyledPanel</enum>
-                       </property>
-                       <property name="frameShadow">
-                        <enum>QFrame::Raised</enum>
-                       </property>
-                       <layout class="QVBoxLayout" name="verticalLayout_7">
-                        <item>
-                         <widget class="QPushButton" name="products_btn_7">
-                          <property name="font">
-                           <font>
-                            <family>Roboto</family>
-                            <pointsize>9</pointsize>
-                            <weight>75</weight>
-                            <bold>true</bold>
-                           </font>
-                          </property>
-                          <property name="cursor">
-                           <cursorShape>PointingHandCursor</cursorShape>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true">QPushButton{
-border:none;
-font-family: Roboto;
-border-radius:5px;
-text-align: center;
-color: #282830 ;
-padding:5px
-
-
-}
-
-QPushButton:hover{
-	background-color: rgba(105, 105, 226, 50);
-}</string>
-                          </property>
-                          <property name="text">
-                           <string>Refigerado</string>
-                          </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>30</width>
-                            <height>30</height>
-                           </size>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="products_btn_6">
-                          <property name="font">
-                           <font>
-                            <family>Roboto</family>
-                            <pointsize>9</pointsize>
-                            <weight>75</weight>
-                            <bold>true</bold>
-                           </font>
-                          </property>
-                          <property name="cursor">
-                           <cursorShape>PointingHandCursor</cursorShape>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true">QPushButton{
-border:none;
-font-family: Roboto;
-border-radius:5px;
-text-align: center;
-color: #282830 ;
-padding:5px;
-
-
-}
-
-QPushButton:hover{
-	background-color: rgba(105, 105, 226, 50);
-}</string>
-                          </property>
-                          <property name="text">
-                           <string>Farmacia</string>
-                          </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>30</width>
-                            <height>30</height>
-                           </size>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
+                         </property>
+                         <property name="text">
+                          <string>Áreas</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignCenter</set>
+                         </property>
+                        </widget>
+                       </item>
+                       <item alignment="Qt::AlignTop">
+                        <widget class="QFrame" name="frame_5">
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_7"/>
+                        </widget>
+                       </item>
+                      </layout>
                      </widget>
                     </item>
                    </layout>
@@ -2952,28 +2867,7 @@ color: #282830 ;
                  <property name="frameShadow">
                   <enum>QFrame::Raised</enum>
                  </property>
-                 <layout class="QGridLayout" name="gridLayout">
-                  <item row="0" column="0">
-                   <widget class="QFrame" name="frame_27">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QFrame" name="frame_28">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
+                 <layout class="QGridLayout" name="gridLayout"/>
                 </widget>
                 <widget class="QFrame" name="top_frame_stock_4">
                  <property name="geometry">
@@ -3122,6 +3016,60 @@ color: #282830 ;
                        </size>
                       </property>
                      </widget>
+                     <widget class="QPushButton" name="newArea_btn">
+                      <property name="geometry">
+                       <rect>
+                        <x>200</x>
+                        <y>20</y>
+                        <width>101</width>
+                        <height>31</height>
+                       </rect>
+                      </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>26</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <family>Roboto</family>
+                        <pointsize>9</pointsize>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton{
+background-color: rgb(71, 71, 103);
+color:#fff;
+padding-left:10px;
+border-radius: 5px;
+text-align:left;
+}
+
+QPushButton:hover{
+background-color: rgba(71, 71, 103,180);
+
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>Nueva Área</string>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="../../../Prueba/img/img_oficiales.qrc">
+                        <normaloff>:/cct/plus.png</normaloff>:/cct/plus.png</iconset>
+                      </property>
+                      <property name="iconSize">
+                       <size>
+                        <width>13</width>
+                        <height>13</height>
+                       </size>
+                      </property>
+                     </widget>
                     </widget>
                    </item>
                   </layout>
@@ -3130,8 +3078,8 @@ color: #282830 ;
                 <widget class="QPushButton" name="user_new_btn_3">
                  <property name="geometry">
                   <rect>
-                   <x>360</x>
-                   <y>180</y>
+                   <x>310</x>
+                   <y>190</y>
                    <width>101</width>
                    <height>31</height>
                   </rect>
@@ -3184,62 +3132,8 @@ background-color: rgba(71, 71, 103,180);
                 <widget class="QPushButton" name="user_new_btn_4">
                  <property name="geometry">
                   <rect>
-                   <x>470</x>
-                   <y>180</y>
-                   <width>101</width>
-                   <height>31</height>
-                  </rect>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>26</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>Roboto</family>
-                   <pointsize>9</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="cursor">
-                  <cursorShape>PointingHandCursor</cursorShape>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton{
-background-color: rgb(71, 71, 103);
-color:#fff;
-padding-left:10px;
-border-radius: 5px;
-text-align:left;
-}
-
-QPushButton:hover{
-background-color: rgba(71, 71, 103,180);
-
-}</string>
-                 </property>
-                 <property name="text">
-                  <string>Nueva Área</string>
-                 </property>
-                 <property name="icon">
-                  <iconset resource="../../../Prueba/img/img_oficiales.qrc">
-                   <normaloff>:/cct/plus.png</normaloff>:/cct/plus.png</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>13</width>
-                   <height>13</height>
-                  </size>
-                 </property>
-                </widget>
-                <widget class="QPushButton" name="user_new_btn_2">
-                 <property name="geometry">
-                  <rect>
-                   <x>250</x>
-                   <y>180</y>
+                   <x>460</x>
+                   <y>190</y>
                    <width>101</width>
                    <height>31</height>
                   </rect>
