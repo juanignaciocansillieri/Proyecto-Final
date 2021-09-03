@@ -31,7 +31,11 @@ class UsuarioWindow(QMainWindow):
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
 
-        self.ui.pushButton_crear_usuario.clicked.connect(self.crearUser)
+        #self.ui.pushButton_crear_usuario.clicked.connect(self.crearUser)
+
+        self.ui.crearprod_btn.clicked.connect(self.crearUser)
+
+        #self.ui.pushButton_usuarios_2.clicked.connect(self.crearUser)
     
     #CREAR PRODUCTO NUEVO
     def crearUser(self):   

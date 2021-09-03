@@ -29,15 +29,16 @@ class UsuarioWindow(QMainWindow):
         self.move(qtRectangle.topLeft())
 
         self.ui.pushButton.clicked.connect(self.crearUser)
+        
     
     #CREAR PRODUCTO NUEVO
     def bm_user(self):   
     
       #RECIBIR VALORES DE LA VENTANA
       apellido = self.ui.apellido_input.text()
-      nom = self.ui.nombre_input.text()
+      nom = self.ui.nombre_input_2.text()
       dni = self.ui.mail_input.text()
-      nacimiento = self.ui.nac_date.date().toString("yyyy/MM/dd")
+      nacimiento = self.ui.nacimiento_date.date().toString("yyyy/MM/dd")
       puesto = self.ui.puesto_input.text()
       tipo = self.ui.tipo_cb.currentText()
       contraseña = self.ui.pass_input.text()
@@ -73,7 +74,7 @@ class UsuarioWindow(QMainWindow):
 
     def clearInput(self):
          self.ui.apellido_input.setText("")
-         self.ui.nombre_input.setText("")
+         self.ui.nombre_input_2.setText("")
          self.ui.mail_input.setText("")
          self.ui.puesto_input.setText("")
          self.ui.pass_input.setText("")

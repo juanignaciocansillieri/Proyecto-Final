@@ -104,7 +104,7 @@ background:none</string>
               <x>0</x>
               <y>10</y>
               <width>941</width>
-              <height>200</height>
+              <height>141</height>
              </rect>
             </property>
             <property name="maximumSize">
@@ -114,7 +114,7 @@ background:none</string>
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">image: url(:/Icon/iconos logo-05.png);
+             <string notr="true">image: url(:/Icon/Warehouse_Bull_Soft_Logo.png);
 background:none</string>
             </property>
             <property name="text">
@@ -132,6 +132,29 @@ background:none</string>
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_3"/>
            </widget>
+           <widget class="QLabel" name="label_3">
+            <property name="geometry">
+             <rect>
+              <x>360</x>
+              <y>140</y>
+              <width>231</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font-family: 	Roboto;
+font-weight: bold;
+color:#FFF;
+font-size: 19px;
+background:none</string>
+            </property>
+            <property name="text">
+             <string>WAREHOUSE BULL SOFT</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
           </widget>
          </item>
         </layout>
@@ -143,7 +166,7 @@ background:none</string>
   </widget>
  </widget>
  <resources>
-  <include location="img.qrc"/>
+  <include location="Img/img.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -3,6 +3,7 @@
     <file>images (1).jpg</file>
   </qresource>
   <qresource prefix="Icon">
+    <file>Warehouse_Bull_Soft_Logo.png</file>
     <file>iconos logo-05.png</file>
     <file>iconos logo-06.png</file>
   </qresource>

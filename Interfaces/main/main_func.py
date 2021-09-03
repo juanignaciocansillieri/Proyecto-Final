@@ -17,6 +17,7 @@ from create_user_func import UsuarioWindow
 from nuevoProduct_func import ProductWindow
 from bm_producto import BMProduct as bm
 from bm_producto_ui import Ui_MainWindow as ui_bm
+from bm_user import Ui_MainWindow as bmu 
 
 import os
 sys.path.append("C:\\proyecto-final\\")
@@ -26,7 +27,6 @@ import usuarios as u
 import productos as p
 
 from PIL import Image
-from bm_user import Ui_MainWindow as bmu 
 
 
 # GUI File
@@ -147,6 +147,7 @@ class Main(QMainWindow):
         self.BM_Usuario = BM_Usuario ()
         self.BM_Usuario.show()
         
+        
 ###############################FUNCIONES PRODUCTOS########################################
 
     # Listar productos from DB
@@ -219,7 +220,7 @@ class Main(QMainWindow):
         for i in range(0,5):
             seleccionarusuario.append(self.ui.tableWidget_2.item(self.ui.tableWidget_2.currentRow(),i).text())
             DNI = seleccionarusuario[0]
-            #print(DNI)
+           
 
 ##Listar Usuarios
 
@@ -449,10 +450,12 @@ class BM_Usuario(QMainWindow):
         #self.ui.subirFoto_btn.clicked.connect(self.uploadImg)
 
         #Modificar usuario btn
-        self.ui.pushButton_modificar_usuario.clicked.connect(self.ModificarUsuario)
+        #self.ui.pushButton_modificar_usuario.clicked.connect(self.ModificarUsuario)
+        self.ui.modificarprod_btn.clicked.connect(self.ModificarUsuario)
 
         #Eliminar usuario btn
-        self.ui.pushButton_eliminar_usuario.clicked.connect(self.DarDeBajaUsuario)
+        #self.ui.pushButton_eliminar_usuario.clicked.connect(self.DarDeBajaUsuario)
+        self.ui.eliminarprod_btn.clicked.connect(self.DarDeBajaUsuario)
         
 
         #Mostrar Ventana
@@ -471,7 +474,7 @@ class BM_Usuario(QMainWindow):
         atributos = list(usuario[0])
         DNI_Viejo = atributos[0]
         self.ui.dni_input.setText(atributos[0])
-        self.ui.nombre_input.setText(atributos[1])
+        self.ui.nombre_input_2.setText(atributos[1])
         self.ui.apellido_input.setText(atributos[2])
         self.ui.nacimiento_date.setDate(atributos[4])
         self.ui.puesto_input.setText(atributos[5])
