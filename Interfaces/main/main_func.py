@@ -147,6 +147,7 @@ class Main(QMainWindow):
         self.BM_Usuario = BM_Usuario ()
         self.BM_Usuario.show()
         
+        
 ###############################FUNCIONES PRODUCTOS########################################
 
     # Listar productos from DB
@@ -449,10 +450,12 @@ class BM_Usuario(QMainWindow):
         #self.ui.subirFoto_btn.clicked.connect(self.uploadImg)
 
         #Modificar usuario btn
-        self.ui.pushButton_modificar_usuario.clicked.connect(self.ModificarUsuario)
+        #self.ui.pushButton_modificar_usuario.clicked.connect(self.ModificarUsuario)
+        self.ui.modificarprod_btn.clicked.connect(self.ModificarUsuario)
 
         #Eliminar usuario btn
-        self.ui.pushButton_eliminar_usuario.clicked.connect(self.DarDeBajaUsuario)
+        #self.ui.pushButton_eliminar_usuario.clicked.connect(self.DarDeBajaUsuario)
+        self.ui.eliminarprod_btn.clicked.connect(self.DarDeBajaUsuario)
         
 
         #Mostrar Ventana
@@ -471,7 +474,7 @@ class BM_Usuario(QMainWindow):
         atributos = list(usuario[0])
         DNI_Viejo = atributos[0]
         self.ui.dni_input.setText(atributos[0])
-        self.ui.nombre_input.setText(atributos[1])
+        self.ui.nombre_input_2.setText(atributos[1])
         self.ui.apellido_input.setText(atributos[2])
         self.ui.nacimiento_date.setDate(atributos[4])
         self.ui.puesto_input.setText(atributos[5])
