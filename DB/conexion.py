@@ -90,32 +90,52 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
     largo INT NOT NULL,
     ancho INT NOT NULL,
     alto INT NOT NULL,
+    volumen VARCHAR(20) NOT NULL,
     disponibilidad VARCHAR(20) NOT NULL,
     posicion VARCHAR(20) NOT NULL,
     refrigeracion BINARY(1) NOT NULL,
     limite VARCHAR(20) NOT NULL
     );"""
+
+    q8=""" CREATE TABLE IF NOT EXISTS matrizareas (
+    idmatrizarea INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    codigo VARCHAR(20) NOT NULL,
+    area VARCHAR(20) NOT NULL,
+    largo VARCHAR(20) NOT NULL,
+    ancho VARCHAR(20) NOT NULL
+    );"""
+
+    q14="""CREATE TABLE IF NOT EXISTS datosmatrizarea (
+    iddatosmatriz INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    filas INT NOT NULL,
+    columnas INT NOT NULL,
+    );"""
+
     
     q9=""" CREATE TABLE IF NOT EXISTS matriz (
     idmatriz INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     codigo VARCHAR(20) NOT NULL,
+    area VARCHAR(20) NOT NULL,
+    segmento VARCHAR(20) NOT NULL,
     fila VARCHAR(20) NOT NULL,
-    columna VARCHAR(20) NOT NULL,
-    altura VARCHAR(20) NOT NULL,
+    nivel VARCHAR(20) NOT NULL,
     disponibilidad BINARY(1) NOT NULL
     );"""
 
     q10="""CREATE TABLE IF NOT EXISTS datosmatriz (
-    iddatosmatriz INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    filas INT NOT NULL,
-    columnas INT NOT NULL,
-    altura INT NOT NULL
+    iddatosmatriz VARCHAR(20) PRIMARY KEY NOT NULL,
+    filas VARCHAR(20) NOT NULL,
+    altura VARCHAR(20) NOT NULL
     );"""
+    
 
     q11="""CREATE TABLE IF NOT EXISTS area (
     idarea INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     nombre VARCHAR(20) NOT NULL,
-    identificador VARCHAR(20) NOT NULL
+    identificador VARCHAR(20) NOT NULL,
+    pasillos VARCHAR(20) NOT NULL,
+    segmentos VARCHAR(20) NOT NULL,
+    disponibilidad VARCHAR(5) NOT NULL
     );"""
 
     q12= """CREATE TABLE IF NOT EXISTS productos (
@@ -140,7 +160,8 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
     idmovimientos INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     codigo VARCHAR(20) NOT NULL,
     cantidad VARCHAR(50) NOT NULL,
-    desc VARCHAR(20) NOT NULL,
+    tipo BINARY(1) NOT NULL,
+    motivo VARCHAR(20) NOT NULL,
     fecha DATE NOT NULL
     );"""
     
@@ -161,6 +182,8 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
         cur.execute(q10)
         cur.execute(q11)
         cur.execute(q12)
+        cur.execute(q13)
+        #cur.execute(q14)
         cur.close()
         print("se creo las tablas con exito")
     except pymysql.err.OperationalError as err:

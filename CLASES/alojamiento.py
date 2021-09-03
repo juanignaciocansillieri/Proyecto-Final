@@ -9,14 +9,18 @@ sys.path.append("C:\\proyecto-final\\DB\\")
 import conexion as c
 
 class alojamiento:
-    def __init__(self,dimensiones,refrigeracion,limite):
+    def __init__(self,largo,ancho,alto,area,segmento,filas,nivel,refrigeracion,limite):
         self.codigo= mz.asignacion_de_posicion()
-        self.dimensiones=dimensiones
-        self.disponibilidad=1
-        self.posicion=self.generacion_posicion()
+        self.largo=largo
+        self.ancho=ancho
+        self.alto=alto
+        self.volumen=self.largo*self.ancho*self.alto
+        self.disponibilidad=0 #0 disponible 1 tiene algo 2 esta lleno
+        self.posicion=str(str(area)+str(segmento)+str(filas)+str(nivel))
         self.refrigeracion=refrigeracion
         self.limite=limite
         print("se creo alojamiento correctamente")
+
 
 
     def generacion_ubicacion(self):
@@ -30,8 +34,8 @@ class alojamiento:
         a=c.start_connection()
         cursor=a.cursor()
         try:
-            query = "INSERT INTO alojamiento(codigo,dimensiones,disponibilidad,posicion,refrigeracion,limite) VALUES (%s,%s,%s,%s,%s,%s)"
-            values = (self.codigo,self.dimensiones,self.disponibilidad,self.posicion,self.refrigeracion,self.limite)
+            query = "INSERT INTO alojamiento(codigo,largo,ancho,alto,volumen,disponibilidad,posicion,refrigeracion,limite) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+            values = (self.codigo,self.largo,self.ancho,self.alto,self.volumen,self.disponibilidad,self.posicion,self.refrigeracion,self.limite)
             cursor.execute(query, values)
             a.commit()
             print("se dio alta alojamiento correctamente")
@@ -111,12 +115,33 @@ class alojamiento:
         #c.close_connection(a)
         return 0
         
-    def modificar_alojamiento(self,codigo,dimensiones,refrigeracion,limite):
+    def modificar_alojamiento(self,codigo,largo,ancho,alto,disponibilidad,posicion,refrigeracion,limite):
             a=c.start_connection()
             cursor=a.cursor()
             try:
-                query = "UPDATE alojamiento set dimensiones=%s WHERE codigo=%s"
-                values = (dimensiones,codigo)
+                query = "UPDATE alojamiento set largo=%s WHERE codigo=%s"
+                values = (largo,codigo)
+                cursor.execute(query, values)
+                a.commit()
+                query = "UPDATE alojamiento set ancho=%s WHERE codigo=%s"
+                values = (ancho,codigo)
+                cursor.execute(query, values)
+                a.commit()
+                query = "UPDATE alojamiento set alto=%s WHERE codigo=%s"
+                values = (alto,codigo)
+                cursor.execute(query, values)
+                a.commit()
+                volumen=largo*ancho*alto
+                query = "UPDATE alojamiento set volumen=%s WHERE codigo=%s"
+                values = (volumen,codigo)
+                cursor.execute(query, values)
+                a.commit()
+                query = "UPDATE alojamiento set disponibilidad=%s WHERE codigo=%s"
+                values = (disponibilidad,codigo)
+                cursor.execute(query, values)
+                a.commit()
+                query = "UPDATE alojamiento set posicion=%s WHERE codigo=%s"
+                values = (posicion,codigo)
                 cursor.execute(query, values)
                 a.commit()
                 query = "UPDATE alojamiento set refrigeracion=%s WHERE codigo=%s"
@@ -149,7 +174,7 @@ class alojamiento:
     def buscar_aloj(param):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT codigo,dimensiones,disponibilidad,posicion,refrigeracion FROM alojamiento WHERE codigo=%s")
+        query = ("SELECT codigo,largo,ancho,alto,volumen,disponibilidad,posicion,refrigeracion,limite FROM alojamiento WHERE codigo=%s")
         cursor.execute(query, (param, param,param,param))
         data = cursor.fetchall()
         a.commit()
@@ -158,7 +183,7 @@ class alojamiento:
     def buscar_aloj_rows(param):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT codigo,dimensiones,disponibilidad,posicion,refrigeracion FROM alojamiento WHERE codigo=%s")
+        query = ("SELECT codigo,largo,ancho,alto,volumen,disponibilidad,posicion,refrigeracion,limite FROM alojamiento WHERE codigo=%s")
         data = cursor.execute(query, param)
         a.commit()
         return data
@@ -166,7 +191,7 @@ class alojamiento:
     def mostrar_aloj(codigo):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT codigo,dimensiones,disponibilidad,posicion,refrigeracion FROM alojamiento WHERE codigo=%s")
+        query = ("SELECT codigo,largo,ancho,alto,volumen,disponibilidad,posicion,refrigeracion,limite FROM alojamiento WHERE codigo=%s")
         cursor.execute(query,codigo)
         data = cursor.fetchall()
         a.commit()
@@ -177,7 +202,7 @@ class alojamiento:
         a = c.start_connection()
         cursor = a.cursor()
         try:
-            query = "SELECT codigo,dimensiones,disponibilidad,posicion,refrigeracion FROM alojamiento"
+            query = "SELECT codigo,largo,ancho,alto,volumen,disponibilidad,posicion,refrigeracion,limite FROM alojamiento"
             cursor.execute(query)
             productos = cursor.fetchall()
 
