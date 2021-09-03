@@ -8,9 +8,12 @@ import conexion as c
 
 class area:
     
-    def __init__(self,nombre,identificador):
+    def __init__(self,nombre,identificador,pasillos,segmentos):
         self.nombre=nombre
         self.identificador=identificador
+        self.pasillos=pasillos
+        self.segmentos=segmentos
+        self.disponibilidad=0
         print("se creo area correctamente")
         self.alta_area()
 
@@ -19,8 +22,8 @@ class area:
         a=c.start_connection()
         cursor=a.cursor()
         try:
-            query = "INSERT INTO area(nombre,identificador) VALUES (%s,%s)"
-            values = (self.nombre,self.identificador)
+            query = "INSERT INTO area(nombre,identificador,pasillos,segmentos,disponibilidad) VALUES (%s,%s,%s,%s,%s)"
+            values = (self.nombre,self.identificador,self.pasillos,self.segmentos,self.disponibilidad)
             cursor.execute(query, values)
             a.commit()
             print("se dio alta al area correctamente")
@@ -28,7 +31,7 @@ class area:
             print("Hubo un error:", err)
         c.close_connection(a)
 
-    def modificar_area(identv,idenn,nombre):
+    def modificar_area(identv,idenn,nombre,pasillos,segmentos,disponibilidad):
         a=c.start_connection()
         cursor=a.cursor()
         query = "SELECT idarea FROM area WHERE identificador=%s"
@@ -45,7 +48,19 @@ class area:
             query = "UPDATE area SET identificador=%s WHERE idarea=%s"
             values = (idenn,ida)
             cursor.execute(query, values)
-            a.commit()  
+            a.commit()
+            query = "UPDATE area SET pasillos=%s WHERE idarea=%s"
+            values = (pasillos,ida)
+            cursor.execute(query, values)
+            a.commit() 
+            query = "UPDATE area SET segmentos=%s WHERE idarea=%s"
+            values = (segmentos,ida)
+            cursor.execute(query, values)
+            a.commit()
+            query = "UPDATE area SET disponibilidad=%s WHERE idarea=%s"
+            values = (disponibilidad,ida)
+            cursor.execute(query, values)
+            a.commit()   
             print("se modifico area correctamente")
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
@@ -80,7 +95,7 @@ class area:
             a = c.start_connection()
             cursor = a.cursor()
             try:
-                query = "SELECT nombre,identificador FROM area"
+                query = "SELECT nombre,identificador,pasillos,segmentos,disponibilidad FROM area"
                 cursor.execute(query)
                 area = cursor.fetchall()
                 a.commit()
@@ -92,7 +107,7 @@ class area:
     def mostrar_area(iden):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT nombre,identificador FROM area WHERE identificador=%s")
+        query = ("SELECT nombre,identificador,pasillos,segmentos,disponibilidad FROM area WHERE identificador=%s")
         cursor.execute(query,iden)
         data = cursor.fetchall()
         a.commit()

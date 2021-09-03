@@ -5,24 +5,23 @@ from sys import setprofile
 from typing import NoReturn
 import pymysql
 import os
+import lotes as lote
 #import alojamiento as aloj
 sys.path.append("C:\\proyecto-final\\DB\\")
 import conexion as c
 
 
 class productos():
-    def __init__(self, codigo, nombre, marca, cantidad, descripcion, lote, vencimiento, refrigeracion, inflamable, fragil,foto,peso,largo,ancho,alto):
+    def __init__(self, codigo, marca, cantidad, descripcion,ubicacion, lote, vencimiento,condicion,fragil,foto,peso,largo,ancho,alto):
         self.codigo = codigo
-        self.nombre = nombre
         self.marca = marca
         self.cantidad = cantidad
         self.descripcion = descripcion
-        self.ubicacion = 1  # aloj.asignacion_de_ubicacion()
+        self.ubicacion = ubicacion
         self.foto = foto
         self.lote = lote
         self.vencimiento = vencimiento
-        self.refrigeracion = refrigeracion
-        self.inflamable = inflamable
+        self.condicion = condicion
         self.fragil = fragil
         self.peso= peso
         self.ancho= ancho
@@ -37,8 +36,8 @@ class productos():
         a = c.start_connection()
         cursor = a.cursor()
         try:
-            query = "INSERT INTO productos (codigo,nombre,marca,cantidad,descripcion,ubicacion,lote,vencimiento,refrigeracion,inflamable,fragil,foto,peso,largo,ancho,alto) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-            values = (self.codigo, self.nombre, self.marca, self.cantidad, self.descripcion, self.ubicacion, self.lote, self.vencimiento, self.refrigeracion, self.inflamable, self.fragil,self.foto,self.peso,self.largo,self.ancho,self.alto)
+            query = "INSERT INTO productos (codigo, marca, cantidad, descripcion,ubicacion, lote, vencimiento,condicion,fragil,foto,peso,largo,ancho,alto) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+            values = (self.codigo, self.marca, self.cantidad, self.descripcion, self.ubicacion, self.lote, self.vencimiento, self.condicion, self.fragil,self.foto,self.peso,self.largo,self.ancho,self.alto)
             cursor.execute(query, values)
             a.commit()
             print("se dio alta producto correctamente")
@@ -155,7 +154,7 @@ class productos():
         a.commit()
 
 
-    def modificar_produc(codigov, codigon, nombre, marca, cantidad,ubicacion, descripcion, lote, vencimiento, refrigeracion, inflamable, fragil,foto,peso,largo,ancho,alto):
+    def modificar_produc(codigov, codigon,marca, cantidad, descripcion,ubicacion, lote, vencimiento,condicion,fragil,foto,peso,largo,ancho,alto):
         a = c.start_connection()
         cursor = a.cursor()
         query = "SELECT idproductos FROM productos WHERE codigo=%s"
@@ -168,10 +167,6 @@ class productos():
         try:
             query = "UPDATE productos set codigo=%s WHERE idproductos=%s"
             values = (codigon, idp)
-            cursor.execute(query, values)
-            a.commit()
-            query = "UPDATE productos set nombre=%s WHERE idproductos=%s"
-            values = (nombre, idp)
             cursor.execute(query, values)
             a.commit()
             query = "UPDATE productos set marca=%s WHERE idproductos=%s"
@@ -198,12 +193,8 @@ class productos():
             values = (vencimiento, idp)
             cursor.execute(query, values)
             a.commit()
-            query = "UPDATE productos set refrigeracion=%s WHERE idproductos=%s"
-            values = (refrigeracion, idp)
-            cursor.execute(query, values)
-            a.commit()
-            query = "UPDATE productos set inflamable=%s WHERE idproductos=%s"
-            values = (inflamable, idp)
+            query = "UPDATE productos set condicion=%s WHERE idproductos=%s"
+            values = (condicion, idp)
             cursor.execute(query, values)
             a.commit()
             query = "UPDATE productos set fragil=%s WHERE idproductos=%s"
@@ -236,10 +227,9 @@ class productos():
             print("Hubo un error:", err)
         c.close_connection(a)
 
-    def agregar_cantidad(self, codigo):
+    def agregar_cantidad(self, codigo,cantidad):
         a = c.start_connection()
         cursor = a.cursor()
-        cantidad = input("Ingrese la nueva cantidad: ")
         try:
             query = "UPDATE productos set cantidad=%s WHERE codigo=%s"
             values = (cantidad, codigo)
@@ -254,7 +244,7 @@ class productos():
     def buscar_product(param):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT codigo,nombre,marca,cantidad,vencimiento FROM productos WHERE codigo=%s or nombre=%s or marca=%s or  cantidad=%s")
+        query = ("SELECT codigo,descripcion,marca,cantidad,vencimiento FROM productos WHERE codigo=%s or nombre=%s or marca=%s or  cantidad=%s")
         cursor.execute(query, (param, param,param,param))
         data = cursor.fetchall()
         a.commit()
@@ -263,7 +253,7 @@ class productos():
     def buscar_product_rows(param):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT codigo,nombre,marca,cantidad,vencimiento FROM productos WHERE codigo=%s or nombre=%s or marca=%s or  cantidad=%s")
+        query = ("SELECT codigo,descripcion,marca,cantidad,vencimiento FROM productos WHERE codigo=%s or nombre=%s or marca=%s or  cantidad=%s")
         data = cursor.execute(query, (param, param,param,param))
         a.commit()
         return data
@@ -271,7 +261,7 @@ class productos():
     def mostrar_product(codigo):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT codigo,nombre,marca,cantidad,vencimiento,descripcion,ubicacion,foto,lote,refrigeracion,inflamable,fragil,peso,largo,ancho,alto FROM productos WHERE codigo=%s")
+        query = ("SELECT codigo, marca, cantidad, descripcion,ubicacion, lote, vencimiento,condicion,fragil,foto,peso,largo,ancho,alto FROM productos WHERE codigo=%s")
         cursor.execute(query,codigo)
         data = cursor.fetchall()
         a.commit()
@@ -283,7 +273,7 @@ def listar_prod():
     a = c.start_connection()
     cursor = a.cursor()
     try:
-        query = "SELECT codigo,nombre,marca,cantidad,vencimiento FROM productos"
+        query = "SELECT codigo,descripcion,marca,cantidad,vencimiento FROM productos"
         cursor.execute(query)
         productos = cursor.fetchall()
 
