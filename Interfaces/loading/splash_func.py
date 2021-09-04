@@ -47,20 +47,11 @@ class Splash(QMainWindow):
         def timerEvent():
             global time
             self.time = self.time.addSecs(1)
-<<<<<<< HEAD
             if str(self.time) == "PyQt5.QtCore.QTime(0, 0, 1)":
-=======
-            print(str(self.time))
-            if str(self.time) == "PyQt5.QtCore.QTime(0, 0, 7)":
->>>>>>> 0f0c753c692f943da1f8d0a814688fe0ca03ea70
                 self.close()
                 conexion.crear_tabla()
                 #self.login = l.LoginWindow()
                 self.m = m.Main(1)
-<<<<<<< HEAD
-=======
-
->>>>>>> 0f0c753c692f943da1f8d0a814688fe0ca03ea70
         self.timer.timeout.connect(timerEvent)
         self.timer.start(1000)
 

@@ -14,7 +14,7 @@ import area as a
 
 class NewArea(QMainWindow):
 
-    def __init__(self):
+    def __init__(self,func):
         super(NewArea, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
@@ -31,6 +31,7 @@ class NewArea(QMainWindow):
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
         self.ui.crearprod_btn.clicked.connect(self.crearArea)
+        self.ui.crearprod_btn.clicked.connect(func)
 
     
     #CREAR PRODUCTO NUEVO
@@ -38,8 +39,7 @@ class NewArea(QMainWindow):
       #RECIBIR VALORES DE LA VENTANA
       nom = self.ui.motivo_input.text()
       ide = self.ui.motivo_input_2.text()
-      area= a.area(nom,ide) 
-
+      area= a.Area(nom,ide) 
       self.close()
      
       
