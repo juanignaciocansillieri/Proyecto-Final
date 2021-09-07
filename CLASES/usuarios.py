@@ -21,8 +21,6 @@ class usuarios:
         print("se creo usuario correctamente")
         self.alta_usuario()
 
-    
-
 
 
     def alta_usuario(self):
@@ -77,22 +75,6 @@ class usuarios:
         a.commit()
         return data
 
-    def mostrar_datos_user_importado(self,dni):
-        #a=c.start_connection()
-        #cursor=a.cursor()
-        #if c.controlador(dni,"usuarios","dni") == 1:
-        #self.importar_datos_user(dni)
-        try:
-            if self.tipo=="1":
-                self.tipo="administrador"
-            else:
-                self.tipo="usuario"     
-            print("Nombre: ",self.nombre,"\nApellido: ",self.apellido,"\nDNI: ",dni,"\nFecha de nacimiento: ",self.nacimiento,
-            "\nTipo: ",self.tipo,"\nPuesto: ",self.puesto,"\nMail: ",self.mail)
-        except pymysql.err.OperationalError as err:
-            print("Hubo un error:", err)
-        #c.close_connection(a)
-        return 0
 
     def ab_usuario(dni):
         a=c.start_connection()
@@ -107,62 +89,6 @@ class usuarios:
             print("Hubo un error:", err)
         c.close_connection(a)
 
-    def importar_datos_user(self,dni):
-        a=c.start_connection()
-        cursor=a.cursor()
-
-        try:
-            query = "SELECT nombre FROM usuarios WHERE dni=%s"
-            values = dni
-            cursor.execute(query, values)
-            a.commit()
-            b=cursor.fetchall() 
-            self.nombre=str(b[0][0]) 
-            query = "SELECT apellido FROM usuarios WHERE dni=%s"
-            values = dni
-            cursor.execute(query, values)
-            a.commit()
-            b=cursor.fetchall() 
-            self.apellido=str(b[0][0])      
-            query = "SELECT nacimiento FROM usuarios WHERE dni=%s"
-            values = dni
-            cursor.execute(query, values)
-            a.commit()
-            b=cursor.fetchall() 
-            self.nacimiento=str(b[0][0])      
-            query = "SELECT tipo FROM usuarios WHERE dni=%s"
-            values = dni
-            cursor.execute(query, values)
-            a.commit()
-            b=cursor.fetchall() 
-            self.tipo=str(b[0][0])     
-            query = "SELECT puesto FROM usuarios WHERE dni=%s"
-            values = dni
-            cursor.execute(query, values)
-            a.commit()
-            b=cursor.fetchall() 
-            self.puesto=str(b[0][0])
-            query = "SELECT mail FROM usuarios WHERE dni=%s"
-            values = dni
-            cursor.execute(query, values)
-            a.commit()
-            b=cursor.fetchall() 
-            self.mail=str(b[0][0])        
-            print("se importo usuario correctamente")
-        except pymysql.err.OperationalError as err:
-            print("Hubo un error:", err)
-        c.close_connection(a)
-
-    def obtener_idu(self,codigo):
-        a = c.start_connection()
-        cursor = a.cursor()
-        query = "SELECT idusuarios FROM ususarios WHERE dni=%s"
-        values = codigo
-        cursor.execute(query, values)
-        a.commit()
-        b = cursor.fetchall()
-        idu = str(b[0][0])
-        return idu
 
     def modificar_datos_user(dniv,dnin,nombre,apellido,tipo,puesto,nacimiento,mail):
         a=c.start_connection()

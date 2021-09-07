@@ -8,9 +8,10 @@ import conexion as c
 
 class lote:
     
-    def __init__(self,nlote,idproducto,vencimiento):
-        self.nlote=nlote
+    def __init__(self,idproducto,cantidad,fechalote,vencimiento):
         self.idproducto=idproducto
+        self.cantidad=cantidad
+        self.fechalote=fechalote
         self.vencimiento=vencimiento
         print("se creo lote correctamente")
         self.alta_lote()
@@ -20,8 +21,8 @@ class lote:
         a=c.start_connection()
         cursor=a.cursor()
         try:
-            query = "INSERT INTO lote(nlote,idproducto,vencimiento) VALUES (%s,%s,%s)"
-            values = (self.nlote,self.idproducto,self.vencimiento)
+            query = "INSERT INTO lote(idproducto,cantidad,fechalote,vencimiento) VALUES (%s,%s,%s,%s)"
+            values = (self.idproducto,self.cantidad,self.fechalote,self.vencimiento)
             cursor.execute(query, values)
             a.commit()
             print("se dio alta al lote correctamente")
@@ -29,12 +30,25 @@ class lote:
             print("Hubo un error:", err)
         c.close_connection(a)
 
-    def eliminar_lote(nlote,idproducto):
+    def eliminar_lote(fechalote,idproducto):
         a=c.start_connection()
         cursor=a.cursor()
         try:
-            query = "DELETE FROM lote WHERE idproducto=%s and nlote=%s"
-            values = (idproducto,nlote)
+            query = "DELETE FROM lote WHERE idproducto=%s and fechalote=%s"
+            values = (idproducto,fechalote)
+            cursor.execute(query, values)
+            a.commit()
+            print("se elimino lote correctamente")
+        except pymysql.err.OperationalError as err:
+            print("Hubo un error:", err)
+        c.close_connection(a)
+
+    def modificar_cantidad(idproducto,fechalote,cantidad):
+        a=c.start_connection()
+        cursor=a.cursor()
+        try:
+            query = "UPDATE lotes set cantidad=%s WHERE idproducto=%s and fechalote=%s"
+            values = (cantidad,idproducto,fechalote)
             cursor.execute(query, values)
             a.commit()
             print("se elimino lote correctamente")
@@ -58,7 +72,7 @@ class lote:
             a = c.start_connection()
             cursor = a.cursor()
             try:
-                query = "SELECT nlote,vencimiento FROM lote WHERE idproducto=%s"
+                query = "SELECT idproducto,cantidad,fechalote,vencimiento FROM lote WHERE idproducto=%s"
                 values=idproducto
                 cursor.execute(query,values)
                 area = cursor.fetchall()
@@ -71,7 +85,7 @@ class lote:
     def mostrar_lote(idproducto):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT nlote,vencimiento FROM lote WHERE idproducto=%s")
+        query = ("SELECT idproducto,cantidad,fechalote,vencimiento FROM lote WHERE idproducto=%s")
         cursor.execute(query,idproducto)
         data = cursor.fetchall()
         a.commit()
