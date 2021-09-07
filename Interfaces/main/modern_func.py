@@ -15,6 +15,7 @@ from nuevoProduct_func import ProductWindow
 from create_user_func import UsuarioWindow
 from create_user_func import UsuarioWindow
 from nuevoProduct_func import ProductWindow
+from nueva_area import Ui_MainWindow as na
 from bm_producto import BMProduct as bm
 from bm_producto_ui import Ui_MainWindow as ui_bm
 from bm_user import Ui_MainWindow as bmu 
@@ -24,6 +25,7 @@ import productos as pr
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import usuarios as u
 import productos as p
+import area as ar
 
 
 
@@ -37,6 +39,7 @@ class Modern(QMainWindow):
     def __init__(self):
         super(Modern, self).__init__()
         self.ui = Ui_MainWindow()
+        self.uii = na()
         self.ui.setupUi(self)
         ############# RECIBIMOS PROPORCIONES DE LA PANTALLA ###########
         qtRectangle = self.frameGeometry()
@@ -58,25 +61,146 @@ class Modern(QMainWindow):
             lambda: self.ui.stackedWidget_3.setCurrentWidget(self.ui.user_subpage))
         self.ui.users_btn.clicked.connect(self.listarUsuarios)
 
+        self.ui.deposito_btn.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_deposito))
+        self.ui.deposito_btn.clicked.connect(lambda: self.ui.stackedWidget_3.setCurrentWidget(self.ui.deposito_subpage))
+        self.ui.deposito_btn.clicked.connect(self.mostrarAreas)
+
+
         self.ui.products_btn_stock.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_stock))
         self.ui.products_btn_movimiento.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_movimientos))
+        
+
 
         self.ui.product_new_btn.clicked.connect(self.mostrarNewProduct)
         self.ui.user_new_btn.clicked.connect(self.mostrarNewUser)
+        self.ui.newArea_btn.clicked.connect(self.mostrarNewArea)
+        #self.agregarBtnAreas()
 
-        # Listamos productos al iniciar la ventana
-        self.listarProductos(self.ui.tableWidget_stock_2)
-    
+
+    def agregarAreaCreada(self):
+
+        areas = ar.Area.listar_area()
+        n = ar.Area.contar_filas()
+        child = self.ui.verticalLayout_7.count()
+        print(",,,,,,,,,,,,,,,,,",child)
+
+        if child == n:
+            pass
+        else:
+            
+                btn1 = QtWidgets.QPushButton(self.ui.frame_5)
+                btn1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+                btn1.setStyleSheet("QPushButton{\n"
+            "border:none;\n"
+            "font-family: Roboto;\n"
+            "border-radius:5px;\n"
+            "text-align: center;\n"
+            "color: #282830 ;\n"
+            "padding:5px;\n"
+            "\n"
+            "\n"
+            "}\n"
+            "\n"
+            "QPushButton:hover{\n"
+            "    background-color: rgba(105, 105, 226, 50);\n"
+            "}")
+                btn1.setObjectName("btn_{areas[-1][0]}")
+                btn1.setText(areas[-1][0])
+                self.ui.verticalLayout_7.addWidget(btn1)
+                font = QtGui.QFont()
+                font.setFamily("Roboto")
+                font.setPointSize(10)
+                font.setBold(True)
+                font.setWeight(75)
+                btn1.setFont(font)
+
+   
+    def agregarBtnAreas(self):
+
+        areas = ar.Area.listar_area()
+        i = 0
+        
+        for area in areas:
+                btn1 = QtWidgets.QPushButton(self.ui.frame_5)
+                btn1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+                btn1.setStyleSheet("QPushButton{\n"
+            "border:none;\n"
+            "font-family: Roboto;\n"
+            "border-radius:5px;\n"
+            "text-align: center;\n"
+            "color: #282830 ;\n"
+            "padding:5px;\n"
+            "\n"
+            "\n"
+            "}\n"
+            "\n"
+            "QPushButton:hover{\n"
+            "    background-color: rgba(105, 105, 226, 50);\n"
+            "}")
+                btn1.setObjectName("btn_{area[0]}")
+                btn1.setText(area[0])
+                self.ui.verticalLayout_7.addWidget(btn1)
+                font = QtGui.QFont()
+                font.setFamily("Roboto")
+                font.setPointSize(10)
+                font.setBold(True)
+                font.setWeight(75)
+                btn1.setFont(font)
+                i+=1
+   
+    def mostrarAreas(self):
+        
+
+        child = self.ui.verticalLayout_7.count()
+        print(child)
+        areas = ar.Area.listar_area()
+        n = ar.Area.contar_filas()
+        i = 1
+        for a in areas:
+                frame = QtWidgets.QFrame(self.ui.frame_3)
+                frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+                frame.setFrameShadow(QtWidgets.QFrame.Raised)
+                frame.setObjectName(a[0])
+                verticalLayout = QtWidgets.QVBoxLayout(frame)
+                verticalLayout.setObjectName("verticalLay{i}")
+                verticalLayout.addWidget(frame)
+                btn = QPushButton(frame)
+                btn.setText("Ver")
+                btn.setObjectName("btn{i}")
+                btn.setGeometry(QtCore.QRect(5, 109, 50, 71))
+                btn.setMaximumSize(QtCore.QSize(50, 16777215))
+                btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+                label = QtWidgets.QLabel(frame)
+                self.ui.gridLayout.addWidget(frame, 1, i, 1, 1)
+                font = QtGui.QFont()
+                font.setFamily("Roboto")
+                font.setPointSize(10)
+                font.setBold(True)
+                font.setWeight(75)
+                label.setFont(font)
+                label.setText(a[0])
+                label.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+                i+=1
+        self.agregarAreaCreada()
+
+    def agregarArea(self):
+        areas = a.area.listar_areas()
+
+        
+
+    def mostrarNewArea(self):
+        self.newArea = NewArea()
+        self.newArea.show()
+
     def mostrarNewProduct(self):
         self.newProductWindow = ProductWindow()
         self.newProductWindow.show()
+
 
     def mostrarNewUser(self):
         self.newUserWindow = UsuarioWindow()
         self.newUserWindow.show()
 
-
- 
 
     def mostrarBmProduct(self):
         self.newBmProduct = BMProduct()
@@ -396,8 +520,36 @@ class BM_Usuario(QMainWindow):
             self.close()
 
 
-  
+class NewArea(QMainWindow):
+
+    def __init__(self):
+        super(NewArea, self).__init__()
+        self.ui = na()
+        self.ui.setupUi(self)
+        ############# RECIBIMOS PROPORCIONES DE LA PANTALLA ###########
+        qtRectangle = self.frameGeometry()
+        centerPoint = QDesktopWidget().availableGeometry().center()
+        qtRectangle.moveCenter(centerPoint)
+        self.move(qtRectangle.topLeft())
+        ######## SACAR BARRA DE TÍTULO#####################
+        self.setWindowFlag(Qt.FramelessWindowHint)
+        self.setAttribute(Qt.WA_TranslucentBackground)
+        ############## CENTRAMOS LA VENTANA #############
+        centerPoint = QDesktopWidget().availableGeometry().center()
+        qtRectangle.moveCenter(centerPoint)
+        self.move(qtRectangle.topLeft())
+        self.ui.crearprod_btn.clicked.connect(self.crearArea)
+
     
+    #CREAR PRODUCTO NUEVO
+    def crearArea(self):   
+      #RECIBIR VALORES DE LA VENTANA
+      nom = self.ui.motivo_input.text()
+      ide = self.ui.motivo_input_2.text()
+      area= ar.Area(nom,ide) 
+      Modern.agregarAreaCreada(Modern.ui)
+      self.close()
+     
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = Modern()

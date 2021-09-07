@@ -2,6 +2,7 @@
   <qresource prefix="cct">
     <file>flojo.png</file>
     <file>plus.png</file>
+    <file>rack.png</file>
     <file>stock.png</file>
     <file>trading.png</file>
     <file>user.png</file>
