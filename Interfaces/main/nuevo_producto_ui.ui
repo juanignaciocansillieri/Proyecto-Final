@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>664</width>
-    <height>384</height>
+    <width>652</width>
+    <height>428</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -58,9 +58,9 @@
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>40</y>
+         <y>30</y>
          <width>611</width>
-         <height>271</height>
+         <height>321</height>
         </rect>
        </property>
        <property name="maximumSize">
@@ -84,7 +84,7 @@ background-color: rgb(240, 242, 255);
         <property name="geometry">
          <rect>
           <x>420</x>
-          <y>70</y>
+          <y>10</y>
           <width>158</width>
           <height>27</height>
          </rect>
@@ -147,46 +147,6 @@ margin-left:10px
          <string>Ancho (cm)</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="ubicacion_input">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>100</y>
-          <width>170</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>25</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit{
-background-color: #fff;
-border: 0.5px solid #c1c1c1;
-border-radius: 3px;
-padding: 4 5px;
-color: #fff;
-font-family:Roboto;
-font-size:13px;
-font-weight: 400;
-margin-left: 10px;
-
-}
-</string>
-        </property>
-        <property name="placeholderText">
-         <string/>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_ubicacion">
         <property name="geometry">
          <rect>
@@ -211,7 +171,7 @@ margin-left:10px
 </string>
         </property>
         <property name="text">
-         <string>Ubicación</string>
+         <string>Descripción</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_altura">
@@ -321,7 +281,7 @@ margin-left: 10px;
         <property name="geometry">
          <rect>
           <x>230</x>
-          <y>190</y>
+          <y>250</y>
           <width>154</width>
           <height>27</height>
          </rect>
@@ -353,8 +313,8 @@ margin-left:10px
        <widget class="QLabel" name="label_peso">
         <property name="geometry">
          <rect>
-          <x>420</x>
-          <y>10</y>
+          <x>230</x>
+          <y>190</y>
           <width>71</width>
           <height>27</height>
          </rect>
@@ -381,7 +341,7 @@ margin-left:10px
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>130</y>
+          <y>190</y>
           <width>100</width>
           <height>27</height>
          </rect>
@@ -441,7 +401,7 @@ margin-left:10px
         <property name="geometry">
          <rect>
           <x>230</x>
-          <y>220</y>
+          <y>280</y>
           <width>170</width>
           <height>25</height>
          </rect>
@@ -486,8 +446,8 @@ margin-left: 10px;
        <widget class="QSpinBox" name="peso_num">
         <property name="geometry">
          <rect>
-          <x>420</x>
-          <y>40</y>
+          <x>230</x>
+          <y>220</y>
           <width>170</width>
           <height>25</height>
          </rect>
@@ -599,7 +559,7 @@ margin-left: 10px;
         <property name="geometry">
          <rect>
           <x>420</x>
-          <y>100</y>
+          <y>40</y>
           <width>170</width>
           <height>25</height>
          </rect>
@@ -627,7 +587,7 @@ margin-left: 10px;
         <property name="geometry">
          <rect>
           <x>420</x>
-          <y>130</y>
+          <y>70</y>
           <width>90</width>
           <height>27</height>
          </rect>
@@ -660,7 +620,7 @@ margin-left:10px
         <property name="geometry">
          <rect>
           <x>430</x>
-          <y>160</y>
+          <y>100</y>
           <width>31</width>
           <height>21</height>
          </rect>
@@ -679,7 +639,7 @@ margin-left:10px
         <property name="geometry">
          <rect>
           <x>460</x>
-          <y>160</y>
+          <y>100</y>
           <width>31</width>
           <height>21</height>
          </rect>
@@ -698,7 +658,7 @@ margin-left:10px
         <property name="geometry">
          <rect>
           <x>420</x>
-          <y>190</y>
+          <y>130</y>
           <width>90</width>
           <height>27</height>
          </rect>
@@ -731,7 +691,7 @@ margin-left:10px
         <property name="geometry">
          <rect>
           <x>420</x>
-          <y>220</y>
+          <y>160</y>
           <width>170</width>
           <height>22</height>
          </rect>
@@ -753,7 +713,7 @@ margin-left: 10px;
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>190</y>
+          <y>250</y>
           <width>151</width>
           <height>27</height>
          </rect>
@@ -780,7 +740,7 @@ margin-left:10px
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>220</y>
+          <y>280</y>
           <width>170</width>
           <height>25</height>
          </rect>
@@ -814,7 +774,7 @@ margin-left: 10px;
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>160</y>
+          <y>220</y>
           <width>170</width>
           <height>25</height>
          </rect>
@@ -850,27 +810,118 @@ margin-left: 10px;
          <string/>
         </property>
        </widget>
-      </widget>
-      <widget class="QPushButton" name="subirFoto_btn">
-       <property name="geometry">
-        <rect>
-         <x>270</x>
-         <y>330</y>
-         <width>151</width>
-         <height>25</height>
-        </rect>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton{
+       <widget class="QLabel" name="label_ubicacion_2">
+        <property name="geometry">
+         <rect>
+          <x>420</x>
+          <y>190</y>
+          <width>91</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-family: Roboto;
+font-size: 14px;
+margin-top:10px;
+margin-left:10px
+
+</string>
+        </property>
+        <property name="text">
+         <string>Ubicación</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="ubicacion_input">
+        <property name="geometry">
+         <rect>
+          <x>420</x>
+          <y>220</y>
+          <width>170</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+background-color: #fff;
+border: 0.5px solid #c1c1c1;
+border-radius: 3px;
+padding: 4 5px;
+color: #fff;
+font-family:Roboto;
+font-size:13px;
+font-weight: 400;
+margin-left: 10px;
+
+}
+</string>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="descripcion_input">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>100</y>
+          <width>170</width>
+          <height>75</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+background-color: #fff;
+border: 0.5px solid #c1c1c1;
+border-radius: 3px;
+padding: 4 5px;
+color: #fff;
+font-family:Roboto;
+font-size:13px;
+font-weight: 400;
+margin-left: 10px;
+
+}
+</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="subirFoto_btn">
+        <property name="geometry">
+         <rect>
+          <x>435</x>
+          <y>280</y>
+          <width>150</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
 background-color: rgba(71, 71, 103,180);
 border-radius: 7px;
 padding: 4 10px;
@@ -885,18 +936,19 @@ background-color: rgba(71, 71, 103);
 color: #fff;
 
 }</string>
-       </property>
-       <property name="text">
-        <string>Subir Imagen</string>
-       </property>
+        </property>
+        <property name="text">
+         <string>Subir Imagen</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QPushButton" name="crearprod_btn">
        <property name="geometry">
         <rect>
          <x>460</x>
-         <y>330</y>
-         <width>161</width>
-         <height>26</height>
+         <y>360</y>
+         <width>150</width>
+         <height>25</height>
         </rect>
        </property>
        <property name="font">
