@@ -135,7 +135,7 @@ background-color: #fff;
 border: 0.5px solid #c1c1c1;
 border-radius: 3px;
 padding: 4 5px;
-color: #fff;
+color: rgb(0, 0, 0);
 font-family:Roboto;
 font-size:13px;
 font-weight: 400;
@@ -264,7 +264,7 @@ background-color: #fff;
 border: 0.5px solid #c1c1c1;
 border-radius: 3px;
 padding: 4 5px;
-color: #fff;
+color: rgb(0, 0, 0);
 font-family:Roboto;
 font-size:13px;
 font-weight: 400;
@@ -275,6 +275,110 @@ margin-left: 10px;
         </property>
         <property name="placeholderText">
          <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_pasillos">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>10</y>
+          <width>131</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-family: Roboto;
+font-size: 14px;
+margin-top:10px;
+margin-left:10px
+
+</string>
+        </property>
+        <property name="text">
+         <string>Pasilllos</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_pasillos_2">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>70</y>
+          <width>131</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-family: Roboto;
+font-size: 14px;
+margin-top:10px;
+margin-left:10px
+
+</string>
+        </property>
+        <property name="text">
+         <string>Segmentos</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="segmentos_num">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>100</y>
+          <width>121</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #fff;
+border-radius: 3px;
+padding: 4 5px;
+color: rgb(0, 0, 0);
+font-family:Roboto;
+border: none;
+font-size:13px;
+font-weight: 400;
+margin-left: 10px;
+</string>
+        </property>
+        <property name="minimum">
+         <number>0</number>
+        </property>
+        <property name="maximum">
+         <number>999</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="pasillos_num">
+        <property name="geometry">
+         <rect>
+          <x>220</x>
+          <y>40</y>
+          <width>121</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #fff;
+border-radius: 3px;
+padding: 4 5px;
+color: rgb(0, 0, 0);
+font-family:Roboto;
+border: none;
+font-size:13px;
+font-weight: 400;
+margin-left: 10px;
+</string>
         </property>
        </widget>
       </widget>

@@ -62,7 +62,7 @@ class Ui_MainWindow(object):
 "border: 0.5px solid #c1c1c1;\n"
 "border-radius: 3px;\n"
 "padding: 4 5px;\n"
-"color: rgb(0, 0, 0);\n"
+"color: #fff;\n"
 "font-family:Roboto;\n"
 "font-size:13px;\n"
 "font-weight: 400;\n"
@@ -126,7 +126,7 @@ class Ui_MainWindow(object):
 "border: 0.5px solid #c1c1c1;\n"
 "border-radius: 3px;\n"
 "padding: 4 5px;\n"
-"color: rgb(0, 0, 0);\n"
+"color: #fff;\n"
 "font-family:Roboto;\n"
 "font-size:13px;\n"
 "font-weight: 400;\n"
@@ -136,60 +136,6 @@ class Ui_MainWindow(object):
 "")
         self.motivo_input_2.setPlaceholderText("")
         self.motivo_input_2.setObjectName("motivo_input_2")
-        self.label_pasillos = QtWidgets.QLabel(self.frame_3)
-        self.label_pasillos.setGeometry(QtCore.QRect(220, 10, 131, 27))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(-1)
-        self.label_pasillos.setFont(font)
-        self.label_pasillos.setStyleSheet("font-family: Roboto;\n"
-"font-size: 14px;\n"
-"margin-top:10px;\n"
-"margin-left:10px\n"
-"\n"
-"")
-        self.label_pasillos.setObjectName("label_pasillos")
-        self.label_pasillos_2 = QtWidgets.QLabel(self.frame_3)
-        self.label_pasillos_2.setGeometry(QtCore.QRect(220, 70, 131, 27))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(-1)
-        self.label_pasillos_2.setFont(font)
-        self.label_pasillos_2.setStyleSheet("font-family: Roboto;\n"
-"font-size: 14px;\n"
-"margin-top:10px;\n"
-"margin-left:10px\n"
-"\n"
-"")
-        self.label_pasillos_2.setObjectName("label_pasillos_2")
-        self.segmentos_num = QtWidgets.QSpinBox(self.frame_3)
-        self.segmentos_num.setGeometry(QtCore.QRect(220, 100, 121, 25))
-        self.segmentos_num.setStyleSheet("background-color: #fff;\n"
-"border-radius: 3px;\n"
-"padding: 4 5px;\n"
-"color: rgb(0, 0, 0);\n"
-"font-family:Roboto;\n"
-"border: none;\n"
-"font-size:13px;\n"
-"font-weight: 400;\n"
-"margin-left: 10px;\n"
-"")
-        self.segmentos_num.setMinimum(0)
-        self.segmentos_num.setMaximum(999)
-        self.segmentos_num.setObjectName("segmentos_num")
-        self.pasillos_num = QtWidgets.QSpinBox(self.frame_3)
-        self.pasillos_num.setGeometry(QtCore.QRect(220, 40, 121, 25))
-        self.pasillos_num.setStyleSheet("background-color: #fff;\n"
-"border-radius: 3px;\n"
-"padding: 4 5px;\n"
-"color: rgb(0, 0, 0);\n"
-"font-family:Roboto;\n"
-"border: none;\n"
-"font-size:13px;\n"
-"font-weight: 400;\n"
-"margin-left: 10px;\n"
-"")
-        self.pasillos_num.setObjectName("pasillos_num")
         self.verticalLayout.addWidget(self.frame_2)
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -202,16 +148,4 @@ class Ui_MainWindow(object):
         self.crearprod_btn.setText(_translate("MainWindow", "Confirmar"))
         self.label_egr_ing.setText(_translate("MainWindow", "Nombre"))
         self.label_egr_ing_2.setText(_translate("MainWindow", "Identifcador"))
-        self.label_pasillos.setText(_translate("MainWindow", "Pasilllos"))
-        self.label_pasillos_2.setText(_translate("MainWindow", "Segmentos"))
 import img_oficiales_rc
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
