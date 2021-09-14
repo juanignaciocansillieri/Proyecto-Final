@@ -189,6 +189,7 @@ class Ui_MainWindow(object):
 "font-weight: 400;\n"
 "margin-left: 10px;\n"
 "")
+        self.pasillos_num.setMaximum(999)
         self.pasillos_num.setObjectName("pasillos_num")
         self.verticalLayout.addWidget(self.frame_2)
         MainWindow.setCentralWidget(self.centralwidget)
