@@ -40,12 +40,12 @@ class ProductWindow(QMainWindow):
       global defaultImg
       #RECIBIR VALORES DE LA VENTANA
       codigo = self.ui.codigo_input.text()
-      nombre = self.ui.nombre_input.text()
+      #nombre = self.ui.nombre_input.text()
       descripcion = self.ui.descripcion_input.toPlainText()
-      cantidad = self.ui.cantidad_num_2.value()
+      cantidad = self.ui.cantidad_num.value()
       marca = self.ui.marca_input.text()
       venc = self.ui.venc_date.date().toString("yyyy/MM/dd")
-      lote = self.ui.lote_num.value()
+      lote = self.ui.lote_input.value()
       imagen = defaultImg
       if self.ui.fragil_si.isChecked():
         fragil = "1"
@@ -84,7 +84,7 @@ class ProductWindow(QMainWindow):
         QtWidgets.QMessageBox.critical(self, "Error", "Codigo Existente")
         return None
       else:
-        product = pr.productos(codigo,nombre,marca,cantidad,descripcion,lote,venc,refri,infla,fragil,defaultImg,peso,largo,ancho,altura)
+        product = pr.productos(codigo,marca,cantidad,descripcion,lote,venc,refri,infla,fragil,defaultImg,peso,largo,ancho,altura)
         product.alta_producto()
         self.close()
       
@@ -108,14 +108,16 @@ class ProductWindow(QMainWindow):
 
     def clearInput(self):
          self.ui.codigo_input.setText("")
-         self.ui.nombre_input.setText("")
+         #self.ui.nombre_input.setText("")
          self.ui.descripcion_input.setText("")
-         self.ui.cantidad_num_2.setValue("")
-         self.ui.lote_num.setValue("")
+         self.ui.cantidad_num.setValue("")
+         self.ui.lote_input.setText("")
          self.ui.peso_num.setValue("")
          self.ui.ancho_num.setValue("")
          self.ui.largo_num.setValue("")
          self.ui.altura_num.setValue("")
          self.ui.marca_input.setText("")
-         #self.ui.venc_date.setDate("")
+         self.ui.venc_date.setDate("")
          self.ui.descripcion_input.setText("")
+         #self.ui.area_comboBox.setCompleter("")
+         self.ui.ubicacion_input.setText("")
