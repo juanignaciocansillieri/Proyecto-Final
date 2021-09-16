@@ -621,14 +621,9 @@ margin-left:10px
          <rect>
           <x>430</x>
           <y>100</y>
-          <width>51</width>
+          <width>31</width>
           <height>21</height>
          </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">font-family: Roboto;
-font-size: 12px;
-</string>
         </property>
         <property name="text">
          <string>SI</string>
@@ -643,15 +638,11 @@ font-size: 12px;
        <widget class="QRadioButton" name="fragil_no">
         <property name="geometry">
          <rect>
-          <x>480</x>
+          <x>460</x>
           <y>100</y>
-          <width>51</width>
+          <width>31</width>
           <height>21</height>
          </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">font-family: Roboto;
-font-size: 12px;</string>
         </property>
         <property name="text">
          <string>NO</string>
@@ -954,7 +945,7 @@ color: #fff;
       <widget class="QPushButton" name="crearprod_btn">
        <property name="geometry">
         <rect>
-         <x>465</x>
+         <x>460</x>
          <y>360</y>
          <width>150</width>
          <height>25</height>
