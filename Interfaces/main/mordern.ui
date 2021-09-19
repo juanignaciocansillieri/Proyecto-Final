@@ -226,8 +226,8 @@ QPushButton:pressed{
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset resource="../../../Prueba/img/img_oficiales.qrc">
-                  <normaloff>:/cct/caja.png</normaloff>:/cct/caja.png</iconset>
+                 <iconset resource="img/img_oficiales.qrc">
+                  <normaloff>:/img/caja.png</normaloff>:/img/caja.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -272,15 +272,15 @@ margin-bottom:5px
 }
 
 QPushButton:hover{
-background-color: rgb(85, 170, 255);
+background-color: rgba(105, 105, 226, 50);
 }</string>
                 </property>
                 <property name="text">
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset resource="../../../Prueba/img/img_oficiales.qrc">
-                  <normaloff>:/cct/ExitB.png</normaloff>:/cct/ExitB.png</iconset>
+                 <iconset resource="img/img_oficiales.qrc">
+                  <normaloff>:/img/ExitB.png</normaloff>:/img/ExitB.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -333,8 +333,8 @@ QPushButton:hover{
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset resource="../../../Prueba/img/img_oficiales.qrc">
-                  <normaloff>:/cct/stock.png</normaloff>:/cct/stock.png</iconset>
+                 <iconset resource="img/img_oficiales.qrc">
+                  <normaloff>:/img/stock.png</normaloff>:/img/stock.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -367,8 +367,8 @@ border:none;
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset resource="../../../Prueba/img/img_oficiales.qrc">
-                  <normaloff>:/cct/Warehouse Bull Soft Logo.png</normaloff>:/cct/Warehouse Bull Soft Logo.png</iconset>
+                 <iconset resource="img/img_oficiales.qrc">
+                  <normaloff>:/img/Warehouse Bull Soft Logo.png</normaloff>:/img/Warehouse Bull Soft Logo.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -422,8 +422,8 @@ QPushButton:hover{
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset resource="../../../Prueba/img/img_oficiales.qrc">
-                  <normaloff>:/cct/user.png</normaloff>:/cct/user.png</iconset>
+                 <iconset resource="img/img_oficiales.qrc">
+                  <normaloff>:/img/user.png</normaloff>:/img/user.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -484,13 +484,13 @@ border-right:1px solid #cccccc;</string>
                 <string notr="true">border:none</string>
                </property>
                <property name="currentIndex">
-                <number>1</number>
+                <number>0</number>
                </property>
                <widget class="QWidget" name="product_subpage">
                 <widget class="QLabel" name="label_7">
                  <property name="geometry">
                   <rect>
-                   <x>0</x>
+                   <x>10</x>
                    <y>32</y>
                    <width>128</width>
                    <height>40</height>
@@ -511,7 +511,7 @@ border-right:1px solid #cccccc;</string>
                  <property name="font">
                   <font>
                    <family>Roboto</family>
-                   <pointsize>14</pointsize>
+                   <pointsize>17</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -644,6 +644,18 @@ QPushButton:hover{
                     <enum>QFrame::Raised</enum>
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_6">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
                     <item>
                      <widget class="QFrame" name="frame_13">
                       <property name="maximumSize">
@@ -661,7 +673,7 @@ QPushButton:hover{
                       <widget class="QLabel" name="label_9">
                        <property name="geometry">
                         <rect>
-                         <x>0</x>
+                         <x>7</x>
                          <y>30</y>
                          <width>128</width>
                          <height>40</height>
@@ -709,6 +721,21 @@ QPushButton:hover{
                        <enum>QFrame::Raised</enum>
                       </property>
                       <layout class="QVBoxLayout" name="verticalLayout_8">
+                       <property name="spacing">
+                        <number>0</number>
+                       </property>
+                       <property name="leftMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
                        <item>
                         <widget class="QLabel" name="label_12">
                          <property name="minimumSize">
@@ -751,7 +778,23 @@ QPushButton:hover{
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QVBoxLayout" name="verticalLayout_7"/>
+                         <layout class="QVBoxLayout" name="verticalLayout_7">
+                          <property name="spacing">
+                           <number>0</number>
+                          </property>
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                         </layout>
                         </widget>
                        </item>
                       </layout>
@@ -856,7 +899,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="label_10">
                  <property name="geometry">
                   <rect>
-                   <x>0</x>
+                   <x>10</x>
                    <y>32</y>
                    <width>128</width>
                    <height>40</height>
@@ -877,7 +920,7 @@ QPushButton:hover{
                  <property name="font">
                   <font>
                    <family>Roboto</family>
-                   <pointsize>14</pointsize>
+                   <pointsize>17</pointsize>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
@@ -929,7 +972,7 @@ QPushButton:hover{
           <item>
            <widget class="QStackedWidget" name="stackedWidget_main">
             <property name="currentIndex">
-             <number>2</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="page_stock">
              <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -1102,8 +1145,8 @@ QPushButton:hover{
                          <string/>
                         </property>
                         <property name="icon">
-                         <iconset resource="../../../Prueba/img/img_oficiales.qrc">
-                          <normaloff>:/cct/warehouse.png</normaloff>:/cct/warehouse.png</iconset>
+                         <iconset resource="img/img_oficiales.qrc">
+                          <normaloff>:/img/warehouse.png</normaloff>:/img/warehouse.png</iconset>
                         </property>
                         <property name="iconSize">
                          <size>
@@ -1119,7 +1162,7 @@ QPushButton:hover{
                    <widget class="QPushButton" name="product_new_btn">
                     <property name="geometry">
                      <rect>
-                      <x>170</x>
+                      <x>160</x>
                       <y>35</y>
                       <width>131</width>
                       <height>26</height>
@@ -1160,8 +1203,8 @@ background-color: rgba(71, 71, 103,180);
                      <string>Nuevo Producto</string>
                     </property>
                     <property name="icon">
-                     <iconset resource="../../../Prueba/img/img_oficiales.qrc">
-                      <normaloff>:/cct/plus.png</normaloff>:/cct/plus.png</iconset>
+                     <iconset resource="img/img_oficiales.qrc">
+                      <normaloff>:/img/plus.png</normaloff>:/img/plus.png</iconset>
                     </property>
                     <property name="iconSize">
                      <size>
@@ -1252,7 +1295,7 @@ background-color: rgba(71, 71, 103,180);
                          <property name="title">
                           <string/>
                          </property>
-                         <widget class="QPushButton" name="pushButton_15">
+                         <widget class="QPushButton" name="btn_buscarP">
                           <property name="geometry">
                            <rect>
                             <x>18</x>
@@ -1274,21 +1317,21 @@ background-color: rgba(71, 71, 103,180);
                            <string/>
                           </property>
                           <property name="icon">
-                           <iconset resource="../../../Prueba/img/img_oficiales.qrc">
-                            <normaloff>:/cct/search.png</normaloff>:/cct/search.png</iconset>
+                           <iconset resource="img/img_oficiales.qrc">
+                            <normaloff>:/img/LupaB.png</normaloff>:/img/LupaB.png</iconset>
                           </property>
                           <property name="iconSize">
                            <size>
-                            <width>14</width>
-                            <height>15</height>
+                            <width>50</width>
+                            <height>50</height>
                            </size>
                           </property>
                          </widget>
-                         <widget class="QLineEdit" name="lineEdit_4">
+                         <widget class="QLineEdit" name="buscar_input">
                           <property name="geometry">
                            <rect>
                             <x>50</x>
-                            <y>9</y>
+                            <y>10</y>
                             <width>301</width>
                             <height>20</height>
                            </rect>
@@ -1426,61 +1469,6 @@ QHeaderView::section:vertical
                        <attribute name="verticalHeaderDefaultSectionSize">
                         <number>41</number>
                        </attribute>
-                       <row>
-                        <property name="text">
-                         <string>New Row</string>
-                        </property>
-                       </row>
-                       <row>
-                        <property name="text">
-                         <string>New Row</string>
-                        </property>
-                       </row>
-                       <row>
-                        <property name="text">
-                         <string>New Row</string>
-                        </property>
-                       </row>
-                       <row>
-                        <property name="text">
-                         <string>New Row</string>
-                        </property>
-                       </row>
-                       <row>
-                        <property name="text">
-                         <string>New Row</string>
-                        </property>
-                       </row>
-                       <row>
-                        <property name="text">
-                         <string>New Row</string>
-                        </property>
-                       </row>
-                       <row>
-                        <property name="text">
-                         <string>New Row</string>
-                        </property>
-                       </row>
-                       <row>
-                        <property name="text">
-                         <string>New Row</string>
-                        </property>
-                       </row>
-                       <row>
-                        <property name="text">
-                         <string>New Row</string>
-                        </property>
-                       </row>
-                       <row>
-                        <property name="text">
-                         <string>New Row</string>
-                        </property>
-                       </row>
-                       <row>
-                        <property name="text">
-                         <string>New Row</string>
-                        </property>
-                       </row>
                        <column>
                         <property name="text">
                          <string>New Column</string>
@@ -1506,216 +1494,6 @@ QHeaderView::section:vertical
                          <string>New Column</string>
                         </property>
                        </column>
-                       <item row="0" column="0">
-                        <property name="text">
-                         <string>ARROX</string>
-                        </property>
-                       </item>
-                       <item row="0" column="1">
-                        <property name="text">
-                         <string>SZSAAS</string>
-                        </property>
-                       </item>
-                       <item row="0" column="2">
-                        <property name="text">
-                         <string>SSAASS</string>
-                        </property>
-                       </item>
-                       <item row="0" column="3">
-                        <property name="text">
-                         <string>aaaaa</string>
-                        </property>
-                       </item>
-                       <item row="0" column="4">
-                        <property name="text">
-                         <string>aaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="1" column="0">
-                        <property name="text">
-                         <string>a</string>
-                        </property>
-                       </item>
-                       <item row="1" column="1">
-                        <property name="text">
-                         <string>a</string>
-                        </property>
-                       </item>
-                       <item row="1" column="2">
-                        <property name="text">
-                         <string>a</string>
-                        </property>
-                       </item>
-                       <item row="1" column="3">
-                        <property name="text">
-                         <string>a</string>
-                        </property>
-                       </item>
-                       <item row="1" column="4">
-                        <property name="text">
-                         <string>s</string>
-                        </property>
-                       </item>
-                       <item row="2" column="0">
-                        <property name="text">
-                         <string>ere</string>
-                        </property>
-                       </item>
-                       <item row="2" column="1">
-                        <property name="text">
-                         <string>r</string>
-                        </property>
-                       </item>
-                       <item row="2" column="3">
-                        <property name="text">
-                         <string>f</string>
-                        </property>
-                       </item>
-                       <item row="2" column="4">
-                        <property name="text">
-                         <string>we</string>
-                        </property>
-                       </item>
-                       <item row="3" column="0">
-                        <property name="text">
-                         <string>w</string>
-                        </property>
-                       </item>
-                       <item row="3" column="2">
-                        <property name="text">
-                         <string>fe</string>
-                        </property>
-                       </item>
-                       <item row="3" column="3">
-                        <property name="text">
-                         <string>ffwee</string>
-                        </property>
-                       </item>
-                       <item row="3" column="4">
-                        <property name="text">
-                         <string>r</string>
-                        </property>
-                       </item>
-                       <item row="4" column="0">
-                        <property name="text">
-                         <string>es</string>
-                        </property>
-                       </item>
-                       <item row="4" column="1">
-                        <property name="text">
-                         <string>dfd</string>
-                        </property>
-                       </item>
-                       <item row="4" column="3">
-                        <property name="text">
-                         <string>wrer</string>
-                        </property>
-                       </item>
-                       <item row="4" column="4">
-                        <property name="text">
-                         <string>we</string>
-                        </property>
-                       </item>
-                       <item row="5" column="0">
-                        <property name="text">
-                         <string>AAAAA</string>
-                        </property>
-                       </item>
-                       <item row="5" column="1">
-                        <property name="text">
-                         <string>AAAAAAAA</string>
-                        </property>
-                       </item>
-                       <item row="5" column="2">
-                        <property name="text">
-                         <string>AAAAAAA</string>
-                        </property>
-                       </item>
-                       <item row="5" column="3">
-                        <property name="text">
-                         <string>AAAAAA</string>
-                        </property>
-                       </item>
-                       <item row="5" column="4">
-                        <property name="text">
-                         <string>AAAAAA</string>
-                        </property>
-                       </item>
-                       <item row="6" column="0">
-                        <property name="text">
-                         <string>AAAAAAAAAA</string>
-                        </property>
-                       </item>
-                       <item row="6" column="1">
-                        <property name="text">
-                         <string>AAAAAAAAA</string>
-                        </property>
-                       </item>
-                       <item row="6" column="2">
-                        <property name="text">
-                         <string>AAAAA</string>
-                        </property>
-                       </item>
-                       <item row="6" column="3">
-                        <property name="text">
-                         <string>AAAAAAAAAA</string>
-                        </property>
-                       </item>
-                       <item row="6" column="4">
-                        <property name="text">
-                         <string>AAAAAA</string>
-                        </property>
-                       </item>
-                       <item row="7" column="0">
-                        <property name="text">
-                         <string>aaaaaaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="7" column="1">
-                        <property name="text">
-                         <string>aaaaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="7" column="2">
-                        <property name="text">
-                         <string>aaaaaaaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="7" column="3">
-                        <property name="text">
-                         <string>aaaaaaaaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="7" column="4">
-                        <property name="text">
-                         <string>aaaaaaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="8" column="0">
-                        <property name="text">
-                         <string>aaaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="8" column="1">
-                        <property name="text">
-                         <string>aaaaaaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="8" column="2">
-                        <property name="text">
-                         <string>aaaaaaaaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="8" column="3">
-                        <property name="text">
-                         <string>aaaaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="8" column="4">
-                        <property name="text">
-                         <string>aaaaaaaaaa</string>
-                        </property>
-                       </item>
                       </widget>
                       <widget class="QFrame" name="frame_20">
                        <property name="geometry">
@@ -2033,8 +1811,8 @@ color: #282830 ;
                          <string/>
                         </property>
                         <property name="icon">
-                         <iconset resource="../../../Prueba/img/img_oficiales.qrc">
-                          <normaloff>:/cct/trading.png</normaloff>:/cct/trading.png</iconset>
+                         <iconset resource="img/img_oficiales.qrc">
+                          <normaloff>:/img/trading.png</normaloff>:/img/trading.png</iconset>
                         </property>
                         <property name="iconSize">
                          <size>
@@ -2091,8 +1869,8 @@ background-color: rgba(71, 71, 103,180);
                          <string/>
                         </property>
                         <property name="icon">
-                         <iconset resource="../../../Prueba/img/img_oficiales.qrc">
-                          <normaloff>:/cct/plus.png</normaloff>:/cct/plus.png</iconset>
+                         <iconset resource="img/img_oficiales.qrc">
+                          <normaloff>:/img/plus.png</normaloff>:/img/plus.png</iconset>
                         </property>
                         <property name="iconSize">
                          <size>
@@ -2192,7 +1970,7 @@ background-color: rgba(71, 71, 103,180);
                            <rect>
                             <x>18</x>
                             <y>9</y>
-                            <width>32</width>
+                            <width>31</width>
                             <height>21</height>
                            </rect>
                           </property>
@@ -2209,13 +1987,13 @@ background-color: rgba(71, 71, 103,180);
                            <string/>
                           </property>
                           <property name="icon">
-                           <iconset resource="../../../Prueba/img/img_oficiales.qrc">
-                            <normaloff>:/cct/search.png</normaloff>:/cct/search.png</iconset>
+                           <iconset resource="img/img_oficiales.qrc">
+                            <normaloff>:/img/LupaB.png</normaloff>:/img/LupaB.png</iconset>
                           </property>
                           <property name="iconSize">
                            <size>
-                            <width>14</width>
-                            <height>15</height>
+                            <width>52</width>
+                            <height>82</height>
                            </size>
                           </property>
                          </widget>
@@ -2223,7 +2001,7 @@ background-color: rgba(71, 71, 103,180);
                           <property name="geometry">
                            <rect>
                             <x>50</x>
-                            <y>9</y>
+                            <y>10</y>
                             <width>301</width>
                             <height>20</height>
                            </rect>
@@ -2291,7 +2069,7 @@ background-color: rgba(71, 71, 103,180);
                          <x>40</x>
                          <y>50</y>
                          <width>921</width>
-                         <height>451</height>
+                         <height>371</height>
                         </rect>
                        </property>
                        <property name="styleSheet">
@@ -2351,41 +2129,6 @@ QHeaderView::section:vertical
                        <attribute name="verticalHeaderDefaultSectionSize">
                         <number>41</number>
                        </attribute>
-                       <row>
-                        <property name="text">
-                         <string>New Row</string>
-                        </property>
-                       </row>
-                       <row>
-                        <property name="text">
-                         <string>New Row</string>
-                        </property>
-                       </row>
-                       <row>
-                        <property name="text">
-                         <string>New Row</string>
-                        </property>
-                       </row>
-                       <row>
-                        <property name="text">
-                         <string>New Row</string>
-                        </property>
-                       </row>
-                       <row>
-                        <property name="text">
-                         <string>New Row</string>
-                        </property>
-                       </row>
-                       <row>
-                        <property name="text">
-                         <string>New Row</string>
-                        </property>
-                       </row>
-                       <row>
-                        <property name="text">
-                         <string>New Row</string>
-                        </property>
-                       </row>
                        <row>
                         <property name="text">
                          <string>New Row</string>
@@ -2466,167 +2209,22 @@ QHeaderView::section:vertical
                          <string>aaaaaaa</string>
                         </property>
                        </item>
-                       <item row="1" column="0">
-                        <property name="text">
-                         <string>aa</string>
-                        </property>
-                       </item>
-                       <item row="1" column="1">
-                        <property name="text">
-                         <string>aa</string>
-                        </property>
-                       </item>
                        <item row="1" column="2">
                         <property name="text">
-                         <string>a</string>
+                         <string>aaaaaaaaaaa</string>
                         </property>
                        </item>
                        <item row="1" column="3">
                         <property name="text">
-                         <string>a</string>
+                         <string>aaaaaaaaaaaaa</string>
                         </property>
                        </item>
                        <item row="1" column="4">
                         <property name="text">
-                         <string>a</string>
+                         <string>aaaaaaaaa</string>
                         </property>
                        </item>
                        <item row="1" column="5">
-                        <property name="text">
-                         <string>s</string>
-                        </property>
-                       </item>
-                       <item row="2" column="0">
-                        <property name="text">
-                         <string>aa</string>
-                        </property>
-                       </item>
-                       <item row="2" column="1">
-                        <property name="text">
-                         <string>aa</string>
-                        </property>
-                       </item>
-                       <item row="2" column="2">
-                        <property name="text">
-                         <string>r</string>
-                        </property>
-                       </item>
-                       <item row="2" column="4">
-                        <property name="text">
-                         <string>f</string>
-                        </property>
-                       </item>
-                       <item row="2" column="5">
-                        <property name="text">
-                         <string>we</string>
-                        </property>
-                       </item>
-                       <item row="3" column="3">
-                        <property name="text">
-                         <string>fe</string>
-                        </property>
-                       </item>
-                       <item row="3" column="4">
-                        <property name="text">
-                         <string>ffwee</string>
-                        </property>
-                       </item>
-                       <item row="3" column="5">
-                        <property name="text">
-                         <string>r</string>
-                        </property>
-                       </item>
-                       <item row="4" column="2">
-                        <property name="text">
-                         <string>dfd</string>
-                        </property>
-                       </item>
-                       <item row="4" column="4">
-                        <property name="text">
-                         <string>wrer</string>
-                        </property>
-                       </item>
-                       <item row="4" column="5">
-                        <property name="text">
-                         <string>we</string>
-                        </property>
-                       </item>
-                       <item row="5" column="2">
-                        <property name="text">
-                         <string>AAAAAAAA</string>
-                        </property>
-                       </item>
-                       <item row="5" column="3">
-                        <property name="text">
-                         <string>AAAAAAA</string>
-                        </property>
-                       </item>
-                       <item row="5" column="4">
-                        <property name="text">
-                         <string>AAAAAA</string>
-                        </property>
-                       </item>
-                       <item row="5" column="5">
-                        <property name="text">
-                         <string>AAAAAA</string>
-                        </property>
-                       </item>
-                       <item row="6" column="2">
-                        <property name="text">
-                         <string>AAAAAAAAA</string>
-                        </property>
-                       </item>
-                       <item row="6" column="3">
-                        <property name="text">
-                         <string>AAAAA</string>
-                        </property>
-                       </item>
-                       <item row="6" column="4">
-                        <property name="text">
-                         <string>AAAAAAAAAA</string>
-                        </property>
-                       </item>
-                       <item row="6" column="5">
-                        <property name="text">
-                         <string>AAAAAA</string>
-                        </property>
-                       </item>
-                       <item row="7" column="2">
-                        <property name="text">
-                         <string>aaaaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="7" column="3">
-                        <property name="text">
-                         <string>aaaaaaaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="7" column="4">
-                        <property name="text">
-                         <string>aaaaaaaaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="7" column="5">
-                        <property name="text">
-                         <string>aaaaaaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="8" column="2">
-                        <property name="text">
-                         <string>aaaaaaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="8" column="3">
-                        <property name="text">
-                         <string>aaaaaaaaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="8" column="4">
-                        <property name="text">
-                         <string>aaaaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="8" column="5">
                         <property name="text">
                          <string>aaaaaaaaaa</string>
                         </property>
@@ -2840,10 +2438,10 @@ color: #282830 ;
                 <widget class="QFrame" name="frame_3">
                  <property name="geometry">
                   <rect>
-                   <x>120</x>
-                   <y>270</y>
-                   <width>600</width>
-                   <height>250</height>
+                   <x>100</x>
+                   <y>120</y>
+                   <width>650</width>
+                   <height>491</height>
                   </rect>
                  </property>
                  <property name="minimumSize">
@@ -2854,8 +2452,8 @@ color: #282830 ;
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>350</width>
-                   <height>350</height>
+                   <width>650</width>
+                   <height>500</height>
                   </size>
                  </property>
                  <property name="styleSheet">
@@ -3006,8 +2604,8 @@ color: #282830 ;
                        <string/>
                       </property>
                       <property name="icon">
-                       <iconset resource="../../../Prueba/img/img_oficiales.qrc">
-                        <normaloff>:/cct/rack.png</normaloff>:/cct/rack.png</iconset>
+                       <iconset resource="img/img_oficiales.qrc">
+                        <normaloff>:/img/rack.png</normaloff>:/img/rack.png</iconset>
                       </property>
                       <property name="iconSize">
                        <size>
@@ -3060,8 +2658,8 @@ background-color: rgba(71, 71, 103,180);
                        <string>Nueva Área</string>
                       </property>
                       <property name="icon">
-                       <iconset resource="../../../Prueba/img/img_oficiales.qrc">
-                        <normaloff>:/cct/plus.png</normaloff>:/cct/plus.png</iconset>
+                       <iconset resource="img/img_oficiales.qrc">
+                        <normaloff>:/img/plus.png</normaloff>:/img/plus.png</iconset>
                       </property>
                       <property name="iconSize">
                        <size>
@@ -3074,114 +2672,6 @@ background-color: rgba(71, 71, 103,180);
                    </item>
                   </layout>
                  </widget>
-                </widget>
-                <widget class="QPushButton" name="user_new_btn_3">
-                 <property name="geometry">
-                  <rect>
-                   <x>310</x>
-                   <y>190</y>
-                   <width>101</width>
-                   <height>31</height>
-                  </rect>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>26</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>Roboto</family>
-                   <pointsize>9</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="cursor">
-                  <cursorShape>PointingHandCursor</cursorShape>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton{
-background-color: rgb(71, 71, 103);
-color:#fff;
-padding-left:10px;
-border-radius: 5px;
-text-align:left;
-}
-
-QPushButton:hover{
-background-color: rgba(71, 71, 103,180);
-
-}</string>
-                 </property>
-                 <property name="text">
-                  <string>Nueva Área</string>
-                 </property>
-                 <property name="icon">
-                  <iconset resource="../../../Prueba/img/img_oficiales.qrc">
-                   <normaloff>:/cct/plus.png</normaloff>:/cct/plus.png</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>13</width>
-                   <height>13</height>
-                  </size>
-                 </property>
-                </widget>
-                <widget class="QPushButton" name="user_new_btn_4">
-                 <property name="geometry">
-                  <rect>
-                   <x>460</x>
-                   <y>190</y>
-                   <width>101</width>
-                   <height>31</height>
-                  </rect>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>26</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>Roboto</family>
-                   <pointsize>9</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="cursor">
-                  <cursorShape>PointingHandCursor</cursorShape>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton{
-background-color: rgb(71, 71, 103);
-color:#fff;
-padding-left:10px;
-border-radius: 5px;
-text-align:left;
-}
-
-QPushButton:hover{
-background-color: rgba(71, 71, 103,180);
-
-}</string>
-                 </property>
-                 <property name="text">
-                  <string>Nueva Área</string>
-                 </property>
-                 <property name="icon">
-                  <iconset resource="../../../Prueba/img/img_oficiales.qrc">
-                   <normaloff>:/cct/plus.png</normaloff>:/cct/plus.png</iconset>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>13</width>
-                   <height>13</height>
-                  </size>
-                 </property>
                 </widget>
                </widget>
               </item>
@@ -3380,8 +2870,8 @@ background-color: rgba(71, 71, 103,180);
                              <string/>
                             </property>
                             <property name="icon">
-                             <iconset resource="../../../Prueba/img/img_oficiales.qrc">
-                              <normaloff>:/cct/user.png</normaloff>:/cct/user.png</iconset>
+                             <iconset resource="img/img_oficiales.qrc">
+                              <normaloff>:/img/user.png</normaloff>:/img/user.png</iconset>
                             </property>
                             <property name="iconSize">
                              <size>
@@ -3390,38 +2880,34 @@ background-color: rgba(71, 71, 103,180);
                              </size>
                             </property>
                            </widget>
-                          </widget>
-                         </item>
-                        </layout>
-                       </widget>
-                       <widget class="QPushButton" name="user_new_btn">
-                        <property name="geometry">
-                         <rect>
-                          <x>200</x>
-                          <y>35</y>
-                          <width>131</width>
-                          <height>26</height>
-                         </rect>
-                        </property>
-                        <property name="minimumSize">
-                         <size>
-                          <width>0</width>
-                          <height>26</height>
-                         </size>
-                        </property>
-                        <property name="font">
-                         <font>
-                          <family>Roboto</family>
-                          <pointsize>9</pointsize>
-                          <weight>75</weight>
-                          <bold>true</bold>
-                         </font>
-                        </property>
-                        <property name="cursor">
-                         <cursorShape>PointingHandCursor</cursorShape>
-                        </property>
-                        <property name="styleSheet">
-                         <string notr="true">QPushButton{
+                           <widget class="QPushButton" name="user_new_btn">
+                            <property name="geometry">
+                             <rect>
+                              <x>194</x>
+                              <y>24</y>
+                              <width>121</width>
+                              <height>26</height>
+                             </rect>
+                            </property>
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>26</height>
+                             </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <family>Roboto</family>
+                              <pointsize>9</pointsize>
+                              <weight>75</weight>
+                              <bold>true</bold>
+                             </font>
+                            </property>
+                            <property name="cursor">
+                             <cursorShape>PointingHandCursor</cursorShape>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">QPushButton{
 background-color: rgb(71, 71, 103);
 color:#fff;
 padding-right:15px;
@@ -3433,20 +2919,24 @@ QPushButton:hover{
 background-color: rgba(71, 71, 103,180);
 
 }</string>
-                        </property>
-                        <property name="text">
-                         <string>Nuevo Usuario</string>
-                        </property>
-                        <property name="icon">
-                         <iconset resource="../../../Prueba/img/img_oficiales.qrc">
-                          <normaloff>:/cct/plus.png</normaloff>:/cct/plus.png</iconset>
-                        </property>
-                        <property name="iconSize">
-                         <size>
-                          <width>13</width>
-                          <height>13</height>
-                         </size>
-                        </property>
+                            </property>
+                            <property name="text">
+                             <string>Nuevo Usuario</string>
+                            </property>
+                            <property name="icon">
+                             <iconset resource="img/img_oficiales.qrc">
+                              <normaloff>:/img/plus.png</normaloff>:/img/plus.png</iconset>
+                            </property>
+                            <property name="iconSize">
+                             <size>
+                              <width>13</width>
+                              <height>13</height>
+                             </size>
+                            </property>
+                           </widget>
+                          </widget>
+                         </item>
+                        </layout>
                        </widget>
                       </widget>
                      </item>
@@ -3530,7 +3020,7 @@ background-color: rgba(71, 71, 103,180);
                              <property name="title">
                               <string/>
                              </property>
-                             <widget class="QPushButton" name="pushButton_12">
+                             <widget class="QPushButton" name="btn_buscarU">
                               <property name="geometry">
                                <rect>
                                 <x>18</x>
@@ -3552,13 +3042,13 @@ background-color: rgba(71, 71, 103,180);
                                <string/>
                               </property>
                               <property name="icon">
-                               <iconset resource="../../../Prueba/img/img_oficiales.qrc">
-                                <normaloff>:/cct/search.png</normaloff>:/cct/search.png</iconset>
+                               <iconset resource="img/img_oficiales.qrc">
+                                <normaloff>:/img/LupaB.png</normaloff>:/img/LupaB.png</iconset>
                               </property>
                               <property name="iconSize">
                                <size>
-                                <width>14</width>
-                                <height>15</height>
+                                <width>60</width>
+                                <height>47</height>
                                </size>
                               </property>
                              </widget>
@@ -3628,7 +3118,7 @@ background-color: rgba(71, 71, 103,180);
                           <property name="frameShadow">
                            <enum>QFrame::Raised</enum>
                           </property>
-                          <widget class="QTableWidget" name="tableWidget_3">
+                          <widget class="QTableWidget" name="tableWidget_usuarios">
                            <property name="geometry">
                             <rect>
                              <x>37</x>
@@ -4163,7 +3653,6 @@ color: #282830 ;
   </widget>
  </widget>
  <resources>
-  <include location="../../../Prueba/img/img_oficiales.qrc"/>
   <include location="img/img_oficiales.qrc"/>
  </resources>
  <connections/>
