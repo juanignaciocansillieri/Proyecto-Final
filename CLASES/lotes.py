@@ -152,6 +152,10 @@ class lote:
                 values = (idproducto,data)
                 cursor.execute(query, values)
                 a.commit()
+                query = "DELETE FROM lote WHERE idproducto=%s and cantidad=%s"
+                values = (idproducto,data)
+                cursor.execute(query, values)
+                a.commit()
                 cantidad=cantidad-data
                 idlote=idlote+1
                 i=i+1

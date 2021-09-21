@@ -6,9 +6,15 @@ import os
 sys.path.append("C:\\proyecto-final\\DB\\")
 import conexion as c
 
+<<<<<<< HEAD
 class Area:
     
     def __init__(self,nombre,identificador):
+=======
+class area:
+    #HOlA
+    def __init__(self,nombre,identificador,pasillos,segmentos):
+>>>>>>> 2649f11932568410f59decbcaab2fe60f6acff39
         self.nombre=nombre
         self.identificador=identificador
         print("se creo area correctamente")
