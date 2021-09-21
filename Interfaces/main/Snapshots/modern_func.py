@@ -19,7 +19,6 @@ from nueva_area import Ui_MainWindow as na
 from bm_producto import BMProduct as bm
 from bm_producto_ui import Ui_MainWindow as ui_bm
 from bm_user import Ui_MainWindow as bmu 
-from array import array
 
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import productos as pr
@@ -51,132 +50,40 @@ class Modern(QMainWindow):
         centerPoint = QDesktopWidget().availableGeometry().center()
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
-
-        ##########################   PAGINAS   ##################################
-        
-    ########################## PRODUCTOS ##################################
-
-        ## Abrir Pagina Productos ##
-        self.ui.products_btn.clicked.connect(
-            lambda: self.ui.stackedWidget_3.setCurrentWidget(self.ui.product_subpage))
-        # Abrir Pag Stock
+        ###################### ABRIR/CERRAR BARRA LATERAL #########################
         self.ui.products_btn.clicked.connect(
             lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_stock))
-        self.ui.products_btn_stock.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_stock))
-        # Abrir Pag Movimientos
-        self.ui.products_btn_movimiento.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_movimientos))
-        
-        # Listamos productos al iniciar la ventana
-        self.listarProductos()
+        self.ui.products_btn.clicked.connect(
+            lambda: self.ui.stackedWidget_3.setCurrentWidget(self.ui.product_subpage))
 
-            # Btn para buscar
-        self.ui.btn_buscarP.clicked.connect(self.buscarProducto)  
-
-            # Abrir ventana para ver el producto individual
-        self.ui.tableWidget_stock_2.doubleClicked.connect(self.seleccionarProducto)
-        self.ui.tableWidget_stock_2.doubleClicked.connect(self.mostrarBmProduct)
-
-            # Abrir ventana para agregar Nuevo producto
-        self.ui.product_new_btn.clicked.connect(self.mostrarNewProduct)
-
-        self.aaa = self.mostrarAreas()
-
-    ########################## USUARIOS ##################################
-
-        self.ui.user_new_btn.clicked.connect(self.mostrarNewUser)
-        self.ui.users_btn.clicked.connect(self.listarUsuarios)
-        self.ui.btn_buscarU.clicked.connect(self.buscarUsuarios)  
-
-        
-        ## Abrir Pagina Usuarios ##
         self.ui.users_btn.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_usuarios))
         self.ui.users_btn.clicked.connect(
             lambda: self.ui.stackedWidget_3.setCurrentWidget(self.ui.user_subpage))
+        self.ui.users_btn.clicked.connect(self.listarUsuarios)
 
-
-    ########################## DEPOSITOS ##################################
-
-        self.ui.deposito_btn.clicked.connect(self.mostrarAreas)
-        ## Abrir Pagina Depositos ##
         self.ui.deposito_btn.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_deposito))
         self.ui.deposito_btn.clicked.connect(lambda: self.ui.stackedWidget_3.setCurrentWidget(self.ui.deposito_subpage))
+        self.ui.deposito_btn.clicked.connect(self.mostrarAreas)
 
 
-    def mostrarNewProduct(self):
-        self.newProductWindow = ProductWindow()
-        self.newProductWindow.show()
-
-    def mostrarNewUser(self):
-        self.newUserWindow = UsuarioWindow()
-        self.newUserWindow.show()
-
-    def mostrarBmProduct(self):
-        self.newBmProduct = BMProduct()
-        self.newBmProduct.show()
+        self.ui.products_btn_stock.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_stock))
+        self.ui.products_btn_movimiento.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_movimientos))
         
-    def mostrarBmUser(self):
-        self.BM_Usuario = BM_Usuario ()
-        self.BM_Usuario.show()
-    
 
-    ## Listar Productos en la tabla
-    def listarProductos(self):
-        products = p.listar_prod()
-        print(products)
-        n = p.contar_filas()
-        self.ui.tableWidget_stock_2.setRowCount(n)
-        tableRow = 0
-        for row in products:
-            self.ui.tableWidget_stock_2.setItem(
-                tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
-            self.ui.tableWidget_stock_2.setItem(
-                tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
-            self.ui.tableWidget_stock_2.setItem(
-                tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
-            self.ui.tableWidget_stock_2.setItem(
-                tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
-            self.ui.tableWidget_stock_2.setItem(
-                tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
 
-            tableRow += 1
+        self.ui.product_new_btn.clicked.connect(self.mostrarNewProduct)
+        self.ui.user_new_btn.clicked.connect(self.mostrarNewUser)
+        self.ui.newArea_btn.clicked.connect(self.mostrarNewArea)
+        #self.agregarBtnAreas()
 
-  # Buscar productos a traves del input, por parámetro ingresado
-
-    def buscarProducto(self):
-        parametro = self.ui.buscar_input.text()
-        products = p.productos.buscar_product(parametro)
-        n = p.productos.buscar_product_rows(parametro)
-        self.ui.tableWidget_stock_2.setRowCount(n)
-        tableRow = 0
-        for row in products:
-            self.ui.tableWidget_stock_2.setItem(
-                tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
-            self.ui.tableWidget_stock_2.setItem(
-                tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
-            self.ui.tableWidget_stock_2.setItem(
-                tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
-            self.ui.tableWidget_stock_2.setItem(
-                tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
-            self.ui.tableWidget_stock_2.setItem(
-                tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
-
-            tableRow += 1
-
-   
-
-    def seleccionarProducto(self):
-        global productId
-        global defaultImg
-        listaProductos = []
-        for i in range(0,5):
-            listaProductos.append(self.ui.tableWidget_stock_2.item(self.ui.tableWidget_stock_2.currentRow(),i).text())
-        productId = listaProductos[0]
 
     def agregarAreaCreada(self):
 
         areas = ar.Area.listar_area()
         n = ar.Area.contar_filas()
         child = self.ui.verticalLayout_7.count()
+        print(",,,,,,,,,,,,,,,,,",child)
+
         if child == n:
             pass
         else:
@@ -207,14 +114,11 @@ class Modern(QMainWindow):
                 font.setWeight(75)
                 btn1.setFont(font)
 
-    ## Agregar botones dinamicamente
+   
     def agregarBtnAreas(self):
 
         areas = ar.Area.listar_area()
         i = 0
-        n = ar.Area.contar_filas()
-        child = self.ui.verticalLayout_7.count()
-        print(",,,,,,,,,,,,,,,,,",child)
         
         for area in areas:
                 btn1 = QtWidgets.QPushButton(self.ui.frame_5)
@@ -243,19 +147,16 @@ class Modern(QMainWindow):
                 font.setWeight(75)
                 btn1.setFont(font)
                 i+=1
-
-
-    ## Mostrar Areas graficamente
-
+   
     def mostrarAreas(self):
+        
+
         child = self.ui.verticalLayout_7.count()
+        print(child)
         areas = ar.Area.listar_area()
         n = ar.Area.contar_filas()
         i = 1
-        arr = []
-
         for a in areas:
-                
                 frame = QtWidgets.QFrame(self.ui.frame_3)
                 frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
                 frame.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -263,174 +164,116 @@ class Modern(QMainWindow):
                 verticalLayout = QtWidgets.QVBoxLayout(frame)
                 verticalLayout.setObjectName("verticalLay{i}")
                 verticalLayout.addWidget(frame)
-                self.btn = QPushButton(frame)
-                self.btn.setText("Ver")
-                self.btn.setObjectName('Button%s' % a[0])
-                self.btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-                self.btn.setMinimumSize(QtCore.QSize(30,30))
-                self.label = QtWidgets.QLabel(frame)
-                self.btn.released.connect(self.button_released)
-
+                btn = QPushButton(frame)
+                btn.setText("Ver")
+                btn.setObjectName("btn{i}")
+                btn.setGeometry(QtCore.QRect(5, 109, 50, 71))
+                btn.setMaximumSize(QtCore.QSize(50, 16777215))
+                btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+                label = QtWidgets.QLabel(frame)
                 self.ui.gridLayout.addWidget(frame, 1, i, 1, 1)
                 font = QtGui.QFont()
                 font.setFamily("Roboto")
                 font.setPointSize(10)
                 font.setBold(True)
                 font.setWeight(75)
-                self.label.setFont(font)
-                self.label.setText(a[0])
-                self.label.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
-                self.label.setStyleSheet("QLabel{\n"  "border:none;\n""}")
-                self.label.setMaximumSize(QtCore.QSize(300, 250))
-                verticalLayout.addWidget(self.label)
-                verticalLayout.addWidget(self.btn)
-
-                if child < n: 
-                    if child == n-1:
-                        self.agregarAreaCreada()
-                    else:
-                        self.btn2 = QtWidgets.QPushButton(self.ui.frame_5)
-                        self.btn2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-                        self.btn2.setStyleSheet("QPushButton{\n"
-                    "border:none;\n"
-                    "font-family: Roboto;\n"
-                    "border-radius:5px;\n"
-                    "text-align: center;\n"
-                    "color: #282830 ;\n"
-                    "padding:5px;\n"
-                    "\n"
-                    "\n"
-                    "}\n"
-                    "\n"
-                    "QPushButton:hover{\n"
-                    "    background-color: rgba(105, 105, 226, 50);\n"
-                    "}")
-                        self.btn2.setObjectName("Button%s" % a[0])
-                        self.btn2.setText(a[0])
-                        self.ui.verticalLayout_7.addWidget(self.btn2)
-                        font = QtGui.QFont()
-                        font.setFamily("Roboto")
-                        font.setPointSize(10)
-                        font.setBold(True)
-                        font.setWeight(75)
-                        self.btn2.setFont(font)
-                        self.btn2.released.connect(self.button_released)
-
-                        arr.append(self.btn2)
+                label.setFont(font)
+                label.setText(a[0])
+                label.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
                 i+=1
-        return(arr)
-    
-    def button_released(self):
+        self.agregarAreaCreada()
 
-        pp = p.listar_prod()
-        atributos = list(pp[0])
-        print(atributos[7])
-        self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_area)
+    def agregarArea(self):
+        areas = a.area.listar_areas()
+
         
 
+    def mostrarNewArea(self):
+        self.newArea = NewArea()
+        self.newArea.show()
 
-        productos = p.listar_prod()
-        sending_button = self.sender()
-        print('%s Clicked!' % str(sending_button.objectName()))
-
-        if str(sending_button.objectName()):
-                pass
-
-    def rellenarTabla(self,table):
-
-        areas = ar.Area.listar_area()
-        n = ar.Area.contarFilas()
-        self.ui.table.setRowCount(n)
-        tableRow = 0
-        for row in areas:
-            self.ui.table.setItem(
-                tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
-            self.ui.table.setItem(
-                tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
-            self.ui.table.setItem(
-                tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
-            if str(row[3]) == "b'1'":
-                self.ui.table.setItem(
-                    tableRow, 3, QtWidgets.QTableWidgetItem("Admin"))
-            else:
-                self.ui.table.setItem(
-                    tableRow, 3, QtWidgets.QTableWidgetItem("Usuario"))
-
-            self.ui.table.setItem(
-                tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
-
-            tableRow += 1
-    
-                
-                
+    def mostrarNewProduct(self):
+        self.newProductWindow = ProductWindow()
+        self.newProductWindow.show()
 
 
-    ## Listar Usuarios en la tabla
+    def mostrarNewUser(self):
+        self.newUserWindow = UsuarioWindow()
+        self.newUserWindow.show()
 
+
+    def mostrarBmProduct(self):
+        self.newBmProduct = BMProduct()
+        self.newBmProduct.show()
+        
+    def mostrarBmUser(self):
+        self.BM_Usuario = BM_Usuario ()
+        self.BM_Usuario.show()
+        
     def listarUsuarios(self):
         usuarios = u.listar_user()
         n = u.contar_filas()
-        self.ui.tableWidget_usuarios.setRowCount(n)
+        self.ui.tableWidget_3.setRowCount(n)
         tableRow = 0
         for row in usuarios:
-            self.ui.tableWidget_usuarios.setItem(
+            self.ui.tableWidget_3.setItem(
                 tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
-            self.ui.tableWidget_usuarios.setItem(
+            self.ui.tableWidget_3.setItem(
                 tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
-            self.ui.tableWidget_usuarios.setItem(
+            self.ui.tableWidget_3.setItem(
                 tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
             if str(row[3]) == "b'1'":
-                self.ui.tableWidget_usuarios.setItem(
+                self.ui.tableWidget_3.setItem(
                     tableRow, 3, QtWidgets.QTableWidgetItem("Admin"))
             else:
-                self.ui.tableWidget_usuarios.setItem(
+                self.ui.tableWidget_3.setItem(
                     tableRow, 3, QtWidgets.QTableWidgetItem("Usuario"))
 
-            self.ui.tableWidget_usuarios.setItem(
+            self.ui.tableWidget_3.setItem(
                 tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
 
             tableRow += 1
-    
-     # Seleccionar usuario al hacer click y abrir ventana
 
-    def seleccionarusuario(self):
-        global DNI
-        seleccionarusuario = []
-        for i in range(0,5):
-            seleccionarusuario.append(self.ui.tableWidget_usuarios.item(self.ui.tableWidget_usuarios.currentRow(),i).text())
-            DNI = seleccionarusuario[0]    
-    
-##Buscar Usuarios
+    def listarProductos(self,tablewidget):
+        products = p.listar_prod()
+        n = p.contar_filas()
+        tablewidget.setRowCount(n)
+        tableRow = 0
+        for row in products:
+            tablewidget.setItem(
+                tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
+            tablewidget.setItem(
+                tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
+            tablewidget.setItem(
+                tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
+            tablewidget.setItem(
+                tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+            tablewidget.setItem(
+                tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
 
-    def buscarUsuarios(self):
-       parametro = self.ui.lineEdit_3.text()
-       products = u.usuarios.buscar_user(parametro)
-       n = u.usuarios.buscar_user_rows(parametro)
-       self.ui.tableWidget_usuarios.setRowCount(n)
-       tableRow = 0
-       for row in products:
-          self.ui.tableWidget_usuarios.setItem(tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
-          self.ui.tableWidget_usuarios.setItem(tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
-          self.ui.tableWidget_usuarios.setItem(tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
-          if str(row[3])=="b'1'":
-             self.ui.tableWidget_usuarios.setItem(tableRow, 3, QtWidgets.QTableWidgetItem("Admin"))
-          else:
-             self.ui.tableWidget_usuarios.setItem(tableRow, 3, QtWidgets.QTableWidgetItem("Usuario"))
-          self.ui.tableWidget_usuarios.setItem(tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+            tableRow += 1
 
-          tableRow += 1 
+    # Buscar productos a traves del input, por parámetro ingresado
 
+    def buscarProducto(self):
+        parametro = self.ui.buscar_input.text()
+        products = p.productos.buscar_product(parametro)
+        n = p.productos.buscar_product_rows(parametro)
+        self.ui.tableWidget.setRowCount(n)
+        tableRow = 0
+        for row in products:
+            self.ui.tableWidget.setItem(
+                tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
+            self.ui.tableWidget.setItem(
+                tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
+            self.ui.tableWidget.setItem(
+                tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
+            self.ui.tableWidget.setItem(
+                tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+            self.ui.tableWidget.setItem(
+                tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
 
-# Seleccionar DNI al hacer click y abrir ventana
- 
-    def SeleccionarDNI(self):
-        global DNI
-        SeleccionarDNI = []
-        for i in range(0,5):
-            SeleccionarDNI.append(self.ui.tableWidget_usuarios.item(self.ui.tableWidget_usuarios.currentRow(),i).text())
-            DNI = SeleccionarDNI[0]
-            print(DNI)
-    
+            tableRow += 1
 
 
 class BMProduct(QMainWindow):
@@ -458,6 +301,7 @@ class BMProduct(QMainWindow):
 
         #Eliminar producto btn
         self.ui.eliminarprod_btn.clicked.connect(self.borrarProducto)
+        
 
         #Mostrar Ventana
         self.show()
@@ -469,6 +313,7 @@ class BMProduct(QMainWindow):
         global defaultImg
         producto = p.productos.mostrar_product(productId)
         atributos = list(producto[0])
+        print(atributos)
         self.ui.codigo_input.setText(atributos[0])
         codigoViejo = atributos[0]
         self.ui.nombre_input.setText(atributos[1])
@@ -482,7 +327,7 @@ class BMProduct(QMainWindow):
         self.productImg.setPixmap(self.img)
         defaultImg = atributos[7]
         self.ui.lote_num.setValue(atributos[8])
-
+        
         if  str(atributos[9]) == "b'1'":
             print("1")
             self.ui.condicion_cbox.setCurrentText("Refrigerado")
@@ -536,6 +381,7 @@ class BMProduct(QMainWindow):
         altura = self.ui.altura_num.value()
         largo = self.ui.largo_num.value()
         foto = defaultImg
+        print(lote,largo,ubicacion)
         p.productos.modificar_produc(codigoViejo,codigo,nombre,marca,cantidad,ubicacion,descripcion,lote,venc,refri,infla,fragil,foto,peso,largo,ancho,altura)
         self.close()
 
@@ -672,15 +518,6 @@ class BM_Usuario(QMainWindow):
         if ret == qm.Yes:
             u.usuarios.ab_usuario(DNI)
             self.close()
-    def uploadImg(self):
-      global defaultImg
-      size =(256,256)
-      self.filename,ok =QFileDialog.getOpenFileName(self,'Upload Image','','Image files (*.jpg *.png)')
-      if ok:
-            defaultImg = os.path.basename(self.filename)
-            img=Image.open(self.filename)
-            img=img.resize(size)
-            img.save("C:\proyecto-final\Interfaces\main\img/{0}".format(defaultImg))
 
 
 class NewArea(QMainWindow):
@@ -706,10 +543,11 @@ class NewArea(QMainWindow):
     
     #CREAR PRODUCTO NUEVO
     def crearArea(self):   
-    #RECIBIR VALORES DE LA VENTANA
+      #RECIBIR VALORES DE LA VENTANA
       nom = self.ui.motivo_input.text()
       ide = self.ui.motivo_input_2.text()
       area= ar.Area(nom,ide) 
+      Modern.agregarAreaCreada(Modern.ui)
       self.close()
      
 if __name__ == "__main__":

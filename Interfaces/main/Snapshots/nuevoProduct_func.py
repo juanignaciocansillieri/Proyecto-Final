@@ -12,7 +12,6 @@ import nuevo_producto_ui
 from nuevo_producto_ui import Ui_MainWindow
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import productos as pr
-import area as a
 
 defaultImg = "Error.png"
 
@@ -122,9 +121,3 @@ class ProductWindow(QMainWindow):
          self.ui.descripcion_input.setText("")
          #self.ui.area_comboBox.setCompleter("")
          self.ui.ubicacion_input.setText("")
-
-
-    def cbox(self):
-        areas = a.Area.listar_area()
-        for ar in areas:
-            self.ui.condicion_cbox.addItem(ar[0])

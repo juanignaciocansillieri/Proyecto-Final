@@ -5,21 +5,21 @@ from sys import setprofile
 from typing import NoReturn
 import pymysql
 import os
-import lotes as lote
 #import alojamiento as aloj
+#import lotes
 sys.path.append("C:\\proyecto-final\\DB\\")
 import conexion as c
 
 
 class productos():
-    def __init__(self, codigo, marca, cantidad, descripcion,ubicacion, lote, vencimiento,condicion,fragil,foto,peso,largo,ancho,alto):
+    def __init__(self, codigo, marca, cantidad, descripcion,ubicacion, fechalote, vencimiento,condicion,fragil,foto,peso,largo,ancho,alto):
         self.codigo = codigo
         self.marca = marca
         self.cantidad = cantidad
         self.descripcion = descripcion
         self.ubicacion = ubicacion
         self.foto = foto
-        self.lote = lote
+        self.fechalote = fechalote
         self.vencimiento = vencimiento
         self.condicion = condicion
         self.fragil = fragil
@@ -36,110 +36,12 @@ class productos():
         a = c.start_connection()
         cursor = a.cursor()
         try:
-            query = "INSERT INTO productos (codigo, marca, cantidad, descripcion,ubicacion, lote, vencimiento,condicion,fragil,foto,peso,largo,ancho,alto) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-            values = (self.codigo, self.marca, self.cantidad, self.descripcion, self.ubicacion, self.lote, self.vencimiento, self.condicion, self.fragil,self.foto,self.peso,self.largo,self.ancho,self.alto)
+            query = "INSERT INTO productos (codigo, marca, descripcion,ubicacion,condicion,fragil,foto,peso,largo,ancho,alto) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+            values = (self.codigo, self.marca, self.descripcion, self.ubicacion, self.condicion, self.fragil,self.foto,self.peso,self.largo,self.ancho,self.alto)
             cursor.execute(query, values)
             a.commit()
+            lotes(self.codigo,self.cantidad,self.fechalote,self.vencimiento)
             print("se dio alta producto correctamente")
-        except pymysql.err.OperationalError as err:
-            print("Hubo un error:", err)
-        c.close_connection(a)
-
-
-    def importar_datos_product(self, codigo):
-        a = c.start_connection()
-        cursor = a.cursor()
-        try:
-            self.codigo = codigo
-            query = "SELECT nombre FROM productos WHERE codigo=%s"
-            values = codigo
-            cursor.execute(query, values)
-            a.commit()
-            b = cursor.fetchall()
-            self.nombre = str(b[0][0])
-            query = "SELECT marca FROM productos WHERE codigo=%s"
-            values = codigo
-            cursor.execute(query, values)
-            a.commit()
-            b = cursor.fetchall()
-            self.marca = str(b[0][0])
-            query = "SELECT cantidad FROM productosWHERE codigo=%s"
-            values = codigo
-            cursor.execute(query, values)
-            a.commit()
-            b = cursor.fetchall()
-            self.cantidad = str(b[0][0])
-            query = "SELECT descripcion FROM productos WHERE codigo=%s"
-            values = codigo
-            cursor.execute(query, values)
-            a.commit()
-            b = cursor.fetchall()
-            self.descripcion = str(b[0][0])
-            query = "SELECT foto FROM productos WHERE codigo=%s"
-            values = codigo
-            cursor.execute(query, values)
-            a.commit()
-            b = cursor.fetchall()
-            self.foto = str(b[0][0])
-            query = "SELECT lote FROM productos WHERE codigo=%s"
-            values = codigo
-            cursor.execute(query, values)
-            a.commit()
-            b = cursor.fetchall()
-            self.lote = str(b[0][0])
-            query = "SELECT vencimiemto FROM productos WHERE codigo=%s"
-            values = codigo
-            cursor.execute(query, values)
-            a.commit()
-            query = "SELECT refrigeracion FROM productos WHERE codigo=%s"
-            values = codigo
-            cursor.execute(query, values)
-            a.commit()
-            b = cursor.fetchall()
-            self.refrigeracion = str(b[0][0])
-            query = "SELECT inflamable FROM productos WHERE codigo=%s"
-            values = codigo
-            cursor.execute(query, values)
-            a.commit()
-            b = cursor.fetchall()
-            self.inflamable = str(b[0][0])
-            query = "SELECT fragil FROM productos WHERE codigo=%s"
-            values = codigo
-            cursor.execute(query, values)
-            a.commit()
-            b = cursor.fetchall()
-            self.fragil = str(b[0][0])
-            query = "SELECT ubicacion FROM productos WHERE codigo=%s"
-            values = codigo
-            cursor.execute(query, values)
-            a.commit()
-            b = cursor.fetchall()
-            self.ubicacion = str(b[0][0])
-            query = "SELECT peso FROM productos WHERE codigo=%s"
-            values = codigo
-            cursor.execute(query, values)
-            a.commit()
-            b = cursor.fetchall()
-            self.peso = str(b[0][0])
-            query = "SELECT largo FROM productos WHERE codigo=%s"
-            values = codigo
-            cursor.execute(query, values)
-            a.commit()
-            b = cursor.fetchall()
-            self.ubicacion = str(b[0][0])
-            query = "SELECT ancho FROM productos WHERE codigo=%s"
-            values = codigo
-            cursor.execute(query, values)
-            a.commit()
-            b = cursor.fetchall()
-            self.ancho = str(b[0][0])
-            query = "SELECT alto FROM productos WHERE codigo=%s"
-            values = codigo
-            cursor.execute(query, values)
-            a.commit()
-            b = cursor.fetchall()
-            self.alto = str(b[0][0])
-            print("se importo producto correctamente")
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
         c.close_connection(a)
@@ -154,7 +56,7 @@ class productos():
         a.commit()
 
 
-    def modificar_produc(codigov, codigon,marca, cantidad, descripcion,ubicacion, lote, vencimiento,condicion,fragil,foto,peso,largo,ancho,alto):
+    def modificar_produc(codigov, codigon,marca,descripcion,ubicacion,condicion,fragil,foto,peso,largo,ancho,alto):
         a = c.start_connection()
         cursor = a.cursor()
         query = "SELECT idproductos FROM productos WHERE codigo=%s"
@@ -173,24 +75,12 @@ class productos():
             values = (marca, idp)
             cursor.execute(query, values)
             a.commit()
-            query = "UPDATE productos set cantidad=%s WHERE idproductos=%s"
-            values = (cantidad, idp)
-            cursor.execute(query, values)
-            a.commit()
             query = "UPDATE productos set descripcion=%s WHERE idproductos=%s"
             values = (descripcion, idp)
             cursor.execute(query, values)
             a.commit()
             query = "UPDATE productos set foto=%s WHERE idproductos=%s"
             values = (foto, idp)
-            cursor.execute(query, values)
-            a.commit()
-            query = "UPDATE productos set lote=%s WHERE idproductos=%s"
-            values = (lote, idp)
-            cursor.execute(query, values)
-            a.commit()
-            query = "UPDATE productos set vencimiento=%s WHERE idproductos=%s"
-            values = (vencimiento, idp)
             cursor.execute(query, values)
             a.commit()
             query = "UPDATE productos set condicion=%s WHERE idproductos=%s"
@@ -227,19 +117,6 @@ class productos():
             print("Hubo un error:", err)
         c.close_connection(a)
 
-    def agregar_cantidad(self, codigo,cantidad):
-        a = c.start_connection()
-        cursor = a.cursor()
-        try:
-            query = "UPDATE productos set cantidad=%s WHERE codigo=%s"
-            values = (cantidad, codigo)
-            cursor.execute(query, values)
-            a.commit()
-
-            print("se MODIFICO producto correctamente")
-        except pymysql.err.OperationalError as err:
-            print("Hubo un error:", err)
-        c.close_connection(a)
 
     def buscar_product(param):
         a = c.start_connection()
@@ -261,7 +138,7 @@ class productos():
     def mostrar_product(codigo):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT codigo, marca, cantidad, descripcion,ubicacion, lote, vencimiento,condicion,fragil,foto,peso,largo,ancho,alto FROM productos WHERE codigo=%s")
+        query = ("SELECT codigo, marca, cantidad, descripcion,ubicacion, lote, vencimiento,fragil,foto,peso,largo,ancho,alto FROM productos WHERE codigo=%s")
         cursor.execute(query,codigo)
         data = cursor.fetchall()
         a.commit()
@@ -273,15 +150,13 @@ def listar_prod():
     a = c.start_connection()
     cursor = a.cursor()
     try:
-        query = "SELECT codigo,descripcion,marca,cantidad,vencimiento FROM productos"
+        query = "SELECT codigo, marca, cantidad, descripcion,ubicacion, lote, vencimiento,fragil,foto,peso,largo,ancho,alto FROM productos"
         cursor.execute(query)
         productos = cursor.fetchall()
-
         a.commit()
     except pymysql.err.OperationalError as err:
         print("Hubo un error:", err)
     c.close_connection(a)
-    print(productos)
     return productos
 
 

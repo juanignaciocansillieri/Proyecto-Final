@@ -11,7 +11,6 @@ import create_user
 from bm_producto_ui import Ui_MainWindow
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import productos as p
-import area as a
 
 class BMProduct(QMainWindow):
 
@@ -29,7 +28,6 @@ class BMProduct(QMainWindow):
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
         self.rellenarCampos()
-        self.cbox()
         self.show()
 
 
@@ -51,10 +49,3 @@ class BMProduct(QMainWindow):
         atributos[12]=self.ui.peso_num
         atributos[13]=self.ui.ancho_num
         atributos[14]=self.ui.altura_num
-
-
-    def cbox(self):
-        areas = a.Area.listar_area()
-        for ar in areas:
-            self.ui.condicion_cbox.addItem(ar[0])
-        

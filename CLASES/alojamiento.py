@@ -10,24 +10,20 @@ import conexion as c
 
 class alojamiento:
     def __init__(self,largo,ancho,alto,area,segmento,filas,nivel,refrigeracion,limite):
-        self.codigo= mz.asignacion_de_posicion()
+        self.codigo= str(str(self.area)+"-"+str(self.segmento)+"-"+str(filas)+"-"+str(nivel))
         self.largo=largo
         self.ancho=ancho
         self.alto=alto
+        self.area=area
+        self.segmento=segmento
+        self.filas=filas
+        self.nivel=nivel
         self.volumen=self.largo*self.ancho*self.alto
         self.disponibilidad=0 #0 disponible 1 tiene algo 2 esta lleno
-        self.posicion=str(str(area)+str(segmento)+str(filas)+str(nivel))
+        self.posicion=str(str(self.area)+"-"+str(self.segmento)+"-"+str(filas)+"-"+str(nivel))
         self.refrigeracion=refrigeracion
         self.limite=limite
         print("se creo alojamiento correctamente")
-
-
-
-    def generacion_ubicacion(self):
-        posicion=self.codigo.split()
-        posicion="pasillo: ",posicion[0],", fila: ",posicion[1],", altura: ",posicion[2]
-        posicion=str(posicion)
-        return posicion
 
 
     def alta_alojamiento(self):
@@ -38,6 +34,7 @@ class alojamiento:
             values = (self.codigo,self.largo,self.ancho,self.alto,self.volumen,self.disponibilidad,self.posicion,self.refrigeracion,self.limite)
             cursor.execute(query, values)
             a.commit()
+            mz.ab_matriz(self.area,self.codigo)
             print("se dio alta alojamiento correctamente")
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
@@ -56,64 +53,7 @@ class alojamiento:
             print("Hubo un error:", err)
         c.close_connection(a)
 
-    def importar_datos_alojamiento(self,codigo):
-            a=c.start_connection()
-            cursor=a.cursor()
-            try:
-                self.codigo=codigo
-                query = "SELECT dimensiones FROM alojamiento WHERE codigo=%s"
-                values = codigo
-                cursor.execute(query, values)
-                a.commit()
-                b=cursor.fetchall() 
-                self.nombre=str(b[0][0]) 
-                query = "SELECT disponibilidad FROM alojamiento WHERE codigo=%s"
-                values = codigo
-                cursor.execute(query, values)
-                a.commit()
-                b=cursor.fetchall() 
-                self.marca=str(b[0][0]) 
-                query = "SELECT posicion FROM alojamiento WHERE codigo=%s"
-                values = codigo
-                cursor.execute(query, values)
-                a.commit()
-                b=cursor.fetchall() 
-                self.cantidad=str(b[0][0]) 
-                query = "SELECT refrijeracion FROM alojamiento WHERE codigo=%s"
-                values = codigo
-                cursor.execute(query, values)
-                a.commit()
-                b=cursor.fetchall() 
-                self.descripcion=str(b[0][0]) 
-                query = "SELECT limite FROM alojamiento WHERE codigo=%s"
-                values = codigo
-                cursor.execute(query, values)
-                a.commit()
-                b=cursor.fetchall() 
-                self.foto=str(b[0][0]) 
-                print("se importo alojamiento correctamente")
-            except pymysql.err.OperationalError as err:
-                print("Hubo un error:", err)
-            c.close_connection(a)
 
-    def mostrar_datos_alojamiento_importado(self,codigo):
-        #a=c.start_connection()
-        #cursor=a.cursor()
-        self.importar_datos_alojamiento(codigo)
-        try:
-            if self.disponibilidad=="1":
-                self.disponibilidad="disponible"
-            else:
-                self.disponibilidad="no disponible"
-            if self.refrigeracion=="1":
-                self.refrigeracion="refrigerado"
-            else:
-                self.refrigeracion="no refrigerado"
-            print("\ncodigo: ",self.codigo,"\ndimensiones: ",self.dimensiones,"\ndisponibilidad: ",self.disponibilidad,"\nposicion: ",self.posicion,"\nrefrigeracion: ",self.refrigeracion,"\nlimite: ",self.limite)
-        except pymysql.err.OperationalError as err:
-            print("Hubo un error:", err)
-        #c.close_connection(a)
-        return 0
         
     def modificar_alojamiento(self,codigo,largo,ancho,alto,disponibilidad,posicion,refrigeracion,limite):
             a=c.start_connection()

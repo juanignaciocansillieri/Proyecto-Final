@@ -292,16 +292,11 @@ class Ui_MainWindow(object):
 "")
         self.label_fragil.setObjectName("label_fragil")
         self.fragil_si = QtWidgets.QRadioButton(self.frame_3)
-        self.fragil_si.setGeometry(QtCore.QRect(430, 100, 51, 21))
-        self.fragil_si.setStyleSheet("font-family: Roboto;\n"
-"font-size: 12px;\n"
-"")
+        self.fragil_si.setGeometry(QtCore.QRect(430, 100, 31, 21))
         self.fragil_si.setIconSize(QtCore.QSize(30, 30))
         self.fragil_si.setObjectName("fragil_si")
         self.fragil_no = QtWidgets.QRadioButton(self.frame_3)
-        self.fragil_no.setGeometry(QtCore.QRect(480, 100, 51, 21))
-        self.fragil_no.setStyleSheet("font-family: Roboto;\n"
-"font-size: 12px;")
+        self.fragil_no.setGeometry(QtCore.QRect(460, 100, 31, 21))
         self.fragil_no.setIconSize(QtCore.QSize(30, 30))
         self.fragil_no.setObjectName("fragil_no")
         self.label_area = QtWidgets.QLabel(self.frame_3)
@@ -448,7 +443,7 @@ class Ui_MainWindow(object):
 "}")
         self.subirFoto_btn.setObjectName("subirFoto_btn")
         self.crearprod_btn = QtWidgets.QPushButton(self.frame_2)
-        self.crearprod_btn.setGeometry(QtCore.QRect(465, 360, 150, 25))
+        self.crearprod_btn.setGeometry(QtCore.QRect(460, 360, 150, 25))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(-1)
