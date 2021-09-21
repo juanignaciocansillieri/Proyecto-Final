@@ -150,7 +150,7 @@ def listar_prod():
     a = c.start_connection()
     cursor = a.cursor()
     try:
-        query = "SELECT codigo,descripcion,marca,cantidad,vencimiento FROM productos"
+        query = "SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto"
         cursor.execute(query)
         productos = cursor.fetchall()
 
