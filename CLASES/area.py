@@ -11,9 +11,6 @@ class area:
     def __init__(self,nombre,identificador,pasillos,segmentos):
         self.nombre=nombre
         self.identificador=identificador
-        self.pasillos=pasillos
-        self.segmentos=segmentos
-        self.disponibilidad=0
         print("se creo area correctamente")
         self.alta_area()
 
@@ -22,8 +19,8 @@ class area:
         a=c.start_connection()
         cursor=a.cursor()
         try:
-            query = "INSERT INTO area(nombre,identificador,pasillos,segmentos,disponibilidad) VALUES (%s,%s,%s,%s,%s)"
-            values = (self.nombre,self.identificador,self.pasillos,self.segmentos,self.disponibilidad)
+            query = "INSERT INTO area(nombre,identificador) VALUES (%s,%s)"
+            values = (self.nombre,self.identificador)
             cursor.execute(query, values)
             a.commit()
             print("se dio alta al area correctamente")
@@ -95,7 +92,7 @@ class area:
             a = c.start_connection()
             cursor = a.cursor()
             try:
-                query = "SELECT nombre,identificador,pasillos,segmentos,disponibilidad FROM area"
+                query = "SELECT nombre,identificador FROM area"
                 cursor.execute(query)
                 area = cursor.fetchall()
                 a.commit()

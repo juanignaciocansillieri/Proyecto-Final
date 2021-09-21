@@ -6,7 +6,7 @@ from typing import NoReturn
 import pymysql
 import os
 #import alojamiento as aloj
-import lotes
+#import lotes
 sys.path.append("C:\\proyecto-final\\DB\\")
 import conexion as c
 
@@ -138,7 +138,7 @@ class productos():
     def mostrar_product(codigo):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT codigo, marca, cantidad, descripcion,ubicacion, lote, vencimiento,condicion,fragil,foto,peso,largo,ancho,alto FROM productos WHERE codigo=%s")
+        query = ("SELECT codigo, marca, cantidad, descripcion,ubicacion, lote, vencimiento,fragil,foto,peso,largo,ancho,alto FROM productos WHERE codigo=%s")
         cursor.execute(query,codigo)
         data = cursor.fetchall()
         a.commit()
@@ -150,15 +150,17 @@ def listar_prod():
     a = c.start_connection()
     cursor = a.cursor()
     try:
+<<<<<<< HEAD
         query = "SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto"
+=======
+        query = "SELECT codigo, marca, cantidad, descripcion,ubicacion, lote, vencimiento,fragil,foto,peso,largo,ancho,alto FROM productos"
+>>>>>>> 611c01d132cd43d7eddea184a58acbdbed7a9300
         cursor.execute(query)
         productos = cursor.fetchall()
-
         a.commit()
     except pymysql.err.OperationalError as err:
         print("Hubo un error:", err)
     c.close_connection(a)
-    print(productos)
     return productos
 
 
