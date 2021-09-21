@@ -79,7 +79,7 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
     q5="""CREATE TABLE IF NOT EXISTS lote (
     idlote INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     idproducto VARCHAR(20) NOT NULL,
-    cantindad int not null,
+    cantidad int not null,
     fechalote VARCHAR(20) NOT NULL,
     vencimiento DATE
     );"""
