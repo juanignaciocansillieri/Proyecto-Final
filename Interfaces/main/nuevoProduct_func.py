@@ -80,7 +80,6 @@ class ProductWindow(QMainWindow):
         return None
       else:
         product = pr.productos(codigo,marca,cantidad,descripcion,ubicacion,lote,venc,condicion,fragil,defaultImg,peso,largo,ancho,altura)
-        product.alta_producto()
         self.close()
       
       
@@ -103,7 +102,6 @@ class ProductWindow(QMainWindow):
 
     def clearInput(self):
          self.ui.codigo_input.setText("")
-         #self.ui.nombre_input.setText("")
          self.ui.descripcion_input.setText("")
          self.ui.cantidad_num.setValue("")
          self.ui.lote_input.setText("")

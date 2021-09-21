@@ -67,6 +67,7 @@ class Modern(QMainWindow):
         self.ui.products_btn_stock.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_stock))
         # Abrir Pag Movimientos
         self.ui.products_btn_movimiento.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_movimientos))
+        #self.ui.btn_movimiento.clicked.connect(self.)
         
         # Listamos productos al iniciar la ventana
         n = 0
@@ -127,6 +128,10 @@ class Modern(QMainWindow):
     def mostrarNewArea(self):
         self.newArea = NewArea()
         self.newArea.show()
+
+    def mostrarNewMovimiento(self):
+        #self.newMovimiento = newMovimiento()
+        self.newMovimiento.show()
     
 
     ## Listar Productos en la tabla
@@ -336,9 +341,6 @@ class Modern(QMainWindow):
         atributos = list(pp[0])
         print(atributos[7])
         self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_area)
-        
-
-
         productos = p.listar_prod()
         sending_button = self.sender()
         print('%s Clicked!' % str(sending_button.objectName()))

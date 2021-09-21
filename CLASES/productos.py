@@ -28,7 +28,6 @@ class productos():
         self.largo= largo
         self.alto= alto
         print("se creo producto correctamente")
-        self.alta_producto()
 
     def asignar_ubicacion(self):
         pass
@@ -123,7 +122,7 @@ class productos():
     def buscar_product(param):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT codigo,descripcion,marca,cantidad,vencimiento FROM productos WHERE codigo=%s or nombre=%s or marca=%s or  cantidad=%s")
+        query = ("SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto WHERE codigo=%s or descripcion=%s or marca=%s or  cantidad=%s")
         cursor.execute(query, (param, param,param,param))
         data = cursor.fetchall()
         a.commit()
@@ -132,7 +131,7 @@ class productos():
     def buscar_product_rows(param):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT codigo,descripcion,marca,cantidad,vencimiento FROM productos WHERE codigo=%s or nombre=%s or marca=%s or  cantidad=%s")
+        query = ("SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto WHERE codigo=%s or descripcion=%s or marca=%s or  cantidad=%s")
         data = cursor.execute(query, (param, param,param,param))
         a.commit()
         return data
@@ -140,7 +139,7 @@ class productos():
     def mostrar_product(codigo):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT codigo, marca, cantidad, descripcion,ubicacion, lote, vencimiento,fragil,foto,peso,largo,ancho,alto FROM productos WHERE codigo=%s")
+        query = ("SELECT p.codigo, p.marca, l.cantidad, p.descripcion,p.ubicacion, l.fechalote, l.vencimiento,p.fragil,p.foto,p.peso,p.largo,p.ancho,p.alto FROM productos p JOIN lote l ON p.codigo = l.idproducto WHERE codigo=%s")
         cursor.execute(query,codigo)
         data = cursor.fetchall()
         a.commit()
@@ -152,11 +151,7 @@ def listar_prod():
     a = c.start_connection()
     cursor = a.cursor()
     try:
-<<<<<<< HEAD
         query = "SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto"
-=======
-        query = "SELECT codigo, marca, cantidad, descripcion,ubicacion, lote, vencimiento,fragil,foto,peso,largo,ancho,alto FROM productos"
->>>>>>> 611c01d132cd43d7eddea184a58acbdbed7a9300
         cursor.execute(query)
         productos = cursor.fetchall()
         a.commit()

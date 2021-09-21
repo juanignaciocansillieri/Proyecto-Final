@@ -34,11 +34,7 @@ import matriz as mz
 #aa=str(aa)
 #nn=len(aa)
 #print(nn)
-<<<<<<< HEAD
-""""
-=======
 """
->>>>>>> 2abd94c55a1375578e1f1b421e1c19329b4e606a
 aa=us.usuarios("alex","arraya","123",1,"gerente","1999/05/14","alex@gmail.com")
 aa.alta_usuario()
 aa.alta_login("asd")
@@ -95,4 +91,3 @@ ff.alta_producto()
 #print(us.ver_tipo(154))
 
 """
-"""""

@@ -586,7 +586,7 @@ class Ui_MainWindow(object):
 "QHeaderView::section {\n"
 "    background-color: #394353;\n"
 "    border-radius: 11px;\n"
-"    color:#fff;\n"
+"    color:#000;\n"
 "    font-size: 9pt;\n"
 "    font-family:Roboto;\n"
 "}\n"
@@ -758,18 +758,18 @@ class Ui_MainWindow(object):
         self.pushButton_16.setIcon(icon8)
         self.pushButton_16.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_16.setObjectName("pushButton_16")
-        self.pushButton_17 = QtWidgets.QPushButton(self.groupBox_8)
-        self.pushButton_17.setGeometry(QtCore.QRect(230, 23, 35, 26))
-        self.pushButton_17.setMinimumSize(QtCore.QSize(0, 26))
-        self.pushButton_17.setMaximumSize(QtCore.QSize(39, 16777215))
+        self.btn_movimiento = QtWidgets.QPushButton(self.groupBox_8)
+        self.btn_movimiento.setGeometry(QtCore.QRect(230, 23, 35, 26))
+        self.btn_movimiento.setMinimumSize(QtCore.QSize(0, 26))
+        self.btn_movimiento.setMaximumSize(QtCore.QSize(39, 16777215))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(9)
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton_17.setFont(font)
-        self.pushButton_17.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_17.setStyleSheet("QPushButton{\n"
+        self.btn_movimiento.setFont(font)
+        self.btn_movimiento.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_movimiento.setStyleSheet("QPushButton{\n"
 "background-color: rgb(71, 71, 103);\n"
 "color:#fff;\n"
 "border-radius: 5px;\n"
@@ -779,10 +779,10 @@ class Ui_MainWindow(object):
 "background-color: rgba(71, 71, 103,180);\n"
 "\n"
 "}")
-        self.pushButton_17.setText("")
-        self.pushButton_17.setIcon(icon6)
-        self.pushButton_17.setIconSize(QtCore.QSize(13, 13))
-        self.pushButton_17.setObjectName("pushButton_17")
+        self.btn_movimiento.setText("")
+        self.btn_movimiento.setIcon(icon6)
+        self.btn_movimiento.setIconSize(QtCore.QSize(13, 13))
+        self.btn_movimiento.setObjectName("btn_movimiento")
         self.verticalLayout_29.addWidget(self.groupBox_8)
         self.verticalLayout_27.addWidget(self.top_frame_mov_2)
         self.mid_mov_2 = QtWidgets.QFrame(self.container_mov_2)
@@ -1498,10 +1498,10 @@ class Ui_MainWindow(object):
         self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_4.setObjectName("frame_4")
-        self.tableWidget_stock_3 = QtWidgets.QTableWidget(self.frame_4)
-        self.tableWidget_stock_3.setGeometry(QtCore.QRect(10, 60, 871, 422))
-        self.tableWidget_stock_3.setMaximumSize(QtCore.QSize(16777215, 422))
-        self.tableWidget_stock_3.setStyleSheet("QTableWidget{\n"
+        self.tableWidget_area = QtWidgets.QTableWidget(self.frame_4)
+        self.tableWidget_area.setGeometry(QtCore.QRect(10, 60, 871, 422))
+        self.tableWidget_area.setMaximumSize(QtCore.QSize(16777215, 422))
+        self.tableWidget_area.setStyleSheet("QTableWidget{\n"
 "font-size: 11pt;\n"
 "margin-left: 0px;\n"
 "margin-top:15px;\n"
@@ -1533,28 +1533,28 @@ class Ui_MainWindow(object):
 "\n"
 "    border-left: 1px solid #394353;\n"
 "}")
-        self.tableWidget_stock_3.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
-        self.tableWidget_stock_3.setShowGrid(False)
-        self.tableWidget_stock_3.setObjectName("tableWidget_stock_3")
-        self.tableWidget_stock_3.setColumnCount(5)
-        self.tableWidget_stock_3.setRowCount(0)
+        self.tableWidget_area.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget_area.setShowGrid(False)
+        self.tableWidget_area.setObjectName("tableWidget_area")
+        self.tableWidget_area.setColumnCount(5)
+        self.tableWidget_area.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_stock_3.setHorizontalHeaderItem(0, item)
+        self.tableWidget_area.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_stock_3.setHorizontalHeaderItem(1, item)
+        self.tableWidget_area.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_stock_3.setHorizontalHeaderItem(2, item)
+        self.tableWidget_area.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_stock_3.setHorizontalHeaderItem(3, item)
+        self.tableWidget_area.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_stock_3.setHorizontalHeaderItem(4, item)
-        self.tableWidget_stock_3.horizontalHeader().setVisible(False)
-        self.tableWidget_stock_3.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableWidget_stock_3.horizontalHeader().setDefaultSectionSize(169)
-        self.tableWidget_stock_3.horizontalHeader().setSortIndicatorShown(True)
-        self.tableWidget_stock_3.horizontalHeader().setStretchLastSection(True)
-        self.tableWidget_stock_3.verticalHeader().setVisible(False)
-        self.tableWidget_stock_3.verticalHeader().setDefaultSectionSize(41)
+        self.tableWidget_area.setHorizontalHeaderItem(4, item)
+        self.tableWidget_area.horizontalHeader().setVisible(False)
+        self.tableWidget_area.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableWidget_area.horizontalHeader().setDefaultSectionSize(169)
+        self.tableWidget_area.horizontalHeader().setSortIndicatorShown(True)
+        self.tableWidget_area.horizontalHeader().setStretchLastSection(True)
+        self.tableWidget_area.verticalHeader().setVisible(False)
+        self.tableWidget_area.verticalHeader().setDefaultSectionSize(41)
         self.frame_25 = QtWidgets.QFrame(self.frame_4)
         self.frame_25.setGeometry(QtCore.QRect(10, 10, 881, 41))
         self.frame_25.setMinimumSize(QtCore.QSize(56, 41))
@@ -1634,8 +1634,8 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget_3.setCurrentIndex(1)
-        self.stackedWidget_main.setCurrentIndex(4)
+        self.stackedWidget_3.setCurrentIndex(0)
+        self.stackedWidget_main.setCurrentIndex(1)
         self.stackedWidget_user.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -1848,15 +1848,15 @@ class Ui_MainWindow(object):
         self.label_20.setText(_translate("MainWindow", "Apellido"))
         self.label_21.setText(_translate("MainWindow", "Tipo"))
         self.label_22.setText(_translate("MainWindow", "Fecha de Nacimiento"))
-        item = self.tableWidget_stock_3.horizontalHeaderItem(0)
+        item = self.tableWidget_area.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "New Column"))
-        item = self.tableWidget_stock_3.horizontalHeaderItem(1)
+        item = self.tableWidget_area.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "New Column"))
-        item = self.tableWidget_stock_3.horizontalHeaderItem(2)
+        item = self.tableWidget_area.horizontalHeaderItem(2)
         item.setText(_translate("MainWindow", "New Column"))
-        item = self.tableWidget_stock_3.horizontalHeaderItem(3)
+        item = self.tableWidget_area.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "New Column"))
-        item = self.tableWidget_stock_3.horizontalHeaderItem(4)
+        item = self.tableWidget_area.horizontalHeaderItem(4)
         item.setText(_translate("MainWindow", "New Column"))
         self.label_13.setText(_translate("MainWindow", "Código"))
         self.label_35.setText(_translate("MainWindow", "Descripción"))
