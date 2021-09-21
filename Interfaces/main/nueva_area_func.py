@@ -14,7 +14,7 @@ import area as a
 
 class NewArea(QMainWindow):
 
-    def __init__(self,func):
+    def __init__(self):
         super(NewArea, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
@@ -23,15 +23,11 @@ class NewArea(QMainWindow):
         centerPoint = QDesktopWidget().availableGeometry().center()
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
-        ######## SACAR BARRA DE TÍTULO#####################
-        self.setWindowFlag(Qt.FramelessWindowHint)
-        self.setAttribute(Qt.WA_TranslucentBackground)
         ############## CENTRAMOS LA VENTANA #############
         centerPoint = QDesktopWidget().availableGeometry().center()
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
         self.ui.crearprod_btn.clicked.connect(self.crearArea)
-        self.ui.crearprod_btn.clicked.connect(func)
 
     
     #CREAR PRODUCTO NUEVO
@@ -39,7 +35,9 @@ class NewArea(QMainWindow):
       #RECIBIR VALORES DE LA VENTANA
       nom = self.ui.motivo_input.text()
       ide = self.ui.motivo_input_2.text()
-      area= a.Area(nom,ide) 
+      pasillo = self.ui.segmentos_num.value()
+      segmento = self.ui.pasillos_num.value()
+      area = a.Area(nom,ide,pasillo,segmento) 
       self.close()
      
       

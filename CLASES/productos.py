@@ -6,7 +6,7 @@ from typing import NoReturn
 import pymysql
 import os
 #import alojamiento as aloj
-#import lotes
+import lotes
 sys.path.append("C:\\proyecto-final\\DB\\")
 import conexion as c
 
@@ -28,6 +28,7 @@ class productos():
         self.largo= largo
         self.alto= alto
         print("se creo producto correctamente")
+        self.alta_producto()
 
     def asignar_ubicacion(self):
         pass
@@ -36,12 +37,13 @@ class productos():
         a = c.start_connection()
         cursor = a.cursor()
         try:
-            query = "INSERT INTO productos (codigo, marca, descripcion,ubicacion,condicion,fragil,foto,peso,largo,ancho,alto) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+            query = "INSERT INTO productos (codigo, marca, descripcion,ubicacion,condicion,fragil,foto,peso,largo,ancho,alto) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
             values = (self.codigo, self.marca, self.descripcion, self.ubicacion, self.condicion, self.fragil,self.foto,self.peso,self.largo,self.ancho,self.alto)
             cursor.execute(query, values)
             a.commit()
-            lotes(self.codigo,self.cantidad,self.fechalote,self.vencimiento)
+            lotes.lote(self.codigo,self.cantidad,self.fechalote,self.vencimiento)
             print("se dio alta producto correctamente")
+
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
         c.close_connection(a)
@@ -155,6 +157,7 @@ def listar_prod():
         productos = cursor.fetchall()
         a.commit()
     except pymysql.err.OperationalError as err:
+        productos = ""
         print("Hubo un error:", err)
     c.close_connection(a)
     return productos

@@ -34,7 +34,7 @@ import matriz as mz
 #aa=str(aa)
 #nn=len(aa)
 #print(nn)
-
+""""
 aa=us.usuarios("alex","arraya","123",1,"gerente","1999/05/14","alex@gmail.com")
 aa.alta_usuario()
 aa.alta_login("asd")
@@ -91,3 +91,4 @@ ff.alta_producto()
 #print(us.ver_tipo(154))
 
 """
+"""""

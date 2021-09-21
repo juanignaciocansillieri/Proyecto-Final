@@ -20,7 +20,7 @@ from bm_producto import BMProduct as bm
 from bm_producto_ui import Ui_MainWindow as ui_bm
 from bm_user import Ui_MainWindow as bmu 
 from array import array
-
+from nueva_area_func import NewArea
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import productos as pr
 sys.path.append("C:\\proyecto-final\\CLASES\\")
@@ -59,6 +59,8 @@ class Modern(QMainWindow):
         ## Abrir Pagina Productos ##
         self.ui.products_btn.clicked.connect(
             lambda: self.ui.stackedWidget_3.setCurrentWidget(self.ui.product_subpage))
+        self.ui.products_btn.clicked.connect(self.listarProductos)
+        self.ui.products_btn_stock.clicked.connect(self.listarProductos)
         # Abrir Pag Stock
         self.ui.products_btn.clicked.connect(
             lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_stock))
@@ -67,7 +69,11 @@ class Modern(QMainWindow):
         self.ui.products_btn_movimiento.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_movimientos))
         
         # Listamos productos al iniciar la ventana
-        self.listarProductos()
+        n = 0
+        n = p.contar_filas()
+        print(n)
+        if n > 0:
+            self.listarProductos()
 
             # Btn para buscar
         self.ui.btn_buscarP.clicked.connect(self.buscarProducto)  
@@ -100,7 +106,7 @@ class Modern(QMainWindow):
         ## Abrir Pagina Depositos ##
         self.ui.deposito_btn.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_deposito))
         self.ui.deposito_btn.clicked.connect(lambda: self.ui.stackedWidget_3.setCurrentWidget(self.ui.deposito_subpage))
-
+        self.ui.newArea_btn.clicked.connect(self.mostrarNewArea)
 
     def mostrarNewProduct(self):
         self.newProductWindow = ProductWindow()
@@ -115,8 +121,12 @@ class Modern(QMainWindow):
         self.newBmProduct.show()
         
     def mostrarBmUser(self):
-        self.BM_Usuario = BM_Usuario ()
+        self.BM_Usuario = BM_Usuario()
         self.BM_Usuario.show()
+        
+    def mostrarNewArea(self):
+        self.newArea = NewArea()
+        self.newArea.show()
     
 
     ## Listar Productos en la tabla
@@ -683,34 +693,6 @@ class BM_Usuario(QMainWindow):
             img.save("C:\proyecto-final\Interfaces\main\img/{0}".format(defaultImg))
 
 
-class NewArea(QMainWindow):
-
-    def __init__(self):
-        super(NewArea, self).__init__()
-        self.ui = na()
-        self.ui.setupUi(self)
-        ############# RECIBIMOS PROPORCIONES DE LA PANTALLA ###########
-        qtRectangle = self.frameGeometry()
-        centerPoint = QDesktopWidget().availableGeometry().center()
-        qtRectangle.moveCenter(centerPoint)
-        self.move(qtRectangle.topLeft())
-        ######## SACAR BARRA DE TÍTULO#####################
-        self.setWindowFlag(Qt.FramelessWindowHint)
-        self.setAttribute(Qt.WA_TranslucentBackground)
-        ############## CENTRAMOS LA VENTANA #############
-        centerPoint = QDesktopWidget().availableGeometry().center()
-        qtRectangle.moveCenter(centerPoint)
-        self.move(qtRectangle.topLeft())
-        self.ui.crearprod_btn.clicked.connect(self.crearArea)
-
-    
-    #CREAR PRODUCTO NUEVO
-    def crearArea(self):   
-    #RECIBIR VALORES DE LA VENTANA
-      nom = self.ui.motivo_input.text()
-      ide = self.ui.motivo_input_2.text()
-      area= ar.Area(nom,ide) 
-      self.close()
      
 if __name__ == "__main__":
     app = QApplication(sys.argv)
