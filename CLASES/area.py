@@ -7,7 +7,7 @@ sys.path.append("C:\\proyecto-final\\DB\\")
 import conexion as c
 
 class area:
-    
+    #HOlA
     def __init__(self,nombre,identificador,pasillos,segmentos):
         self.nombre=nombre
         self.identificador=identificador
