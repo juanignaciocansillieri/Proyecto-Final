@@ -1,6 +1,4 @@
-from DB.conexion import contar_filas_tabla
-from CLASES.productos import contar_filas
-from _typeshed import Self
+
 import sys
 from sys import setprofile
 from typing import NoReturn

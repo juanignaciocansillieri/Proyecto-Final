@@ -34,6 +34,7 @@ class ProductWindow(QMainWindow):
         # Agregar Producto
         self.ui.crearprod_btn.clicked.connect(self.crearProducto)
         self.ui.subirFoto_btn.clicked.connect(self.uploadImg)
+        self.cbox()
 
     
     #CREAR PRODUCTO NUEVO
@@ -42,28 +43,21 @@ class ProductWindow(QMainWindow):
       #RECIBIR VALORES DE LA VENTANA
       codigo = self.ui.codigo_input.text()
       #nombre = self.ui.nombre_input.text()
-      descripcion = self.ui.descripcion_input.toPlainText()
+      descripcion = self.ui.descripcion_input.text()
       cantidad = self.ui.cantidad_num.value()
       marca = self.ui.marca_input.text()
       venc = self.ui.venc_date.date().toString("yyyy/MM/dd")
-      lote = self.ui.lote_input.value()
+      lote = self.ui.lote_input.text()
+      ubicacion = self.ui.ubicacion_input.text()
       imagen = defaultImg
       if self.ui.fragil_si.isChecked():
         fragil = "1"
       else :
         fragil = "0"
 
-      condicion = self.ui.condicion_cbox.currentText()
+      condicion = self.ui.area_comboBox.currentText()
 
-      if condicion=="Refrigerado":
-        refri=1
-        infla=0
-      elif condicion=="Inflamable": 
-        refri=0
-        infla=1
-      else:
-        refri=0
-        infla=0
+  
 
       peso = self.ui.peso_num.value()
       ancho = self.ui.ancho_num.value()
@@ -72,7 +66,7 @@ class ProductWindow(QMainWindow):
 
     
 
-      if codigo=="" or nombre=="" or descripcion=="" or cantidad=="" or marca=="" or venc=="" or lote=="" or peso=="" or ancho=="" or largo=="" or altura=="":
+      if codigo==""  or descripcion=="" or cantidad=="" or marca=="" or venc=="" or lote=="" or peso=="" or ancho=="" or largo=="" or altura=="":
         QtWidgets.QMessageBox.critical(self, "Error", "Ingrese todos los datos")
         return None
 
@@ -85,8 +79,7 @@ class ProductWindow(QMainWindow):
         QtWidgets.QMessageBox.critical(self, "Error", "Codigo Existente")
         return None
       else:
-        product = pr.productos(codigo,marca,cantidad,descripcion,lote,venc,refri,infla,fragil,defaultImg,peso,largo,ancho,altura)
-        product.alta_producto()
+        product = pr.productos(codigo,marca,cantidad,descripcion,ubicacion,lote,venc,condicion,fragil,defaultImg,peso,largo,ancho,altura)
         self.close()
       
       
@@ -109,7 +102,6 @@ class ProductWindow(QMainWindow):
 
     def clearInput(self):
          self.ui.codigo_input.setText("")
-         #self.ui.nombre_input.setText("")
          self.ui.descripcion_input.setText("")
          self.ui.cantidad_num.setValue("")
          self.ui.lote_input.setText("")
@@ -127,4 +119,4 @@ class ProductWindow(QMainWindow):
     def cbox(self):
         areas = a.Area.listar_area()
         for ar in areas:
-            self.ui.condicion_cbox.addItem(ar[0])
+            self.ui.area_comboBox.addItem(ar[0])

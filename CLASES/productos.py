@@ -6,7 +6,7 @@ from typing import NoReturn
 import pymysql
 import os
 #import alojamiento as aloj
-#import lotes
+import lotes
 sys.path.append("C:\\proyecto-final\\DB\\")
 import conexion as c
 
@@ -36,12 +36,13 @@ class productos():
         a = c.start_connection()
         cursor = a.cursor()
         try:
-            query = "INSERT INTO productos (codigo, marca, descripcion,ubicacion,condicion,fragil,foto,peso,largo,ancho,alto) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+            query = "INSERT INTO productos (codigo, marca, descripcion,ubicacion,condicion,fragil,foto,peso,largo,ancho,alto) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
             values = (self.codigo, self.marca, self.descripcion, self.ubicacion, self.condicion, self.fragil,self.foto,self.peso,self.largo,self.ancho,self.alto)
             cursor.execute(query, values)
             a.commit()
-            lotes(self.codigo,self.cantidad,self.fechalote,self.vencimiento)
+            lotes.lote(self.codigo,self.cantidad,self.fechalote,self.vencimiento)
             print("se dio alta producto correctamente")
+
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
         c.close_connection(a)
@@ -121,7 +122,7 @@ class productos():
     def buscar_product(param):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto WHERE codigo=%s or nombre=%s or marca=%s or  cantidad=%s")
+        query = ("SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto WHERE codigo=%s or descripcion=%s or marca=%s or  cantidad=%s")
         cursor.execute(query, (param, param,param,param))
         data = cursor.fetchall()
         a.commit()
@@ -130,7 +131,7 @@ class productos():
     def buscar_product_rows(param):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto WHERE codigo=%s or nombre=%s or marca=%s or  cantidad=%s")
+        query = ("SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto WHERE codigo=%s or descripcion=%s or marca=%s or  cantidad=%s")
         data = cursor.execute(query, (param, param,param,param))
         a.commit()
         return data
@@ -138,7 +139,7 @@ class productos():
     def mostrar_product(codigo):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT p.codigo, p.marca, l.cantidad, p.descripcion,p.ubicacion, l.fechalote, l.vencimiento,p.fragil,p.foto,peso,largo,ancho,alto FROM productos WHERE codigo=%s")
+        query = ("SELECT p.codigo, p.marca, l.cantidad, p.descripcion,p.ubicacion, l.fechalote, l.vencimiento,p.fragil,p.foto,p.peso,p.largo,p.ancho,p.alto FROM productos p JOIN lote l ON p.codigo = l.idproducto WHERE codigo=%s")
         cursor.execute(query,codigo)
         data = cursor.fetchall()
         a.commit()
@@ -155,6 +156,7 @@ def listar_prod():
         productos = cursor.fetchall()
         a.commit()
     except pymysql.err.OperationalError as err:
+        productos = ""
         print("Hubo un error:", err)
     c.close_connection(a)
     return productos

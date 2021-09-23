@@ -484,7 +484,7 @@ border-right:1px solid #cccccc;</string>
                 <string notr="true">border:none</string>
                </property>
                <property name="currentIndex">
-                <number>1</number>
+                <number>0</number>
                </property>
                <widget class="QWidget" name="product_subpage">
                 <widget class="QLabel" name="label_7">
@@ -609,6 +609,51 @@ QPushButton:hover{
                  </property>
                  <property name="text">
                   <string>Movimientos</string>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>30</width>
+                   <height>35</height>
+                  </size>
+                 </property>
+                </widget>
+                <widget class="QPushButton" name="products_btn_movimiento_2">
+                 <property name="geometry">
+                  <rect>
+                   <x>20</x>
+                   <y>240</y>
+                   <width>111</width>
+                   <height>31</height>
+                  </rect>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Roboto</family>
+                   <pointsize>9</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="cursor">
+                  <cursorShape>PointingHandCursor</cursorShape>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QPushButton{
+border:none;
+font-family: Roboto;
+text-align:left;
+color: #282830 ;
+border-radius:5px;
+
+
+}
+
+QPushButton:hover{
+	background-color: rgba(105, 105, 226, 50);
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>Lotes</string>
                  </property>
                  <property name="iconSize">
                   <size>
@@ -972,7 +1017,7 @@ QPushButton:hover{
           <item>
            <widget class="QStackedWidget" name="stackedWidget_main">
             <property name="currentIndex">
-             <number>4</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="page_stock">
              <layout class="QHBoxLayout" name="horizontalLayout_3">

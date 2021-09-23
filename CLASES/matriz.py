@@ -1,4 +1,3 @@
-from CLASES.area import area
 import sys
 from sys import setprofile
 from typing import NoReturn
@@ -38,7 +37,7 @@ class matriz:
             nivel VARCHAR(20) NOT NULL,
             disponibilidad BINARY(1) NOT NULL
             );"""
-            values = (area)
+            values = (self.area)
             cursor.execute(query, values)
             a.commit()
             print("se cargaron datos de la matriz correctamente")
