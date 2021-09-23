@@ -484,7 +484,7 @@ border-right:1px solid #cccccc;</string>
                 <string notr="true">border:none</string>
                </property>
                <property name="currentIndex">
-                <number>0</number>
+                <number>2</number>
                </property>
                <widget class="QWidget" name="product_subpage">
                 <widget class="QLabel" name="label_7">
@@ -532,7 +532,7 @@ border-right:1px solid #cccccc;</string>
                   <rect>
                    <x>20</x>
                    <y>140</y>
-                   <width>111</width>
+                   <width>51</width>
                    <height>31</height>
                   </rect>
                  </property>
@@ -577,7 +577,7 @@ QPushButton:hover{
                   <rect>
                    <x>20</x>
                    <y>190</y>
-                   <width>111</width>
+                   <width>81</width>
                    <height>31</height>
                   </rect>
                  </property>
@@ -605,6 +605,10 @@ border-radius:5px;
 
 QPushButton:hover{
 	background-color: rgba(105, 105, 226, 50);
+}
+
+QPushButton:focus{
+	background-color: rgba(105, 105, 226, 50);
 }</string>
                  </property>
                  <property name="text">
@@ -617,12 +621,12 @@ QPushButton:hover{
                   </size>
                  </property>
                 </widget>
-                <widget class="QPushButton" name="products_btn_movimiento_2">
+                <widget class="QPushButton" name="products_btn_lotes">
                  <property name="geometry">
                   <rect>
                    <x>20</x>
                    <y>240</y>
-                   <width>111</width>
+                   <width>41</width>
                    <height>31</height>
                   </rect>
                  </property>
@@ -851,96 +855,6 @@ QPushButton:hover{
                 </layout>
                </widget>
                <widget class="QWidget" name="user_subpage">
-                <widget class="QPushButton" name="products_btn_4">
-                 <property name="geometry">
-                  <rect>
-                   <x>30</x>
-                   <y>197</y>
-                   <width>111</width>
-                   <height>31</height>
-                  </rect>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>Roboto</family>
-                   <pointsize>9</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="cursor">
-                  <cursorShape>PointingHandCursor</cursorShape>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton{
-border:none;
-font-family: Roboto;
-text-align:left;
-color: #282830 ;
-border-radius:5px;
-
-
-}
-
-QPushButton:hover{
-	background-color: rgba(105, 105, 226, 50);
-}</string>
-                 </property>
-                 <property name="text">
-                  <string>Productos</string>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>30</width>
-                   <height>35</height>
-                  </size>
-                 </property>
-                </widget>
-                <widget class="QPushButton" name="products_btn_5">
-                 <property name="geometry">
-                  <rect>
-                   <x>30</x>
-                   <y>147</y>
-                   <width>111</width>
-                   <height>31</height>
-                  </rect>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>Roboto</family>
-                   <pointsize>9</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="cursor">
-                  <cursorShape>PointingHandCursor</cursorShape>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton{
-border:none;
-font-family: Roboto;
-border-radius:5px;
-text-align: left;
-color: #282830 ;
-
-
-}
-
-QPushButton:hover{
-	background-color: rgba(105, 105, 226, 50);
-}</string>
-                 </property>
-                 <property name="text">
-                  <string>Productos</string>
-                 </property>
-                 <property name="iconSize">
-                  <size>
-                   <width>30</width>
-                   <height>30</height>
-                  </size>
-                 </property>
-                </widget>
                 <widget class="QLabel" name="label_10">
                  <property name="geometry">
                   <rect>
@@ -1017,7 +931,7 @@ QPushButton:hover{
           <item>
            <widget class="QStackedWidget" name="stackedWidget_main">
             <property name="currentIndex">
-             <number>1</number>
+             <number>4</number>
             </property>
             <widget class="QWidget" name="page_stock">
              <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -1866,7 +1780,7 @@ color: #282830 ;
                          </size>
                         </property>
                        </widget>
-                       <widget class="QPushButton" name="pushButton_17">
+                       <widget class="QPushButton" name="btn_movimiento">
                         <property name="geometry">
                          <rect>
                           <x>230</x>
@@ -3686,7 +3600,7 @@ color: #282830 ;
               </item>
              </layout>
             </widget>
-            <widget class="QWidget" name="page_area">
+            <widget class="QWidget" name="page_lotes">
              <layout class="QVBoxLayout" name="verticalLayout_9">
               <item>
                <widget class="QFrame" name="frame_4">
@@ -3696,7 +3610,7 @@ color: #282830 ;
                 <property name="frameShadow">
                  <enum>QFrame::Raised</enum>
                 </property>
-                <widget class="QTableWidget" name="tableWidget_area">
+                <widget class="QTableWidget" name="tableWidget_lotes">
                  <property name="geometry">
                   <rect>
                    <x>10</x>

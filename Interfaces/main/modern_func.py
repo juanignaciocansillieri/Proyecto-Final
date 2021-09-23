@@ -21,6 +21,8 @@ from bm_producto_ui import Ui_MainWindow as ui_bm
 from bm_user import Ui_MainWindow as bmu 
 from array import array
 from nueva_area_func import NewArea
+import movimiento_func
+from movimiento_func import NewMovimiento
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import productos as pr
 sys.path.append("C:\\proyecto-final\\CLASES\\")
@@ -67,6 +69,8 @@ class Modern(QMainWindow):
         self.ui.products_btn_stock.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_stock))
         # Abrir Pag Movimientos
         self.ui.products_btn_movimiento.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_movimientos))
+        # Abrir Pag Lotes
+        self.ui.products_btn_lotes.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_lotes))
         #self.ui.btn_movimiento.clicked.connect(self.)
         
         # Listamos productos al iniciar la ventana
@@ -87,6 +91,9 @@ class Modern(QMainWindow):
         self.ui.product_new_btn.clicked.connect(self.mostrarNewProduct)
 
         self.aaa = self.mostrarAreas()
+
+            # Abrir ventana para agregar Nuevo movimiento
+        self.ui.btn_movimiento.clicked.connect(self.mostrarNewMovimiento)
 
     ########################## USUARIOS ##################################
 
@@ -130,8 +137,9 @@ class Modern(QMainWindow):
         self.newArea.show()
 
     def mostrarNewMovimiento(self):
-        #self.newMovimiento = newMovimiento()
+        self.newMovimiento = NewMovimiento()
         self.newMovimiento.show()
+        self.ui.products_btn_movimiento.setFocus()
     
 
     ## Listar Productos en la tabla
@@ -155,6 +163,26 @@ class Modern(QMainWindow):
 
             tableRow += 1
 
+    ## Listar Movimientos en la tabla
+    def listarMovimientos(self):
+        movimientos = p.listar_prod()
+        print(movimientos)
+        n = p.contar_filas()
+        self.ui.tableWidget_stock_2.setRowCount(n)
+        tableRow = 0
+        for row in movimientos:
+            self.ui.tableWidget_stock_2.setItem(
+                tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
+            self.ui.tableWidget_stock_2.setItem(
+                tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
+            self.ui.tableWidget_stock_2.setItem(
+                tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
+            self.ui.tableWidget_stock_2.setItem(
+                tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+            self.ui.tableWidget_stock_2.setItem(
+                tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+
+            tableRow += 1
   # Buscar productos a traves del input, por parámetro ingresado
 
     def buscarProducto(self):

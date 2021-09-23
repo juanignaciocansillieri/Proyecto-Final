@@ -275,9 +275,37 @@ class Ui_MainWindow(object):
 "\n"
 "QPushButton:hover{\n"
 "    background-color: rgba(105, 105, 226, 50);\n"
+"}\n"
+"\n"
+"QPushButton:focus{\n"
+"    background-color: rgba(105, 105, 226, 50);\n"
 "}")
         self.products_btn_movimiento.setIconSize(QtCore.QSize(30, 35))
         self.products_btn_movimiento.setObjectName("products_btn_movimiento")
+        self.products_btn_lotes = QtWidgets.QPushButton(self.product_subpage)
+        self.products_btn_lotes.setGeometry(QtCore.QRect(20, 240, 111, 31))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.products_btn_lotes.setFont(font)
+        self.products_btn_lotes.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.products_btn_lotes.setStyleSheet("QPushButton{\n"
+"border:none;\n"
+"font-family: Roboto;\n"
+"text-align:left;\n"
+"color: #282830 ;\n"
+"border-radius:5px;\n"
+"\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    background-color: rgba(105, 105, 226, 50);\n"
+"}")
+        self.products_btn_lotes.setIconSize(QtCore.QSize(30, 35))
+        self.products_btn_lotes.setObjectName("products_btn_lotes")
         self.stackedWidget_3.addWidget(self.product_subpage)
         self.deposito_subpage = QtWidgets.QWidget()
         self.deposito_subpage.setObjectName("deposito_subpage")
@@ -586,7 +614,7 @@ class Ui_MainWindow(object):
 "QHeaderView::section {\n"
 "    background-color: #394353;\n"
 "    border-radius: 11px;\n"
-"    color:#000;\n"
+"    color:#fff;\n"
 "    font-size: 9pt;\n"
 "    font-family:Roboto;\n"
 "}\n"
@@ -1490,18 +1518,18 @@ class Ui_MainWindow(object):
         self.stackedWidget_user.addWidget(self.page_movimientos_2)
         self.verticalLayout_28.addWidget(self.stackedWidget_user)
         self.stackedWidget_main.addWidget(self.page_usuarios)
-        self.page_area = QtWidgets.QWidget()
-        self.page_area.setObjectName("page_area")
-        self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.page_area)
+        self.page_lotes = QtWidgets.QWidget()
+        self.page_lotes.setObjectName("page_lotes")
+        self.verticalLayout_9 = QtWidgets.QVBoxLayout(self.page_lotes)
         self.verticalLayout_9.setObjectName("verticalLayout_9")
-        self.frame_4 = QtWidgets.QFrame(self.page_area)
+        self.frame_4 = QtWidgets.QFrame(self.page_lotes)
         self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_4.setObjectName("frame_4")
-        self.tableWidget_area = QtWidgets.QTableWidget(self.frame_4)
-        self.tableWidget_area.setGeometry(QtCore.QRect(10, 60, 871, 422))
-        self.tableWidget_area.setMaximumSize(QtCore.QSize(16777215, 422))
-        self.tableWidget_area.setStyleSheet("QTableWidget{\n"
+        self.tableWidget_lotes = QtWidgets.QTableWidget(self.frame_4)
+        self.tableWidget_lotes.setGeometry(QtCore.QRect(10, 60, 871, 422))
+        self.tableWidget_lotes.setMaximumSize(QtCore.QSize(16777215, 422))
+        self.tableWidget_lotes.setStyleSheet("QTableWidget{\n"
 "font-size: 11pt;\n"
 "margin-left: 0px;\n"
 "margin-top:15px;\n"
@@ -1533,28 +1561,28 @@ class Ui_MainWindow(object):
 "\n"
 "    border-left: 1px solid #394353;\n"
 "}")
-        self.tableWidget_area.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
-        self.tableWidget_area.setShowGrid(False)
-        self.tableWidget_area.setObjectName("tableWidget_area")
-        self.tableWidget_area.setColumnCount(5)
-        self.tableWidget_area.setRowCount(0)
+        self.tableWidget_lotes.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget_lotes.setShowGrid(False)
+        self.tableWidget_lotes.setObjectName("tableWidget_lotes")
+        self.tableWidget_lotes.setColumnCount(5)
+        self.tableWidget_lotes.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_area.setHorizontalHeaderItem(0, item)
+        self.tableWidget_lotes.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_area.setHorizontalHeaderItem(1, item)
+        self.tableWidget_lotes.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_area.setHorizontalHeaderItem(2, item)
+        self.tableWidget_lotes.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_area.setHorizontalHeaderItem(3, item)
+        self.tableWidget_lotes.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_area.setHorizontalHeaderItem(4, item)
-        self.tableWidget_area.horizontalHeader().setVisible(False)
-        self.tableWidget_area.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableWidget_area.horizontalHeader().setDefaultSectionSize(169)
-        self.tableWidget_area.horizontalHeader().setSortIndicatorShown(True)
-        self.tableWidget_area.horizontalHeader().setStretchLastSection(True)
-        self.tableWidget_area.verticalHeader().setVisible(False)
-        self.tableWidget_area.verticalHeader().setDefaultSectionSize(41)
+        self.tableWidget_lotes.setHorizontalHeaderItem(4, item)
+        self.tableWidget_lotes.horizontalHeader().setVisible(False)
+        self.tableWidget_lotes.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableWidget_lotes.horizontalHeader().setDefaultSectionSize(169)
+        self.tableWidget_lotes.horizontalHeader().setSortIndicatorShown(True)
+        self.tableWidget_lotes.horizontalHeader().setStretchLastSection(True)
+        self.tableWidget_lotes.verticalHeader().setVisible(False)
+        self.tableWidget_lotes.verticalHeader().setDefaultSectionSize(41)
         self.frame_25 = QtWidgets.QFrame(self.frame_4)
         self.frame_25.setGeometry(QtCore.QRect(10, 10, 881, 41))
         self.frame_25.setMinimumSize(QtCore.QSize(56, 41))
@@ -1627,7 +1655,7 @@ class Ui_MainWindow(object):
         self.label_38.setObjectName("label_38")
         self.horizontalLayout_16.addWidget(self.label_38, 0, QtCore.Qt.AlignLeft)
         self.verticalLayout_9.addWidget(self.frame_4)
-        self.stackedWidget_main.addWidget(self.page_area)
+        self.stackedWidget_main.addWidget(self.page_lotes)
         self.verticalLayout_2.addWidget(self.stackedWidget_main)
         self.horizontalLayout.addWidget(self.frame)
         self.horizontalLayout_2.addWidget(self.container)
@@ -1635,7 +1663,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.stackedWidget_3.setCurrentIndex(0)
-        self.stackedWidget_main.setCurrentIndex(1)
+        self.stackedWidget_main.setCurrentIndex(4)
         self.stackedWidget_user.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -1645,6 +1673,7 @@ class Ui_MainWindow(object):
         self.label_7.setText(_translate("MainWindow", "Productos"))
         self.products_btn_stock.setText(_translate("MainWindow", "Stock"))
         self.products_btn_movimiento.setText(_translate("MainWindow", "Movimientos"))
+        self.products_btn_lotes.setText(_translate("MainWindow", "Lotes"))
         self.label_9.setText(_translate("MainWindow", "Depósito"))
         self.label_12.setText(_translate("MainWindow", "Áreas"))
         self.products_btn_4.setText(_translate("MainWindow", "Productos"))
@@ -1848,15 +1877,15 @@ class Ui_MainWindow(object):
         self.label_20.setText(_translate("MainWindow", "Apellido"))
         self.label_21.setText(_translate("MainWindow", "Tipo"))
         self.label_22.setText(_translate("MainWindow", "Fecha de Nacimiento"))
-        item = self.tableWidget_area.horizontalHeaderItem(0)
+        item = self.tableWidget_lotes.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "New Column"))
-        item = self.tableWidget_area.horizontalHeaderItem(1)
+        item = self.tableWidget_lotes.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "New Column"))
-        item = self.tableWidget_area.horizontalHeaderItem(2)
+        item = self.tableWidget_lotes.horizontalHeaderItem(2)
         item.setText(_translate("MainWindow", "New Column"))
-        item = self.tableWidget_area.horizontalHeaderItem(3)
+        item = self.tableWidget_lotes.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "New Column"))
-        item = self.tableWidget_area.horizontalHeaderItem(4)
+        item = self.tableWidget_lotes.horizontalHeaderItem(4)
         item.setText(_translate("MainWindow", "New Column"))
         self.label_13.setText(_translate("MainWindow", "Código"))
         self.label_35.setText(_translate("MainWindow", "Descripción"))
