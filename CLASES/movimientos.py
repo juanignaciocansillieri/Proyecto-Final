@@ -6,8 +6,7 @@ import os
 sys.path.append("C:\proyecto-final\DB")
 import conexion as c
 
-class movimientos:
-
+class movimientos:    
     def __init__(self,tipo,codigo,cantidad,descripcion,fecha):
         self.tipo=tipo
         self.codigo=codigo
