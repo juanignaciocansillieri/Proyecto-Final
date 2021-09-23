@@ -9,6 +9,10 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 import movimiento_ui
 from movimiento_ui import Ui_MainWindow
+sys.path.append("C:\\proyecto-final\\CLASES\\")
+import movimientos as m
+import lotes as l
+
 
 b = True
 
@@ -53,6 +57,9 @@ class NewMovimiento(QMainWindow):
 "\n"
 "}\n"
 "")
+                self.ui.crearprod_btn.clicked.connect(self.crearEgreso)
+
+
 
         if txtVal == "Ingreso":
             if  b == False:
@@ -61,7 +68,28 @@ class NewMovimiento(QMainWindow):
                 self.ui.fecha_date_2.setGeometry(QtCore.QRect(230, 100, 170, 25))
                 self.ui.label_fecha_2.setText("Fecha de Vencimiento")
                 self.ui.label_motivo.setText("Lote")
+            self.ui.crearprod_btn.clicked.connect(self.crearIngreso)
 
+    def crearEgreso(self):
+
+        tipo = "Egreso"
+        cantidad = self.ui.spinBox.value()
+        motivo = self.ui.label_motivo.text()
+        cod = self.ui.codigo_producto_input.text()
+        fechaEgreso = self.ui.fecha_date.date().toString("yyyy/MM/dd")
+        m.movimientos(tipo,cod,cantidad,motivo,fechaEgreso)
+        self.close()
+
+    def crearIngreso(self):
+        tipo = "Egreso"
+        cantidad = self.ui.spinBox.value()
+        motivo = self.ui.label_motivo.text()
+        cod = self.ui.codigo_producto_input.text()
+        fechaIgreso = self.ui.fecha_date.date().toString("yyyy/MM/dd")
+        venc = self.ui.fecha_date_2.date().toString("yyyy/MM/dd")
+        l.lotes(cod,cantidad,fechaIgreso,venc)
+        m.movimientos(tipo,cod,cantidad,motivo,fechaIgreso)
+        self.close()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
