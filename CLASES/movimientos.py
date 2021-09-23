@@ -8,7 +8,8 @@ import conexion as c
 
 class movimientos:
     
-    def __init__(self,codigo,cantidad,descripcion,fecha):
+    def __init__(self,tipo,codigo,cantidad,descripcion,fecha):
+        self.tipo=tipo
         self.codigo=codigo
         self.cantidad=cantidad
         self.descripcion=descripcion
@@ -22,8 +23,8 @@ class movimientos:
         a=c.start_connection()
         cursor=a.cursor()
         try:
-            query = "INSERT INTO movimientos(codigo,cantidad,descripcion,fecha) VALUES (%s,%s,%s,%s)"
-            values = (self.codigo,self.cantidad,self.descripcion,self.fecha)
+            query = "INSERT INTO movimientos(tipo,codigo,cantidad,descripcion,fecha) VALUES (%s,%s,%s,%s,%s)"
+            values = (self.tipo,self.codigo,self.cantidad,self.descripcion,self.fecha)
             cursor.execute(query, values)
             a.commit()
             print("se dio alta al movimientos correctamente")
@@ -62,7 +63,7 @@ class movimientos:
             a = c.start_connection()
             cursor = a.cursor()
             try:
-                query = "SELECT codigo,cantidad,descripcion,fecha FROM movimientos"
+                query = "SELECT tipo,codigo,cantidad,descripcion,fecha FROM movimientos"
                 cursor.execute(query)
                 area = cursor.fetchall()
                 a.commit()
@@ -74,7 +75,7 @@ class movimientos:
     def mostrar_movimientos(codigo,fecha):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT codigo,cantidad,descripcion,fecha FROM movimientos WHERE codigo=%s and fecha=%s")
+        query = ("SELECT tipo,codigo,cantidad,descripcion,fecha FROM movimientos WHERE codigo=%s and fecha=%s")
         values=(codigo,fecha)
         cursor.execute(query,values)
         data = cursor.fetchall()
