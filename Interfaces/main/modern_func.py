@@ -310,6 +310,7 @@ class Modern(QMainWindow):
             "}")
                 btn1.setObjectName("{area[0]}")
                 btn1.setText(area[0])
+                btn1.released.connect(self.button_released)
                 self.ui.verticalLayout_7.addWidget(btn1)
                 font = QtGui.QFont()
                 font.setFamily("Roboto")
@@ -397,13 +398,27 @@ class Modern(QMainWindow):
     def button_released(self):
 
         pp = p.listar_prod()
-        atributos = list(pp)
-        print(atributos)
+        atributos = pp[0][5]    
         self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_lotes)
-        productos = p.listar_prod()
+        productos = p.productos.buscar_productArea(atributos)
         sending_button = self.sender()
         print('%s Clicked!' % str(sending_button.objectName()))
+        n = p.productos.buscar_product_rows_area(atributos)
+        self.ui.tableWidget_lotes.setRowCount(n)
+        tableRow = 0
+        for row in productos:
+            self.ui.tableWidget_lotes.setItem(
+                tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
+            self.ui.tableWidget_lotes.setItem(
+                tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
+            self.ui.tableWidget_lotes.setItem(
+                tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
+            self.ui.tableWidget_lotes.setItem(
+                tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+            self.ui.tableWidget_lotes.setItem(
+                tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
 
+            tableRow += 1
         if str(sending_button.objectName()):
                 pass
 

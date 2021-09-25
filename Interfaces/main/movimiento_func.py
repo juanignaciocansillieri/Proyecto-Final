@@ -16,7 +16,7 @@ import lotes as l
 
 a=0
 b = True
-
+a = 0
 class NewMovimiento(QMainWindow):
 
     def __init__(self):
@@ -44,6 +44,15 @@ class NewMovimiento(QMainWindow):
         else: a=1
 
 
+        self.ui.crearprod_btn.clicked.connect(self.current)
+
+    def current(self):
+        global a
+        if a == 0:
+            a = 1
+            self.crearIngreso()
+        else: a = 1
+        
     def onSelected(self, txtVal):
         global b
         if txtVal == "Egreso":

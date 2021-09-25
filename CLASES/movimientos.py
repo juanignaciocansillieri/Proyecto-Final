@@ -57,6 +57,8 @@ class movimientos:
         n = int(b)
         c.close_connection(a)
         return n
+
+    
 def listar_movimientos():
             a = c.start_connection()
             cursor = a.cursor()
