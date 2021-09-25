@@ -134,7 +134,7 @@ class productos():
     def buscar_productArea(param):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto WHERE area = %s")
+        query = ("SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto WHERE condicion = %s")
         cursor.execute(query, param)
         data = cursor.fetchall()
         a.commit()
@@ -145,6 +145,13 @@ class productos():
         cursor = a.cursor()
         query = ("SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto WHERE codigo=%s or descripcion=%s or marca=%s or  cantidad=%s")
         data = cursor.execute(query, (param, param,param,param))
+        a.commit()
+        return data
+    def buscar_product_rows_area(param):
+        a = c.start_connection()
+        cursor = a.cursor()
+        query = ("SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto WHERE condicion=%s")
+        data = cursor.execute(query,param)
         a.commit()
         return data
 
@@ -163,7 +170,7 @@ def listar_prod():
     a = c.start_connection()
     cursor = a.cursor()
     try:
-        query = "SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto"
+        query = "SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento,p.condicion FROM productos p JOIN lote l ON p.codigo=l.idproducto"
         cursor.execute(query)
         productos = cursor.fetchall()
         a.commit()

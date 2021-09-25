@@ -15,7 +15,7 @@ import lotes as l
 
 
 b = True
-
+a = 0
 class NewMovimiento(QMainWindow):
 
     def __init__(self):
@@ -32,8 +32,16 @@ class NewMovimiento(QMainWindow):
         qtRectangle.moveCenter(centerPoint)
         self.ui.egr_ing_cb.activated[str].connect(self.onSelected)
         self.lote = QtWidgets.QLineEdit(self.ui.frame_3)
-        self.ui.crearprod_btn.clicked.connect(self.crearIngreso)
 
+        self.ui.crearprod_btn.clicked.connect(self.current)
+
+    def current(self):
+        global a
+        if a == 0:
+            a = 1
+            self.crearIngreso()
+        else: a = 1
+        
     def onSelected(self, txtVal):
         global b
         if txtVal == "Egreso":
@@ -75,7 +83,7 @@ class NewMovimiento(QMainWindow):
 
         tipo = True
         cantidad = self.ui.spinBox.value()
-        motivo = self.ui.label_motivo.text()
+        motivo = self.ui.motivo_input.text()
         cod = self.ui.codigo_producto_input.text()
         fechaEgreso = self.ui.fecha_date.date().toString("yyyy/MM/dd")
         m.movimientos(tipo,cod,cantidad,motivo,fechaEgreso)
@@ -85,7 +93,7 @@ class NewMovimiento(QMainWindow):
     def crearIngreso(self):
         tipo = False
         cantidad = self.ui.spinBox.value()
-        motivo = self.ui.label_motivo.text()
+        motivo = self.ui.motivo_input.text()
         cod = self.ui.codigo_producto_input.text()
         fechaIgreso = self.ui.fecha_date.date().toString("yyyy/MM/dd")
         venc = self.ui.fecha_date_2.date().toString("yyyy/MM/dd")
