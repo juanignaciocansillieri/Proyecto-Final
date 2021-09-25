@@ -165,7 +165,11 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
     idmovimientos INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     tipo BINARY(1) NOT NULL,
     codigo VARCHAR(20) NOT NULL,
+<<<<<<< HEAD
     cantidad INT NOT NULL,
+=======
+    cantidad VARCHAR(50) NOT NULL,
+>>>>>>> 3afa557d8b694e05765872b73a184115193a340a
     motivo VARCHAR(20) NOT NULL,
     fecha DATE NOT NULL
     );"""
