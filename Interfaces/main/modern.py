@@ -988,6 +988,243 @@ class Ui_MainWindow(object):
         self.verticalLayout_27.addWidget(self.bottom_mov_2)
         self.horizontalLayout_4.addWidget(self.container_mov_2)
         self.stackedWidget_main.addWidget(self.page_movimientos)
+        self.page_lotes_2 = QtWidgets.QWidget()
+        self.page_lotes_2.setObjectName("page_lotes_2")
+        self.horizontalLayout_6 = QtWidgets.QHBoxLayout(self.page_lotes_2)
+        self.horizontalLayout_6.setObjectName("horizontalLayout_6")
+        self.container_mov_3 = QtWidgets.QFrame(self.page_lotes_2)
+        self.container_mov_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.container_mov_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.container_mov_3.setObjectName("container_mov_3")
+        self.verticalLayout_34 = QtWidgets.QVBoxLayout(self.container_mov_3)
+        self.verticalLayout_34.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_34.setSpacing(0)
+        self.verticalLayout_34.setObjectName("verticalLayout_34")
+        self.top_frame_mov_3 = QtWidgets.QFrame(self.container_mov_3)
+        self.top_frame_mov_3.setMinimumSize(QtCore.QSize(1, 80))
+        self.top_frame_mov_3.setMaximumSize(QtCore.QSize(387, 70))
+        self.top_frame_mov_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.top_frame_mov_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.top_frame_mov_3.setObjectName("top_frame_mov_3")
+        self.frame_26 = QtWidgets.QFrame(self.top_frame_mov_3)
+        self.frame_26.setGeometry(QtCore.QRect(0, 13, 431, 70))
+        self.frame_26.setMinimumSize(QtCore.QSize(354, 70))
+        self.frame_26.setMaximumSize(QtCore.QSize(16777215, 50))
+        self.frame_26.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_26.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_26.setObjectName("frame_26")
+        self.verticalLayout_35 = QtWidgets.QVBoxLayout(self.frame_26)
+        self.verticalLayout_35.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_35.setSpacing(0)
+        self.verticalLayout_35.setObjectName("verticalLayout_35")
+        self.groupBox_10 = QtWidgets.QGroupBox(self.frame_26)
+        self.groupBox_10.setMinimumSize(QtCore.QSize(384, 0))
+        self.groupBox_10.setTitle("")
+        self.groupBox_10.setObjectName("groupBox_10")
+        self.label_40 = QtWidgets.QLabel(self.groupBox_10)
+        self.label_40.setGeometry(QtCore.QRect(80, 10, 152, 52))
+        self.label_40.setMinimumSize(QtCore.QSize(152, 0))
+        self.label_40.setMaximumSize(QtCore.QSize(120, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(18)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_40.setFont(font)
+        self.label_40.setStyleSheet("color: #282830 ;\n"
+"")
+        self.label_40.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_40.setObjectName("label_40")
+        self.pushButton_17 = QtWidgets.QPushButton(self.groupBox_10)
+        self.pushButton_17.setGeometry(QtCore.QRect(20, 9, 49, 40))
+        self.pushButton_17.setMaximumSize(QtCore.QSize(60, 60))
+        self.pushButton_17.setStyleSheet("margin-left:5px")
+        self.pushButton_17.setText("")
+        self.pushButton_17.setIcon(icon8)
+        self.pushButton_17.setIconSize(QtCore.QSize(40, 40))
+        self.pushButton_17.setObjectName("pushButton_17")
+        self.verticalLayout_35.addWidget(self.groupBox_10)
+        self.verticalLayout_34.addWidget(self.top_frame_mov_3)
+        self.mid_mov_3 = QtWidgets.QFrame(self.container_mov_3)
+        self.mid_mov_3.setMaximumSize(QtCore.QSize(16777215, 70))
+        self.mid_mov_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.mid_mov_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.mid_mov_3.setObjectName("mid_mov_3")
+        self.verticalLayout_36 = QtWidgets.QVBoxLayout(self.mid_mov_3)
+        self.verticalLayout_36.setContentsMargins(0, 30, 0, 0)
+        self.verticalLayout_36.setSpacing(0)
+        self.verticalLayout_36.setObjectName("verticalLayout_36")
+        self.frame_27 = QtWidgets.QFrame(self.mid_mov_3)
+        self.frame_27.setMinimumSize(QtCore.QSize(0, 50))
+        self.frame_27.setMaximumSize(QtCore.QSize(16777215, 50))
+        self.frame_27.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_27.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_27.setObjectName("frame_27")
+        self.verticalLayout_37 = QtWidgets.QVBoxLayout(self.frame_27)
+        self.verticalLayout_37.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_37.setSpacing(0)
+        self.verticalLayout_37.setObjectName("verticalLayout_37")
+        self.groupBox_11 = QtWidgets.QGroupBox(self.frame_27)
+        self.groupBox_11.setMinimumSize(QtCore.QSize(0, 50))
+        self.groupBox_11.setStyleSheet("margin-left: 14px")
+        self.groupBox_11.setTitle("")
+        self.groupBox_11.setObjectName("groupBox_11")
+        self.pushButton_19 = QtWidgets.QPushButton(self.groupBox_11)
+        self.pushButton_19.setGeometry(QtCore.QRect(18, 9, 31, 21))
+        self.pushButton_19.setMinimumSize(QtCore.QSize(0, 21))
+        self.pushButton_19.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_19.setText("")
+        self.pushButton_19.setIcon(icon7)
+        self.pushButton_19.setIconSize(QtCore.QSize(52, 82))
+        self.pushButton_19.setObjectName("pushButton_19")
+        self.lineEdit_6 = QtWidgets.QLineEdit(self.groupBox_11)
+        self.lineEdit_6.setGeometry(QtCore.QRect(50, 10, 301, 20))
+        self.lineEdit_6.setMinimumSize(QtCore.QSize(0, 20))
+        self.lineEdit_6.setStyleSheet("font-family: Roboto;\n"
+"")
+        self.lineEdit_6.setText("")
+        self.lineEdit_6.setObjectName("lineEdit_6")
+        self.verticalLayout_37.addWidget(self.groupBox_11)
+        self.verticalLayout_36.addWidget(self.frame_27, 0, QtCore.Qt.AlignBottom)
+        self.verticalLayout_34.addWidget(self.mid_mov_3)
+        self.bottom_mov_3 = QtWidgets.QFrame(self.container_mov_3)
+        self.bottom_mov_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.bottom_mov_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.bottom_mov_3.setObjectName("bottom_mov_3")
+        self.verticalLayout_38 = QtWidgets.QVBoxLayout(self.bottom_mov_3)
+        self.verticalLayout_38.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_38.setSpacing(0)
+        self.verticalLayout_38.setObjectName("verticalLayout_38")
+        self.frame_28 = QtWidgets.QFrame(self.bottom_mov_3)
+        self.frame_28.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_28.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_28.setObjectName("frame_28")
+        self.tableWidget_movimientos_3 = QtWidgets.QTableWidget(self.frame_28)
+        self.tableWidget_movimientos_3.setGeometry(QtCore.QRect(40, 50, 921, 421))
+        self.tableWidget_movimientos_3.setStyleSheet("QTableWidget{\n"
+"font-size: 11pt;\n"
+"margin-top:15px;\n"
+"color: #000;\n"
+"font-family: Roboto;\n"
+"text-align:center;\n"
+"}\n"
+"QHeaderView::section {\n"
+"    background-color: #394353;\n"
+"    border-radius: 11px;\n"
+"    color:#fff;\n"
+"    font-size: 9pt;\n"
+"    font-family:Roboto;\n"
+"    border-left: 1px solid #394353;\n"
+"\n"
+"}\n"
+"\n"
+"QHeaderView::section:horizontal\n"
+"{\n"
+"    border-top: 1px solid #394353;\n"
+"\n"
+"}\n"
+"\n"
+"QHeaderView::section:vertical\n"
+"{\n"
+"\n"
+"    border-left: 1px solid #394353;\n"
+"}")
+        self.tableWidget_movimientos_3.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget_movimientos_3.setShowGrid(False)
+        self.tableWidget_movimientos_3.setObjectName("tableWidget_movimientos_3")
+        self.tableWidget_movimientos_3.setColumnCount(5)
+        self.tableWidget_movimientos_3.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_movimientos_3.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_movimientos_3.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_movimientos_3.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_movimientos_3.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_movimientos_3.setHorizontalHeaderItem(4, item)
+        self.tableWidget_movimientos_3.horizontalHeader().setVisible(False)
+        self.tableWidget_movimientos_3.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableWidget_movimientos_3.horizontalHeader().setDefaultSectionSize(139)
+        self.tableWidget_movimientos_3.horizontalHeader().setSortIndicatorShown(True)
+        self.tableWidget_movimientos_3.horizontalHeader().setStretchLastSection(True)
+        self.tableWidget_movimientos_3.verticalHeader().setVisible(False)
+        self.tableWidget_movimientos_3.verticalHeader().setDefaultSectionSize(41)
+        self.frame_29 = QtWidgets.QFrame(self.frame_28)
+        self.frame_29.setGeometry(QtCore.QRect(29, 9, 831, 41))
+        self.frame_29.setMinimumSize(QtCore.QSize(56, 41))
+        self.frame_29.setStyleSheet("background-color: rgb(232, 232, 232);\n"
+"border-radius:15px;")
+        self.frame_29.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_29.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_29.setObjectName("frame_29")
+        self.label_41 = QtWidgets.QLabel(self.frame_29)
+        self.label_41.setGeometry(QtCore.QRect(20, 10, 47, 18))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_41.setFont(font)
+        self.label_41.setStyleSheet("background: none;\n"
+"color: #282830 ;\n"
+"")
+        self.label_41.setObjectName("label_41")
+        self.label_42 = QtWidgets.QLabel(self.frame_29)
+        self.label_42.setGeometry(QtCore.QRect(150, 10, 79, 18))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_42.setFont(font)
+        self.label_42.setStyleSheet("background: none;\n"
+"color: #282830 ;\n"
+"\n"
+"")
+        self.label_42.setObjectName("label_42")
+        self.label_43 = QtWidgets.QLabel(self.frame_29)
+        self.label_43.setGeometry(QtCore.QRect(430, 10, 132, 18))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_43.setFont(font)
+        self.label_43.setStyleSheet("background: none;\n"
+"color: #282830 ;\n"
+"")
+        self.label_43.setObjectName("label_43")
+        self.label_45 = QtWidgets.QLabel(self.frame_29)
+        self.label_45.setGeometry(QtCore.QRect(570, 10, 161, 18))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_45.setFont(font)
+        self.label_45.setStyleSheet("background: none;\n"
+"color: #282830 ;\n"
+"")
+        self.label_45.setObjectName("label_45")
+        self.label_46 = QtWidgets.QLabel(self.frame_29)
+        self.label_46.setGeometry(QtCore.QRect(290, 10, 61, 18))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_46.setFont(font)
+        self.label_46.setStyleSheet("background: none;\n"
+"color: #282830 ;\n"
+"\n"
+"")
+        self.label_46.setObjectName("label_46")
+        self.verticalLayout_38.addWidget(self.frame_28)
+        self.verticalLayout_34.addWidget(self.bottom_mov_3)
+        self.horizontalLayout_6.addWidget(self.container_mov_3)
+        self.stackedWidget_main.addWidget(self.page_lotes_2)
         self.page_deposito = QtWidgets.QWidget()
         self.page_deposito.setObjectName("page_deposito")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.page_deposito)
@@ -1007,14 +1244,14 @@ class Ui_MainWindow(object):
         self.gridLayout = QtWidgets.QGridLayout(self.frame_3)
         self.gridLayout.setObjectName("gridLayout")
         self.top_frame_stock_4 = QtWidgets.QFrame(self.frame_2)
-        self.top_frame_stock_4.setGeometry(QtCore.QRect(0, 0, 346, 80))
+        self.top_frame_stock_4.setGeometry(QtCore.QRect(0, 0, 431, 80))
         self.top_frame_stock_4.setMinimumSize(QtCore.QSize(0, 80))
-        self.top_frame_stock_4.setMaximumSize(QtCore.QSize(346, 70))
+        self.top_frame_stock_4.setMaximumSize(QtCore.QSize(439, 70))
         self.top_frame_stock_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.top_frame_stock_4.setFrameShadow(QtWidgets.QFrame.Raised)
         self.top_frame_stock_4.setObjectName("top_frame_stock_4")
         self.frame_24 = QtWidgets.QFrame(self.top_frame_stock_4)
-        self.frame_24.setGeometry(QtCore.QRect(0, 13, 391, 70))
+        self.frame_24.setGeometry(QtCore.QRect(0, 13, 681, 70))
         self.frame_24.setMinimumSize(QtCore.QSize(354, 70))
         self.frame_24.setMaximumSize(QtCore.QSize(16777215, 50))
         self.frame_24.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -1025,6 +1262,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_33.setSpacing(0)
         self.verticalLayout_33.setObjectName("verticalLayout_33")
         self.groupBox_5 = QtWidgets.QGroupBox(self.frame_24)
+        self.groupBox_5.setMinimumSize(QtCore.QSize(429, 0))
         self.groupBox_5.setTitle("")
         self.groupBox_5.setObjectName("groupBox_5")
         self.label_34 = QtWidgets.QLabel(self.groupBox_5)
@@ -1076,6 +1314,31 @@ class Ui_MainWindow(object):
         self.newArea_btn.setIcon(icon6)
         self.newArea_btn.setIconSize(QtCore.QSize(13, 13))
         self.newArea_btn.setObjectName("newArea_btn")
+        self.newArea_btn_2 = QtWidgets.QPushButton(self.groupBox_5)
+        self.newArea_btn_2.setGeometry(QtCore.QRect(320, 20, 111, 31))
+        self.newArea_btn_2.setMinimumSize(QtCore.QSize(0, 26))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.newArea_btn_2.setFont(font)
+        self.newArea_btn_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.newArea_btn_2.setStyleSheet("QPushButton{\n"
+"background-color: rgb(71, 71, 103);\n"
+"color:#fff;\n"
+"padding-left:10px;\n"
+"border-radius: 5px;\n"
+"text-align:left;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgba(71, 71, 103,180);\n"
+"\n"
+"}")
+        self.newArea_btn_2.setIcon(icon6)
+        self.newArea_btn_2.setIconSize(QtCore.QSize(13, 13))
+        self.newArea_btn_2.setObjectName("newArea_btn_2")
         self.verticalLayout_33.addWidget(self.groupBox_5)
         self.verticalLayout_3.addWidget(self.frame_2)
         self.stackedWidget_main.addWidget(self.page_deposito)
@@ -1373,7 +1636,7 @@ class Ui_MainWindow(object):
         self.frame_4.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_4.setObjectName("frame_4")
         self.tableWidget_lotes = QtWidgets.QTableWidget(self.frame_4)
-        self.tableWidget_lotes.setGeometry(QtCore.QRect(10, 171, 871, 311))
+        self.tableWidget_lotes.setGeometry(QtCore.QRect(20, 171, 961, 311))
         self.tableWidget_lotes.setMaximumSize(QtCore.QSize(16777215, 422))
         self.tableWidget_lotes.setStyleSheet("QTableWidget{\n"
 "font-size: 11pt;\n"
@@ -1382,10 +1645,12 @@ class Ui_MainWindow(object):
 "color: #000;\n"
 "font-family: Roboto;\n"
 "text-align:center;\n"
+"font-weight: bold;\n"
 "}\n"
 "QheaderView::item\n"
 "    {\n"
 "text-align:center;\n"
+"font-weight: bold;\n"
 "\n"
 "    }\n"
 "QHeaderView::section {\n"
@@ -1394,6 +1659,7 @@ class Ui_MainWindow(object):
 "    color:#fff;\n"
 "    font-size: 9pt;\n"
 "    font-family:Roboto;\n"
+"    font-weight: bold;\n"
 "}\n"
 "\n"
 "QHeaderView::section:horizontal\n"
@@ -1410,7 +1676,7 @@ class Ui_MainWindow(object):
         self.tableWidget_lotes.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableWidget_lotes.setShowGrid(False)
         self.tableWidget_lotes.setObjectName("tableWidget_lotes")
-        self.tableWidget_lotes.setColumnCount(5)
+        self.tableWidget_lotes.setColumnCount(6)
         self.tableWidget_lotes.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_lotes.setHorizontalHeaderItem(0, item)
@@ -1422,9 +1688,11 @@ class Ui_MainWindow(object):
         self.tableWidget_lotes.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_lotes.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_lotes.setHorizontalHeaderItem(5, item)
         self.tableWidget_lotes.horizontalHeader().setVisible(False)
         self.tableWidget_lotes.horizontalHeader().setCascadingSectionResizes(True)
-        self.tableWidget_lotes.horizontalHeader().setDefaultSectionSize(169)
+        self.tableWidget_lotes.horizontalHeader().setDefaultSectionSize(147)
         self.tableWidget_lotes.horizontalHeader().setSortIndicatorShown(True)
         self.tableWidget_lotes.horizontalHeader().setStretchLastSection(True)
         self.tableWidget_lotes.verticalHeader().setVisible(False)
@@ -1437,8 +1705,8 @@ class Ui_MainWindow(object):
         self.frame_25.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_25.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_25.setObjectName("frame_25")
-        self.horizontalLayout_16 = QtWidgets.QHBoxLayout(self.frame_25)
-        self.horizontalLayout_16.setObjectName("horizontalLayout_16")
+        self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.frame_25)
+        self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         self.label_13 = QtWidgets.QLabel(self.frame_25)
         font = QtGui.QFont()
         font.setFamily("Roboto")
@@ -1450,7 +1718,7 @@ class Ui_MainWindow(object):
 "color: #282830 ;\n"
 "")
         self.label_13.setObjectName("label_13")
-        self.horizontalLayout_16.addWidget(self.label_13, 0, QtCore.Qt.AlignLeft)
+        self.horizontalLayout_5.addWidget(self.label_13)
         self.label_35 = QtWidgets.QLabel(self.frame_25)
         font = QtGui.QFont()
         font.setFamily("Roboto")
@@ -1463,7 +1731,7 @@ class Ui_MainWindow(object):
 "\n"
 "")
         self.label_35.setObjectName("label_35")
-        self.horizontalLayout_16.addWidget(self.label_35, 0, QtCore.Qt.AlignLeft)
+        self.horizontalLayout_5.addWidget(self.label_35)
         self.label_36 = QtWidgets.QLabel(self.frame_25)
         font = QtGui.QFont()
         font.setFamily("Roboto")
@@ -1475,7 +1743,7 @@ class Ui_MainWindow(object):
 "color: #282830 ;\n"
 "")
         self.label_36.setObjectName("label_36")
-        self.horizontalLayout_16.addWidget(self.label_36, 0, QtCore.Qt.AlignLeft)
+        self.horizontalLayout_5.addWidget(self.label_36)
         self.label_37 = QtWidgets.QLabel(self.frame_25)
         font = QtGui.QFont()
         font.setFamily("Roboto")
@@ -1487,7 +1755,19 @@ class Ui_MainWindow(object):
 "color: #282830 ;\n"
 "")
         self.label_37.setObjectName("label_37")
-        self.horizontalLayout_16.addWidget(self.label_37, 0, QtCore.Qt.AlignLeft)
+        self.horizontalLayout_5.addWidget(self.label_37)
+        self.label_39 = QtWidgets.QLabel(self.frame_25)
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_39.setFont(font)
+        self.label_39.setStyleSheet("background: none;\n"
+"color: #282830 ;\n"
+"")
+        self.label_39.setObjectName("label_39")
+        self.horizontalLayout_5.addWidget(self.label_39)
         self.label_38 = QtWidgets.QLabel(self.frame_25)
         font = QtGui.QFont()
         font.setFamily("Roboto")
@@ -1499,7 +1779,43 @@ class Ui_MainWindow(object):
 "color: #282830 ;\n"
 "")
         self.label_38.setObjectName("label_38")
-        self.horizontalLayout_16.addWidget(self.label_38, 0, QtCore.Qt.AlignLeft)
+        self.horizontalLayout_5.addWidget(self.label_38)
+        self.top_frame_stock_5 = QtWidgets.QFrame(self.frame_4)
+        self.top_frame_stock_5.setGeometry(QtCore.QRect(0, 0, 346, 80))
+        self.top_frame_stock_5.setMinimumSize(QtCore.QSize(0, 80))
+        self.top_frame_stock_5.setMaximumSize(QtCore.QSize(346, 70))
+        self.top_frame_stock_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.top_frame_stock_5.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.top_frame_stock_5.setObjectName("top_frame_stock_5")
+        self.frame_30 = QtWidgets.QFrame(self.top_frame_stock_5)
+        self.frame_30.setGeometry(QtCore.QRect(0, 13, 391, 70))
+        self.frame_30.setMinimumSize(QtCore.QSize(354, 70))
+        self.frame_30.setMaximumSize(QtCore.QSize(16777215, 50))
+        self.frame_30.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_30.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_30.setObjectName("frame_30")
+        self.verticalLayout_39 = QtWidgets.QVBoxLayout(self.frame_30)
+        self.verticalLayout_39.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_39.setSpacing(0)
+        self.verticalLayout_39.setObjectName("verticalLayout_39")
+        self.groupBox_12 = QtWidgets.QGroupBox(self.frame_30)
+        self.groupBox_12.setTitle("")
+        self.groupBox_12.setObjectName("groupBox_12")
+        self.label_area_mod = QtWidgets.QLabel(self.groupBox_12)
+        self.label_area_mod.setGeometry(QtCore.QRect(20, 10, 181, 52))
+        self.label_area_mod.setMinimumSize(QtCore.QSize(94, 0))
+        self.label_area_mod.setMaximumSize(QtCore.QSize(181, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(18)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_area_mod.setFont(font)
+        self.label_area_mod.setStyleSheet("color: #282830 ;\n"
+"")
+        self.label_area_mod.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_area_mod.setObjectName("label_area_mod")
+        self.verticalLayout_39.addWidget(self.groupBox_12)
         self.verticalLayout_9.addWidget(self.frame_4)
         self.stackedWidget_main.addWidget(self.page_lotes)
         self.verticalLayout_2.addWidget(self.stackedWidget_main)
@@ -1509,7 +1825,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.stackedWidget_3.setCurrentIndex(0)
-        self.stackedWidget_main.setCurrentIndex(3)
+        self.stackedWidget_main.setCurrentIndex(5)
         self.stackedWidget_user.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -1540,7 +1856,7 @@ class Ui_MainWindow(object):
         self.label_23.setText(_translate("MainWindow", "Descripción"))
         self.label_24.setText(_translate("MainWindow", "Marca"))
         self.label_25.setText(_translate("MainWindow", "Cantidad"))
-        self.label_26.setText(_translate("MainWindow", "Último Vencimiento"))
+        self.label_26.setText(_translate("MainWindow", "Primer Vencimiento"))
         self.label_27.setText(_translate("MainWindow", "Movimientos"))
         self.lineEdit_5.setPlaceholderText(_translate("MainWindow", "Buscar Productos por nombre o palabra clave"))
         item = self.tableWidget_movimientos_2.verticalHeaderItem(0)
@@ -1592,8 +1908,26 @@ class Ui_MainWindow(object):
         self.label_32.setText(_translate("MainWindow", " Motivo"))
         self.label_31.setText(_translate("MainWindow", " Fecha "))
         self.label_33.setText(_translate("MainWindow", "Cantidad"))
+        self.label_40.setText(_translate("MainWindow", "Lotes"))
+        self.lineEdit_6.setPlaceholderText(_translate("MainWindow", "Buscar Lote por nombre o palabra clave"))
+        item = self.tableWidget_movimientos_3.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "New Column"))
+        item = self.tableWidget_movimientos_3.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "New Column"))
+        item = self.tableWidget_movimientos_3.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "New Column"))
+        item = self.tableWidget_movimientos_3.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "New Column"))
+        item = self.tableWidget_movimientos_3.horizontalHeaderItem(4)
+        item.setText(_translate("MainWindow", "New Column"))
+        self.label_41.setText(_translate("MainWindow", "Código"))
+        self.label_42.setText(_translate("MainWindow", "Descripción"))
+        self.label_43.setText(_translate("MainWindow", "Lote"))
+        self.label_45.setText(_translate("MainWindow", " Fecha de Vencimiento"))
+        self.label_46.setText(_translate("MainWindow", "Cantidad"))
         self.label_34.setText(_translate("MainWindow", "Áreas"))
         self.newArea_btn.setText(_translate("MainWindow", "Nueva Área"))
+        self.newArea_btn_2.setText(_translate("MainWindow", "Eliminar Área"))
         self.label_17.setText(_translate("MainWindow", "Usuarios"))
         self.user_new_btn.setText(_translate("MainWindow", "Nuevo Usuario"))
         self.lineEdit_3.setPlaceholderText(_translate("MainWindow", "Buscar Productos por código"))
@@ -1622,11 +1956,15 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "New Column"))
         item = self.tableWidget_lotes.horizontalHeaderItem(4)
         item.setText(_translate("MainWindow", "New Column"))
+        item = self.tableWidget_lotes.horizontalHeaderItem(5)
+        item.setText(_translate("MainWindow", "New Column"))
         self.label_13.setText(_translate("MainWindow", "Código"))
         self.label_35.setText(_translate("MainWindow", "Descripción"))
         self.label_36.setText(_translate("MainWindow", "Marca"))
         self.label_37.setText(_translate("MainWindow", "Cantidad"))
-        self.label_38.setText(_translate("MainWindow", "Último Vencimiento"))
+        self.label_39.setText(_translate("MainWindow", "Ubicación"))
+        self.label_38.setText(_translate("MainWindow", "Primer Vencimiento"))
+        self.label_area_mod.setText(_translate("MainWindow", "Label"))
 import img_oficiales_rc
 
 

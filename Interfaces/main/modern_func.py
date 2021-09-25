@@ -222,19 +222,20 @@ class Modern(QMainWindow):
         n = p.productos.buscar_product_rows(parametro)
         self.ui.tableWidget_stock_2.setRowCount(n)
         tableRow = 0
-        for row in products:
-            self.ui.tableWidget_stock_2.setItem(
-                tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
-            self.ui.tableWidget_stock_2.setItem(
-                tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
-            self.ui.tableWidget_stock_2.setItem(
-                tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
-            self.ui.tableWidget_stock_2.setItem(
-                tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
-            self.ui.tableWidget_stock_2.setItem(
-                tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
 
-            tableRow += 1
+        for row in products:
+                self.ui.tableWidget_stock_2.setItem(
+                    tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
+                self.ui.tableWidget_stock_2.setItem(
+                    tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
+                self.ui.tableWidget_stock_2.setItem(
+                    tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
+                self.ui.tableWidget_stock_2.setItem(
+                    tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                self.ui.tableWidget_stock_2.setItem(
+                    tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+
+                tableRow += 1
 
    
 
@@ -381,7 +382,7 @@ class Modern(QMainWindow):
                     "QPushButton:hover{\n"
                     "    background-color: rgba(105, 105, 226, 50);\n"
                     "}")
-                        self.btn2.setObjectName("Button%s" % a[0])
+                        self.btn2.setObjectName(a[0])
                         self.btn2.setText(a[0])
                         self.ui.verticalLayout_7.addWidget(self.btn2)
                         font = QtGui.QFont()
@@ -397,30 +398,48 @@ class Modern(QMainWindow):
     
     def button_released(self):
 
-        pp = p.listar_prod()
-        atributos = pp[0][5]    
         self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_lotes)
-        productos = p.productos.buscar_productArea(atributos)
         sending_button = self.sender()
+        area = str(sending_button.objectName())
+        productos = p.productos.buscar_productArea(area)
         print('%s Clicked!' % str(sending_button.objectName()))
-        n = p.productos.buscar_product_rows_area(atributos)
+        n = p.productos.buscar_product_rows_area(area)
         self.ui.tableWidget_lotes.setRowCount(n)
+        self.ui.label_area_mod.setText(area)
         tableRow = 0
-        for row in productos:
-            self.ui.tableWidget_lotes.setItem(
-                tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
-            self.ui.tableWidget_lotes.setItem(
-                tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
-            self.ui.tableWidget_lotes.setItem(
-                tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
-            self.ui.tableWidget_lotes.setItem(
-                tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
-            self.ui.tableWidget_lotes.setItem(
-                tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+        vacio = []
+        if n == 0:
+            for row in vacio:
+                self.ui.tableWidget_stock_2.setItem(
+                    tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
+                self.ui.tableWidget_stock_2.setItem(
+                    tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
+                self.ui.tableWidget_stock_2.setItem(
+                    tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
+                self.ui.tableWidget_stock_2.setItem(
+                    tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                self.ui.tableWidget_stock_2.setItem(
+                    tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+                self.ui.tableWidget_stock_2.setItem(
+                    tableRow, 5, QtWidgets.QTableWidgetItem(str(row[5])))
 
-            tableRow += 1
-        if str(sending_button.objectName()):
-                pass
+                tableRow += 1
+        else:
+            for row in productos:
+                self.ui.tableWidget_lotes.setItem(
+                    tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
+                self.ui.tableWidget_lotes.setItem(
+                    tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
+                self.ui.tableWidget_lotes.setItem(
+                    tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
+                self.ui.tableWidget_lotes.setItem(
+                    tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                self.ui.tableWidget_lotes.setItem(
+                    tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+                self.ui.tableWidget_lotes.setItem(
+                    tableRow, 5, QtWidgets.QTableWidgetItem(str(row[5])))
+
+                tableRow += 1
 
     def rellenarTabla(self,table):
 
@@ -545,12 +564,13 @@ class BMProduct(QMainWindow):
         #Eliminar producto btn
         self.ui.eliminarprod_btn.clicked.connect(self.borrarProducto)
 
-        self.cbox()
+      
         #Mostrar Ventana
         self.show()
 
     #Rellenar los campos con los atributos del producto seleccionado
     def rellenarCampos(self):
+
         global productId
         global codigoViejo
         global defaultImg
@@ -566,9 +586,7 @@ class BMProduct(QMainWindow):
         self.img = QPixmap("C:\proyecto-final\Interfaces\main\img/{0}".format(atributos[8]))
         self.productImg.setPixmap(self.img)
         defaultImg = atributos[8]
-        self.ui.estado_cbox.setCurrentText(atributos[13])
-
-
+        
         if str(atributos[7]) == "b'1'":
             self.ui.fragil_si.setChecked(1)
         else:
@@ -578,7 +596,8 @@ class BMProduct(QMainWindow):
         self.ui.largo_num.setValue(atributos[10])
         self.ui.ancho_num.setValue(atributos[11])
         self.ui.altura_num.setValue(atributos[12])
-        
+        self.cbox()
+        self.ui.estado_cbox.setCurrentText(atributos[13])
         
     def modificarProducto(self):
         global productId

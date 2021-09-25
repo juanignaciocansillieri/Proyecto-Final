@@ -43,6 +43,8 @@ class NewMovimiento(QMainWindow):
         else: a = 1
         
     def onSelected(self, txtVal):
+        global a
+        a = 1
         global b
         if txtVal == "Egreso":
             if  b:
