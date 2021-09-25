@@ -1,3 +1,4 @@
+
 import sys
 import os
 from PyQt5 import QtWidgets
@@ -13,7 +14,7 @@ sys.path.append("C:\\proyecto-final\\CLASES\\")
 import movimientos as m
 import lotes as l
 
-
+a=0
 b = True
 
 class NewMovimiento(QMainWindow):
@@ -32,11 +33,21 @@ class NewMovimiento(QMainWindow):
         qtRectangle.moveCenter(centerPoint)
         self.ui.egr_ing_cb.activated[str].connect(self.onSelected)
         self.lote = QtWidgets.QLineEdit(self.ui.frame_3)
-        self.ui.crearprod_btn.clicked.connect(self.crearIngreso)
+        
+        self.ui.crearprod_btn.clicked.connect(self.current)
+
+    def current(self):
+        global a
+        if a == 0:
+            a = 1
+            self.crearIngreso()
+        else: a=1
+
 
     def onSelected(self, txtVal):
         global b
         if txtVal == "Egreso":
+            print("ates if egreso")
             if  b:
                 b = False
                 self.ui.spinBox.setGeometry(QtCore.QRect(230, 160, 170, 25))
@@ -47,51 +58,55 @@ class NewMovimiento(QMainWindow):
                 self.ui.label_motivo.setText("Motivo")
                 self.lote.setGeometry(QtCore.QRect(230, 100, 0, 0))
                 self.lote.setStyleSheet("QLineEdit{\n"
-"background-color: #fff;\n"
-"border: 0.5px solid #c1c1c1;\n"
-"border-radius: 3px;\n"
-"padding: 4 5px;\n"
-"font-family:Roboto;\n"
-"font-size:13px;\n"
-"font-weight: 400;\n"
-"margin-left: 10px;\n"
-"\n"
-"}\n"
-"")
+                "background-color: #fff;\n"
+                "border: 0.5px solid #c1c1c1;\n"
+                "border-radius: 3px;\n"
+                "padding: 4 5px;\n"
+                "font-family:Roboto;\n"
+                "font-size:13px;\n"
+                "font-weight: 400;\n"
+                "margin-left: 10px;\n"
+                "\n"
+                "}\n"
+                "")
                 self.ui.crearprod_btn.clicked.connect(self.crearEgreso)
 
 
 
-        if txtVal == "Ingreso":
+        elif txtVal == "Ingreso":
+            print("ates if ingreso")
             if  b == False:
                 b = True
                 self.ui.spinBox.setGeometry(QtCore.QRect(230, 160, 170, 25))
                 self.ui.fecha_date_2.setGeometry(QtCore.QRect(230, 100, 170, 25))
                 self.ui.label_fecha_2.setText("Fecha de Vencimiento")
                 self.ui.label_motivo.setText("Lote")
-            self.ui.crearprod_btn.clicked.connect(self.crearIngreso)
+                self.ui.crearprod_btn.clicked.connect(self.crearIngreso)
 
     def crearEgreso(self):
-
         tipo = True
         cantidad = self.ui.spinBox.value()
-        motivo = self.ui.label_motivo.text()
+        motivo = self.ui.motivo_input.text()
         cod = self.ui.codigo_producto_input.text()
         fechaEgreso = self.ui.fecha_date.date().toString("yyyy/MM/dd")
         m.movimientos(tipo,cod,cantidad,motivo,fechaEgreso)
         l.lote.fifo(cod,cantidad)
         self.close()
+        
 
     def crearIngreso(self):
+        print("hola estoy aca")
         tipo = False
         cantidad = self.ui.spinBox.value()
-        motivo = self.ui.label_motivo.text()
+        lote = self.ui.motivo_input.text()
         cod = self.ui.codigo_producto_input.text()
         fechaIgreso = self.ui.fecha_date.date().toString("yyyy/MM/dd")
         venc = self.ui.fecha_date_2.date().toString("yyyy/MM/dd")
-        l.lote(cod,cantidad,motivo,venc)
-        m.movimientos(tipo,cod,cantidad,motivo,fechaIgreso)
+
+        l.lote(cod,cantidad,lote,venc)
+        m.movimientos(tipo,cod,cantidad,"Ingreso",fechaIgreso)
         self.close()
+        
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
