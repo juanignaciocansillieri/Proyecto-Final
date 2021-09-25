@@ -131,6 +131,15 @@ class productos():
         a.commit()
         return data
 
+    def buscar_productArea(param):
+        a = c.start_connection()
+        cursor = a.cursor()
+        query = ("SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto WHERE area = %s")
+        cursor.execute(query, param)
+        data = cursor.fetchall()
+        a.commit()
+        return data
+
     def buscar_product_rows(param):
         a = c.start_connection()
         cursor = a.cursor()

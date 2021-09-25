@@ -6,14 +6,8 @@ import os
 sys.path.append("C:\proyecto-final\DB")
 import conexion as c
 
-<<<<<<< HEAD:CLASES/movimientos.py
 class movimientos:    
     def __init__(self,tipo,codigo,cantidad,motivo,fecha):
-=======
-class movimientos:
-    
-    def __init__(self,tipo,codigo,cantidad,descripcion,fecha):
->>>>>>> 3afa557d8b694e05765872b73a184115193a340a:CLASES/moviminetos.py
         self.tipo=tipo
         self.codigo=codigo
         self.cantidad=cantidad
@@ -28,13 +22,8 @@ class movimientos:
         a=c.start_connection()
         cursor=a.cursor()
         try:
-<<<<<<< HEAD:CLASES/movimientos.py
             query = "INSERT INTO movimientos(tipo,codigo,cantidad,motivo,fecha) VALUES (%s,%s,%s,%s,%s)"
             values = (self.tipo,self.codigo,self.cantidad,self.motivo,self.fecha)
-=======
-            query = "INSERT INTO movimientos(tipo,codigo,cantidad,descripcion,fecha) VALUES (%s,%s,%s,%s,%s)"
-            values = (self.tipo,self.codigo,self.cantidad,self.descripcion,self.fecha)
->>>>>>> 3afa557d8b694e05765872b73a184115193a340a:CLASES/moviminetos.py
             cursor.execute(query, values)
             a.commit()
             print("se dio alta al movimientos correctamente")
@@ -72,11 +61,7 @@ def listar_movimientos():
             a = c.start_connection()
             cursor = a.cursor()
             try:
-<<<<<<< HEAD:CLASES/movimientos.py
                 query = "SELECT tipo,codigo,cantidad,motivo,fecha FROM movimientos"
-=======
-                query = "SELECT tipo,codigo,cantidad,descripcion,fecha FROM movimientos"
->>>>>>> 3afa557d8b694e05765872b73a184115193a340a:CLASES/moviminetos.py
                 cursor.execute(query)
                 area = cursor.fetchall()
                 a.commit()
@@ -88,11 +73,7 @@ def listar_movimientos():
 def mostrar_movimientos(codigo,fecha):
         a = c.start_connection()
         cursor = a.cursor()
-<<<<<<< HEAD:CLASES/movimientos.py
         query = ("SELECT tipo,codigo,cantidad,motivo,fecha FROM movimientos WHERE codigo=%s and fecha=%s")
-=======
-        query = ("SELECT tipo,codigo,cantidad,descripcion,fecha FROM movimientos WHERE codigo=%s and fecha=%s")
->>>>>>> 3afa557d8b694e05765872b73a184115193a340a:CLASES/moviminetos.py
         values=(codigo,fecha)
         cursor.execute(query,values)
         data = cursor.fetchall()

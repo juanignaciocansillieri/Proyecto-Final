@@ -308,7 +308,7 @@ class Modern(QMainWindow):
             "QPushButton:hover{\n"
             "    background-color: rgba(105, 105, 226, 50);\n"
             "}")
-                btn1.setObjectName("btn_{area[0]}")
+                btn1.setObjectName("{area[0]}")
                 btn1.setText(area[0])
                 self.ui.verticalLayout_7.addWidget(btn1)
                 font = QtGui.QFont()
@@ -340,7 +340,7 @@ class Modern(QMainWindow):
                 verticalLayout.addWidget(frame)
                 self.btn = QPushButton(frame)
                 self.btn.setText("Ver")
-                self.btn.setObjectName('Button%s' % a[0])
+                self.btn.setObjectName('%s' % a[0])
                 self.btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
                 self.btn.setMinimumSize(QtCore.QSize(30,30))
                 self.label = QtWidgets.QLabel(frame)
@@ -390,7 +390,6 @@ class Modern(QMainWindow):
                         font.setWeight(75)
                         self.btn2.setFont(font)
                         self.btn2.released.connect(self.button_released)
-
                         arr.append(self.btn2)
                 i+=1
         return(arr)
@@ -398,9 +397,9 @@ class Modern(QMainWindow):
     def button_released(self):
 
         pp = p.listar_prod()
-        atributos = list(pp[0])
-        print(atributos[7])
-        self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_area)
+        atributos = list(pp)
+        print(atributos)
+        self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_lotes)
         productos = p.listar_prod()
         sending_button = self.sender()
         print('%s Clicked!' % str(sending_button.objectName()))
