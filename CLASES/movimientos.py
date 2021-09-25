@@ -7,11 +7,11 @@ sys.path.append("C:\proyecto-final\DB")
 import conexion as c
 
 class movimientos:    
-    def __init__(self,tipo,codigo,cantidad,descripcion,fecha):
+    def __init__(self,tipo,codigo,cantidad,motivo,fecha):
         self.tipo=tipo
         self.codigo=codigo
         self.cantidad=cantidad
-        self.descripcion=descripcion
+        self.motivo=motivo
         self.fecha=fecha
 
         print("se creo movimientos correctamente")
@@ -22,8 +22,8 @@ class movimientos:
         a=c.start_connection()
         cursor=a.cursor()
         try:
-            query = "INSERT INTO movimientos(tipo,codigo,cantidad,descripcion,fecha) VALUES (%s,%s,%s,%s,%s)"
-            values = (self.tipo,self.codigo,self.cantidad,self.descripcion,self.fecha)
+            query = "INSERT INTO movimientos(tipo,codigo,cantidad,motivo,fecha) VALUES (%s,%s,%s,%s,%s)"
+            values = (self.tipo,self.codigo,self.cantidad,self.motivo,self.fecha)
             cursor.execute(query, values)
             a.commit()
             print("se dio alta al movimientos correctamente")
@@ -61,7 +61,7 @@ def listar_movimientos():
             a = c.start_connection()
             cursor = a.cursor()
             try:
-                query = "SELECT tipo,codigo,cantidad,descripcion,fecha FROM movimientos"
+                query = "SELECT tipo,codigo,cantidad,motivo,fecha FROM movimientos"
                 cursor.execute(query)
                 area = cursor.fetchall()
                 a.commit()
@@ -73,7 +73,7 @@ def listar_movimientos():
 def mostrar_movimientos(codigo,fecha):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT tipo,codigo,cantidad,descripcion,fecha FROM movimientos WHERE codigo=%s and fecha=%s")
+        query = ("SELECT tipo,codigo,cantidad,motivo,fecha FROM movimientos WHERE codigo=%s and fecha=%s")
         values=(codigo,fecha)
         cursor.execute(query,values)
         data = cursor.fetchall()

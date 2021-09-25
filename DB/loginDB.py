@@ -32,7 +32,7 @@ def log_in (dni,contraseña):
         print("Ha ocurrido un error", err)
     c.close_connection(a)
 
-def cambiar_conrasena(dniv,dni,password):
+def cambiar_contrasena(dniv,dni,password):
     a=c.start_connection()
     cursor=a.cursor()
     query = "SELECT idlogin FROM login WHERE dni=%s"

@@ -44,6 +44,19 @@ class lote:
             print("Hubo un error:", err)
         c.close_connection(a)
 
+    def eliminar_prod_lote(idproducto):
+        a=c.start_connection()
+        cursor=a.cursor()
+        try:
+            query = "DELETE FROM lote WHERE idproducto=%s"
+            values = (idproducto)
+            cursor.execute(query, values)
+            a.commit()
+            print("se elimino lote correctamente")
+        except pymysql.err.OperationalError as err:
+            print("Hubo un error:", err)
+        c.close_connection(a)
+
     def modificar_cantidad(idproducto,fechalote,cantidad):
         a=c.start_connection()
         cursor=a.cursor()
@@ -53,6 +66,26 @@ class lote:
             cursor.execute(query, values)
             a.commit()
             print("se elimino lote correctamente")
+        except pymysql.err.OperationalError as err:
+            print("Hubo un error:", err)
+        c.close_connection(a)
+
+    def mod_idpruct(codigov,codigon):
+        a = c.start_connection()
+        cursor = a.cursor()
+        query = "SELECT idlote FROM lote WHERE idproducto=%s"
+        values = codigov
+        cursor.execute(query, values)
+        a.commit()
+        b = cursor.fetchall()
+        idl = str(b[0][0])
+        try:
+            query = "UPDATE lote set idproducto=%s WHERE idlote=%s"
+            values = (codigon, idl)
+            cursor.execute(query, values)
+            a.commit()
+
+            print("se MODIFICO lote correctamente")
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
         c.close_connection(a)
@@ -138,32 +171,39 @@ class lote:
         query = ("SELECT idlote FROM lote WHERE idproducto=%s ORDER BY cantidad")
         cursor.execute(query,idproducto)
         idlote=cursor.fetchall()
+        idlote= str(idlote[0][0])
+        idlote = int(idlote)
         a.commit()
 
         while i<n:
-            query = ("SELECT cantidad FROM lote WHERE idlote=%s ORDER BY vencimiento")
+            query = ("SELECT cantidad FROM lote WHERE idproducto=%s ORDER BY vencimiento")
             cursor.execute(query,idproducto)
-            data=cursor.fetchall()
+            n=cursor.fetchall()
             a.commit()
-            if data<cantidad:
+            print(n)
+            n= str(n[0][0])
+            n = int(n)
+         
+
+            if n<cantidad:
                 query = "UPDATE lote set cantidad=0 WHERE idproducto=%s and cantidad=%s"
-                values = (idproducto,data)
+                values = (idproducto,n)
                 cursor.execute(query, values)
                 a.commit()
                 query = "DELETE FROM lote WHERE idproducto=%s and cantidad=%s"
-                values = (idproducto,data)
+                values = (idproducto,n)
                 cursor.execute(query, values)
                 a.commit()
-                cantidad=cantidad-data
-                idlote=idlote+1
+                cantidad=cantidad-n
+                idlote+=1
                 i=i+1
             else:
-                data2=data-cantidad
+                n2=n-cantidad
                 query = "UPDATE lote set cantidad=%s WHERE idproducto=%s and cantidad=%s"
-                values = (data2,idproducto,data)
+                values = (n2,idproducto,n)
                 cursor.execute(query, values)
                 a.commit()
-                cantidad=cantidad-data
-                idlote=idlote+1
+                cantidad=cantidad-n
+                idlote+=1
                 i=n
 

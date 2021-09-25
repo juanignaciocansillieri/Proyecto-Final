@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>652</width>
-    <height>428</height>
+    <width>675</width>
+    <height>423</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -261,14 +261,13 @@ background-color: #fff;
 border: 0.5px solid #c1c1c1;
 border-radius: 3px;
 padding: 4 5px;
-color: #fff;
+color: #e9e9;
 font-family:Roboto;
 font-size:13px;
 font-weight: 400;
 margin-left: 10px;
 
-}
-</string>
+}</string>
         </property>
         <property name="text">
          <string/>
@@ -434,10 +433,10 @@ margin-left: 10px;
 </string>
         </property>
         <property name="inputMethodHints">
-         <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
+         <set>Qt::ImhNone</set>
         </property>
         <property name="echoMode">
-         <enum>QLineEdit::Password</enum>
+         <enum>QLineEdit::Normal</enum>
         </property>
         <property name="placeholderText">
          <string/>
@@ -806,11 +805,12 @@ background-color: #fff;
 border: 0.5px solid #c1c1c1;
 border-radius: 3px;
 padding: 4 5px;
-color: #fff;
+color: #e9e9;
 font-family:Roboto;
 font-size:13px;
 font-weight: 400;
 margin-left: 10px;
+
 
 }
 </string>
@@ -873,42 +873,16 @@ background-color: #fff;
 border: 0.5px solid #c1c1c1;
 border-radius: 3px;
 padding: 4 5px;
-color: #fff;
+color: #e9e9;
 font-family:Roboto;
 font-size:13px;
 font-weight: 400;
 margin-left: 10px;
 
-}
-</string>
+}</string>
         </property>
         <property name="placeholderText">
          <string/>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="descripcion_input">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>100</y>
-          <width>170</width>
-          <height>75</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit{
-background-color: #fff;
-border: 0.5px solid #c1c1c1;
-border-radius: 3px;
-padding: 4 5px;
-color: #fff;
-font-family:Roboto;
-font-size:13px;
-font-weight: 400;
-margin-left: 10px;
-
-}
-</string>
         </property>
        </widget>
        <widget class="QPushButton" name="subirFoto_btn">
@@ -948,6 +922,38 @@ color: #fff;
         </property>
         <property name="text">
          <string>Subir Imagen</string>
+        </property>
+       </widget>
+       <widget class="QTextEdit" name="textEdit">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>110</y>
+          <width>104</width>
+          <height>87</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QTextEdit" name="descripcion_input">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>100</y>
+          <width>170</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #fff;
+border: 0.5px solid #c1c1c1;
+border-radius: 3px;
+padding: 4 5px;
+color: #e9e9;
+font-family:Roboto;
+font-size:13px;
+font-weight: 400;
+margin-left: 10px;
+</string>
         </property>
        </widget>
       </widget>

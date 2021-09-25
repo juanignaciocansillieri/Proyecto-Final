@@ -13,7 +13,7 @@ from nuevo_producto_ui import Ui_MainWindow
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import productos as pr
 import area as a
-
+import lotes as l
 defaultImg = "Error.png"
 
 class ProductWindow(QMainWindow):
@@ -42,8 +42,7 @@ class ProductWindow(QMainWindow):
       global defaultImg
       #RECIBIR VALORES DE LA VENTANA
       codigo = self.ui.codigo_input.text()
-      #nombre = self.ui.nombre_input.text()
-      descripcion = self.ui.descripcion_input.text()
+      descripcion = self.ui.descripcion_input.toPlainText()
       cantidad = self.ui.cantidad_num.value()
       marca = self.ui.marca_input.text()
       venc = self.ui.venc_date.date().toString("yyyy/MM/dd")
@@ -65,7 +64,6 @@ class ProductWindow(QMainWindow):
       largo = self.ui.largo_num.value()
 
     
-
       if codigo==""  or descripcion=="" or cantidad=="" or marca=="" or venc=="" or lote=="" or peso=="" or ancho=="" or largo=="" or altura=="":
         QtWidgets.QMessageBox.critical(self, "Error", "Ingrese todos los datos")
         return None
@@ -79,7 +77,9 @@ class ProductWindow(QMainWindow):
         QtWidgets.QMessageBox.critical(self, "Error", "Codigo Existente")
         return None
       else:
-        product = pr.productos(codigo,marca,cantidad,descripcion,ubicacion,lote,venc,condicion,fragil,defaultImg,peso,largo,ancho,altura)
+        pr.productos(codigo,marca,cantidad,descripcion,ubicacion,lote,venc,condicion,fragil,defaultImg,peso,largo,ancho,altura)
+
+
         self.close()
       
       

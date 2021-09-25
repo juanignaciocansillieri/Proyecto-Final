@@ -888,7 +888,7 @@ color: #fff;
   </widget>
  </widget>
  <resources>
-  <include location="img/img_oficiales.qrc"/>
+  <include location="../img/img_oficiales.qrc"/>
  </resources>
  <connections/>
 </ui>

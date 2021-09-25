@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(652, 428)
+        MainWindow.resize(675, 423)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -116,14 +116,13 @@ class Ui_MainWindow(object):
 "border: 0.5px solid #c1c1c1;\n"
 "border-radius: 3px;\n"
 "padding: 4 5px;\n"
-"color: #fff;\n"
+"color: #e9e9;\n"
 "font-family:Roboto;\n"
 "font-size:13px;\n"
 "font-weight: 400;\n"
 "margin-left: 10px;\n"
 "\n"
-"}\n"
-"")
+"}")
         self.codigo_input.setText("")
         self.codigo_input.setPlaceholderText("")
         self.codigo_input.setObjectName("codigo_input")
@@ -198,8 +197,8 @@ class Ui_MainWindow(object):
 "\n"
 "}\n"
 "")
-        self.lote_input.setInputMethodHints(QtCore.Qt.ImhHiddenText|QtCore.Qt.ImhNoAutoUppercase|QtCore.Qt.ImhNoPredictiveText|QtCore.Qt.ImhSensitiveData)
-        self.lote_input.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.lote_input.setInputMethodHints(QtCore.Qt.ImhNone)
+        self.lote_input.setEchoMode(QtWidgets.QLineEdit.Normal)
         self.lote_input.setPlaceholderText("")
         self.lote_input.setObjectName("lote_input")
         self.peso_num = QtWidgets.QSpinBox(self.frame_3)
@@ -369,11 +368,12 @@ class Ui_MainWindow(object):
 "border: 0.5px solid #c1c1c1;\n"
 "border-radius: 3px;\n"
 "padding: 4 5px;\n"
-"color: #fff;\n"
+"color: #e9e9;\n"
 "font-family:Roboto;\n"
 "font-size:13px;\n"
 "font-weight: 400;\n"
 "margin-left: 10px;\n"
+"\n"
 "\n"
 "}\n"
 "")
@@ -401,32 +401,15 @@ class Ui_MainWindow(object):
 "border: 0.5px solid #c1c1c1;\n"
 "border-radius: 3px;\n"
 "padding: 4 5px;\n"
-"color: #fff;\n"
+"color: #e9e9;\n"
 "font-family:Roboto;\n"
 "font-size:13px;\n"
 "font-weight: 400;\n"
 "margin-left: 10px;\n"
 "\n"
-"}\n"
-"")
+"}")
         self.ubicacion_input.setPlaceholderText("")
         self.ubicacion_input.setObjectName("ubicacion_input")
-        self.descripcion_input = QtWidgets.QLineEdit(self.frame_3)
-        self.descripcion_input.setGeometry(QtCore.QRect(20, 100, 170, 75))
-        self.descripcion_input.setStyleSheet("QLineEdit{\n"
-"background-color: #fff;\n"
-"border: 0.5px solid #c1c1c1;\n"
-"border-radius: 3px;\n"
-"padding: 4 5px;\n"
-"color: #fff;\n"
-"font-family:Roboto;\n"
-"font-size:13px;\n"
-"font-weight: 400;\n"
-"margin-left: 10px;\n"
-"\n"
-"}\n"
-"")
-        self.descripcion_input.setObjectName("descripcion_input")
         self.subirFoto_btn = QtWidgets.QPushButton(self.frame_3)
         self.subirFoto_btn.setGeometry(QtCore.QRect(435, 280, 150, 25))
         self.subirFoto_btn.setMaximumSize(QtCore.QSize(16777215, 16777215))
@@ -447,6 +430,22 @@ class Ui_MainWindow(object):
 "\n"
 "}")
         self.subirFoto_btn.setObjectName("subirFoto_btn")
+        self.textEdit = QtWidgets.QTextEdit(self.frame_3)
+        self.textEdit.setGeometry(QtCore.QRect(50, 110, 104, 87))
+        self.textEdit.setObjectName("textEdit")
+        self.descripcion_input = QtWidgets.QTextEdit(self.frame_3)
+        self.descripcion_input.setGeometry(QtCore.QRect(20, 100, 170, 61))
+        self.descripcion_input.setStyleSheet("background-color: #fff;\n"
+"border: 0.5px solid #c1c1c1;\n"
+"border-radius: 3px;\n"
+"padding: 4 5px;\n"
+"color: #e9e9;\n"
+"font-family:Roboto;\n"
+"font-size:13px;\n"
+"font-weight: 400;\n"
+"margin-left: 10px;\n"
+"")
+        self.descripcion_input.setObjectName("descripcion_input")
         self.crearprod_btn = QtWidgets.QPushButton(self.frame_2)
         self.crearprod_btn.setGeometry(QtCore.QRect(465, 360, 150, 25))
         font = QtGui.QFont()

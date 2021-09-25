@@ -27,7 +27,9 @@ class productos():
         self.ancho= ancho
         self.largo= largo
         self.alto= alto
-        print("se creo producto correctamente")
+        self.alta_producto()
+
+        
 
     def asignar_ubicacion(self):
         pass
@@ -53,8 +55,9 @@ class productos():
         cursor = a.cursor()
         query = ("DELETE from productos WHERE codigo =%s")
         cursor.execute(query, codigo)
-        print("Se elimino producto correctamente")
         a.commit()
+        lotes.lote.eliminar_prod_lote(codigo)
+        print("Se elimino producto correctamente")
 
 
     def modificar_produc(codigov, codigon,marca,descripcion,ubicacion,condicion,fragil,foto,peso,largo,ancho,alto):
@@ -112,7 +115,7 @@ class productos():
             values = (alto, idp)
             cursor.execute(query, values)
             a.commit()
-
+            lotes.lote.mod_idpruct(codigov,codigon)
             print("se MODIFICO producto correctamente")
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
@@ -139,7 +142,7 @@ class productos():
     def mostrar_product(codigo):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT p.codigo, p.marca, l.cantidad, p.descripcion,p.ubicacion, l.fechalote, l.vencimiento,p.fragil,p.foto,p.peso,p.largo,p.ancho,p.alto FROM productos p JOIN lote l ON p.codigo = l.idproducto WHERE codigo=%s")
+        query = ("SELECT p.codigo, p.marca, l.cantidad, p.descripcion,p.ubicacion, l.fechalote, l.vencimiento,p.fragil,p.foto,p.peso,p.largo,p.ancho,p.alto,p.condicion FROM productos p JOIN lote l ON p.codigo = l.idproducto WHERE codigo=%s")
         cursor.execute(query,codigo)
         data = cursor.fetchall()
         a.commit()

@@ -1,5 +1,6 @@
 import sys
 import os
+from typing import get_origin
 from PIL import Image
 from PyQt5 import QtWidgets
 from PyQt5 import QtGui
@@ -16,19 +17,20 @@ from create_user_func import UsuarioWindow
 from create_user_func import UsuarioWindow
 from nuevoProduct_func import ProductWindow
 from nueva_area import Ui_MainWindow as na
-from bm_producto import BMProduct as bm
-from bm_producto_ui import Ui_MainWindow as ui_bm
+from bm_producto import Ui_MainWindow as ui_bm
 from bm_user import Ui_MainWindow as bmu 
 from array import array
 from nueva_area_func import NewArea
 import movimiento_func
 from movimiento_func import NewMovimiento
-sys.path.append("C:\\proyecto-final\\CLASES\\")
-import productos as pr
+sys.path.append("C:\\proyecto-final\\DB\\")
+import loginDB
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import usuarios as u
 import productos as p
 import area as ar
+import movimientos as m
+import lotes as l
 
 
 
@@ -76,7 +78,7 @@ class Modern(QMainWindow):
         # Listamos productos al iniciar la ventana
         n = 0
         n = p.contar_filas()
-        print(n)
+        
         if n > 0:
             self.listarProductos()
 
@@ -107,6 +109,10 @@ class Modern(QMainWindow):
         self.ui.users_btn.clicked.connect(
             lambda: self.ui.stackedWidget_3.setCurrentWidget(self.ui.user_subpage))
 
+
+            # Abrir ventana para ver el producto individual
+        self.ui.tableWidget_usuarios.doubleClicked.connect(self.seleccionarusuario)
+        self.ui.tableWidget_usuarios.doubleClicked.connect(self.mostrarBmUser)
 
     ########################## DEPOSITOS ##################################
 
@@ -145,41 +151,66 @@ class Modern(QMainWindow):
     ## Listar Productos en la tabla
     def listarProductos(self):
         products = p.listar_prod()
-        print(products)
         n = p.contar_filas()
         self.ui.tableWidget_stock_2.setRowCount(n)
         tableRow = 0
-        for row in products:
-            self.ui.tableWidget_stock_2.setItem(
-                tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
-            self.ui.tableWidget_stock_2.setItem(
-                tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
-            self.ui.tableWidget_stock_2.setItem(
-                tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
-            self.ui.tableWidget_stock_2.setItem(
-                tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
-            self.ui.tableWidget_stock_2.setItem(
-                tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
 
-            tableRow += 1
+        for row in products:
+                print("row",row)
+                self.ui.tableWidget_stock_2.setItem(
+                    tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
+                self.ui.tableWidget_stock_2.setItem(
+                    tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
+                self.ui.tableWidget_stock_2.setItem(
+                    tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
+                self.ui.tableWidget_stock_2.setItem(
+                    tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                self.ui.tableWidget_stock_2.setItem(
+                    tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+
+                tableRow += 1
 
     ## Listar Movimientos en la tabla
     def listarMovimientos(self):
-        movimientos = p.listar_prod()
+        movimientos = m.listar_movimientos()
+        n = m.contar_filas()
         print(movimientos)
-        n = p.contar_filas()
-        self.ui.tableWidget_stock_2.setRowCount(n)
+        self.ui.tableWidget_movimientos_2.setRowCount(n)
         tableRow = 0
         for row in movimientos:
-            self.ui.tableWidget_stock_2.setItem(
+            self.ui.tableWidget_movimientos_2.setItem(
                 tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
-            self.ui.tableWidget_stock_2.setItem(
+            self.ui.tableWidget_movimientos_2.setItem(
                 tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
-            self.ui.tableWidget_stock_2.setItem(
+            self.ui.tableWidget_movimientos_2.setItem(
                 tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
-            self.ui.tableWidget_stock_2.setItem(
+            self.ui.tableWidget_movimientos_2.setItem(
                 tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
-            self.ui.tableWidget_stock_2.setItem(
+            self.ui.tableWidget_movimientos_2.setItem(
+                tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+            self.ui.tableWidget_movimientos_2.setItem(
+                tableRow, 4, QtWidgets.QTableWidgetItem(str(row[5])))
+
+            tableRow += 1
+
+
+    ## Listar lotes en la tabla
+    def listarMovimientos(self):
+        lotes = l.listar_lotes()
+        n = l.contar_filas()
+        print(lotes)
+        self.ui.tableWidget_lotes.setRowCount(n)
+        tableRow = 0
+        for row in lotes:
+            self.ui.tableWidget_lotes.setItem(
+                tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
+            self.ui.tableWidget_lotes.setItem(
+                tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
+            self.ui.tableWidget_lotes.setItem(
+                tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
+            self.ui.tableWidget_lotes.setItem(
+                tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+            self.ui.tableWidget_lotes.setItem(
                 tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
 
             tableRow += 1
@@ -213,7 +244,8 @@ class Modern(QMainWindow):
         listaProductos = []
         for i in range(0,5):
             listaProductos.append(self.ui.tableWidget_stock_2.item(self.ui.tableWidget_stock_2.currentRow(),i).text())
-        productId = listaProductos[0]
+            productId = listaProductos[0]
+  
 
     def agregarAreaCreada(self):
 
@@ -409,6 +441,7 @@ class Modern(QMainWindow):
 
     def listarUsuarios(self):
         usuarios = u.listar_user()
+        print("usuarios",usuarios)
         n = u.contar_filas()
         self.ui.tableWidget_usuarios.setRowCount(n)
         tableRow = 0
@@ -419,9 +452,9 @@ class Modern(QMainWindow):
                 tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
             self.ui.tableWidget_usuarios.setItem(
                 tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
-            if str(row[3]) == "b'1'":
+            if str(row[3]) == "1":
                 self.ui.tableWidget_usuarios.setItem(
-                    tableRow, 3, QtWidgets.QTableWidgetItem("Admin"))
+                    tableRow, 3, QtWidgets.QTableWidgetItem("Administrador"))
             else:
                 self.ui.tableWidget_usuarios.setItem(
                     tableRow, 3, QtWidgets.QTableWidgetItem("Usuario"))
@@ -489,7 +522,6 @@ class BMProduct(QMainWindow):
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
         self.rellenarCampos()
-
         #Subir foto btn
         self.ui.subirFoto_btn.clicked.connect(self.uploadImg)
 
@@ -499,6 +531,7 @@ class BMProduct(QMainWindow):
         #Eliminar producto btn
         self.ui.eliminarprod_btn.clicked.connect(self.borrarProducto)
 
+        self.cbox()
         #Mostrar Ventana
         self.show()
 
@@ -509,74 +542,50 @@ class BMProduct(QMainWindow):
         global defaultImg
         producto = p.productos.mostrar_product(productId)
         atributos = list(producto[0])
+        print(atributos)
         self.ui.codigo_input.setText(atributos[0])
         codigoViejo = atributos[0]
-        self.ui.nombre_input.setText(atributos[1])
-        self.ui.marca_input.setText(atributos[2])
-        self.ui.venc_date.setDate(atributos[4])
-        self.ui.cantidad_num.setValue(atributos[3])
-        self.ui.descripcion_input.setText(atributos[5])
-        self.ui.ubicacion_input.setText(atributos[6])
+        self.ui.descripcion_input.setPlainText(atributos[3])
+        self.ui.marca_input.setText(atributos[1])
+        self.ui.ubicacion_input.setText(atributos[5])
         self.productImg = self.ui.label
-        self.img = QPixmap("C:\proyecto-final\Interfaces\main\img/{0}".format(atributos[7]))
+        self.img = QPixmap("C:\proyecto-final\Interfaces\main\img/{0}".format(atributos[8]))
         self.productImg.setPixmap(self.img)
-        defaultImg = atributos[7]
-        self.ui.lote_num.setValue(atributos[8])
+        defaultImg = atributos[8]
+        self.ui.estado_cbox.setCurrentText(atributos[13])
 
-        if  str(atributos[9]) == "b'1'":
-            print("1")
-            self.ui.condicion_cbox.setCurrentText("Refrigerado")
 
-        elif str(atributos[10]) == "b'1'":
-            print("1")
-            self.ui.condicion_cbox.setCurrentText("Inflamable")
-        else:
-            self.ui.condicion_cbox.setCurrentText("Ninguna")
-        
-        if str(atributos[11]) == "b'1'":
+        if str(atributos[7]) == "b'1'":
             self.ui.fragil_si.setChecked(1)
         else:
             self.ui.fragil_no.setChecked(1)
 
-        self.ui.peso_num.setValue(atributos[12])
-        self.ui.largo_num.setValue(atributos[13])
-        self.ui.ancho_num.setValue(atributos[14])
-        self.ui.altura_num.setValue(atributos[15])
+        self.ui.peso_num.setValue(atributos[9])
+        self.ui.largo_num.setValue(atributos[10])
+        self.ui.ancho_num.setValue(atributos[11])
+        self.ui.altura_num.setValue(atributos[12])
+        
         
     def modificarProducto(self):
+        global productId
         global codigoViejo
         global defaultImg
         codigo = self.ui.codigo_input.text()
-        nombre = self.ui.nombre_input.text()
         descripcion = self.ui.descripcion_input.toPlainText()
-        cantidad = self.ui.cantidad_num.value()
         marca = self.ui.marca_input.text()
         ubicacion = self.ui.ubicacion_input.text()
-        venc = self.ui.venc_date.date().toString("yyyy/MM/dd")
-        lote = self.ui.lote_num.value()
+        condicion = self.ui.estado_cbox.currentText()
         if self.ui.fragil_si.isChecked():
             fragil = "1"
         else :
             fragil = "0"
-
-        condicion = self.ui.condicion_cbox.currentText()
-
-        if condicion=="Refrigerado":
-            refri=1
-            infla=0
-        elif condicion=="Inflamable": 
-            refri=0
-            infla=1
-        else:
-            refri=0
-            infla=0
 
         peso = self.ui.peso_num.value()
         ancho = self.ui.ancho_num.value()
         altura = self.ui.altura_num.value()
         largo = self.ui.largo_num.value()
         foto = defaultImg
-        p.productos.modificar_produc(codigoViejo,codigo,nombre,marca,cantidad,ubicacion,descripcion,lote,venc,refri,infla,fragil,foto,peso,largo,ancho,altura)
+        p.productos.modificar_produc(codigoViejo,codigo,marca,descripcion,ubicacion,condicion,fragil,foto,peso,largo,ancho,altura)
         self.close()
 
     def borrarProducto(self):
@@ -601,6 +610,12 @@ class BMProduct(QMainWindow):
     #def bm_user(self):
      #  self.ui.btn_.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_usuarios))
      # self.ui.label_de.mousePressEvent = self.clickD
+     
+
+    def cbox(self):
+        areas = ar.Area.listar_area()
+        for a in areas:
+            self.ui.estado_cbox.addItem(a[0])
 
 
 #############################################################  CLASS BM_USUARIOS ######################################################
@@ -629,10 +644,10 @@ class BM_Usuario(QMainWindow):
         #self.ui.subirFoto_btn.clicked.connect(self.uploadImg)
 
         #Modificar usuario btn
-        self.ui.pushButton_modificar_usuario.clicked.connect(self.ModificarUsuario)
+        self.ui.modificarprod_btn.clicked.connect(self.ModificarUsuario)
 
         #Eliminar usuario btn
-        self.ui.pushButton_eliminar_usuario.clicked.connect(self.DarDeBajaUsuario)
+        self.ui.eliminarprod_btn.clicked.connect(self.DarDeBajaUsuario)
         
 
         #Mostrar Ventana
@@ -651,16 +666,16 @@ class BM_Usuario(QMainWindow):
         atributos = list(usuario[0])
         DNI_Viejo = atributos[0]
         self.ui.dni_input.setText(atributos[0])
-        self.ui.nombre_input.setText(atributos[1])
+        self.ui.nombre_input_2.setText(atributos[1])
         self.ui.apellido_input.setText(atributos[2])
         self.ui.nacimiento_date.setDate(atributos[4])
         self.ui.puesto_input.setText(atributos[5])
         self.ui.mail_input.setText(atributos[7])
 
         
-        if  str(atributos[3]) == "b'1'":
-            
-            self.ui.tipo_cb.setCurrentText("Admin")
+        if  str(atributos[3]) == "1":
+            print("admin")
+            self.ui.tipo_cb.setCurrentText("Administrador")
 
         else:
             self.ui.tipo_cb.setCurrentText("Usuario")
@@ -680,10 +695,11 @@ class BM_Usuario(QMainWindow):
     def ModificarUsuario(self):
         global DNI_Viejo
         dni = self.ui.dni_input.text()
-        nombre = self.ui.nombre_input.text()
+        nombre = self.ui.nombre_input_2.text()
         apellido = self.ui.apellido_input.text()
         tipo = self.ui.tipo_cb.currentText()
-        if tipo == "admin": 
+        print("tpi",tipo)
+        if tipo == "Administrador": 
             tipo = 1 
         else:
             tipo = 0
@@ -693,7 +709,7 @@ class BM_Usuario(QMainWindow):
         if self.ui.pass_input.text() != "" or self.ui.pass_rep_input.text != "":
             if self.ui.pass_input.text() == self.ui.pass_rep_input.text():
                 u.usuarios.modificar_datos_user(DNI_Viejo,dni,nombre,apellido,tipo,puesto,nacimiento,mail)
-                login.cambiar_conrasena(DNI_Viejo,dni,self.ui.pass_input.text())
+                loginDB.cambiar_contrasena(DNI_Viejo,dni,self.ui.pass_input.text())
             else:
                 QtWidgets.QMessageBox.critical(self, "Error", "Contraseñas diferentes")
                 return None
@@ -712,6 +728,8 @@ class BM_Usuario(QMainWindow):
         if ret == qm.Yes:
             u.usuarios.ab_usuario(DNI)
             self.close()
+
+
     def uploadImg(self):
       global defaultImg
       size =(256,256)

@@ -136,7 +136,7 @@ class usuarios:
 def contar_filas():
     a = c.start_connection()
     cursor = a.cursor()
-    query = "SELECT COUNT(*) FROM usuarios"
+    query = "SELECT COUNT(*) FROM usuarios WHERE alta = 1"
     cursor.execute(query)
     a.commit()
     b = cursor.fetchall()
@@ -149,7 +149,7 @@ def listar_user():
         a = c.start_connection()
         cursor = a.cursor()
         try:
-            query = "SELECT dni,nombre,apellido,tipo,nacimiento FROM usuarios"
+            query = "SELECT dni,nombre,apellido,tipo,nacimiento FROM usuarios WHERE alta = 1"
             cursor.execute(query)
             user = cursor.fetchall()
             a.commit()
