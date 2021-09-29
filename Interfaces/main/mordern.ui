@@ -484,7 +484,7 @@ border-right:1px solid #cccccc;</string>
                 <string notr="true">border:none</string>
                </property>
                <property name="currentIndex">
-                <number>0</number>
+                <number>1</number>
                </property>
                <widget class="QWidget" name="product_subpage">
                 <widget class="QLabel" name="label_7">
@@ -846,6 +846,16 @@ QPushButton:hover{
                          </layout>
                         </widget>
                        </item>
+                       <item>
+                        <widget class="QFrame" name="frame_31">
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                        </widget>
+                       </item>
                       </layout>
                      </widget>
                     </item>
@@ -931,7 +941,7 @@ QPushButton:hover{
           <item>
            <widget class="QStackedWidget" name="stackedWidget_main">
             <property name="currentIndex">
-             <number>5</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="page_stock">
              <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -2547,7 +2557,7 @@ color: #282830 ;
                         </property>
                         <property name="icon">
                          <iconset resource="img/img_oficiales.qrc">
-                          <normaloff>:/img/trading.png</normaloff>:/img/trading.png</iconset>
+                          <normaloff>:/img/producto.png</normaloff>:/img/producto.png</iconset>
                         </property>
                         <property name="iconSize">
                          <size>
