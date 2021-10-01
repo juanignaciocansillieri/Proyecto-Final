@@ -33,8 +33,8 @@ class NewMovimiento(QMainWindow):
         qtRectangle.moveCenter(centerPoint)
         self.ui.egr_ing_cb.activated[str].connect(self.onSelected)
         self.lote = QtWidgets.QLineEdit(self.ui.frame_3)
-        
         self.ui.crearprod_btn.clicked.connect(self.current)
+        
 
     def current(self):
         global a
@@ -44,19 +44,12 @@ class NewMovimiento(QMainWindow):
         else: a=1
 
 
-        self.ui.crearprod_btn.clicked.connect(self.current)
-
-    def current(self):
-        global a
-        if a == 0:
-            a = 1
-            self.crearIngreso()
-        else: a = 1
         
     def onSelected(self, txtVal):
+        global a 
+        a=1
         global b
         if txtVal == "Egreso":
-            print("ates if egreso")
             if  b:
                 b = False
                 self.ui.spinBox.setGeometry(QtCore.QRect(230, 160, 170, 25))
@@ -83,7 +76,6 @@ class NewMovimiento(QMainWindow):
 
 
         elif txtVal == "Ingreso":
-            print("ates if ingreso")
             if  b == False:
                 b = True
                 self.ui.spinBox.setGeometry(QtCore.QRect(230, 160, 170, 25))
@@ -104,7 +96,6 @@ class NewMovimiento(QMainWindow):
         
 
     def crearIngreso(self):
-        print("hola estoy aca")
         tipo = False
         cantidad = self.ui.spinBox.value()
         lote = self.ui.motivo_input.text()
