@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="img">
+    <file>producto.png</file>
     <file>7790787004416.jpg</file>
     <file>Alimento.png</file>
     <file>arroz.jpg</file>

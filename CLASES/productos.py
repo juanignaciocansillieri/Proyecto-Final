@@ -134,7 +134,7 @@ class productos():
     def buscar_productArea(param):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto WHERE condicion = %s")
+        query = ("SELECT p.codigo,p.descripcion,p.marca,l.cantidad,p.ubicacion,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto WHERE condicion = %s")
         cursor.execute(query, param)
         data = cursor.fetchall()
         a.commit()
@@ -165,6 +165,20 @@ class productos():
         return data
 
 
+
+def listar_prod_area():
+    a = c.start_connection()
+    cursor = a.cursor()
+    try:
+        query = "SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento,p.condicion FROM productos p JOIN lote l ON p.codigo=l.idproducto"
+        cursor.execute(query)
+        productos = cursor.fetchall()
+        a.commit()
+    except pymysql.err.OperationalError as err:
+        productos = ""
+        print("Hubo un error:", err)
+    c.close_connection(a)
+    return productos
 
 def listar_prod():
     a = c.start_connection()
