@@ -153,6 +153,7 @@ class lote:
             query = ("SELECT cantidad FROM lote WHERE idlote=%s")
             cursor.execute(query,idlote)
             data = cursor.fetchall()
+            data=data[0][0]
             cantidad=cantidad+data
             a.commit()
             idlote=idlote+1
@@ -161,18 +162,16 @@ class lote:
         return cantidad
 
     def fifo(idproducto,cantidad):
-        cantidad=0
         n=lote.contar_filas_producto(idproducto)
+        print("n",n)
         i=0
-        j=0
-        k=0
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT idlote FROM lote WHERE idproducto=%s ORDER BY cantidad")
+        query = ("SELECT idlote FROM lote WHERE idproducto=%s ORDER BY vencimiento")
         cursor.execute(query,idproducto)
         idlote=cursor.fetchall()
-        idlote= str(idlote[0][0])
-        idlote = int(idlote)
+        idlote=idlote[0][0]
+        print("idlote",idlote)
         a.commit()
 
         while i<n:
@@ -180,16 +179,11 @@ class lote:
             cursor.execute(query,idproducto)
             n=cursor.fetchall()
             a.commit()
-            print(n)
-            n= str(n[0][0])
-            n = int(n)
+            n=n[0][0]
+            print("cantidad",n)
          
 
             if n<cantidad:
-                query = "UPDATE lote set cantidad=0 WHERE idproducto=%s and cantidad=%s"
-                values = (idproducto,n)
-                cursor.execute(query, values)
-                a.commit()
                 query = "DELETE FROM lote WHERE idproducto=%s and cantidad=%s"
                 values = (idproducto,n)
                 cursor.execute(query, values)
@@ -206,4 +200,6 @@ class lote:
                 cantidad=cantidad-n
                 idlote+=1
                 i=n
+
+
 
