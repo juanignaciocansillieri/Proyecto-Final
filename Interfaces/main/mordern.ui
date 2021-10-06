@@ -941,7 +941,7 @@ QPushButton:hover{
           <item>
            <widget class="QStackedWidget" name="stackedWidget_main">
             <property name="currentIndex">
-             <number>2</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="page_stock">
              <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -1365,9 +1365,9 @@ background-color: rgba(71, 71, 103,180);
                       <widget class="QTableWidget" name="tableWidget_stock_2">
                        <property name="geometry">
                         <rect>
-                         <x>37</x>
-                         <y>50</y>
-                         <width>911</width>
+                         <x>30</x>
+                         <y>60</y>
+                         <width>851</width>
                          <height>422</height>
                         </rect>
                        </property>
@@ -1467,7 +1467,7 @@ QHeaderView::section:vertical
                       <widget class="QFrame" name="frame_20">
                        <property name="geometry">
                         <rect>
-                         <x>29</x>
+                         <x>20</x>
                          <y>9</y>
                          <width>861</width>
                          <height>41</height>
@@ -1592,6 +1592,38 @@ color: #282830 ;
                          </widget>
                         </item>
                        </layout>
+                      </widget>
+                      <widget class="QPushButton" name="btn_buscarP_2">
+                       <property name="geometry">
+                        <rect>
+                         <x>883</x>
+                         <y>20</y>
+                         <width>31</width>
+                         <height>21</height>
+                        </rect>
+                       </property>
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>21</height>
+                        </size>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="icon">
+                        <iconset resource="img/img_oficiales.qrc">
+                         <normaloff>:/img/refresh.png</normaloff>:/img/refresh.png</iconset>
+                       </property>
+                       <property name="iconSize">
+                        <size>
+                         <width>33</width>
+                         <height>16</height>
+                        </size>
+                       </property>
                       </widget>
                      </widget>
                     </item>
@@ -2394,7 +2426,7 @@ color: #282830 ;
               </item>
              </layout>
             </widget>
-            <widget class="QWidget" name="page_lotes_2">
+            <widget class="QWidget" name="page_lotes">
              <layout class="QHBoxLayout" name="horizontalLayout_6">
               <item>
                <widget class="QFrame" name="container_mov_3">
@@ -2750,7 +2782,7 @@ color: #282830 ;
                       <property name="frameShadow">
                        <enum>QFrame::Raised</enum>
                       </property>
-                      <widget class="QTableWidget" name="tableWidget_movimientos_3">
+                      <widget class="QTableWidget" name="tableWidget_lotes">
                        <property name="geometry">
                         <rect>
                          <x>40</x>
@@ -4021,7 +4053,7 @@ color: #282830 ;
               </item>
              </layout>
             </widget>
-            <widget class="QWidget" name="page_lotes">
+            <widget class="QWidget" name="page_areas">
              <layout class="QVBoxLayout" name="verticalLayout_9">
               <item>
                <widget class="QFrame" name="frame_4">
@@ -4031,13 +4063,13 @@ color: #282830 ;
                 <property name="frameShadow">
                  <enum>QFrame::Raised</enum>
                 </property>
-                <widget class="QTableWidget" name="tableWidget_lotes">
+                <widget class="QTableWidget" name="tableWidget_areas">
                  <property name="geometry">
                   <rect>
                    <x>20</x>
-                   <y>171</y>
+                   <y>161</y>
                    <width>961</width>
-                   <height>311</height>
+                   <height>321</height>
                   </rect>
                  </property>
                  <property name="maximumSize">
@@ -4108,7 +4140,7 @@ QHeaderView::section:vertical
                   <bool>false</bool>
                  </attribute>
                  <attribute name="verticalHeaderDefaultSectionSize">
-                  <number>41</number>
+                  <number>32</number>
                  </attribute>
                  <column>
                   <property name="text">

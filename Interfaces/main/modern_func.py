@@ -263,8 +263,8 @@ class Modern(QMainWindow):
             "border:none;\n"
             "font-family: Roboto;\n"
             "border-radius:5px;\n"
-            "text-align: center;\n"
-            "color: #282830 ;\n"
+            "text-align: left;\n"
+            "color: #fff ;\n"
             "padding:5px;\n"
             "\n"
             "\n"
@@ -299,11 +299,9 @@ class Modern(QMainWindow):
             "border:none;\n"
             "font-family: Roboto;\n"
             "border-radius:5px;\n"
-            "text-align: center;\n"
-            "color: #282830 ;\n"
+            "text-align: left;\n"
+            "color: #fff ;\n"
             "padding:5px;\n"
-            "\n"
-            "\n"
             "}\n"
             "\n"
             "QPushButton:hover{\n"
@@ -398,45 +396,45 @@ class Modern(QMainWindow):
     
     def button_released(self):
 
-        self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_lotes)
+        self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_areas)
         sending_button = self.sender()
         area = str(sending_button.objectName())
         productos = p.productos.buscar_productArea(area)
         print('%s Clicked!' % str(sending_button.objectName()))
         n = p.productos.buscar_product_rows_area(area)
-        self.ui.tableWidget_lotes.setRowCount(n)
+        self.ui.tableWidget_areas.setRowCount(n)
         self.ui.label_area_mod.setText(area)
         tableRow = 0
         vacio = []
         if n == 0:
             for row in vacio:
-                self.ui.tableWidget_stock_2.setItem(
+                self.ui.tableWidget_areas.setItem(
                     tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
-                self.ui.tableWidget_stock_2.setItem(
+                self.ui.tableWidget_areas.setItem(
                     tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
-                self.ui.tableWidget_stock_2.setItem(
+                self.ui.tableWidget_areas.setItem(
                     tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
-                self.ui.tableWidget_stock_2.setItem(
+                self.ui.tableWidget_areas.setItem(
                     tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
-                self.ui.tableWidget_stock_2.setItem(
+                self.ui.tableWidget_areas.setItem(
                     tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
-                self.ui.tableWidget_stock_2.setItem(
+                self.ui.tableWidget_areas.setItem(
                     tableRow, 5, QtWidgets.QTableWidgetItem(str(row[5])))
 
                 tableRow += 1
         else:
             for row in productos:
-                self.ui.tableWidget_lotes.setItem(
+                self.ui.tableWidget_areas.setItem(
                     tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
-                self.ui.tableWidget_lotes.setItem(
+                self.ui.tableWidget_areas.setItem(
                     tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
-                self.ui.tableWidget_lotes.setItem(
+                self.ui.tableWidget_areas.setItem(
                     tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
-                self.ui.tableWidget_lotes.setItem(
+                self.ui.tableWidget_areas.setItem(
                     tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
-                self.ui.tableWidget_lotes.setItem(
+                self.ui.tableWidget_areas.setItem(
                     tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
-                self.ui.tableWidget_lotes.setItem(
+                self.ui.tableWidget_areas.setItem(
                     tableRow, 5, QtWidgets.QTableWidgetItem(str(row[5])))
 
                 tableRow += 1

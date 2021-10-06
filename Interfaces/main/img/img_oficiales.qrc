@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="img">
+    <file>refresh.png</file>
+    <file>refresh.png</file>
+    <file>reload.png</file>
     <file>producto.png</file>
     <file>7790787004416.jpg</file>
     <file>Alimento.png</file>
