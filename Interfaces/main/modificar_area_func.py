@@ -32,7 +32,7 @@ class NewArea(QMainWindow):
 
     
     #CREAR PRODUCTO NUEVO
-    def crearArea(self):   
+    def modificar_area(self):   
       #RECIBIR VALORES DE LA VENTANA
       IdArea = self.ui.IdArea_input.text()
       nombre = self.ui.nombre_input.text()
