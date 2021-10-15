@@ -143,6 +143,9 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
     identificador VARCHAR(20) NOT NULL,
     pasillos VARCHAR(20) NOT NULL,
     segmentos VARCHAR(20) NOT NULL,
+    longitud VARCHAR(20) NOT NULL,
+    ancho VARCHAR(20) NOT NULL,
+    alto VARCHAR(20) NOT NULL,
     disponibilidad VARCHAR(5) NOT NULL
     );"""
 

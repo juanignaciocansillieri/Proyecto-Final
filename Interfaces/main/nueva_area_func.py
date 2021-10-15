@@ -37,10 +37,10 @@ class NewArea(QMainWindow):
       ide = self.ui.motivo_input_2.text()
       pasillo = self.ui.segmentos_num.value()
       segmento = self.ui.pasillos_num.value()
-      area = a.Area(nom,ide,pasillo,segmento) 
       longitud = self.ui.longitud_num.value()
       ancho = self.ui.ancho_num.value()
       alto = self.ui.alto_num.value()
+      area = a.Area(nom,ide,pasillo,segmento,longitud,ancho,alto) 
       self.close()
      
       
