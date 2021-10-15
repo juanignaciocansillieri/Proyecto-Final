@@ -71,10 +71,12 @@ class Modern(QMainWindow):
         self.ui.products_btn_stock.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_stock))
         # Abrir Pag Movimientos
         self.ui.products_btn_movimiento.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_movimientos))
+        self.ui.btn_actualizarMov.clicked.connect(self.listarMovimientos)
         # Abrir Pag Lotes
         self.ui.products_btn_lotes.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_lotes))
-        #self.ui.btn_movimiento.clicked.connect(self.)
-        
+        self.ui.btn_actualizarLotes.clicked.connect(self.listarLotes)
+        self.ui.products_btn_lotes.clicked.connect(self.listarLotes)
+
         # Listamos productos al iniciar la ventana
         n = 0
         n = p.contar_filas()
@@ -84,6 +86,7 @@ class Modern(QMainWindow):
 
             # Btn para buscar
         self.ui.btn_buscarP.clicked.connect(self.buscarProducto)  
+        self.ui.btn_actualizarStock.clicked.connect(self.listarProductos)
 
             # Abrir ventana para ver el producto individual
         self.ui.tableWidget_stock_2.doubleClicked.connect(self.seleccionarProducto)
@@ -109,10 +112,16 @@ class Modern(QMainWindow):
         self.ui.users_btn.clicked.connect(
             lambda: self.ui.stackedWidget_3.setCurrentWidget(self.ui.user_subpage))
 
+        self.ui.btn_actualizarUsuarios.clicked.connect(self.listarUsuarios)
 
             # Abrir ventana para ver el producto individual
         self.ui.tableWidget_usuarios.doubleClicked.connect(self.seleccionarusuario)
         self.ui.tableWidget_usuarios.doubleClicked.connect(self.mostrarBmUser)
+
+
+        #Lotes
+
+        
 
     ########################## DEPOSITOS ##################################
 
@@ -121,7 +130,14 @@ class Modern(QMainWindow):
         self.ui.deposito_btn.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_deposito))
         self.ui.deposito_btn.clicked.connect(lambda: self.ui.stackedWidget_3.setCurrentWidget(self.ui.deposito_subpage))
         self.ui.newArea_btn.clicked.connect(self.mostrarNewArea)
+        self.ui.label.mousePressEvent = self.clickA
+        self.ui.btn_actualizarAreas.clicked.connect(self.mostrarAreas)
 
+    def clickA(self,event):
+        return self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_deposito)
+
+
+    
     def mostrarNewProduct(self):
         self.newProductWindow = ProductWindow()
         self.newProductWindow.show()
@@ -195,10 +211,9 @@ class Modern(QMainWindow):
 
 
     ## Listar lotes en la tabla
-    def listarMovimientos(self):
+    def listarLotes(self):
         lotes = l.listar_lotes()
         n = l.contar_filas()
-        print(lotes)
         self.ui.tableWidget_lotes.setRowCount(n)
         tableRow = 0
         for row in lotes:
@@ -253,18 +268,20 @@ class Modern(QMainWindow):
         areas = ar.Area.listar_area()
         n = ar.Area.contar_filas()
         child = self.ui.verticalLayout_7.count()
+        print(areas[-1][0])
         if child == n:
             pass
         else:
             
-                btn1 = QtWidgets.QPushButton(self.ui.frame_5)
+                btn1 = QtWidgets.QPushButton(self.ui.frame_14)
                 btn1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
                 btn1.setStyleSheet("QPushButton{\n"
             "border:none;\n"
             "font-family: Roboto;\n"
             "border-radius:5px;\n"
-            "text-align: left;\n"
-            "color: #fff ;\n"
+            "margin-right:20px;\n"
+            "text-align: center;\n"
+            "color: #000 ;\n"
             "padding:5px;\n"
             "\n"
             "\n"
@@ -273,8 +290,9 @@ class Modern(QMainWindow):
             "QPushButton:hover{\n"
             "    background-color: rgba(105, 105, 226, 50);\n"
             "}")
-                btn1.setObjectName("btn_{areas[-1][0]}")
+                btn1.setObjectName(areas[-1][0])
                 btn1.setText(areas[-1][0])
+                btn1.setMinimumSize(QtCore.QSize(128,0))
                 self.ui.verticalLayout_7.addWidget(btn1)
                 font = QtGui.QFont()
                 font.setFamily("Roboto")
@@ -282,6 +300,8 @@ class Modern(QMainWindow):
                 font.setBold(True)
                 font.setWeight(75)
                 btn1.setFont(font)
+                btn1.released.connect(self.button_released)
+
 
     ## Agregar botones dinamicamente
     def agregarBtnAreas(self):
@@ -293,15 +313,18 @@ class Modern(QMainWindow):
         print(",,,,,,,,,,,,,,,,,",child)
         
         for area in areas:
-                btn1 = QtWidgets.QPushButton(self.ui.frame_5)
+                btn1 = QtWidgets.QPushButton(self.ui.frame_14)
                 btn1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
                 btn1.setStyleSheet("QPushButton{\n"
-            "border:none;\n"
+           "border:none;\n"
             "font-family: Roboto;\n"
             "border-radius:5px;\n"
-            "text-align: left;\n"
-            "color: #fff ;\n"
+            "margin-right:20px;\n"
+            "text-align: center;\n"
+            "color: #000 ;\n"
             "padding:5px;\n"
+            "\n"
+            "\n"
             "}\n"
             "\n"
             "QPushButton:hover{\n"
@@ -309,6 +332,7 @@ class Modern(QMainWindow):
             "}")
                 btn1.setObjectName("{area[0]}")
                 btn1.setText(area[0])
+                btn1.setMinimumSize(QtCore.QSize(128,0))
                 btn1.released.connect(self.button_released)
                 self.ui.verticalLayout_7.addWidget(btn1)
                 font = QtGui.QFont()
@@ -335,6 +359,7 @@ class Modern(QMainWindow):
                 frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
                 frame.setFrameShadow(QtWidgets.QFrame.Raised)
                 frame.setObjectName(a[0])
+                frame.setMaximumSize(QtCore.QSize(200,200))
                 verticalLayout = QtWidgets.QVBoxLayout(frame)
                 verticalLayout.setObjectName("verticalLay{i}")
                 verticalLayout.addWidget(frame)
@@ -342,7 +367,9 @@ class Modern(QMainWindow):
                 self.btn.setText("Ver")
                 self.btn.setObjectName('%s' % a[0])
                 self.btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-                self.btn.setMinimumSize(QtCore.QSize(30,30))
+                self.btn.setMinimumSize(QtCore.QSize(70,30))
+                self.btn.setMaximumSize(QtCore.QSize(100,30))
+
                 self.label = QtWidgets.QLabel(frame)
                 self.btn.released.connect(self.button_released)
 
@@ -356,30 +383,32 @@ class Modern(QMainWindow):
                 self.label.setText(a[0])
                 self.label.setAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
                 self.label.setStyleSheet("QLabel{\n"  "border:none;\n""}")
-                self.label.setMaximumSize(QtCore.QSize(300, 250))
-                verticalLayout.addWidget(self.label)
-                verticalLayout.addWidget(self.btn)
+                self.label.setMaximumSize(QtCore.QSize(150, 50))
+                verticalLayout.addWidget(self.label, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+                verticalLayout.addWidget(self.btn, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
 
                 if child < n: 
                     if child == n-1:
                         self.agregarAreaCreada()
                     else:
-                        self.btn2 = QtWidgets.QPushButton(self.ui.frame_5)
+                        self.btn2 = QtWidgets.QPushButton(self.ui.frame_14
+    )
                         self.btn2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
                         self.btn2.setStyleSheet("QPushButton{\n"
-                    "border:none;\n"
-                    "font-family: Roboto;\n"
-                    "border-radius:5px;\n"
-                    "text-align: center;\n"
-                    "color: #282830 ;\n"
-                    "padding:5px;\n"
-                    "\n"
-                    "\n"
-                    "}\n"
-                    "\n"
-                    "QPushButton:hover{\n"
-                    "    background-color: rgba(105, 105, 226, 50);\n"
-                    "}")
+                        "border:none;\n"
+                        "font-family: Roboto;\n"
+                        "border-radius:5px;\n"
+                        "margin-right:20px;\n"
+                        "text-align: center;\n"
+                        "color: #000 ;\n"
+                        "padding:5px;\n"
+                        "\n"
+                        "\n"
+                        "}\n"
+                        "\n"
+                        "QPushButton:hover{\n"
+                        "    background-color: rgba(105, 105, 226, 50);\n"
+                        "}")
                         self.btn2.setObjectName(a[0])
                         self.btn2.setText(a[0])
                         self.ui.verticalLayout_7.addWidget(self.btn2)
@@ -398,9 +427,15 @@ class Modern(QMainWindow):
 
         self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_areas)
         sending_button = self.sender()
-        area = str(sending_button.objectName())
+        nombreArea = str(sending_button.objectName())
+        self.listarAreas(nombreArea)
+        self.ui.btn_actualizarAreaInd.clicked.connect(lambda: self.listarAreas(nombreArea))
+    
+
+    def listarAreas(self,btn):
+        area = btn
         productos = p.productos.buscar_productArea(area)
-        print('%s Clicked!' % str(sending_button.objectName()))
+        print('%s Clicked!' % btn)
         n = p.productos.buscar_product_rows_area(area)
         self.ui.tableWidget_areas.setRowCount(n)
         self.ui.label_area_mod.setText(area)
