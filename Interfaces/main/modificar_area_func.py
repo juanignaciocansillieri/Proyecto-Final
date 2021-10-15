@@ -63,4 +63,14 @@ class NewArea(QMainWindow):
     self.ui.ancho_num.setValue(atributos[8])
 
 
-    self.ui.modificar_btn.clicked.connect(self.)
+   # self.ui.modificar_btn.clicked.connect(self.)
+
+def ClearInput(self):
+ self.ui.nombre_input.setText("")
+ self.ui.longitud_num.setValue("")
+ self.ui.identificador_input.setValue("")
+ self.ui.disponibilidad_num.setValue("")
+ self.ui.alto_num.setValue("")
+ self.ui.pasillos_num.setValue("")
+ self.ui.segmentos_num.setValue("")
+ self.ui.ancho_num.setValue("")
