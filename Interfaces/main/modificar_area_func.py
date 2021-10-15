@@ -8,7 +8,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 import create_user
-from nueva_area import Ui_MainWindow
+from modificar_area import Ui_MainWindow
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import area as a
 
@@ -27,20 +27,22 @@ class NewArea(QMainWindow):
         centerPoint = QDesktopWidget().availableGeometry().center()
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
-        self.ui.crearprod_btn.clicked.connect(self.crearArea)
+        ## self.ui.crearprod_btn.clicked.connect(self.crearArea)
+        self.ui.modificar_btn.clicked.connect(self.modificar_area)
 
     
     #CREAR PRODUCTO NUEVO
-    def crearArea(self):   
+    def modificar_area(self):   
       #RECIBIR VALORES DE LA VENTANA
-      nom = self.ui.motivo_input.text()
-      ide = self.ui.motivo_input_2.text()
-      pasillo = self.ui.segmentos_num.value()
-      segmento = self.ui.pasillos_num.value()
+      IdArea = self.ui.IdArea_input.text()
+      nombre = self.ui.nombre_input.text()
       longitud = self.ui.longitud_num.value()
-      ancho = self.ui.ancho_num.value()
+      identificador = self.ui.identificador_input.text()
+      disponibilad = self.ui.identificador_input.text()
       alto = self.ui.alto_num.value()
-      area = a.Area(nom,ide,pasillo,segmento,longitud,ancho,alto) 
+      pasillos = self.ui.pasillos_num.value()
+      segmentos = self.ui.segmentos_num.value()
+      ancho = self.ui.ancho_num.value()
       self.close()
      
       

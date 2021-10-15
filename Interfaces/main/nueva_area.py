@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(475, 300)
+        MainWindow.resize(457, 382)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -30,7 +30,7 @@ class Ui_MainWindow(object):
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
         self.frame_3 = QtWidgets.QFrame(self.frame_2)
-        self.frame_3.setGeometry(QtCore.QRect(20, 40, 431, 211))
+        self.frame_3.setGeometry(QtCore.QRect(20, 40, 391, 291))
         self.frame_3.setMaximumSize(QtCore.QSize(16777215, 400))
         self.frame_3.setStyleSheet("border-radius: 10px;\n"
 "background-color: rgb(240, 242, 255);\n"
@@ -73,7 +73,7 @@ class Ui_MainWindow(object):
         self.motivo_input.setPlaceholderText("")
         self.motivo_input.setObjectName("motivo_input")
         self.crearprod_btn = QtWidgets.QPushButton(self.frame_3)
-        self.crearprod_btn.setGeometry(QtCore.QRect(150, 150, 121, 26))
+        self.crearprod_btn.setGeometry(QtCore.QRect(230, 220, 121, 26))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(-1)
@@ -191,6 +191,90 @@ class Ui_MainWindow(object):
 "")
         self.pasillos_num.setMaximum(999)
         self.pasillos_num.setObjectName("pasillos_num")
+        self.label_egr_ing_3 = QtWidgets.QLabel(self.frame_3)
+        self.label_egr_ing_3.setGeometry(QtCore.QRect(20, 130, 131, 27))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(-1)
+        self.label_egr_ing_3.setFont(font)
+        self.label_egr_ing_3.setStyleSheet("font-family: Roboto;\n"
+"font-size: 14px;\n"
+"margin-top:10px;\n"
+"margin-left:10px\n"
+"\n"
+"")
+        self.label_egr_ing_3.setObjectName("label_egr_ing_3")
+        self.label_egr_ing_4 = QtWidgets.QLabel(self.frame_3)
+        self.label_egr_ing_4.setGeometry(QtCore.QRect(220, 130, 131, 27))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(-1)
+        self.label_egr_ing_4.setFont(font)
+        self.label_egr_ing_4.setStyleSheet("font-family: Roboto;\n"
+"font-size: 14px;\n"
+"margin-top:10px;\n"
+"margin-left:10px\n"
+"\n"
+"")
+        self.label_egr_ing_4.setObjectName("label_egr_ing_4")
+        self.label_egr_ing_5 = QtWidgets.QLabel(self.frame_3)
+        self.label_egr_ing_5.setGeometry(QtCore.QRect(20, 190, 131, 27))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(-1)
+        self.label_egr_ing_5.setFont(font)
+        self.label_egr_ing_5.setStyleSheet("font-family: Roboto;\n"
+"font-size: 14px;\n"
+"margin-top:10px;\n"
+"margin-left:10px\n"
+"\n"
+"")
+        self.label_egr_ing_5.setObjectName("label_egr_ing_5")
+        self.ancho_num = QtWidgets.QSpinBox(self.frame_3)
+        self.ancho_num.setGeometry(QtCore.QRect(220, 160, 121, 25))
+        self.ancho_num.setStyleSheet("background-color: #fff;\n"
+"border-radius: 3px;\n"
+"padding: 4 5px;\n"
+"color: rgb(0, 0, 0);\n"
+"font-family:Roboto;\n"
+"border: none;\n"
+"font-size:13px;\n"
+"font-weight: 400;\n"
+"margin-left: 10px;\n"
+"")
+        self.ancho_num.setMinimum(0)
+        self.ancho_num.setMaximum(999)
+        self.ancho_num.setObjectName("ancho_num")
+        self.longitud_num = QtWidgets.QSpinBox(self.frame_3)
+        self.longitud_num.setGeometry(QtCore.QRect(20, 160, 121, 25))
+        self.longitud_num.setStyleSheet("background-color: #fff;\n"
+"border-radius: 3px;\n"
+"padding: 4 5px;\n"
+"color: rgb(0, 0, 0);\n"
+"font-family:Roboto;\n"
+"border: none;\n"
+"font-size:13px;\n"
+"font-weight: 400;\n"
+"margin-left: 10px;\n"
+"")
+        self.longitud_num.setMinimum(0)
+        self.longitud_num.setMaximum(999)
+        self.longitud_num.setObjectName("longitud_num")
+        self.alto_num = QtWidgets.QSpinBox(self.frame_3)
+        self.alto_num.setGeometry(QtCore.QRect(20, 220, 121, 25))
+        self.alto_num.setStyleSheet("background-color: #fff;\n"
+"border-radius: 3px;\n"
+"padding: 4 5px;\n"
+"color: rgb(0, 0, 0);\n"
+"font-family:Roboto;\n"
+"border: none;\n"
+"font-size:13px;\n"
+"font-weight: 400;\n"
+"margin-left: 10px;\n"
+"")
+        self.alto_num.setMinimum(0)
+        self.alto_num.setMaximum(999)
+        self.alto_num.setObjectName("alto_num")
         self.verticalLayout.addWidget(self.frame_2)
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -205,6 +289,9 @@ class Ui_MainWindow(object):
         self.label_egr_ing_2.setText(_translate("MainWindow", "Identifcador"))
         self.label_pasillos.setText(_translate("MainWindow", "Pasilllos"))
         self.label_pasillos_2.setText(_translate("MainWindow", "Segmentos"))
+        self.label_egr_ing_3.setText(_translate("MainWindow", "Longitud"))
+        self.label_egr_ing_4.setText(_translate("MainWindow", "Ancho"))
+        self.label_egr_ing_5.setText(_translate("MainWindow", "Alto"))
 import img_oficiales_rc
 
 
