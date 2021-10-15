@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>275</width>
-    <height>300</height>
+    <height>233</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -58,9 +58,9 @@
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>40</y>
+         <y>30</y>
          <width>211</width>
-         <height>211</height>
+         <height>171</height>
         </rect>
        </property>
        <property name="maximumSize">
@@ -162,7 +162,7 @@ color: #000;
         <property name="geometry">
          <rect>
           <x>40</x>
-          <y>160</y>
+          <y>120</y>
           <width>121</width>
           <height>26</height>
          </rect>
@@ -193,14 +193,33 @@ background-color: rgba(71, 71, 103,180);
          <string>Eliminar Área</string>
         </property>
        </widget>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>30</y>
+          <width>131</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>11</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Seleccione el área</string>
+        </property>
+       </widget>
       </widget>
      </widget>
     </item>
    </layout>
   </widget>
  </widget>
- <resources>
-  <include location="img/img_oficiales.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
