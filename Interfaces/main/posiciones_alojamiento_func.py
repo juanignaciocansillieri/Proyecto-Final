@@ -31,8 +31,8 @@ class NewArea(QMainWindow):
         self.ui.modificar_btn.clicked.connect(self.modificar_area)
 
     
-    #CREAR PRODUCTO NUEVO
-    def modificar_area(self):   
+    #CREAR POSICIONES ALOJAMIENTO 
+    def posiciones_alojamiento(self):   
       #RECIBIR VALORES DE LA VENTANA
       columna = self.ui.columna_num.value()
       fila = self.ui.fila_num.value()
@@ -42,6 +42,20 @@ class NewArea(QMainWindow):
       ancho = self.ui.ancho_num.value()
       alto = self.ui.alto_num.value()
       largo = self.ui.largo_num.value()
+
+    # RELLENAR CAMPOS
+    def RellenarCampos(self):
+    global ModificarArea
+    PA = PA.a
+    print(atributos)
+    atributos = list(NewArea[0])
+    self.ui.columna_num.setValue(atributos[0])
+    self.ui.fila_num.setValue(atributos[1])
+    self.ui.nivel_num.setValue(atributos[3])
+    self.ui.ancho_num.setValue(atributos[4])
+    self.ui.alto_num.setValue(atributos[5])
+    self.ui.largo_num.setValue(atributos[6])
+    
       
 
      

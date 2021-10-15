@@ -38,15 +38,25 @@ class NewArea(QMainWindow):
       nombre = self.ui.nombre_input.text()
       longitud = self.ui.longitud_num.value()
       identificador = self.ui.identificador_input.text()
-      disponibilad = self.ui.identificador_input.text()
+      disponibilad = self.ui.disponibilidad_num.value()
       alto = self.ui.alto_num.value()
       pasillos = self.ui.pasillos_num.value()
       segmentos = self.ui.segmentos_num.value()
       ancho = self.ui.ancho_num.value()
       self.close()
-     
-      
-      
 
-     
-      
+
+    # RELLENAR CAMPOS
+    def RellenarCampos(self):
+    global ModificarArea
+    RC = rc.area
+    print(area)
+    atributos = list(alojamiento[0])
+    self.ui.nombre_input.setText(atributos[0])
+    self.ui.longitud_num.setValue(atributos[1])
+    self.ui.identificador_input.setText(atributos[3])
+    self.ui.disponibilidad_num.setValue(atributos[4])
+    self.ui.alto_num.setValue(atributos[5])
+    self.ui.pasillos_num.setValue(atributos[6])
+    self.ui.segmentos_num.setValue(atributos[7])
+    self.ui.ancho_num.setValue(atributos[8])
