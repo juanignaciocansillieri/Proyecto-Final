@@ -45,6 +45,7 @@ class NewArea(QMainWindow):
       ancho = self.ui.ancho_num.value()
       self.close()
 
+    
 
     # RELLENAR CAMPOS
     def RellenarCampos(self):
@@ -60,3 +61,6 @@ class NewArea(QMainWindow):
     self.ui.pasillos_num.setValue(atributos[6])
     self.ui.segmentos_num.setValue(atributos[7])
     self.ui.ancho_num.setValue(atributos[8])
+
+
+    self.ui.modificar_btn.clicked.connect(self.)

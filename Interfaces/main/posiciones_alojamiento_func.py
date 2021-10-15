@@ -43,6 +43,9 @@ class NewArea(QMainWindow):
       alto = self.ui.alto_num.value()
       largo = self.ui.largo_num.value()
 
+      
+      self.ui.modificar_btn.clicked.connect(self.)
+
     # RELLENAR CAMPOS
     def RellenarCampos(self):
     global ModificarArea
