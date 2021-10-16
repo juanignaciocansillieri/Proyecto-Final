@@ -60,13 +60,14 @@ class NewArea(QMainWindow):
     self.ui.largo_num.setValue(atributos[6])
     
       
- def ClearInput(self):
-         self.ui.columna_num.setText("")
-         self.ui.fila_num.setValue("")
-         self.ui.nivel_num.setValue("")
-         self.ui.ancho_num.setValue("")
-         self.ui.alto_num.setValue("")
-         self.ui.largo_num.setValue("")
+def ClearInput(self):
+#self.ui.columna_num.setValue("")
+  self.ui.columna_num.setValue("")
+  self.ui.fila_num.setValue("")
+  self.ui.nivel_num.setValue("")
+  self.ui.ancho_num.setValue("")
+  self.ui.alto_num.setValue("")
+  self.ui.largo_num.setValue("")
      
       
       
