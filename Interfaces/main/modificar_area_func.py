@@ -7,8 +7,11 @@ import PyQt5
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
+from CLASES.area import Area
 import create_user
+from nueva_area import Ui_MainWindow as na
 from modificar_area import Ui_MainWindow
+from nueva_area_func import NewArea
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import area as a
 
@@ -49,10 +52,8 @@ class NewArea(QMainWindow):
 
     # RELLENAR CAMPOS
     def RellenarCampos(self):
-    global ModificarArea
-    RC = rc.area
-    print(area)
-    atributos = list(alojamiento[0])
+    CompletarArea = a.area.mostrar_area(Area)
+    atributos = list(Area[0])
     self.ui.nombre_input.setText(atributos[0])
     self.ui.longitud_num.setValue(atributos[1])
     self.ui.identificador_input.setText(atributos[3])
@@ -63,7 +64,7 @@ class NewArea(QMainWindow):
     self.ui.ancho_num.setValue(atributos[8])
 
 
-   # self.ui.modificar_btn.clicked.connect(self.)
+    #self.ui.modificar_btn.clicked.connect(self.)
 
 def ClearInput(self):
  self.ui.nombre_input.setText("")
