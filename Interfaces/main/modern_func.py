@@ -39,6 +39,7 @@ codigoViejo = ""
 DNI_Viejo = ""
 DNI = ""
 
+
 class Modern(QMainWindow):
 
     def __init__(self):
