@@ -119,11 +119,11 @@ class Area:
             c.close_connection(a)
             return area
 
-    def mostrar_area(iden):
+    def mostrar_area(nombre):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT nombre,identificador,pasillos,segmentos,disponibilidad,longitud,ancho,alto FROM area WHERE identificador=%s")
-        cursor.execute(query,iden)
+        query = ("SELECT nombre,identificador,pasillos,segmentos,disponibilidad,longitud,ancho,alto FROM area WHERE nombre=%s")
+        cursor.execute(query,nombre)
         data = cursor.fetchall()
         a.commit()
         return data

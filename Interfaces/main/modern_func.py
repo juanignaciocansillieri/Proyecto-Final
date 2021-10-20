@@ -23,6 +23,7 @@ from array import array
 from nueva_area_func import NewArea
 import movimiento_func
 from movimiento_func import NewMovimiento
+from posiciones_alojamiento import PosicionAlojamiento as pa
 sys.path.append("C:\\proyecto-final\\DB\\")
 import loginDB
 sys.path.append("C:\\proyecto-final\\CLASES\\")
@@ -431,7 +432,14 @@ class Modern(QMainWindow):
         nombreArea = str(sending_button.objectName())
         self.listarAreas(nombreArea)
         self.ui.btn_actualizarAreaInd.clicked.connect(lambda: self.listarAreas(nombreArea))
+        self.ui.btn_newPosicion.clicked.connect(lambda: self.newPosicion(nombreArea))
     
+
+    def newPosicion(self,btn):
+
+        print('%s Clicked!' % btn)
+        self.newPosicionAlojamiento = pa(btn)
+        self.newPosicionAlojamiento.show()
 
     def listarAreas(self,btn):
         area = btn
