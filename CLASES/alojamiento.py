@@ -5,6 +5,7 @@ import pymysql
 import os
 import numpy as np
 import matriz as mz
+import area as ar
 sys.path.append("C:\\proyecto-final\\DB\\")
 import conexion as c
 
@@ -21,10 +22,12 @@ class alojamiento:
         self.nivel=nivel
         self.volumen=self.largo*self.ancho*self.alto
         self.disponibilidad=0 #0 disponible 1 tiene algo 2 esta lleno
-        self.posicion=str(str(self.area)+"-"+str(self.segmento)+"-"+str(filas)+"-"+str(nivel))
+        iden=ar.Area.mostrar_identificador(area)
+        iden=str(iden[0][0])
+        self.posicion=str(str(iden)+"-"+str(pasillo)+"-"+str(self.segmento)+"-"+str(filas)+"-"+str(columna)+"-"+str(nivel))
         self.pasillo=pasillo
         self.limite=limite
-        self.codigo= str(str(self.area)+"-"+str(self.segmento)+"-"+str(filas)+"-"+str(nivel))
+        self.codigo= str(str(iden)+"-"+str(pasillo)+"-"+str(self.segmento)+"-"+str(filas)+"-"+str(columna)+"-"+str(nivel))
         self.alta_alojamiento()
         print("se creo alojamiento correctamente")
 
@@ -160,12 +163,12 @@ class alojamiento:
         c.close_connection(a)
         return n
 
-    def listar_alojamiento_disponibles():
+    def listar_alojamiento_disponibles_area(area):
         a = c.start_connection()
         cursor = a.cursor()
         try:
-            query = "SELECT codigo,largo,ancho,alto,volumen,pasillo,alojamiento,disponibilidad,posicion,limite FROM alojamiento WHERE disponibilidad=0"
-            cursor.execute(query)
+            query = "SELECT codigo,largo,ancho,alto,volumen,pasillo,alojamiento,disponibilidad,posicion,limite FROM alojamiento WHERE disponibilidad=0 and area=%s"
+            cursor.execute(query,area)
             productos = cursor.fetchall()
 
             a.commit()
@@ -175,11 +178,11 @@ class alojamiento:
         print(productos)
         return productos
 
-    def contar_filas_disponibles():
+    def contar_filas_disponibles_area(area):
         a = c.start_connection()
         cursor = a.cursor()
-        query = "SELECT COUNT(*) FROM alojamiento where disponibilidad=0"
-        cursor.execute(query)
+        query = "SELECT COUNT(*) FROM alojamiento where disponibilidad=0 and area=%s"
+        cursor.execute(query,area)
         a.commit()
         b = cursor.fetchall()
         b = str(b[0][0])
