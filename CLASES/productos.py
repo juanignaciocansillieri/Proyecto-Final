@@ -1,12 +1,11 @@
 
-
 import sys
 from sys import setprofile
 from typing import NoReturn
 import pymysql
 import os
 #import alojamiento as aloj
-#import lotes
+import lotes
 sys.path.append("C:\\proyecto-final\\DB\\")
 import conexion as c
 

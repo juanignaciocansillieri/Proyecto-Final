@@ -34,7 +34,7 @@ class Area:
             print("Hubo un error:", err)
         c.close_connection(a)
 
-    def modificar_area(nombrev,nombren,iden,pasillos,segmentos,disponibilidad,longitud,ancho,alto):
+    def modificar_area(nombrev,nombren,iden,pasillos,segmentos,longitud,ancho,alto):
         a=c.start_connection()
         cursor=a.cursor()
         query = "SELECT idarea FROM area WHERE nombre=%s"
@@ -58,10 +58,6 @@ class Area:
             a.commit() 
             query = "UPDATE area SET segmentos=%s WHERE idarea=%s"
             values = (segmentos,ida)
-            cursor.execute(query, values)
-            a.commit()
-            query = "UPDATE area SET disponibilidad=%s WHERE idarea=%s"
-            values = (disponibilidad,ida)
             cursor.execute(query, values)
             a.commit()
             query = "UPDATE area SET longitud=%s WHERE idarea=%s"
@@ -131,7 +127,7 @@ class Area:
     def mostrar_area(nombre):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT nombre,identificador,pasillos,segmentos,disponibilidad,longitud,ancho,alto FROM area WHERE nombre=%s")
+        query = ("SELECT nombre,identificador,pasillos,segmentos,longitud,ancho,alto FROM area WHERE nombre=%s")
         cursor.execute(query,nombre)
         data = cursor.fetchall()
         a.commit()

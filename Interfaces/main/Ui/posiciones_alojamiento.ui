@@ -140,7 +140,7 @@ background-color: rgba(71, 71, 103,180);
 }</string>
         </property>
         <property name="text">
-         <string>Modificar</string>
+         <string>Crear</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_Area">

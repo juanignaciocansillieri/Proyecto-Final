@@ -17,6 +17,7 @@ from create_user_func import UsuarioWindow
 from create_user_func import UsuarioWindow
 from nuevoProduct_func import ProductWindow
 from nueva_area import Ui_MainWindow as na
+from modificar_area import ModificarArea as ma
 from bm_producto import Ui_MainWindow as ui_bm
 from bm_user import Ui_MainWindow as bmu 
 from array import array
@@ -275,9 +276,9 @@ class Modern(QMainWindow):
             pass
         else:
             
-                btn1 = QtWidgets.QPushButton(self.ui.frame_14)
-                btn1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-                btn1.setStyleSheet("QPushButton{\n"
+                self.btn1 = QtWidgets.QPushButton(self.ui.frame_14)
+                self.btn1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+                self.btn1.setStyleSheet("QPushButton{\n"
             "border:none;\n"
             "font-family: Roboto;\n"
             "border-radius:5px;\n"
@@ -292,17 +293,17 @@ class Modern(QMainWindow):
             "QPushButton:hover{\n"
             "    background-color: rgba(105, 105, 226, 50);\n"
             "}")
-                btn1.setObjectName(areas[-1][0])
-                btn1.setText(areas[-1][0])
-                btn1.setMinimumSize(QtCore.QSize(128,0))
-                self.ui.verticalLayout_7.addWidget(btn1)
+                self.btn1.setObjectName(areas[-1][0])
+                self.btn1.setText(areas[-1][0])
+                self.btn1.setMinimumSize(QtCore.QSize(128,0))
+                self.ui.verticalLayout_7.addWidget(self.btn1)
                 font = QtGui.QFont()
                 font.setFamily("Roboto")
                 font.setPointSize(10)
                 font.setBold(True)
                 font.setWeight(75)
-                btn1.setFont(font)
-                btn1.released.connect(self.button_released)
+                self.btn1.setFont(font)
+                self.btn1.released.connect(self.button_released)
 
 
     ## Agregar botones dinamicamente
@@ -315,9 +316,9 @@ class Modern(QMainWindow):
         print(",,,,,,,,,,,,,,,,,",child)
         
         for area in areas:
-                btn1 = QtWidgets.QPushButton(self.ui.frame_14)
-                btn1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-                btn1.setStyleSheet("QPushButton{\n"
+                self.btn1 = QtWidgets.QPushButton(self.ui.frame_14)
+                self.btn1.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+                self.btn1.setStyleSheet("QPushButton{\n"
            "border:none;\n"
             "font-family: Roboto;\n"
             "border-radius:5px;\n"
@@ -332,17 +333,17 @@ class Modern(QMainWindow):
             "QPushButton:hover{\n"
             "    background-color: rgba(105, 105, 226, 50);\n"
             "}")
-                btn1.setObjectName("{area[0]}")
-                btn1.setText(area[0])
-                btn1.setMinimumSize(QtCore.QSize(128,0))
-                btn1.released.connect(self.button_released)
-                self.ui.verticalLayout_7.addWidget(btn1)
+                self.btn1.setObjectName("{area[0]}")
+                self.btn1.setText(area[0])
+                self.btn1.setMinimumSize(QtCore.QSize(128,0))
+                self.btn1.released.connect(self.button_released)
+                self.ui.verticalLayout_7.addWidget(self.btn1)
                 font = QtGui.QFont()
                 font.setFamily("Roboto")
                 font.setPointSize(10)
                 font.setBold(True)
                 font.setWeight(75)
-                btn1.setFont(font)
+                self.btn1.setFont(font)
                 i+=1
 
 
@@ -434,18 +435,25 @@ class Modern(QMainWindow):
         self.ui.btn_actualizarAreaInd.clicked.connect(lambda: self.listarAreas(nombreArea))
         self.ui.btn_newPosicion.clicked.connect(lambda: self.newPosicion(nombreArea))
         self.ui.btn_modificarArea.clicked.connect(lambda: self.modificarArea(nombreArea))
-    
+        self.ui.btn_actualizarAreaInd.clicked.connect(lambda: self.actualizarNombreArea(nombreArea))
+        print(self.aaa)
+    def actualizarNombreArea(self,nombreArea):
+        areas = ar.Area.listar_area()
+        print(areas[0][0])
+
+        self.btn1.setText(str(areas[0][0]))
+        self.btn2.setText(str(areas[0][0]))
 
     def newPosicion(self,btn):
 
         print('%s Clicked!' % btn)
         self.newPosicionAlojamiento = pa(btn)
         self.newPosicionAlojamiento.show()
-        
+
     def modificarArea(self,btn):
 
         print('%s Clicked!' % btn)
-        self.newPosicionAlojamiento = pa(btn)
+        self.newPosicionAlojamiento = ma(btn)
         self.newPosicionAlojamiento.show()
 
     def listarAreas(self,btn):
