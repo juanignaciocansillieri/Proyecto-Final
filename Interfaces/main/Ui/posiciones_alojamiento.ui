@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>662</width>
-    <height>450</height>
+    <height>330</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -57,10 +57,10 @@
       <widget class="QFrame" name="frame_3">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>40</y>
+         <x>50</x>
+         <y>30</y>
          <width>571</width>
-         <height>341</height>
+         <height>271</height>
         </rect>
        </property>
        <property name="maximumSize">
@@ -111,8 +111,8 @@ margin-left:10px
        <widget class="QPushButton" name="modificar_btn">
         <property name="geometry">
          <rect>
-          <x>340</x>
-          <y>280</y>
+          <x>420</x>
+          <y>220</y>
           <width>121</width>
           <height>26</height>
          </rect>
@@ -200,7 +200,7 @@ margin-left:10px
        <widget class="QLabel" name="label_pasillo">
         <property name="geometry">
          <rect>
-          <x>220</x>
+          <x>410</x>
           <y>10</y>
           <width>131</width>
           <height>27</height>
@@ -228,7 +228,7 @@ margin-left:10px
         <property name="geometry">
          <rect>
           <x>220</x>
-          <y>70</y>
+          <y>10</y>
           <width>131</width>
           <height>27</height>
          </rect>
@@ -282,7 +282,7 @@ margin-left:10px
         <property name="geometry">
          <rect>
           <x>220</x>
-          <y>190</y>
+          <y>130</y>
           <width>131</width>
           <height>27</height>
          </rect>
@@ -309,7 +309,7 @@ margin-left:10px
         <property name="geometry">
          <rect>
           <x>220</x>
-          <y>130</y>
+          <y>70</y>
           <width>131</width>
           <height>27</height>
          </rect>
@@ -364,7 +364,7 @@ margin-left: 10px;
         <property name="geometry">
          <rect>
           <x>220</x>
-          <y>220</y>
+          <y>160</y>
           <width>121</width>
           <height>25</height>
          </rect>
@@ -392,7 +392,7 @@ margin-left: 10px;
         <property name="geometry">
          <rect>
           <x>220</x>
-          <y>160</y>
+          <y>100</y>
           <width>121</width>
           <height>25</height>
          </rect>
@@ -503,7 +503,7 @@ margin-left: 10px;
         <property name="geometry">
          <rect>
           <x>410</x>
-          <y>10</y>
+          <y>70</y>
           <width>131</width>
           <height>27</height>
          </rect>
@@ -530,7 +530,7 @@ margin-left:10px
         <property name="geometry">
          <rect>
           <x>410</x>
-          <y>40</y>
+          <y>100</y>
           <width>121</width>
           <height>25</height>
          </rect>
@@ -558,7 +558,7 @@ margin-left: 10px;
         <property name="geometry">
          <rect>
           <x>410</x>
-          <y>70</y>
+          <y>130</y>
           <width>131</width>
           <height>27</height>
          </rect>
@@ -585,7 +585,7 @@ margin-left:10px
         <property name="geometry">
          <rect>
           <x>410</x>
-          <y>100</y>
+          <y>160</y>
           <width>121</width>
           <height>25</height>
          </rect>
@@ -613,7 +613,7 @@ margin-left: 10px;
         <property name="geometry">
          <rect>
           <x>220</x>
-          <y>100</y>
+          <y>40</y>
           <width>121</width>
           <height>25</height>
          </rect>
@@ -634,7 +634,7 @@ margin-left: 10px;
        <widget class="QComboBox" name="comboBox_pasillo">
         <property name="geometry">
          <rect>
-          <x>220</x>
+          <x>410</x>
           <y>40</y>
           <width>121</width>
           <height>25</height>
