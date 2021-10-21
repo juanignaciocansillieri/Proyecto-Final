@@ -5,7 +5,6 @@ from PyQt5.QtCore import QFile,Qt
 
 
 from CLASES.productos import productos
-import pruebas as p
 #p.crear_vector()
 import sys
 sys.path.append("C:\\proyecto-final\\DB\\")
