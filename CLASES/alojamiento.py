@@ -9,7 +9,7 @@ sys.path.append("C:\\proyecto-final\\DB\\")
 import conexion as c
 
 class alojamiento:
-    def __init__(self,largo,ancho,alto,area,pasillo,segmento,filas,nivel,limite):
+    def __init__(self,largo,ancho,alto,area,pasillo,segmento,filas,columna,nivel,limite):
         self.codigo= str(str(self.area)+"-"+str(self.segmento)+"-"+str(filas)+"-"+str(nivel))
         self.largo=largo
         self.ancho=ancho
@@ -17,6 +17,7 @@ class alojamiento:
         self.area=area
         self.segmento=segmento
         self.filas=filas
+        self.columna=columna
         self.nivel=nivel
         self.volumen=self.largo*self.ancho*self.alto
         self.disponibilidad=0 #0 disponible 1 tiene algo 2 esta lleno
@@ -153,7 +154,63 @@ class alojamiento:
         c.close_connection(a)
         return n
 
+    def listar_alojamiento_disponibles():
+        a = c.start_connection()
+        cursor = a.cursor()
+        try:
+            query = "SELECT codigo,largo,ancho,alto,volumen,pasillo,alojamiento,disponibilidad,posicion,limite FROM alojamiento WHERE disponibilidad=0"
+            cursor.execute(query)
+            productos = cursor.fetchall()
 
+            a.commit()
+        except pymysql.err.OperationalError as err:
+            print("Hubo un error:", err)
+        c.close_connection(a)
+        print(productos)
+        return productos
+
+    def contar_filas_disponibles():
+        a = c.start_connection()
+        cursor = a.cursor()
+        query = "SELECT COUNT(*) FROM alojamiento where disponibilidad=0"
+        cursor.execute(query)
+        a.commit()
+        b = cursor.fetchall()
+        b = str(b[0][0])
+        n = int(b)
+        c.close_connection(a)
+        return n
+
+def ver_codigo(codigo):
+        a=c.start_connection()
+        cursor=a.cursor()
+        query = "SELECT COUNT(*) FROM alojamiento"
+        cursor.execute(query)
+        a.commit()
+        b = cursor.fetchall()
+        b = str(b[0][0])
+        n = int(b)
+        i=0
+        codigo="(('"+codigo+"',),)"
+        while i<n:
+            query = "SELECT codigo FROM alojamiento WHERE idalojamiento = %s"
+            values=i
+            cursor.execute(query,values)
+            a.commit()
+            b = cursor.fetchall()
+            b = str(b)
+            print (b)
+            if b==codigo:
+                i=n+1
+            else:               
+                i+=1
+        if i==n+1:
+            c.close_connection(a)
+            #codigo existe
+            return 1
+        else: 
+            c.close_connection(a)
+            return 0
 
 
 """
