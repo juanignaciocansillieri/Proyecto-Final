@@ -34,22 +34,22 @@ class Area:
             print("Hubo un error:", err)
         c.close_connection(a)
 
-    def modificar_area(identv,idenn,nombre,pasillos,segmentos,disponibilidad,longitud,ancho,alto):
+    def modificar_area(nombrev,nombren,iden,pasillos,segmentos,disponibilidad,longitud,ancho,alto):
         a=c.start_connection()
         cursor=a.cursor()
-        query = "SELECT idarea FROM area WHERE identificador=%s"
-        values =identv
+        query = "SELECT idarea FROM area WHERE nombre=%s"
+        values =nombrev
         cursor.execute(query, values)
         a.commit()
         b = cursor.fetchall()
         ida = str(b[0][0])
         try:
             query = "UPDATE area SET nombre=%s WHERE idarea=%s"
-            values = (nombre,ida)
+            values = (nombren,ida)
             cursor.execute(query, values)
             a.commit()
             query = "UPDATE area SET identificador=%s WHERE idarea=%s"
-            values = (idenn,ida)
+            values = (iden,ida)
             cursor.execute(query, values)
             a.commit()
             query = "UPDATE area SET pasillos=%s WHERE idarea=%s"
@@ -81,12 +81,12 @@ class Area:
             print("Hubo un error:", err)
         c.close_connection(a)
 
-    def eliminar_area(identificador):
+    def eliminar_area(nombre):
         a=c.start_connection()
         cursor=a.cursor()
         try:
-            query = "DELETE FROM area WHERE identificador=%s"
-            values = identificador
+            query = "DELETE FROM area WHERE nombre=%s"
+            values = nombre
             cursor.execute(query, values)
             a.commit()
             print("se elimino area correctamente")
@@ -118,6 +118,15 @@ class Area:
                 print("Hubo un error:", err)
             c.close_connection(a)
             return area
+
+    def mostrar_identificador(nombre):
+        a = c.start_connection()
+        cursor = a.cursor()
+        query = ("SELECT nombre FROM area WHERE identificador=%s")
+        cursor.execute(query,nombre)
+        data = cursor.fetchall()
+        a.commit()
+        return data
 
     def mostrar_area(iden):
         a = c.start_connection()

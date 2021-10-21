@@ -92,14 +92,18 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
 
     q7 = """CREATE TABLE IF NOT EXISTS alojamiento (
     idalojamiento INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    area VARCHAR(20) NOT NULL,
+    pasillo VARCHAR(20) NOT NULL,
+    segmento VARCHAR(20) NOT NULL,
+    columna VARCHAR(20) NOT NULL,
+    fila VARCHAR(20) NOT NULL,
+    nivel VARCHAR(20) NOT NULL,
     codigo VARCHAR(20) NOT NULL,
     largo INT NOT NULL,
     ancho INT NOT NULL,
     alto INT NOT NULL,
     volumen VARCHAR(20) NOT NULL,
     disponibilidad VARCHAR(20) NOT NULL,
-    posicion VARCHAR(20) NOT NULL,
-    refrigeracion BINARY(1) NOT NULL,
     limite VARCHAR(20) NOT NULL
     );"""
 

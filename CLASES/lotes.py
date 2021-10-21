@@ -119,7 +119,7 @@ class lote:
             a = c.start_connection()
             cursor = a.cursor()
             try:
-                query = "SELECT l.idproducto,p.descripcion,l.cantidad,l.fechalote,l.vencimiento FROM lote l JOIN productos p l.idproducto=p.codigo WHERE idproducto=%s"
+                query = "SELECT l.idproducto,p.descripcion,l.cantidad,l.fechalote,l.vencimiento FROM lote l JOIN productos p ON l.idproducto=p.codigo WHERE idproducto=%s"
                 values=idproducto
                 cursor.execute(query,values)
                 area = cursor.fetchall()
