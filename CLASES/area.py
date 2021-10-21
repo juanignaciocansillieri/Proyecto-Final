@@ -136,3 +136,65 @@ class Area:
         data = cursor.fetchall()
         a.commit()
         return data
+
+def ver_nombre(nombre):
+        a=c.start_connection()
+        cursor=a.cursor()
+        query = "SELECT COUNT(*) FROM area"
+        cursor.execute(query)
+        a.commit()
+        b = cursor.fetchall()
+        b = str(b[0][0])
+        n = int(b)
+        i=0
+        nombre="(('"+nombre+"',),)"
+        while i<n:
+            query = "SELECT nombre FROM area WHERE idarea = %s"
+            values=i
+            cursor.execute(query,values)
+            a.commit()
+            b = cursor.fetchall()
+            b = str(b)
+            print (b)
+            if b==nombre:
+                i=n+1
+            else:               
+                i+=1
+        if i==n+1:
+            c.close_connection(a)
+            #nombre existe
+            return 1
+        else: 
+            c.close_connection(a)
+            return 0
+
+def ver_iden(iden):
+        a=c.start_connection()
+        cursor=a.cursor()
+        query = "SELECT COUNT(*) FROM area"
+        cursor.execute(query)
+        a.commit()
+        b = cursor.fetchall()
+        b = str(b[0][0])
+        n = int(b)
+        i=0
+        iden="(('"+iden+"',),)"
+        while i<n:
+            query = "SELECT iden FROM area WHERE idarea = %s"
+            values=i
+            cursor.execute(query,values)
+            a.commit()
+            b = cursor.fetchall()
+            b = str(b)
+            print (b)
+            if b==iden:
+                i=n+1
+            else:               
+                i+=1
+        if i==n+1:
+            c.close_connection(a)
+            #identificador existe
+            return 1
+        else: 
+            c.close_connection(a)
+            return 0
