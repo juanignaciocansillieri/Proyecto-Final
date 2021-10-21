@@ -119,8 +119,8 @@ class lote:
             a = c.start_connection()
             cursor = a.cursor()
             try:
-                query = "SELECT idproducto,p.descripcion,cantidad,fechalote,vencimiento FROM lote l  JOIN productos p ON idproducto=p.codigo WHERE idproducto=%s or p.descripcion = %s"
-                values = (idproducto,idproducto)
+                query = "SELECT l.idproducto,p.descripcion,l.cantidad,l.fechalote,l.vencimiento FROM lote l JOIN productos p ON l.idproducto=p.codigo WHERE idproducto=%s"
+                values=idproducto
                 cursor.execute(query,values)
                 area = cursor.fetchall()
                 a.commit()
