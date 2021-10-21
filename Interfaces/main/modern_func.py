@@ -441,6 +441,7 @@ class Modern(QMainWindow):
         print('%s Clicked!' % btn)
         self.newPosicionAlojamiento = pa(btn)
         self.newPosicionAlojamiento.show()
+        
     def modificarArea(self,btn):
 
         print('%s Clicked!' % btn)

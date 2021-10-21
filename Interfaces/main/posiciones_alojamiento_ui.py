@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(662, 450)
+        MainWindow.resize(662, 330)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -30,7 +30,7 @@ class Ui_MainWindow(object):
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
         self.frame_3 = QtWidgets.QFrame(self.frame_2)
-        self.frame_3.setGeometry(QtCore.QRect(20, 40, 571, 341))
+        self.frame_3.setGeometry(QtCore.QRect(50, 30, 571, 271))
         self.frame_3.setMaximumSize(QtCore.QSize(16777215, 400))
         self.frame_3.setStyleSheet("border-radius: 10px;\n"
 "background-color: rgb(240, 242, 255);\n"
@@ -54,7 +54,7 @@ class Ui_MainWindow(object):
         self.label_3.setText("")
         self.label_3.setObjectName("label_3")
         self.modificar_btn = QtWidgets.QPushButton(self.frame_3)
-        self.modificar_btn.setGeometry(QtCore.QRect(340, 280, 121, 26))
+        self.modificar_btn.setGeometry(QtCore.QRect(420, 220, 121, 26))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(-1)
@@ -99,7 +99,7 @@ class Ui_MainWindow(object):
 "")
         self.label_columna.setObjectName("label_columna")
         self.label_pasillo = QtWidgets.QLabel(self.frame_3)
-        self.label_pasillo.setGeometry(QtCore.QRect(220, 10, 131, 27))
+        self.label_pasillo.setGeometry(QtCore.QRect(410, 10, 131, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(-1)
@@ -112,7 +112,7 @@ class Ui_MainWindow(object):
 "")
         self.label_pasillo.setObjectName("label_pasillo")
         self.label_segmento = QtWidgets.QLabel(self.frame_3)
-        self.label_segmento.setGeometry(QtCore.QRect(220, 70, 131, 27))
+        self.label_segmento.setGeometry(QtCore.QRect(220, 10, 131, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(-1)
@@ -138,7 +138,7 @@ class Ui_MainWindow(object):
 "")
         self.label_fila.setObjectName("label_fila")
         self.label_alto = QtWidgets.QLabel(self.frame_3)
-        self.label_alto.setGeometry(QtCore.QRect(220, 190, 131, 27))
+        self.label_alto.setGeometry(QtCore.QRect(220, 130, 131, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(-1)
@@ -151,7 +151,7 @@ class Ui_MainWindow(object):
 "")
         self.label_alto.setObjectName("label_alto")
         self.label_ancho = QtWidgets.QLabel(self.frame_3)
-        self.label_ancho.setGeometry(QtCore.QRect(220, 130, 131, 27))
+        self.label_ancho.setGeometry(QtCore.QRect(220, 70, 131, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(-1)
@@ -179,7 +179,7 @@ class Ui_MainWindow(object):
         self.fila_num.setMaximum(999)
         self.fila_num.setObjectName("fila_num")
         self.alto_num = QtWidgets.QSpinBox(self.frame_3)
-        self.alto_num.setGeometry(QtCore.QRect(220, 220, 121, 25))
+        self.alto_num.setGeometry(QtCore.QRect(220, 160, 121, 25))
         self.alto_num.setStyleSheet("background-color: #fff;\n"
 "border-radius: 3px;\n"
 "padding: 4 5px;\n"
@@ -194,7 +194,7 @@ class Ui_MainWindow(object):
         self.alto_num.setMaximum(999)
         self.alto_num.setObjectName("alto_num")
         self.ancho_num = QtWidgets.QSpinBox(self.frame_3)
-        self.ancho_num.setGeometry(QtCore.QRect(220, 160, 121, 25))
+        self.ancho_num.setGeometry(QtCore.QRect(220, 100, 121, 25))
         self.ancho_num.setStyleSheet("background-color: #fff;\n"
 "border-radius: 3px;\n"
 "padding: 4 5px;\n"
@@ -252,7 +252,7 @@ class Ui_MainWindow(object):
         self.nivel_num.setMaximum(999)
         self.nivel_num.setObjectName("nivel_num")
         self.label_largo = QtWidgets.QLabel(self.frame_3)
-        self.label_largo.setGeometry(QtCore.QRect(410, 10, 131, 27))
+        self.label_largo.setGeometry(QtCore.QRect(410, 70, 131, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(-1)
@@ -265,7 +265,7 @@ class Ui_MainWindow(object):
 "")
         self.label_largo.setObjectName("label_largo")
         self.largo_num = QtWidgets.QSpinBox(self.frame_3)
-        self.largo_num.setGeometry(QtCore.QRect(410, 40, 121, 25))
+        self.largo_num.setGeometry(QtCore.QRect(410, 100, 121, 25))
         self.largo_num.setStyleSheet("background-color: #fff;\n"
 "border-radius: 3px;\n"
 "padding: 4 5px;\n"
@@ -280,7 +280,7 @@ class Ui_MainWindow(object):
         self.largo_num.setMaximum(999)
         self.largo_num.setObjectName("largo_num")
         self.label_limite = QtWidgets.QLabel(self.frame_3)
-        self.label_limite.setGeometry(QtCore.QRect(410, 70, 131, 27))
+        self.label_limite.setGeometry(QtCore.QRect(410, 130, 131, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(-1)
@@ -293,7 +293,7 @@ class Ui_MainWindow(object):
 "")
         self.label_limite.setObjectName("label_limite")
         self.limite_num = QtWidgets.QSpinBox(self.frame_3)
-        self.limite_num.setGeometry(QtCore.QRect(410, 100, 121, 25))
+        self.limite_num.setGeometry(QtCore.QRect(410, 160, 121, 25))
         self.limite_num.setStyleSheet("background-color: #fff;\n"
 "border-radius: 3px;\n"
 "padding: 4 5px;\n"
@@ -308,7 +308,7 @@ class Ui_MainWindow(object):
         self.limite_num.setMaximum(999)
         self.limite_num.setObjectName("limite_num")
         self.comboBox_segmento = QtWidgets.QComboBox(self.frame_3)
-        self.comboBox_segmento.setGeometry(QtCore.QRect(220, 100, 121, 25))
+        self.comboBox_segmento.setGeometry(QtCore.QRect(220, 40, 121, 25))
         self.comboBox_segmento.setStyleSheet("background-color: #fff;\n"
 "border-radius: 3px;\n"
 "padding: 4 5px;\n"
@@ -321,7 +321,7 @@ class Ui_MainWindow(object):
 "")
         self.comboBox_segmento.setObjectName("comboBox_segmento")
         self.comboBox_pasillo = QtWidgets.QComboBox(self.frame_3)
-        self.comboBox_pasillo.setGeometry(QtCore.QRect(220, 40, 121, 25))
+        self.comboBox_pasillo.setGeometry(QtCore.QRect(410, 40, 121, 25))
         self.comboBox_pasillo.setStyleSheet("background-color: #fff;\n"
 "border-radius: 3px;\n"
 "padding: 4 5px;\n"
