@@ -23,6 +23,7 @@ from array import array
 from nueva_area_func import NewArea
 import movimiento_func
 from movimiento_func import NewMovimiento
+from posiciones_alojamiento import PosicionAlojamiento as pa
 sys.path.append("C:\\proyecto-final\\DB\\")
 import loginDB
 sys.path.append("C:\\proyecto-final\\CLASES\\")
@@ -38,6 +39,7 @@ defaultImg = ""
 codigoViejo = ""
 DNI_Viejo = ""
 DNI = ""
+
 
 class Modern(QMainWindow):
 
@@ -74,8 +76,7 @@ class Modern(QMainWindow):
         self.ui.btn_actualizarMov.clicked.connect(self.listarMovimientos)
         # Abrir Pag Lotes
         self.ui.products_btn_lotes.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_lotes))
-        self.ui.btn_actualizarLotes.clicked.connect(self.listarLotes)
-        self.ui.products_btn_lotes.clicked.connect(self.listarLotes)
+        self.ui.pushButton_19.clicked.connect(self.listarLotes)
 
         # Listamos productos al iniciar la ventana
         n = 0
@@ -130,7 +131,7 @@ class Modern(QMainWindow):
         self.ui.deposito_btn.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_deposito))
         self.ui.deposito_btn.clicked.connect(lambda: self.ui.stackedWidget_3.setCurrentWidget(self.ui.deposito_subpage))
         self.ui.newArea_btn.clicked.connect(self.mostrarNewArea)
-        self.ui.label.mousePressEvent = self.clickA
+        self.ui.label_12.mousePressEvent = self.clickA
         self.ui.btn_actualizarAreas.clicked.connect(self.mostrarAreas)
 
     def clickA(self,event):
@@ -172,7 +173,6 @@ class Modern(QMainWindow):
         tableRow = 0
 
         for row in products:
-                print("row",row)
                 self.ui.tableWidget_stock_2.setItem(
                     tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
                 self.ui.tableWidget_stock_2.setItem(
@@ -212,8 +212,9 @@ class Modern(QMainWindow):
 
     ## Listar lotes en la tabla
     def listarLotes(self):
-        lotes = l.listar_lotes()
-        n = l.contar_filas()
+        id = self.ui.lineEdit_6.text()
+        lotes = l.lote.listar_lote(id)
+        n = l.lote.contar_filas_producto(id)
         self.ui.tableWidget_lotes.setRowCount(n)
         tableRow = 0
         for row in lotes:
@@ -222,13 +223,14 @@ class Modern(QMainWindow):
             self.ui.tableWidget_lotes.setItem(
                 tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
             self.ui.tableWidget_lotes.setItem(
-                tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
+                tableRow, 2, QtWidgets.QTableWidgetItem(str(row[2])))
             self.ui.tableWidget_lotes.setItem(
                 tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
             self.ui.tableWidget_lotes.setItem(
                 tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
 
             tableRow += 1
+            
   # Buscar productos a traves del input, por parámetro ingresado
 
     def buscarProducto(self):
@@ -430,7 +432,14 @@ class Modern(QMainWindow):
         nombreArea = str(sending_button.objectName())
         self.listarAreas(nombreArea)
         self.ui.btn_actualizarAreaInd.clicked.connect(lambda: self.listarAreas(nombreArea))
+        self.ui.btn_newPosicion.clicked.connect(lambda: self.newPosicion(nombreArea))
     
+
+    def newPosicion(self,btn):
+
+        print('%s Clicked!' % btn)
+        self.newPosicionAlojamiento = pa(btn)
+        self.newPosicionAlojamiento.show()
 
     def listarAreas(self,btn):
         area = btn

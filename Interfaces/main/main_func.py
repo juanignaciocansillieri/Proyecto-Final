@@ -15,7 +15,6 @@ from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFont
 from PyQt5.QtWidgets import *
 from create_user_func import UsuarioWindow
 from nuevoProduct_func import ProductWindow
-from bm_producto import BMProduct as bm
 from bm_producto_ui import Ui_MainWindow as ui_bm
 from bm_user import Ui_MainWindow as bmu 
 

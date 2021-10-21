@@ -105,8 +105,8 @@ class lote:
     def contar_filas_producto(idproducto):
         a = c.start_connection()
         cursor = a.cursor()
-        query = "SELECT COUNT(*) FROM lote WHERE idproducto=%s"
-        values=idproducto
+        query = "SELECT COUNT(*) FROM lote l JOIN productos p ON l.idproducto = p.codigo WHERE idproducto=%s or p.descripcion = %s "
+        values=(idproducto,idproducto)
         cursor.execute(query,values)
         a.commit()
         b = cursor.fetchall()
