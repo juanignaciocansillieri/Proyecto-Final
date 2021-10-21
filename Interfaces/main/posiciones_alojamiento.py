@@ -38,14 +38,15 @@ class PosicionAlojamiento(QMainWindow):
       columna = self.ui.columna_num.value()
       fila = self.ui.fila_num.value()
       nivel = self.ui.nivel_num.value()
-      pasillo = self.ui.comboBox_pasillo.currentText()
-      segmento = self.ui.comboBox_segmento.currentText()
+      pasillo = str(self.ui.comboBox_pasillo.currentText())
+      segmento = str(self.ui.comboBox_segmento.currentText())
       ancho = self.ui.ancho_num.value()
       alto = self.ui.alto_num.value()
       largo = self.ui.largo_num.value()
       limite = self.ui.limite_num.value()
+      print()
       al.alojamiento(largo,ancho,alto,area,pasillo,segmento,fila,nivel,limite,columna)
-      
+      self.close()
 
     # RELLENAR CAMPOS
     def rellenarCampos(self,id):

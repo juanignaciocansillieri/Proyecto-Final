@@ -32,11 +32,10 @@ class alojamiento:
         a=c.start_connection()
         cursor=a.cursor()
         try:
-            query = "INSERT INTO alojamiento(codigo,largo,ancho,alto,volumen,disponibilidad,posicion,pasillo,limite,columna) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-            values = (self.codigo,self.largo,self.ancho,self.alto,self.volumen,self.disponibilidad,self.posicion,self.pasillo,self.limite,self.columna)
+            query = "INSERT INTO alojamiento(codigo,area,largo,ancho,alto,volumen,disponibilidad,posicion,pasillo,segmento,nivel,fila,limite,columna) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+            values = (self.codigo,self.area,self.largo,self.ancho,self.alto,self.volumen,self.disponibilidad,self.posicion,self.pasillo,self.segmento,self.nivel,self.filas,self.limite,self.columna)
             cursor.execute(query, values)
             a.commit()
-            mz.ab_matriz(self.area,self.codigo)
             print("se dio alta alojamiento correctamente")
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)

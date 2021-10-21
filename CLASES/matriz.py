@@ -126,20 +126,20 @@ class matriz:
 
     
 
-def ab_matriz(area,codigo):
-    global area2
-    area2=matriz.nombre_tabla(area)
-    a=c.start_connection()
-    cursor=a.cursor()
-    try: 
-        query = "UPDATE %s set disponibilidad= IF(disponibilidad = '0', disponibilidad + 1, disponibilidad-1) WHERE codigo=%s"
-        values = (area2,codigo)
-        cursor.execute(query, values)
-        a.commit()
-        print("se MODIFICO disponibilidad de posicion correctamente")
-    except pymysql.err.OperationalError as err:
-        print("Hubo un error:", err)
-    c.close_connection(a)
+    def ab_matriz(self,area,codigo):
+        global area2
+        area2=matriz.nombre_tabla(area)
+        a=c.start_connection()
+        cursor=a.cursor()
+        try: 
+            query = "UPDATE %s set disponibilidad= IF(disponibilidad = '0', disponibilidad + 1, disponibilidad-1) WHERE codigo=%s"
+            values = (area2,codigo)
+            cursor.execute(query, values)
+            a.commit()
+            print("se MODIFICO disponibilidad de posicion correctamente")
+        except pymysql.err.OperationalError as err:
+            print("Hubo un error:", err)
+        c.close_connection(a)
 
 
     def mostrar_datos_matriz():
