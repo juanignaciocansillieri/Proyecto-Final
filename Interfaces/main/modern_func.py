@@ -433,9 +433,15 @@ class Modern(QMainWindow):
         self.listarAreas(nombreArea)
         self.ui.btn_actualizarAreaInd.clicked.connect(lambda: self.listarAreas(nombreArea))
         self.ui.btn_newPosicion.clicked.connect(lambda: self.newPosicion(nombreArea))
+        self.ui.btn_modificarArea.clicked.connect(lambda: self.modificarArea(nombreArea))
     
 
     def newPosicion(self,btn):
+
+        print('%s Clicked!' % btn)
+        self.newPosicionAlojamiento = pa(btn)
+        self.newPosicionAlojamiento.show()
+    def modificarArea(self,btn):
 
         print('%s Clicked!' % btn)
         self.newPosicionAlojamiento = pa(btn)

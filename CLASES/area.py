@@ -128,7 +128,7 @@ class Area:
         a.commit()
         return data
 
-    def mostrar_area(iden):
+    def mostrar_area(nombre):
         a = c.start_connection()
         cursor = a.cursor()
         query = ("SELECT nombre,identificador,pasillos,segmentos,disponibilidad,longitud,ancho,alto FROM area WHERE nombre=%s")

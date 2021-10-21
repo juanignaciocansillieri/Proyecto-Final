@@ -4520,19 +4520,19 @@ color: #282830 ;
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>500</width>
+                   <width>1234</width>
                    <height>80</height>
                   </rect>
                  </property>
                  <property name="minimumSize">
                   <size>
-                   <width>500</width>
+                   <width>1234</width>
                    <height>80</height>
                   </size>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>500</width>
+                   <width>15000</width>
                    <height>70</height>
                   </size>
                  </property>
@@ -4547,7 +4547,7 @@ color: #282830 ;
                    <rect>
                     <x>0</x>
                     <y>13</y>
-                    <width>561</width>
+                    <width>891</width>
                     <height>70</height>
                    </rect>
                   </property>
@@ -4589,7 +4589,7 @@ color: #282830 ;
                     <widget class="QGroupBox" name="groupBox_12">
                      <property name="minimumSize">
                       <size>
-                       <width>500</width>
+                       <width>675</width>
                        <height>0</height>
                       </size>
                      </property>
@@ -4636,42 +4636,10 @@ color: #282830 ;
                        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                       </property>
                      </widget>
-                     <widget class="QPushButton" name="btn_actualizarAreaInd">
-                      <property name="geometry">
-                       <rect>
-                        <x>386</x>
-                        <y>29</y>
-                        <width>31</width>
-                        <height>21</height>
-                       </rect>
-                      </property>
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>21</height>
-                       </size>
-                      </property>
-                      <property name="cursor">
-                       <cursorShape>PointingHandCursor</cursorShape>
-                      </property>
-                      <property name="text">
-                       <string/>
-                      </property>
-                      <property name="icon">
-                       <iconset resource="img/img_oficiales.qrc">
-                        <normaloff>:/img/refresh.png</normaloff>:/img/refresh.png</iconset>
-                      </property>
-                      <property name="iconSize">
-                       <size>
-                        <width>33</width>
-                        <height>16</height>
-                       </size>
-                      </property>
-                     </widget>
                      <widget class="QPushButton" name="btn_newPosicion">
                       <property name="geometry">
                        <rect>
-                        <x>190</x>
+                        <x>300</x>
                         <y>26</y>
                         <width>181</width>
                         <height>26</height>
@@ -4722,10 +4690,92 @@ background-color: rgba(71, 71, 103,180);
                        </size>
                       </property>
                      </widget>
+                     <widget class="QPushButton" name="btn_modificarArea">
+                      <property name="geometry">
+                       <rect>
+                        <x>170</x>
+                        <y>26</y>
+                        <width>111</width>
+                        <height>26</height>
+                       </rect>
+                      </property>
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>26</height>
+                       </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <family>Roboto</family>
+                        <pointsize>9</pointsize>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="cursor">
+                       <cursorShape>PointingHandCursor</cursorShape>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton{
+background-color: rgb(71, 71, 103);
+color:#fff;
+padding-right:15px;
+border-radius: 5px;
+text-align:right;
+}
+
+QPushButton:hover{
+background-color: rgba(71, 71, 103,180);
+
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>Modificar Área</string>
+                      </property>
+                      <property name="iconSize">
+                       <size>
+                        <width>13</width>
+                        <height>13</height>
+                       </size>
+                      </property>
+                     </widget>
                     </widget>
                    </item>
                   </layout>
                  </widget>
+                </widget>
+                <widget class="QPushButton" name="btn_actualizarAreaInd">
+                 <property name="geometry">
+                  <rect>
+                   <x>660</x>
+                   <y>40</y>
+                   <width>31</width>
+                   <height>21</height>
+                  </rect>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>21</height>
+                  </size>
+                 </property>
+                 <property name="cursor">
+                  <cursorShape>PointingHandCursor</cursorShape>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="img/img_oficiales.qrc">
+                   <normaloff>:/img/refresh.png</normaloff>:/img/refresh.png</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>33</width>
+                   <height>16</height>
+                  </size>
+                 </property>
                 </widget>
                </widget>
               </item>

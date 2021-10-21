@@ -52,7 +52,18 @@ class PosicionAlojamiento(QMainWindow):
         
         posiciones = a.Area.mostrar_area(id)
         atributos = list(posiciones[0])
-        print(atributos)
+        pasillos = int(atributos[2])
+        segmentos = int(atributos[3])
+        i = 1
+        j = 1
+        while(i<=pasillos):
+          self.ui.comboBox_pasillo.addItem('%i' % i)
+          i+=1
+        while(j<=segmentos):
+          self.ui.comboBox_segmento.addItem('%i' % j)
+          j+=1
+        
+        
         self.ui.lineEdit.setText(id)
         """
         self.ui.columna_num.setValue(atributos[0])

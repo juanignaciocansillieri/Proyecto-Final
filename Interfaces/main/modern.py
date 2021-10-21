@@ -1854,14 +1854,14 @@ class Ui_MainWindow(object):
         self.label_38.setObjectName("label_38")
         self.horizontalLayout_5.addWidget(self.label_38)
         self.top_frame_stock_5 = QtWidgets.QFrame(self.frame_4)
-        self.top_frame_stock_5.setGeometry(QtCore.QRect(0, 0, 500, 80))
-        self.top_frame_stock_5.setMinimumSize(QtCore.QSize(500, 80))
-        self.top_frame_stock_5.setMaximumSize(QtCore.QSize(500, 70))
+        self.top_frame_stock_5.setGeometry(QtCore.QRect(0, 0, 1234, 80))
+        self.top_frame_stock_5.setMinimumSize(QtCore.QSize(1234, 80))
+        self.top_frame_stock_5.setMaximumSize(QtCore.QSize(15000, 70))
         self.top_frame_stock_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.top_frame_stock_5.setFrameShadow(QtWidgets.QFrame.Raised)
         self.top_frame_stock_5.setObjectName("top_frame_stock_5")
         self.frame_30 = QtWidgets.QFrame(self.top_frame_stock_5)
-        self.frame_30.setGeometry(QtCore.QRect(0, 13, 561, 70))
+        self.frame_30.setGeometry(QtCore.QRect(0, 13, 891, 70))
         self.frame_30.setMinimumSize(QtCore.QSize(354, 70))
         self.frame_30.setMaximumSize(QtCore.QSize(16777215, 50))
         self.frame_30.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -1872,7 +1872,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_39.setSpacing(0)
         self.verticalLayout_39.setObjectName("verticalLayout_39")
         self.groupBox_12 = QtWidgets.QGroupBox(self.frame_30)
-        self.groupBox_12.setMinimumSize(QtCore.QSize(500, 0))
+        self.groupBox_12.setMinimumSize(QtCore.QSize(675, 0))
         self.groupBox_12.setTitle("")
         self.groupBox_12.setObjectName("groupBox_12")
         self.label_area_mod = QtWidgets.QLabel(self.groupBox_12)
@@ -1889,16 +1889,8 @@ class Ui_MainWindow(object):
 "")
         self.label_area_mod.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.label_area_mod.setObjectName("label_area_mod")
-        self.btn_actualizarAreaInd = QtWidgets.QPushButton(self.groupBox_12)
-        self.btn_actualizarAreaInd.setGeometry(QtCore.QRect(386, 29, 31, 21))
-        self.btn_actualizarAreaInd.setMinimumSize(QtCore.QSize(0, 21))
-        self.btn_actualizarAreaInd.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btn_actualizarAreaInd.setText("")
-        self.btn_actualizarAreaInd.setIcon(icon8)
-        self.btn_actualizarAreaInd.setIconSize(QtCore.QSize(33, 16))
-        self.btn_actualizarAreaInd.setObjectName("btn_actualizarAreaInd")
         self.btn_newPosicion = QtWidgets.QPushButton(self.groupBox_12)
-        self.btn_newPosicion.setGeometry(QtCore.QRect(190, 26, 181, 26))
+        self.btn_newPosicion.setGeometry(QtCore.QRect(300, 26, 181, 26))
         self.btn_newPosicion.setMinimumSize(QtCore.QSize(0, 26))
         font = QtGui.QFont()
         font.setFamily("Roboto")
@@ -1922,7 +1914,39 @@ class Ui_MainWindow(object):
         self.btn_newPosicion.setIcon(icon6)
         self.btn_newPosicion.setIconSize(QtCore.QSize(13, 13))
         self.btn_newPosicion.setObjectName("btn_newPosicion")
+        self.btn_modificarArea = QtWidgets.QPushButton(self.groupBox_12)
+        self.btn_modificarArea.setGeometry(QtCore.QRect(170, 26, 111, 26))
+        self.btn_modificarArea.setMinimumSize(QtCore.QSize(0, 26))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btn_modificarArea.setFont(font)
+        self.btn_modificarArea.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_modificarArea.setStyleSheet("QPushButton{\n"
+"background-color: rgb(71, 71, 103);\n"
+"color:#fff;\n"
+"padding-right:15px;\n"
+"border-radius: 5px;\n"
+"text-align:right;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgba(71, 71, 103,180);\n"
+"\n"
+"}")
+        self.btn_modificarArea.setIconSize(QtCore.QSize(13, 13))
+        self.btn_modificarArea.setObjectName("btn_modificarArea")
         self.verticalLayout_39.addWidget(self.groupBox_12)
+        self.btn_actualizarAreaInd = QtWidgets.QPushButton(self.frame_4)
+        self.btn_actualizarAreaInd.setGeometry(QtCore.QRect(660, 40, 31, 21))
+        self.btn_actualizarAreaInd.setMinimumSize(QtCore.QSize(0, 21))
+        self.btn_actualizarAreaInd.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_actualizarAreaInd.setText("")
+        self.btn_actualizarAreaInd.setIcon(icon8)
+        self.btn_actualizarAreaInd.setIconSize(QtCore.QSize(33, 16))
+        self.btn_actualizarAreaInd.setObjectName("btn_actualizarAreaInd")
         self.verticalLayout_9.addWidget(self.frame_4)
         self.stackedWidget_main.addWidget(self.page_areas)
         self.verticalLayout_2.addWidget(self.stackedWidget_main)
@@ -2103,6 +2127,7 @@ class Ui_MainWindow(object):
         self.label_38.setText(_translate("MainWindow", "Primer Vencimiento"))
         self.label_area_mod.setText(_translate("MainWindow", "Label"))
         self.btn_newPosicion.setText(_translate("MainWindow", "Posicion de Alojamiento"))
+        self.btn_modificarArea.setText(_translate("MainWindow", "Modificar Área"))
 import img_oficiales_rc
 
 
