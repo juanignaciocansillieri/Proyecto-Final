@@ -1,3 +1,4 @@
+from abc import get_cache_token
 import sys
 import os
 from typing import get_origin
@@ -20,6 +21,7 @@ from nueva_area import Ui_MainWindow as na
 from modificar_area import ModificarArea as ma
 from bm_producto import Ui_MainWindow as ui_bm
 from bm_user import Ui_MainWindow as bmu 
+from delete_area import BorrarArea 
 from array import array
 from nueva_area_func import NewArea
 import movimiento_func
@@ -40,7 +42,8 @@ defaultImg = ""
 codigoViejo = ""
 DNI_Viejo = ""
 DNI = ""
-
+globalArea =""
+nombreNuevo =""
 
 class Modern(QMainWindow):
 
@@ -97,8 +100,8 @@ class Modern(QMainWindow):
             # Abrir ventana para agregar Nuevo producto
         self.ui.product_new_btn.clicked.connect(self.mostrarNewProduct)
 
-        self.aaa = self.mostrarAreas()
-
+        #self.aaa = self.mostrarAreas()
+        
             # Abrir ventana para agregar Nuevo movimiento
         self.ui.btn_movimiento.clicked.connect(self.mostrarNewMovimiento)
 
@@ -134,7 +137,21 @@ class Modern(QMainWindow):
         self.ui.newArea_btn.clicked.connect(self.mostrarNewArea)
         self.ui.label_12.mousePressEvent = self.clickA
         self.ui.btn_actualizarAreas.clicked.connect(self.mostrarAreas)
+        
+        self.ui.btn_actualizarAreaInd.clicked.connect(lambda: self.listarAreas(globalArea))
+        self.ui.btn_newPosicion.clicked.connect(lambda: self.newPosicion(globalArea))
+        self.ui.btn_modificarArea.clicked.connect(lambda: self.modificarArea(globalArea))
+        self.ui.newArea_btn_2.clicked.connect(self.mostrarBorrarArea)
+        self.ui.btn_eliminar_area.clicked.connect(lambda: self.eliminarArea(globalArea))
 
+  
+    def eliminarArea(self,id):
+        qm = QMessageBox
+
+        ret = qm.warning(self,'Esta acción es irreversible', "¿Estás seguro que quieres eliminar ésta área ?", qm.Yes | qm.No)
+        if ret == qm.Yes:
+         ar.Area.eliminar_area(id)
+           
     def clickA(self,event):
         return self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_deposito)
 
@@ -164,6 +181,10 @@ class Modern(QMainWindow):
         self.newMovimiento = NewMovimiento()
         self.newMovimiento.show()
         self.ui.products_btn_movimiento.setFocus()
+    def mostrarBorrarArea(self):
+        self.borrarArea = BorrarArea()
+        self.borrarArea.show()
+
     
 
     ## Listar Productos en la tabla
@@ -271,7 +292,6 @@ class Modern(QMainWindow):
         areas = ar.Area.listar_area()
         n = ar.Area.contar_filas()
         child = self.ui.verticalLayout_7.count()
-        print(areas[-1][0])
         if child == n:
             pass
         else:
@@ -333,7 +353,7 @@ class Modern(QMainWindow):
             "QPushButton:hover{\n"
             "    background-color: rgba(105, 105, 226, 50);\n"
             "}")
-                self.btn1.setObjectName("{area[0]}")
+                self.btn1.setObjectName("btn1{area[0]}")
                 self.btn1.setText(area[0])
                 self.btn1.setMinimumSize(QtCore.QSize(128,0))
                 self.btn1.released.connect(self.button_released)
@@ -344,6 +364,7 @@ class Modern(QMainWindow):
                 font.setBold(True)
                 font.setWeight(75)
                 self.btn1.setFont(font)
+
                 i+=1
 
 
@@ -354,7 +375,6 @@ class Modern(QMainWindow):
         areas = ar.Area.listar_area()
         n = ar.Area.contar_filas()
         i = 1
-        arr = []
 
         for a in areas:
                 
@@ -394,8 +414,7 @@ class Modern(QMainWindow):
                     if child == n-1:
                         self.agregarAreaCreada()
                     else:
-                        self.btn2 = QtWidgets.QPushButton(self.ui.frame_14
-    )
+                        self.btn2 = QtWidgets.QPushButton(self.ui.frame_14)
                         self.btn2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
                         self.btn2.setStyleSheet("QPushButton{\n"
                         "border:none;\n"
@@ -422,44 +441,33 @@ class Modern(QMainWindow):
                         font.setWeight(75)
                         self.btn2.setFont(font)
                         self.btn2.released.connect(self.button_released)
-                        arr.append(self.btn2)
                 i+=1
-        return(arr)
     
     def button_released(self):
-
+        global globalArea
         self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_areas)
         sending_button = self.sender()
         nombreArea = str(sending_button.objectName())
-        self.listarAreas(nombreArea)
-        self.ui.btn_actualizarAreaInd.clicked.connect(lambda: self.listarAreas(nombreArea))
-        self.ui.btn_newPosicion.clicked.connect(lambda: self.newPosicion(nombreArea))
-        self.ui.btn_modificarArea.clicked.connect(lambda: self.modificarArea(nombreArea))
-        self.ui.btn_actualizarAreaInd.clicked.connect(lambda: self.actualizarNombreArea(nombreArea))
-        print(self.aaa)
-    def actualizarNombreArea(self,nombreArea):
-        areas = ar.Area.listar_area()
-        print(areas[0][0])
-
-        self.btn1.setText(str(areas[0][0]))
-        self.btn2.setText(str(areas[0][0]))
-
+        print(nombreArea)
+        globalArea = nombreArea
+        self.listarAreas(globalArea)
+        print("global",globalArea)
+   
+  
     def newPosicion(self,btn):
 
-        print('%s Clicked!' % btn)
         self.newPosicionAlojamiento = pa(btn)
         self.newPosicionAlojamiento.show()
 
     def modificarArea(self,btn):
 
-        print('%s Clicked!' % btn)
         self.newPosicionAlojamiento = ma(btn)
         self.newPosicionAlojamiento.show()
 
     def listarAreas(self,btn):
+        global globalArea
         area = btn
         productos = p.productos.buscar_productArea(area)
-        print('%s Clicked!' % btn)
         n = p.productos.buscar_product_rows_area(area)
         self.ui.tableWidget_areas.setRowCount(n)
         self.ui.label_area_mod.setText(area)

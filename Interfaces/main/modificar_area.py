@@ -34,21 +34,21 @@ class ModificarArea(QMainWindow):
     
     #CREAR PRODUCTO NUEVO
     def modificarArea(self,id):   
-      global nombreViejo
-      nombreViejo = id
+      nombre = id
       #RECIBIR VALORES DE LA VENTANA
-      nombre = self.ui.nombre_input.text()
       identificador = self.ui.identificador_input.text()
       longitud = self.ui.largo_num.value()
       pasillos = self.ui.pasillo_num.value()
       segmentos = self.ui.segmento_num.value()
       ancho = self.ui.ancho_num.value()
       alto = self.ui.alto_num.value()
-      a.Area.modificar_area(nombreViejo,nombre,identificador,pasillos,segmentos,longitud,ancho,alto)
+      a.Area.modificar_area(nombre,identificador,pasillos,segmentos,longitud,ancho,alto)
       self.close()
+      return(nombre)
       
     def rellenarCampos(self,id):
         areas = a.Area.mostrar_area(id)
+        print("area",id)
         atributos = list(areas[0])
         self.ui.nombre_input.setText(atributos[0])
         self.ui.identificador_input.setText(atributos[1])

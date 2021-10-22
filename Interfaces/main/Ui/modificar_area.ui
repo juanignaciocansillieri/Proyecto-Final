@@ -112,8 +112,6 @@ margin-left:10px
        <font>
         <family>Roboto</family>
         <pointsize>-1</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
        </font>
       </property>
       <property name="cursor">
@@ -395,8 +393,8 @@ margin-left: 10px;
        <font>
         <family>Roboto</family>
         <pointsize>-1</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
+        <weight>75</weight>
+        <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
@@ -411,7 +409,7 @@ margin-left: 10px;
 </string>
       </property>
       <property name="readOnly">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
      </widget>
      <widget class="QSpinBox" name="segmento_num">
@@ -483,8 +481,6 @@ margin-left: 10px;
        <font>
         <family>Roboto</family>
         <pointsize>-1</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
        </font>
       </property>
       <property name="styleSheet">

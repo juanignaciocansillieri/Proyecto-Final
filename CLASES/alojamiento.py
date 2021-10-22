@@ -139,10 +139,9 @@ class alojamiento:
         a = c.start_connection()
         cursor = a.cursor()
         try:
-            query = "SELECT codigo,largo,ancho,alto,volumen,pasillo,alojamiento,disponibilidad,posicion,limite,columna FROM alojamiento"
+            query = "SELECT codigo,largo,ancho,alto,volumen,pasillo,disponibilidad,posicion,limite,columna FROM alojamiento"
             cursor.execute(query)
             productos = cursor.fetchall()
-
             a.commit()
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)

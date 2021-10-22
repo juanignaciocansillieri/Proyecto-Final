@@ -55,8 +55,6 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(-1)
-        font.setBold(True)
-        font.setWeight(75)
         self.modificar_btn.setFont(font)
         self.modificar_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.modificar_btn.setStyleSheet("QPushButton{\n"
@@ -199,8 +197,8 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(-1)
-        font.setBold(False)
-        font.setWeight(50)
+        font.setBold(True)
+        font.setWeight(75)
         self.nombre_input.setFont(font)
         self.nombre_input.setStyleSheet("background-color: #fff;\n"
 "border-radius: 3px;\n"
@@ -211,7 +209,7 @@ class Ui_MainWindow(object):
 "font-size:13px;\n"
 "margin-left: 10px;\n"
 "")
-        self.nombre_input.setReadOnly(False)
+        self.nombre_input.setReadOnly(True)
         self.nombre_input.setObjectName("nombre_input")
         self.segmento_num = QtWidgets.QSpinBox(self.frame_3)
         self.segmento_num.setGeometry(QtCore.QRect(220, 40, 121, 25))
@@ -248,8 +246,6 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(-1)
-        font.setBold(False)
-        font.setWeight(50)
         self.identificador_input.setFont(font)
         self.identificador_input.setStyleSheet("background-color: #fff;\n"
 "border-radius: 3px;\n"

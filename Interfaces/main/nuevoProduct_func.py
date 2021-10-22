@@ -14,6 +14,7 @@ sys.path.append("C:\\proyecto-final\\CLASES\\")
 import productos as pr
 import area as a
 import lotes as l
+import alojamiento as p
 defaultImg = "Error.png"
 
 class ProductWindow(QMainWindow):
@@ -120,3 +121,6 @@ class ProductWindow(QMainWindow):
         areas = a.Area.listar_area()
         for ar in areas:
             self.ui.area_comboBox.addItem(ar[0])
+        posiciones = p.alojamiento.listar_alojamiento()
+        for pos in posiciones:
+          self.ui.posicion_comboBox.addItem(pos[0])

@@ -92,7 +92,7 @@ background-color: rgb(240, 242, 255);
         <property name="font">
          <font>
           <family>Roboto</family>
-          <pointsize>-1</pointsize>
+          <pointsize>1</pointsize>
          </font>
         </property>
         <property name="styleSheet">

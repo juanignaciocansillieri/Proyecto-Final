@@ -46,7 +46,7 @@ class Ui_MainWindow(object):
         self.label_fecha.setMaximumSize(QtCore.QSize(174, 16777215))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_fecha.setFont(font)
         self.label_fecha.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -59,7 +59,7 @@ class Ui_MainWindow(object):
         self.label_3.setGeometry(QtCore.QRect(20, 10, 62, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_3.setFont(font)
         self.label_3.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -92,7 +92,7 @@ class Ui_MainWindow(object):
         self.label_codigo_producto.setGeometry(QtCore.QRect(20, 70, 141, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_codigo_producto.setFont(font)
         self.label_codigo_producto.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -105,7 +105,7 @@ class Ui_MainWindow(object):
         self.label_motivo.setGeometry(QtCore.QRect(20, 130, 71, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_motivo.setFont(font)
         self.label_motivo.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -137,7 +137,7 @@ class Ui_MainWindow(object):
         self.crearprod_btn.setGeometry(QtCore.QRect(150, 220, 161, 26))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.crearprod_btn.setFont(font)
         self.crearprod_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.crearprod_btn.setStyleSheet("QPushButton{\n"

@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(675, 423)
+        MainWindow.resize(675, 428)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -154,7 +154,7 @@ class Ui_MainWindow(object):
 "")
         self.label_peso.setObjectName("label_peso")
         self.label_marca = QtWidgets.QLabel(self.frame_3)
-        self.label_marca.setGeometry(QtCore.QRect(20, 190, 100, 27))
+        self.label_marca.setGeometry(QtCore.QRect(20, 170, 100, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(-1)
@@ -360,7 +360,7 @@ class Ui_MainWindow(object):
         self.venc_date.setDateTime(QtCore.QDateTime(QtCore.QDate(2021, 1, 1), QtCore.QTime(0, 0, 0)))
         self.venc_date.setObjectName("venc_date")
         self.marca_input = QtWidgets.QLineEdit(self.frame_3)
-        self.marca_input.setGeometry(QtCore.QRect(20, 220, 170, 25))
+        self.marca_input.setGeometry(QtCore.QRect(20, 200, 170, 25))
         self.marca_input.setMinimumSize(QtCore.QSize(0, 0))
         self.marca_input.setMaximumSize(QtCore.QSize(16777215, 25))
         self.marca_input.setStyleSheet("QLineEdit{\n"
@@ -380,7 +380,7 @@ class Ui_MainWindow(object):
         self.marca_input.setPlaceholderText("")
         self.marca_input.setObjectName("marca_input")
         self.label_ubicacion_2 = QtWidgets.QLabel(self.frame_3)
-        self.label_ubicacion_2.setGeometry(QtCore.QRect(420, 190, 91, 27))
+        self.label_ubicacion_2.setGeometry(QtCore.QRect(420, 250, 91, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
         font.setPointSize(-1)
@@ -393,7 +393,7 @@ class Ui_MainWindow(object):
 "")
         self.label_ubicacion_2.setObjectName("label_ubicacion_2")
         self.ubicacion_input = QtWidgets.QLineEdit(self.frame_3)
-        self.ubicacion_input.setGeometry(QtCore.QRect(420, 220, 170, 25))
+        self.ubicacion_input.setGeometry(QtCore.QRect(420, 280, 170, 25))
         self.ubicacion_input.setMinimumSize(QtCore.QSize(0, 0))
         self.ubicacion_input.setMaximumSize(QtCore.QSize(16777215, 25))
         self.ubicacion_input.setStyleSheet("QLineEdit{\n"
@@ -410,8 +410,69 @@ class Ui_MainWindow(object):
 "}")
         self.ubicacion_input.setPlaceholderText("")
         self.ubicacion_input.setObjectName("ubicacion_input")
-        self.subirFoto_btn = QtWidgets.QPushButton(self.frame_3)
-        self.subirFoto_btn.setGeometry(QtCore.QRect(435, 280, 150, 25))
+        self.descripcion_input = QtWidgets.QTextEdit(self.frame_3)
+        self.descripcion_input.setGeometry(QtCore.QRect(20, 100, 170, 61))
+        self.descripcion_input.setStyleSheet("background-color: #fff;\n"
+"border: 0.5px solid #c1c1c1;\n"
+"border-radius: 3px;\n"
+"padding: 4 5px;\n"
+"color: #e9e9;\n"
+"font-family:Roboto;\n"
+"font-size:13px;\n"
+"font-weight: 400;\n"
+"margin-left: 10px;\n"
+"")
+        self.descripcion_input.setObjectName("descripcion_input")
+        self.posicion_comboBox = QtWidgets.QComboBox(self.frame_3)
+        self.posicion_comboBox.setGeometry(QtCore.QRect(420, 220, 170, 22))
+        self.posicion_comboBox.setStyleSheet("background-color: #fff;\n"
+"border-radius: 3px;\n"
+"padding: 4 5px;\n"
+"color: rgb(0, 0, 0);\n"
+"font-family:Roboto;\n"
+"border: none;\n"
+"font-size:13px;\n"
+"font-weight: 400;\n"
+"margin-left: 10px;\n"
+"")
+        self.posicion_comboBox.setObjectName("posicion_comboBox")
+        self.label_area_2 = QtWidgets.QLabel(self.frame_3)
+        self.label_area_2.setGeometry(QtCore.QRect(420, 190, 169, 27))
+        self.label_area_2.setMaximumSize(QtCore.QSize(179, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(-1)
+        self.label_area_2.setFont(font)
+        self.label_area_2.setStyleSheet("font-family: Roboto;\n"
+"font-size: 14px;\n"
+"margin-top:10px;\n"
+"margin-left:10px\n"
+"\n"
+"")
+        self.label_area_2.setObjectName("label_area_2")
+        self.crearprod_btn = QtWidgets.QPushButton(self.frame_2)
+        self.crearprod_btn.setGeometry(QtCore.QRect(490, 370, 150, 25))
+        font = QtGui.QFont()
+        font.setFamily("Roboto")
+        font.setPointSize(-1)
+        font.setBold(True)
+        font.setWeight(75)
+        self.crearprod_btn.setFont(font)
+        self.crearprod_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.crearprod_btn.setStyleSheet("QPushButton{\n"
+"background-color: rgba(71, 71, 103);\n"
+"color: #fff;\n"
+"border-radius:5px;\n"
+"font-family:Roboto;\n"
+"font-size: 13px\n"
+"\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: rgba(71, 71, 103,180);\n"
+"}")
+        self.crearprod_btn.setObjectName("crearprod_btn")
+        self.subirFoto_btn = QtWidgets.QPushButton(self.frame_2)
+        self.subirFoto_btn.setGeometry(QtCore.QRect(50, 370, 150, 25))
         self.subirFoto_btn.setMaximumSize(QtCore.QSize(16777215, 16777215))
         self.subirFoto_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.subirFoto_btn.setStyleSheet("QPushButton{\n"
@@ -430,41 +491,6 @@ class Ui_MainWindow(object):
 "\n"
 "}")
         self.subirFoto_btn.setObjectName("subirFoto_btn")
-        self.textEdit = QtWidgets.QTextEdit(self.frame_3)
-        self.textEdit.setGeometry(QtCore.QRect(50, 110, 104, 87))
-        self.textEdit.setObjectName("textEdit")
-        self.descripcion_input = QtWidgets.QTextEdit(self.frame_3)
-        self.descripcion_input.setGeometry(QtCore.QRect(20, 100, 170, 61))
-        self.descripcion_input.setStyleSheet("background-color: #fff;\n"
-"border: 0.5px solid #c1c1c1;\n"
-"border-radius: 3px;\n"
-"padding: 4 5px;\n"
-"color: #e9e9;\n"
-"font-family:Roboto;\n"
-"font-size:13px;\n"
-"font-weight: 400;\n"
-"margin-left: 10px;\n"
-"")
-        self.descripcion_input.setObjectName("descripcion_input")
-        self.crearprod_btn = QtWidgets.QPushButton(self.frame_2)
-        self.crearprod_btn.setGeometry(QtCore.QRect(465, 360, 150, 25))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(-1)
-        self.crearprod_btn.setFont(font)
-        self.crearprod_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.crearprod_btn.setStyleSheet("QPushButton{\n"
-"background-color: rgba(71, 71, 103);\n"
-"color: #fff;\n"
-"border-radius:5px;\n"
-"font-family:Roboto;\n"
-"font-size: 13px\n"
-"\n"
-"}\n"
-"QPushButton:hover{\n"
-"background-color: rgba(71, 71, 103,180);\n"
-"}")
-        self.crearprod_btn.setObjectName("crearprod_btn")
         self.verticalLayout.addWidget(self.frame_2)
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -489,8 +515,9 @@ class Ui_MainWindow(object):
         self.label_area.setText(_translate("MainWindow", "Área"))
         self.label_vencimiento.setText(_translate("MainWindow", "Fecha De Vencimiento"))
         self.label_ubicacion_2.setText(_translate("MainWindow", "Ubicación"))
-        self.subirFoto_btn.setText(_translate("MainWindow", "Subir Imagen"))
+        self.label_area_2.setText(_translate("MainWindow", "Posición de Alojamiento"))
         self.crearprod_btn.setText(_translate("MainWindow", "Crear producto"))
+        self.subirFoto_btn.setText(_translate("MainWindow", "Subir Imagen"))
 import img_oficiales_rc
 
 

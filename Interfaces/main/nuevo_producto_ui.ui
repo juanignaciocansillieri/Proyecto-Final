@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>675</width>
-    <height>423</height>
+    <height>428</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -340,7 +340,7 @@ margin-left:10px
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>190</y>
+          <y>170</y>
           <width>100</width>
           <height>27</height>
          </rect>
@@ -782,7 +782,7 @@ margin-left: 10px;
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>220</y>
+          <y>200</y>
           <width>170</width>
           <height>25</height>
          </rect>
@@ -823,7 +823,7 @@ margin-left: 10px;
         <property name="geometry">
          <rect>
           <x>420</x>
-          <y>190</y>
+          <y>250</y>
           <width>91</width>
           <height>27</height>
          </rect>
@@ -850,7 +850,7 @@ margin-left:10px
         <property name="geometry">
          <rect>
           <x>420</x>
-          <y>220</y>
+          <y>280</y>
           <width>170</width>
           <height>25</height>
          </rect>
@@ -885,55 +885,6 @@ margin-left: 10px;
          <string/>
         </property>
        </widget>
-       <widget class="QPushButton" name="subirFoto_btn">
-        <property name="geometry">
-         <rect>
-          <x>435</x>
-          <y>280</y>
-          <width>150</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="cursor">
-         <cursorShape>PointingHandCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{
-background-color: rgba(71, 71, 103,180);
-border-radius: 7px;
-padding: 4 10px;
-color: #fff;
-font-family:Roboto;
-border: none;
-font-size:13px;
-font-weight: 500;
-}
-QPushButton:hover{
-background-color: rgba(71, 71, 103);
-color: #fff;
-
-}</string>
-        </property>
-        <property name="text">
-         <string>Subir Imagen</string>
-        </property>
-       </widget>
-       <widget class="QTextEdit" name="textEdit">
-        <property name="geometry">
-         <rect>
-          <x>50</x>
-          <y>110</y>
-          <width>104</width>
-          <height>87</height>
-         </rect>
-        </property>
-       </widget>
        <widget class="QTextEdit" name="descripcion_input">
         <property name="geometry">
          <rect>
@@ -956,12 +907,67 @@ margin-left: 10px;
 </string>
         </property>
        </widget>
+       <widget class="QComboBox" name="posicion_comboBox">
+        <property name="geometry">
+         <rect>
+          <x>420</x>
+          <y>220</y>
+          <width>170</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #fff;
+border-radius: 3px;
+padding: 4 5px;
+color: rgb(0, 0, 0);
+font-family:Roboto;
+border: none;
+font-size:13px;
+font-weight: 400;
+margin-left: 10px;
+</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_area_2">
+        <property name="geometry">
+         <rect>
+          <x>420</x>
+          <y>190</y>
+          <width>169</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>179</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-family: Roboto;
+font-size: 14px;
+margin-top:10px;
+margin-left:10px
+
+</string>
+        </property>
+        <property name="text">
+         <string>Posición de Alojamiento</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QPushButton" name="crearprod_btn">
        <property name="geometry">
         <rect>
-         <x>465</x>
-         <y>360</y>
+         <x>490</x>
+         <y>370</y>
          <width>150</width>
          <height>25</height>
         </rect>
@@ -970,6 +976,8 @@ margin-left: 10px;
         <font>
          <family>Roboto</family>
          <pointsize>-1</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="cursor">
@@ -990,6 +998,45 @@ background-color: rgba(71, 71, 103,180);
        </property>
        <property name="text">
         <string>Crear producto</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="subirFoto_btn">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>370</y>
+         <width>150</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+background-color: rgba(71, 71, 103,180);
+border-radius: 7px;
+padding: 4 10px;
+color: #fff;
+font-family:Roboto;
+border: none;
+font-size:13px;
+font-weight: 500;
+}
+QPushButton:hover{
+background-color: rgba(71, 71, 103);
+color: #fff;
+
+}</string>
+       </property>
+       <property name="text">
+        <string>Subir Imagen</string>
        </property>
       </widget>
      </widget>

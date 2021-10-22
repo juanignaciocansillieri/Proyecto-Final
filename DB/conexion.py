@@ -15,7 +15,7 @@ def start_connection():  # inicia conexion a db
     db = os.environ.get('DB_MYSQL')
     try:
         con = pymysql.Connect(host=h, port=p, user=u, password=ps, database=db)
-        print(con, "\nse creo conexion")
+        #print(con, "\nse creo conexion")
     except pymysql.err.OperationalError as err:
         print("Hubo un error:", err)
         
@@ -25,7 +25,7 @@ def start_connection():  # inicia conexion a db
 def close_connection(con):  # cierra conexion a db
     try:
         con.close()
-        print("se cerro conexion\n",con)
+        #print("se cerro conexion\n",con)
     except pymysql.err.OperationalError as err:
         print("Hubo un error:", err)
 
