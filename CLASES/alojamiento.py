@@ -60,7 +60,7 @@ class alojamiento:
 
 
         
-    def modificar_alojamiento(self,codigo,largo,ancho,alto,disponibilidad,posicion,pasillo,limite,columna):
+    def modificar_alojamiento(self,codigo,largo,ancho,alto,limite):
             a=c.start_connection()
             cursor=a.cursor()
             try:
@@ -81,24 +81,8 @@ class alojamiento:
                 values = (volumen,codigo)
                 cursor.execute(query, values)
                 a.commit()
-                query = "UPDATE alojamiento set disponibilidad=%s WHERE codigo=%s"
-                values = (disponibilidad,codigo)
-                cursor.execute(query, values)
-                a.commit()
-                query = "UPDATE alojamiento set posicion=%s WHERE codigo=%s"
-                values = (posicion,codigo)
-                cursor.execute(query, values)
-                a.commit()
-                query = "UPDATE alojamiento set pasillo=%s WHERE codigo=%s"
-                values = (pasillo,codigo)
-                cursor.execute(query, values)
-                a.commit()
                 query = "UPDATE alojamiento set limite=%s WHERE codigo=%s"
                 values = (limite,codigo)
-                cursor.execute(query, values)
-                a.commit()
-                query = "UPDATE alojamiento set columna=%s WHERE codigo=%s"
-                values = (columna,codigo)
                 cursor.execute(query, values)
                 a.commit()
                 print("se MODIFICO alojamiento correctamente")

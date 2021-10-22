@@ -81,6 +81,7 @@ class ProductWindow(QMainWindow):
         pr.productos(codigo,marca,cantidad,descripcion,ubicacion,lote,venc,condicion,fragil,defaultImg,peso,largo,ancho,altura)
 
 
+
         self.close()
       
       
@@ -119,8 +120,14 @@ class ProductWindow(QMainWindow):
 
     def cbox(self):
         areas = a.Area.listar_area()
-        for ar in areas:
-            self.ui.area_comboBox.addItem(ar[0])
+        if areas == 0: 
+          QtWidgets.QMessageBox.critical(self, "Error", "Primero debe crear algun area")
+          pass
+        else:
+          for ar in areas:
+              self.ui.area_comboBox.addItem(ar[0])
         posiciones = p.alojamiento.listar_alojamiento()
+        #if posiciones == 0:
+        #QtWidgets.QMessageBox.critical(self, "Error", "Primero debe crear posiciones de alojamiento")
         for pos in posiciones:
           self.ui.posicion_comboBox.addItem(pos[0])
