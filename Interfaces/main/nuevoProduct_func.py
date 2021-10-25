@@ -121,6 +121,20 @@ class ProductWindow(QMainWindow):
         areas = a.Area.listar_area()
         for ar in areas:
             self.ui.area_comboBox.addItem(ar[0])
-        posiciones = p.alojamiento.listar_alojamiento()
+        areaSeleccionada = self.ui.area_comboBox.currentText()
+        posiciones = p.alojamiento.listar_alojamiento_disponibles_area(areaSeleccionada)
         for pos in posiciones:
           self.ui.posicion_comboBox.addItem(pos[0])
+
+        self.ui.area_comboBox.currentIndexChanged.connect(self.clearCombo)
+        self.ui.area_comboBox.currentIndexChanged.connect(self.updateCombo)
+
+    def updateCombo(self):
+      areaSeleccionada = self.ui.area_comboBox.currentText()
+      posiciones = p.alojamiento.listar_alojamiento_disponibles_area(areaSeleccionada)
+      for pos in posiciones:
+        self.ui.posicion_comboBox.addItem(pos[0])
+
+    def clearCombo(self):
+      self.ui.posicion_comboBox.clear()
+  

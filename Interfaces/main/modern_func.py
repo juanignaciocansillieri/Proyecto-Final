@@ -1,7 +1,5 @@
-from abc import get_cache_token
 import sys
 import os
-from typing import get_origin
 from PIL import Image
 from PyQt5 import QtWidgets
 from PyQt5 import QtGui
@@ -13,14 +11,12 @@ from PyQt5.QtGui import *
 import nuevo_producto_ui
 from modern import Ui_MainWindow
 from toggleFunction import UIFunctions
-from nuevoProduct_func import ProductWindow
-from create_user_func import UsuarioWindow
 from create_user_func import UsuarioWindow
 from nuevoProduct_func import ProductWindow
 from nueva_area import Ui_MainWindow as na
 from modificar_area import ModificarArea as ma
 from bm_producto import Ui_MainWindow as ui_bm
-from bm_user import Ui_MainWindow as bmu 
+from bm_user_ui import Ui_MainWindow as bmu 
 from delete_area import BorrarArea 
 from array import array
 from nueva_area_func import NewArea
@@ -142,15 +138,9 @@ class Modern(QMainWindow):
         self.ui.btn_newPosicion.clicked.connect(lambda: self.newPosicion(globalArea))
         self.ui.btn_modificarArea.clicked.connect(lambda: self.modificarArea(globalArea))
         self.ui.newArea_btn_2.clicked.connect(self.mostrarBorrarArea)
-        self.ui.btn_eliminar_area.clicked.connect(lambda: self.eliminarArea(globalArea))
 
   
-    def eliminarArea(self,id):
-        qm = QMessageBox
 
-        ret = qm.warning(self,'Esta acción es irreversible', "¿Estás seguro que quieres eliminar ésta área ?", qm.Yes | qm.No)
-        if ret == qm.Yes:
-         ar.Area.eliminar_area(id)
            
     def clickA(self,event):
         return self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_deposito)
@@ -180,7 +170,6 @@ class Modern(QMainWindow):
     def mostrarNewMovimiento(self):
         self.newMovimiento = NewMovimiento()
         self.newMovimiento.show()
-        self.ui.products_btn_movimiento.setFocus()
     def mostrarBorrarArea(self):
         self.borrarArea = BorrarArea()
         self.borrarArea.show()
@@ -211,7 +200,7 @@ class Modern(QMainWindow):
     ## Listar Movimientos en la tabla
     def listarMovimientos(self):
         movimientos = m.listar_movimientos()
-        n = m.contar_filas()
+        n = m.movimientos.contar_filas()
         print(movimientos)
         self.ui.tableWidget_movimientos_2.setRowCount(n)
         tableRow = 0
@@ -235,7 +224,9 @@ class Modern(QMainWindow):
     ## Listar lotes en la tabla
     def listarLotes(self):
         id = self.ui.lineEdit_6.text()
+        print(id)
         lotes = l.lote.listar_lote(id)
+        print(lotes)
         n = l.lote.contar_filas_producto(id)
         self.ui.tableWidget_lotes.setRowCount(n)
         tableRow = 0
@@ -364,7 +355,6 @@ class Modern(QMainWindow):
                 font.setBold(True)
                 font.setWeight(75)
                 self.btn1.setFont(font)
-
                 i+=1
 
 
@@ -372,8 +362,10 @@ class Modern(QMainWindow):
 
     def mostrarAreas(self):
         child = self.ui.verticalLayout_7.count()
+        print("c",child)
         areas = ar.Area.listar_area()
         n = ar.Area.contar_filas()
+        print("n",n)
         i = 1
 
         for a in areas:
@@ -384,8 +376,7 @@ class Modern(QMainWindow):
                 frame.setObjectName(a[0])
                 frame.setMaximumSize(QtCore.QSize(200,200))
                 verticalLayout = QtWidgets.QVBoxLayout(frame)
-                verticalLayout.setObjectName("verticalLay{i}")
-                verticalLayout.addWidget(frame)
+                #verticalLayout.addWidget(frame)
                 self.btn = QPushButton(frame)
                 self.btn.setText("Ver")
                 self.btn.setObjectName('%s' % a[0])
@@ -396,7 +387,7 @@ class Modern(QMainWindow):
                 self.label = QtWidgets.QLabel(frame)
                 self.btn.released.connect(self.button_released)
 
-                self.ui.gridLayout.addWidget(frame, 1, i, 1, 1)
+                self.ui.gridLayout.addWidget(frame, 1, i)
                 font = QtGui.QFont()
                 font.setFamily("Roboto")
                 font.setPointSize(10)
@@ -414,6 +405,8 @@ class Modern(QMainWindow):
                     if child == n-1:
                         self.agregarAreaCreada()
                     else:
+                        print("else",child)
+                        print("n",n)
                         self.btn2 = QtWidgets.QPushButton(self.ui.frame_14)
                         self.btn2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
                         self.btn2.setStyleSheet("QPushButton{\n"
@@ -441,6 +434,13 @@ class Modern(QMainWindow):
                         font.setWeight(75)
                         self.btn2.setFont(font)
                         self.btn2.released.connect(self.button_released)
+                elif child > n:
+                
+                    for i in reversed(range(self.ui.verticalLayout_7.count())): 
+                        self.ui.verticalLayout_7.itemAt(i).widget().deleteLater()
+                    for i in reversed(range(self.ui.gridLayout.count())): 
+                        self.ui.gridLayout.itemAt(i).widget().deleteLater()
+                        
                 i+=1
     
     def button_released(self):
@@ -448,10 +448,8 @@ class Modern(QMainWindow):
         self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_areas)
         sending_button = self.sender()
         nombreArea = str(sending_button.objectName())
-        print(nombreArea)
         globalArea = nombreArea
         self.listarAreas(globalArea)
-        print("global",globalArea)
    
   
     def newPosicion(self,btn):
@@ -739,7 +737,7 @@ class BM_Usuario(QMainWindow):
         self.rellenarCampos()
 
         #Subir foto btn
-        #self.ui.subirFoto_btn.clicked.connect(self.uploadImg)
+        self.ui.subirFoto_btn_2.clicked.connect(self.uploadImg)
 
         #Modificar usuario btn
         self.ui.modificarprod_btn.clicked.connect(self.ModificarUsuario)
@@ -758,6 +756,7 @@ class BM_Usuario(QMainWindow):
         global userid
         global DNI
         global DNI_Viejo
+        global defaultImg
         #global defaultImg        
         usuario = u.usuarios.mostrar_user(DNI)
         print(usuario)
@@ -769,7 +768,13 @@ class BM_Usuario(QMainWindow):
         self.ui.nacimiento_date.setDate(atributos[4])
         self.ui.puesto_input.setText(atributos[5])
         self.ui.mail_input.setText(atributos[7])
-
+        self.ui.mail_rep_input.setText(atributos[7])
+        ###Img###
+        #self.productImg = self.ui.label_img
+        #self.img = QPixmap("C:\proyecto-final\Interfaces\main\img/{0}".format(atributos[8]))
+        #self.productImg.setPixmap(self.img)
+        #defaultImg = atributos[8]
+        ########
         
         if  str(atributos[3]) == "1":
             print("admin")
@@ -778,24 +783,19 @@ class BM_Usuario(QMainWindow):
         else:
             self.ui.tipo_cb.setCurrentText("Usuario")
         
-        """
-        CAMBIAR BOTÓN PARA QUE INFORME SI SE DA DE ALTA O NO
-        if str(atributos[6]) == "b'1'":
-            self.ui.
-        else:
-            self.ui.fragil_no.setChecked(1)
-
-        self.ui.peso_num.setValue(atributos[12])
-        self.ui.ancho_num.setValue(atributos[13])
-        self.ui.altura_num.setValue(atributos[14])
-        """
+        
+        #CAMBIAR BOTÓN PARA QUE INFORME SI SE DA DE ALTA O NO
+        
+        
         
     def ModificarUsuario(self):
         global DNI_Viejo
+        global defaultImg
         dni = self.ui.dni_input.text()
         nombre = self.ui.nombre_input_2.text()
         apellido = self.ui.apellido_input.text()
         tipo = self.ui.tipo_cb.currentText()
+        foto = defaultImg
         print("tpi",tipo)
         if tipo == "Administrador": 
             tipo = 1 
@@ -812,7 +812,7 @@ class BM_Usuario(QMainWindow):
                 QtWidgets.QMessageBox.critical(self, "Error", "Contraseñas diferentes")
                 return None
         else:
-            u.usuarios.modificar_datos_user(DNI_Viejo,dni,nombre,apellido,tipo,puesto,nacimiento,mail)
+            u.usuarios.modificar_datos_user(DNI_Viejo,dni,nombre,apellido,tipo,puesto,nacimiento,mail)#falta foto
 
         self.close()
         

@@ -141,7 +141,7 @@ class Ui_MainWindow(object):
         self.crearprod_btn.setFont(font)
         self.crearprod_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.crearprod_btn.setStyleSheet("QPushButton{\n"
-"background-color: rgba(71, 71, 103);\n"
+"background-color: rgb(71, 71, 103);\n"
 "color: #fff;\n"
 "border-radius:5px;\n"
 "font-family:Roboto;\n"
@@ -156,7 +156,7 @@ class Ui_MainWindow(object):
         self.label_egr_ing.setGeometry(QtCore.QRect(20, 10, 141, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_egr_ing.setFont(font)
         self.label_egr_ing.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -207,7 +207,7 @@ class Ui_MainWindow(object):
         self.label_cantidad.setGeometry(QtCore.QRect(230, 130, 141, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_cantidad.setFont(font)
         self.label_cantidad.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -237,7 +237,7 @@ class Ui_MainWindow(object):
         self.label_fecha_2.setMaximumSize(QtCore.QSize(174, 16777215))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_fecha_2.setFont(font)
         self.label_fecha_2.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"

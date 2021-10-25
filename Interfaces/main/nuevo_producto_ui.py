@@ -43,7 +43,7 @@ class Ui_MainWindow(object):
         self.label_cantidad.setMaximumSize(QtCore.QSize(500, 16777215))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_cantidad.setFont(font)
         self.label_cantidad.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -57,7 +57,7 @@ class Ui_MainWindow(object):
         self.label_ancho.setMaximumSize(QtCore.QSize(90, 16777215))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_ancho.setFont(font)
         self.label_ancho.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -71,7 +71,7 @@ class Ui_MainWindow(object):
         self.label_ubicacion.setGeometry(QtCore.QRect(20, 70, 91, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_ubicacion.setFont(font)
         self.label_ubicacion.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -85,7 +85,7 @@ class Ui_MainWindow(object):
         self.label_altura.setMaximumSize(QtCore.QSize(90, 16777215))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_altura.setFont(font)
         self.label_altura.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -98,7 +98,7 @@ class Ui_MainWindow(object):
         self.label_codigo.setGeometry(QtCore.QRect(20, 10, 101, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_codigo.setFont(font)
         self.label_codigo.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -116,7 +116,7 @@ class Ui_MainWindow(object):
 "border: 0.5px solid #c1c1c1;\n"
 "border-radius: 3px;\n"
 "padding: 4 5px;\n"
-"color: #e9e9;\n"
+"color: #000;\n"
 "font-family:Roboto;\n"
 "font-size:13px;\n"
 "font-weight: 400;\n"
@@ -131,7 +131,7 @@ class Ui_MainWindow(object):
         self.label_lote.setMaximumSize(QtCore.QSize(154, 16777215))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_lote.setFont(font)
         self.label_lote.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -144,7 +144,7 @@ class Ui_MainWindow(object):
         self.label_peso.setGeometry(QtCore.QRect(230, 190, 71, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_peso.setFont(font)
         self.label_peso.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -157,7 +157,7 @@ class Ui_MainWindow(object):
         self.label_marca.setGeometry(QtCore.QRect(20, 170, 100, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_marca.setFont(font)
         self.label_marca.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -171,7 +171,7 @@ class Ui_MainWindow(object):
         self.label_largo.setMaximumSize(QtCore.QSize(90, 16777215))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_largo.setFont(font)
         self.label_largo.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -189,7 +189,7 @@ class Ui_MainWindow(object):
 "border: 0.5px solid #c1c1c1;\n"
 "border-radius: 3px;\n"
 "padding: 4 5px;\n"
-"color: #e9e9;\n"
+"color: #000;\n"
 "font-family:Roboto;\n"
 "font-size:13px;\n"
 "font-weight: 400;\n"
@@ -281,7 +281,7 @@ class Ui_MainWindow(object):
         self.label_fragil.setMaximumSize(QtCore.QSize(90, 16777215))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_fragil.setFont(font)
         self.label_fragil.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -308,7 +308,7 @@ class Ui_MainWindow(object):
         self.label_area.setMaximumSize(QtCore.QSize(90, 16777215))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_area.setFont(font)
         self.label_area.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -334,7 +334,7 @@ class Ui_MainWindow(object):
         self.label_vencimiento.setGeometry(QtCore.QRect(20, 250, 151, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_vencimiento.setFont(font)
         self.label_vencimiento.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -368,7 +368,7 @@ class Ui_MainWindow(object):
 "border: 0.5px solid #c1c1c1;\n"
 "border-radius: 3px;\n"
 "padding: 4 5px;\n"
-"color: #e9e9;\n"
+"color: #000;\n"
 "font-family:Roboto;\n"
 "font-size:13px;\n"
 "font-weight: 400;\n"
@@ -383,7 +383,7 @@ class Ui_MainWindow(object):
         self.label_ubicacion_2.setGeometry(QtCore.QRect(420, 250, 91, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_ubicacion_2.setFont(font)
         self.label_ubicacion_2.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -401,7 +401,7 @@ class Ui_MainWindow(object):
 "border: 0.5px solid #c1c1c1;\n"
 "border-radius: 3px;\n"
 "padding: 4 5px;\n"
-"color: #e9e9;\n"
+"color: #000;\n"
 "font-family:Roboto;\n"
 "font-size:13px;\n"
 "font-weight: 400;\n"
@@ -416,7 +416,7 @@ class Ui_MainWindow(object):
 "border: 0.5px solid #c1c1c1;\n"
 "border-radius: 3px;\n"
 "padding: 4 5px;\n"
-"color: #e9e9;\n"
+"color: #000;\n"
 "font-family:Roboto;\n"
 "font-size:13px;\n"
 "font-weight: 400;\n"
@@ -441,7 +441,7 @@ class Ui_MainWindow(object):
         self.label_area_2.setMaximumSize(QtCore.QSize(179, 16777215))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_area_2.setFont(font)
         self.label_area_2.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -454,13 +454,13 @@ class Ui_MainWindow(object):
         self.crearprod_btn.setGeometry(QtCore.QRect(490, 370, 150, 25))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         font.setBold(True)
         font.setWeight(75)
         self.crearprod_btn.setFont(font)
         self.crearprod_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.crearprod_btn.setStyleSheet("QPushButton{\n"
-"background-color: rgba(71, 71, 103);\n"
+"background-color: rgb(71, 71, 103);\n"
 "color: #fff;\n"
 "border-radius:5px;\n"
 "font-family:Roboto;\n"
@@ -486,7 +486,7 @@ class Ui_MainWindow(object):
 "font-weight: 500;\n"
 "}\n"
 "QPushButton:hover{\n"
-"background-color: rgba(71, 71, 103);\n"
+"background-color: rgb(71, 71, 103);\n"
 "color: #fff;\n"
 "\n"
 "}")

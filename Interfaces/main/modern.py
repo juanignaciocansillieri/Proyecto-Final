@@ -92,7 +92,7 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QPushButton:pressed{\n"
-"    background-color: rgba(0,0,0);\n"
+"    background-color: rgb(0,0,0);\n"
 "}")
         self.products_btn.setText("")
         icon = QtGui.QIcon()
@@ -1939,37 +1939,13 @@ class Ui_MainWindow(object):
         self.btn_modificarArea.setIconSize(QtCore.QSize(13, 13))
         self.btn_modificarArea.setObjectName("btn_modificarArea")
         self.btn_actualizarAreaInd = QtWidgets.QPushButton(self.groupBox_12)
-        self.btn_actualizarAreaInd.setGeometry(QtCore.QRect(720, 30, 31, 21))
+        self.btn_actualizarAreaInd.setGeometry(QtCore.QRect(550, 30, 31, 21))
         self.btn_actualizarAreaInd.setMinimumSize(QtCore.QSize(0, 21))
         self.btn_actualizarAreaInd.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btn_actualizarAreaInd.setText("")
         self.btn_actualizarAreaInd.setIcon(icon8)
         self.btn_actualizarAreaInd.setIconSize(QtCore.QSize(33, 16))
         self.btn_actualizarAreaInd.setObjectName("btn_actualizarAreaInd")
-        self.btn_eliminar_area = QtWidgets.QPushButton(self.groupBox_12)
-        self.btn_eliminar_area.setGeometry(QtCore.QRect(550, 25, 91, 26))
-        self.btn_eliminar_area.setMinimumSize(QtCore.QSize(0, 26))
-        font = QtGui.QFont()
-        font.setFamily("Roboto")
-        font.setPointSize(9)
-        font.setBold(True)
-        font.setWeight(75)
-        self.btn_eliminar_area.setFont(font)
-        self.btn_eliminar_area.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btn_eliminar_area.setStyleSheet("QPushButton{\n"
-"background-color: rgb(71, 71, 103);\n"
-"color:#fff;\n"
-"padding-left:10px;\n"
-"border-radius: 5px;\n"
-"text-align:left;\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"background-color: rgba(71, 71, 103,180);\n"
-"\n"
-"}")
-        self.btn_eliminar_area.setIconSize(QtCore.QSize(13, 13))
-        self.btn_eliminar_area.setObjectName("btn_eliminar_area")
         self.verticalLayout_39.addWidget(self.groupBox_12)
         self.verticalLayout_9.addWidget(self.frame_4)
         self.stackedWidget_main.addWidget(self.page_areas)
@@ -2152,7 +2128,6 @@ class Ui_MainWindow(object):
         self.label_area_mod.setText(_translate("MainWindow", "Label"))
         self.btn_newPosicion.setText(_translate("MainWindow", "Posicion de Alojamiento"))
         self.btn_modificarArea.setText(_translate("MainWindow", "Modificar Área"))
-        self.btn_eliminar_area.setText(_translate("MainWindow", "Eliminar Área"))
 import img_oficiales_rc
 
 

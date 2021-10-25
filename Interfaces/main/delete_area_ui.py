@@ -39,13 +39,13 @@ class Ui_MainWindow(object):
         self.modificar_btn.setGeometry(QtCore.QRect(70, 110, 111, 26))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         font.setBold(True)
         font.setWeight(75)
         self.modificar_btn.setFont(font)
         self.modificar_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.modificar_btn.setStyleSheet("QPushButton{\n"
-"background-color: rgba(71, 71, 103);\n"
+"background-color: rgb(71, 71, 103);\n"
 "color: #fff;\n"
 "border-radius:5px;\n"
 "font-family:Roboto;\n"
@@ -60,7 +60,7 @@ class Ui_MainWindow(object):
         self.label_Area.setGeometry(QtCore.QRect(76, 30, 111, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         font.setBold(True)
         font.setWeight(75)
         self.label_Area.setFont(font)

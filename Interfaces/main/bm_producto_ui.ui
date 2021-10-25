@@ -822,7 +822,8 @@ margin-left:10px
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton{
-background-color: #1173ff;
+background-color: rgb(71, 71, 103);
+
 color: #fff;
 border-radius:10px;
 font-family:Roboto;
@@ -830,7 +831,8 @@ font-size: 13px
 
 }
 QPushButton:hover{
-background-color: #45a9f0;
+background-color: rgba(71, 71, 103,180);
+
 }</string>
        </property>
        <property name="text">
@@ -857,7 +859,8 @@ background-color: #45a9f0;
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton{
-background-color: #1173ff;
+background-color: rgb(71, 71, 103);
+
 color: #fff;
 border-radius:10px;
 font-family:Roboto;
@@ -865,7 +868,8 @@ font-size: 13px
 
 }
 QPushButton:hover{
-background-color: #45a9f0;
+background-color: rgba(71, 71, 103,180);
+
 }</string>
        </property>
        <property name="text">

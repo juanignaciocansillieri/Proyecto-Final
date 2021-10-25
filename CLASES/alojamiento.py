@@ -22,12 +22,11 @@ class alojamiento:
         self.nivel=nivel
         self.volumen=self.largo*self.ancho*self.alto
         self.disponibilidad=0 #0 disponible 1 tiene algo 2 esta lleno
-        iden=ar.Area.mostrar_identificador(area)
-        iden=str(iden[0][0])
-        self.posicion=str(str(iden)+"-"+str(pasillo)+"-"+str(self.segmento)+"-"+str(filas)+"-"+str(columna)+"-"+str(nivel))
+        self.posicion=str(str(area)+""+str(pasillo)+""+str(self.segmento)+""+str(filas)+""+str(columna)+""+str(nivel))
         self.pasillo=pasillo
         self.limite=limite
-        self.codigo= str(str(iden)+"-"+str(pasillo)+"-"+str(self.segmento)+"-"+str(filas)+"-"+str(columna)+"-"+str(nivel))
+        self.codigo= str(str(area)+""+str(pasillo)+""+str(self.segmento)+""+str(filas)+""+str(columna)+""+str(nivel))
+        print(self.codigo)
         self.alta_alojamiento()
         print("se creo alojamiento correctamente")
 
@@ -133,6 +132,7 @@ class alojamiento:
         data = cursor.fetchall()
         a.commit()
         return data
+        
 
     
     def listar_alojamiento():
@@ -165,7 +165,7 @@ class alojamiento:
         a = c.start_connection()
         cursor = a.cursor()
         try:
-            query = "SELECT codigo,largo,ancho,alto,volumen,pasillo,alojamiento,disponibilidad,posicion,limite FROM alojamiento WHERE disponibilidad=0 and area=%s"
+            query = "SELECT codigo,largo,ancho,alto,volumen,pasillo,disponibilidad,posicion,limite FROM alojamiento WHERE disponibilidad=0 and area=%s"
             cursor.execute(query,area)
             productos = cursor.fetchall()
 

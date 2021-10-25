@@ -934,7 +934,7 @@ QPushButton:hover{
           <item>
            <widget class="QStackedWidget" name="stackedWidget_main">
             <property name="currentIndex">
-             <number>5</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="page_stock">
              <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -4743,7 +4743,7 @@ background-color: rgba(71, 71, 103,180);
                      <widget class="QPushButton" name="btn_actualizarAreaInd">
                       <property name="geometry">
                        <rect>
-                        <x>720</x>
+                        <x>550</x>
                         <y>30</y>
                         <width>31</width>
                         <height>21</height>
@@ -4769,56 +4769,6 @@ background-color: rgba(71, 71, 103,180);
                        <size>
                         <width>33</width>
                         <height>16</height>
-                       </size>
-                      </property>
-                     </widget>
-                     <widget class="QPushButton" name="btn_eliminar_area">
-                      <property name="geometry">
-                       <rect>
-                        <x>550</x>
-                        <y>25</y>
-                        <width>91</width>
-                        <height>26</height>
-                       </rect>
-                      </property>
-                      <property name="minimumSize">
-                       <size>
-                        <width>0</width>
-                        <height>26</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <family>Roboto</family>
-                        <pointsize>9</pointsize>
-                        <weight>75</weight>
-                        <bold>true</bold>
-                       </font>
-                      </property>
-                      <property name="cursor">
-                       <cursorShape>PointingHandCursor</cursorShape>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">QPushButton{
-background-color: rgb(71, 71, 103);
-color:#fff;
-padding-left:10px;
-border-radius: 5px;
-text-align:left;
-}
-
-QPushButton:hover{
-background-color: rgba(71, 71, 103,180);
-
-}</string>
-                      </property>
-                      <property name="text">
-                       <string>Eliminar Área</string>
-                      </property>
-                      <property name="iconSize">
-                       <size>
-                        <width>13</width>
-                        <height>13</height>
                        </size>
                       </property>
                      </widget>

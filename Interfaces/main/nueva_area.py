@@ -42,7 +42,7 @@ class Ui_MainWindow(object):
         self.label_3.setGeometry(QtCore.QRect(20, 10, 62, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_3.setFont(font)
         self.label_3.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -76,11 +76,11 @@ class Ui_MainWindow(object):
         self.crearprod_btn.setGeometry(QtCore.QRect(230, 220, 121, 26))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.crearprod_btn.setFont(font)
         self.crearprod_btn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.crearprod_btn.setStyleSheet("QPushButton{\n"
-"background-color: rgba(71, 71, 103);\n"
+"background-color: rgb(71, 71, 103);\n"
 "color: #fff;\n"
 "border-radius:5px;\n"
 "font-family:Roboto;\n"
@@ -95,7 +95,7 @@ class Ui_MainWindow(object):
         self.label_egr_ing.setGeometry(QtCore.QRect(20, 10, 131, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_egr_ing.setFont(font)
         self.label_egr_ing.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -108,7 +108,7 @@ class Ui_MainWindow(object):
         self.label_egr_ing_2.setGeometry(QtCore.QRect(20, 70, 131, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_egr_ing_2.setFont(font)
         self.label_egr_ing_2.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -140,7 +140,7 @@ class Ui_MainWindow(object):
         self.label_pasillos.setGeometry(QtCore.QRect(220, 10, 131, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_pasillos.setFont(font)
         self.label_pasillos.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -153,7 +153,7 @@ class Ui_MainWindow(object):
         self.label_pasillos_2.setGeometry(QtCore.QRect(220, 70, 131, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_pasillos_2.setFont(font)
         self.label_pasillos_2.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -195,7 +195,7 @@ class Ui_MainWindow(object):
         self.label_egr_ing_3.setGeometry(QtCore.QRect(20, 130, 131, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_egr_ing_3.setFont(font)
         self.label_egr_ing_3.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -208,7 +208,7 @@ class Ui_MainWindow(object):
         self.label_egr_ing_4.setGeometry(QtCore.QRect(220, 130, 131, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_egr_ing_4.setFont(font)
         self.label_egr_ing_4.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -221,7 +221,7 @@ class Ui_MainWindow(object):
         self.label_egr_ing_5.setGeometry(QtCore.QRect(20, 190, 131, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.label_egr_ing_5.setFont(font)
         self.label_egr_ing_5.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
