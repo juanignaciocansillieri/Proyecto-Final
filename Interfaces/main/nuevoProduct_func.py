@@ -81,6 +81,7 @@ class ProductWindow(QMainWindow):
         pr.productos(codigo,marca,cantidad,descripcion,ubicacion,lote,venc,condicion,fragil,defaultImg,peso,largo,ancho,altura)
 
 
+
         self.close()
       
       

@@ -6,6 +6,7 @@ import pymysql
 import os
 #import alojamiento as aloj
 import lotes
+import alojamiento
 sys.path.append("C:\\proyecto-final\\DB\\")
 import conexion as c
 
@@ -42,6 +43,8 @@ class productos():
             cursor.execute(query, values)
             a.commit()
             lotes.lote(self.codigo,self.cantidad,self.fechalote,self.vencimiento)
+            alojamiento.alojamiento.ab_alojamiento(self.ubicacion)
+
             print("se dio alta producto correctamente")
 
         except pymysql.err.OperationalError as err:
@@ -94,10 +97,21 @@ class productos():
             values = (fragil, idp)
             cursor.execute(query, values)
             a.commit()
-            query = "UPDATE productos set ubicacion=%s WHERE idproductos=%s"
+            #
+            query = "SELECT ubicacion from productos ubicacion WHERE idproductos=%s"
             values = (ubicacion, idp)
             cursor.execute(query, values)
+            ubicacionv = cursor.fetchall()
+            ubicacionv = str(ubicacionv[0][0])
             a.commit()
+            if ubicacionv != ubicacion:
+                alojamiento.alojamiento.ab_alojamiento(ubicacionv)
+                alojamiento.alojamiento.ab_alojamiento(ubicacion)
+                query = "UPDATE productos set ubicacion=%s WHERE idproductos=%s"
+                values = (ubicacion, idp)
+                cursor.execute(query, values)
+                a.commit()
+            #
             query = "UPDATE productos set peso=%s WHERE idproductos=%s"
             values = (peso, idp)
             cursor.execute(query, values)
