@@ -2,6 +2,19 @@ import pymysql
 import os
 import conexion as c
 
+def alta_login(dni,contraseña):
+        a=c.start_connection()
+        cursor=a.cursor()
+        try:
+            query = "INSERT INTO login(dni,contraseña) VALUES (%s,%s)"
+            values = (dni,contraseña)
+            cursor.execute(query, values)
+            a.commit()
+            print("se registro usuario correctamente")
+        except pymysql.err.OperationalError as err:
+            print("Hubo un error:", err)
+        c.close_connection(a)
+
 def log_in (dni,contraseña):
     print(dni,contraseña)
     a=c.start_connection()
@@ -31,6 +44,15 @@ def log_in (dni,contraseña):
     except pymysql.err.OperationalError as err:
         print("Ha ocurrido un error", err)
     c.close_connection(a)
+
+def mostrar_pass(dni):
+        a = c.start_connection()
+        cursor = a.cursor()
+        query = ("SELECT contraseña FROM login WHERE dni=%s")
+        cursor.execute(query,dni)
+        data = cursor.fetchall()
+        a.commit()
+        return data
 
 def cambiar_contrasena(dniv,dni,password):
     a=c.start_connection()

@@ -73,7 +73,8 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
     alta BINARY(1) NOT NULL,
     puesto VARCHAR(20) NOT NULL,
     nacimiento DATE NOT NULL,
-    mail VARCHAR(20) NOT NULL
+    mail VARCHAR(20) NOT NULL,
+    foto VARCHAR(50) NOT NULL
     );"""
 
     q5="""CREATE TABLE IF NOT EXISTS lote (
