@@ -9,6 +9,8 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 import create_user
 from bm_user import Ui_MainWindow
+sys.path.append("C:\\proyecto-final\\DB\\")
+import loginDB as log
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import usuarios as us
 

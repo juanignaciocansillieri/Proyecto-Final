@@ -5,11 +5,12 @@ import pymysql
 import os
 sys.path.append("C:\\proyecto-final\\DB\\")
 import conexion as c
+import loginDB as log
 
 
 class usuarios:
     
-    def __init__(self,nombre,apellido,dni,tipo,puesto,nacimiento,mail):
+    def __init__(self,nombre,apellido,dni,tipo,puesto,nacimiento,mail,foto):
         self.nombre=nombre
         self.apellido=apellido
         self.dni= dni
@@ -18,6 +19,7 @@ class usuarios:
         self.puesto=puesto
         self.nacimiento=nacimiento
         self.mail=mail
+        self.foto=foto
         print("se creo usuario correctamente")
         self.alta_usuario()
 
@@ -27,8 +29,8 @@ class usuarios:
         a=c.start_connection()
         cursor=a.cursor()
         try:
-            query = "INSERT INTO usuarios(nombre,apellido,dni,tipo,alta,puesto,nacimiento,mail) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
-            values = (self.nombre,self.apellido,self.dni,self.tipo,self.alta,self.puesto,self.nacimiento,self.mail)
+            query = "INSERT INTO usuarios(nombre,apellido,dni,tipo,alta,puesto,nacimiento,mail,foto) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+            values = (self.nombre,self.apellido,self.dni,self.tipo,self.alta,self.puesto,self.nacimiento,self.mail,self.foto)
             cursor.execute(query, values)
             a.commit()
             print("se dio alta usuario correctamente")
@@ -36,18 +38,6 @@ class usuarios:
             print("Hubo un error:", err)
         c.close_connection(a)
     
-    def alta_login(self,contraseña):
-        a=c.start_connection()
-        cursor=a.cursor()
-        try:
-            query = "INSERT INTO login(dni,contraseña) VALUES (%s,%s)"
-            values = (self.dni,contraseña)
-            cursor.execute(query, values)
-            a.commit()
-            print("se registro usuario correctamente")
-        except pymysql.err.OperationalError as err:
-            print("Hubo un error:", err)
-        c.close_connection(a)
 
     def buscar_user(param):
         a = c.start_connection()
@@ -69,7 +59,7 @@ class usuarios:
     def mostrar_user(dni):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT dni,nombre,apellido,tipo,nacimiento,puesto,alta,mail FROM usuarios WHERE dni=%s")
+        query = ("SELECT dni,nombre,apellido,tipo,nacimiento,puesto,alta,mail,foto FROM usuarios WHERE dni=%s")
         cursor.execute(query,dni)
         data = cursor.fetchall()
         a.commit()
@@ -90,7 +80,7 @@ class usuarios:
         c.close_connection(a)
 
 
-    def modificar_datos_user(dniv,dnin,nombre,apellido,tipo,puesto,nacimiento,mail):
+    def modificar_datos_user(dniv,dnin,nombre,apellido,tipo,puesto,nacimiento,mail,foto):
         a=c.start_connection()
         cursor=a.cursor()
         query = "SELECT idusuarios FROM usuarios WHERE dni=%s"
@@ -126,6 +116,10 @@ class usuarios:
             a.commit()
             query = "UPDATE usuarios SET mail=%s WHERE idusuarios=%s"
             values = (mail,idu)
+            cursor.execute(query, values)
+            a.commit()
+            query = "UPDATE foto SET nombre=%s WHERE idusuarios=%s"
+            values = (foto,idu)
             cursor.execute(query, values)
             a.commit() 
             print("se modifico  usuario correctamente")

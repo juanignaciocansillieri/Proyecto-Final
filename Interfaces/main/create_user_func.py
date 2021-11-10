@@ -9,6 +9,8 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 import create_user
 from create_user import Ui_MainWindow
+sys.path.append("C:\\proyecto-final\\DB\\")
+import loginDB as log
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import usuarios as us
 
@@ -73,7 +75,7 @@ class UsuarioWindow(QMainWindow):
       else:
       
         user = us.usuarios(nom,apellido,dni,tipo,puesto,nacimiento,mail)
-        user.alta_login(contraseña)
+        log.alta_login(contraseña)
         self.close()
       self.clearInput()
       #return(codigo,nombre,desc,cantidad,marca,venc,condicion,lote,fragil)
