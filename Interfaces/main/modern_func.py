@@ -73,6 +73,7 @@ class Modern(QMainWindow):
         self.ui.products_btn_stock.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_stock))
         # Abrir Pag Movimientos
         self.ui.products_btn_movimiento.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_movimientos))
+        self.ui.products_btn_movimiento.clicked.connect(self.listarMovimientos)
         self.ui.btn_actualizarMov.clicked.connect(self.listarMovimientos)
         # Abrir Pag Lotes
         self.ui.products_btn_lotes.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_lotes))
@@ -201,22 +202,28 @@ class Modern(QMainWindow):
     def listarMovimientos(self):
         movimientos = m.listar_movimientos()
         n = m.movimientos.contar_filas()
-        print(movimientos)
         self.ui.tableWidget_movimientos_2.setRowCount(n)
         tableRow = 0
         for row in movimientos:
             self.ui.tableWidget_movimientos_2.setItem(
-                tableRow, 0, QtWidgets.QTableWidgetItem(row[0]))
+                tableRow, 0, QtWidgets.QTableWidgetItem(str(row[1])))
             self.ui.tableWidget_movimientos_2.setItem(
-                tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
+                tableRow, 1, QtWidgets.QTableWidgetItem(str(row[1])))
             self.ui.tableWidget_movimientos_2.setItem(
-                tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
-            self.ui.tableWidget_movimientos_2.setItem(
-                tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+                tableRow, 2, QtWidgets.QTableWidgetItem(str(row[2])))
             self.ui.tableWidget_movimientos_2.setItem(
                 tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
-            self.ui.tableWidget_movimientos_2.setItem(
-                tableRow, 4, QtWidgets.QTableWidgetItem(str(row[5])))
+            if str(row[0]) == "b'1'":
+                self.ui.tableWidget_movimientos_2.setItem(
+                    tableRow, 3, QtWidgets.QTableWidgetItem("Egreso"))
+                self.ui.tableWidget_movimientos_2.setItem(
+                    tableRow, 5, QtWidgets.QTableWidgetItem(str(row[3])))
+            else:
+                self.ui.tableWidget_movimientos_2.setItem(
+                    tableRow, 3, QtWidgets.QTableWidgetItem("Ingreso"))
+                self.ui.tableWidget_movimientos_2.setItem(
+                    tableRow, 5, QtWidgets.QTableWidgetItem("-"))
+            
 
             tableRow += 1
 
