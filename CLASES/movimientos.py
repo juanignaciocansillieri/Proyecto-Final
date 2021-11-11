@@ -81,3 +81,20 @@ def mostrar_movimientos(codigo,fecha):
         data = cursor.fetchall()
         a.commit()
         return data
+
+def buscar_product(param):
+        a = c.start_connection()
+        cursor = a.cursor()
+        query = (" m.tipo,m.codigo,p.descripcion,m.cantidad,m.motivo,m.fecha FROM movimientos m JOIN productos p ON m.codigo=p.codigo WHERE codigo=%s or descripcion=%s or tipo=%s or fecha=%s ")
+        cursor.execute(query, (param, param,param,param))
+        data = cursor.fetchall()
+        a.commit()
+        return data
+
+def buscar_product_rows(param):
+        a = c.start_connection()
+        cursor = a.cursor()
+        query = (" m.tipo,m.codigo,p.descripcion,m.cantidad,m.motivo,m.fecha FROM movimientos m JOIN productos p ON m.codigo=p.codigo WHERE codigo=%s or descripcion=%s or tipo=%s or fecha=%s ")
+        data = cursor.execute(query, (param, param,param,param))
+        a.commit()
+        return data
