@@ -208,9 +208,9 @@ class Modern(QMainWindow):
             self.ui.tableWidget_movimientos_2.setItem(
                 tableRow, 0, QtWidgets.QTableWidgetItem(str(row[1])))
             self.ui.tableWidget_movimientos_2.setItem(
-                tableRow, 1, QtWidgets.QTableWidgetItem(str(row[1])))
+                tableRow, 1, QtWidgets.QTableWidgetItem(str(row[2])))
             self.ui.tableWidget_movimientos_2.setItem(
-                tableRow, 2, QtWidgets.QTableWidgetItem(str(row[2])))
+                tableRow, 2, QtWidgets.QTableWidgetItem(str(row[3])))
             self.ui.tableWidget_movimientos_2.setItem(
                 tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
             if str(row[0]) == "b'1'":

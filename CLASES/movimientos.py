@@ -63,7 +63,7 @@ def listar_movimientos():
             a = c.start_connection()
             cursor = a.cursor()
             try:
-                query = "SELECT tipo,codigo,cantidad,motivo,fecha FROM movimientos"
+                query = "SELECT m.tipo,m.codigo,p.descripcion,m.cantidad,m.motivo,m.fecha FROM movimientos m JOIN productos p ON m.codigo=p.codigo"
                 cursor.execute(query)
                 area = cursor.fetchall()
                 a.commit()
