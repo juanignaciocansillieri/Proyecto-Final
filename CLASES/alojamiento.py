@@ -93,7 +93,7 @@ class alojamiento:
         a=c.start_connection()
         cursor=a.cursor()
         try:
-            query = "DELETE * FROM alojamiento WHERE area=%s"
+            query = "DELETE  FROM alojamiento WHERE area=%s"
             values = (area)
             cursor.execute(query, values)
             a.commit()

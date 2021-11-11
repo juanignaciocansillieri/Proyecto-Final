@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>BullSoft</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -934,7 +934,7 @@ QPushButton:hover{
           <item>
            <widget class="QStackedWidget" name="stackedWidget_main">
             <property name="currentIndex">
-             <number>2</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="page_stock">
              <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -1682,7 +1682,7 @@ color: #282830 ;
                    </property>
                    <property name="maximumSize">
                     <size>
-                     <width>387</width>
+                     <width>555</width>
                      <height>70</height>
                     </size>
                    </property>
@@ -1697,7 +1697,7 @@ color: #282830 ;
                      <rect>
                       <x>0</x>
                       <y>13</y>
-                      <width>431</width>
+                      <width>681</width>
                       <height>70</height>
                      </rect>
                     </property>
@@ -1818,12 +1818,12 @@ color: #282830 ;
                          </size>
                         </property>
                        </widget>
-                       <widget class="QPushButton" name="btn_movimiento">
+                       <widget class="QPushButton" name="new_ingreso_btn">
                         <property name="geometry">
                          <rect>
-                          <x>230</x>
-                          <y>23</y>
-                          <width>35</width>
+                          <x>250</x>
+                          <y>22</y>
+                          <width>81</width>
                           <height>26</height>
                          </rect>
                         </property>
@@ -1831,12 +1831,6 @@ color: #282830 ;
                          <size>
                           <width>0</width>
                           <height>26</height>
-                         </size>
-                        </property>
-                        <property name="maximumSize">
-                         <size>
-                          <width>39</width>
-                          <height>16777215</height>
                          </size>
                         </property>
                         <property name="font">
@@ -1854,7 +1848,9 @@ color: #282830 ;
                          <string notr="true">QPushButton{
 background-color: rgb(71, 71, 103);
 color:#fff;
+padding-right:15px;
 border-radius: 5px;
+text-align:right;
 }
 
 QPushButton:hover{
@@ -1863,7 +1859,61 @@ background-color: rgba(71, 71, 103,180);
 }</string>
                         </property>
                         <property name="text">
-                         <string/>
+                         <string>Ingreso</string>
+                        </property>
+                        <property name="icon">
+                         <iconset resource="img/img_oficiales.qrc">
+                          <normaloff>:/img/plus.png</normaloff>:/img/plus.png</iconset>
+                        </property>
+                        <property name="iconSize">
+                         <size>
+                          <width>13</width>
+                          <height>13</height>
+                         </size>
+                        </property>
+                       </widget>
+                       <widget class="QPushButton" name="new_egreso_btn">
+                        <property name="geometry">
+                         <rect>
+                          <x>351</x>
+                          <y>23</y>
+                          <width>81</width>
+                          <height>26</height>
+                         </rect>
+                        </property>
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>26</height>
+                         </size>
+                        </property>
+                        <property name="font">
+                         <font>
+                          <family>Roboto</family>
+                          <pointsize>9</pointsize>
+                          <weight>75</weight>
+                          <bold>true</bold>
+                         </font>
+                        </property>
+                        <property name="cursor">
+                         <cursorShape>PointingHandCursor</cursorShape>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QPushButton{
+background-color: rgb(71, 71, 103);
+color:#fff;
+padding-right:15px;
+border-radius: 5px;
+text-align:right;
+}
+
+QPushButton:hover{
+background-color: rgba(71, 71, 103,180);
+
+}</string>
+                        </property>
+                        <property name="text">
+                         <string>Egreso</string>
                         </property>
                         <property name="icon">
                          <iconset resource="img/img_oficiales.qrc">
@@ -1999,7 +2049,7 @@ background-color: rgba(71, 71, 103,180);
                            <rect>
                             <x>50</x>
                             <y>10</y>
-                            <width>301</width>
+                            <width>311</width>
                             <height>20</height>
                            </rect>
                           </property>
@@ -2017,7 +2067,7 @@ background-color: rgba(71, 71, 103,180);
                            <string/>
                           </property>
                           <property name="placeholderText">
-                           <string>Buscar Productos por nombre o palabra clave</string>
+                           <string>Buscar Movimientos por código, descripción,tipo o fecha</string>
                           </property>
                          </widget>
                         </widget>
@@ -2129,26 +2179,6 @@ QHeaderView::section:vertical
                        <attribute name="verticalHeaderDefaultSectionSize">
                         <number>41</number>
                        </attribute>
-                       <row>
-                        <property name="text">
-                         <string>New Row</string>
-                        </property>
-                       </row>
-                       <row>
-                        <property name="text">
-                         <string>New Row</string>
-                        </property>
-                       </row>
-                       <row>
-                        <property name="text">
-                         <string>New Row</string>
-                        </property>
-                       </row>
-                       <row>
-                        <property name="text">
-                         <string>New Row</string>
-                        </property>
-                       </row>
                        <column>
                         <property name="text">
                          <string>New Column</string>
@@ -2179,56 +2209,6 @@ QHeaderView::section:vertical
                          <string>New Column</string>
                         </property>
                        </column>
-                       <item row="0" column="0">
-                        <property name="text">
-                         <string>aa</string>
-                        </property>
-                       </item>
-                       <item row="0" column="1">
-                        <property name="text">
-                         <string>aa</string>
-                        </property>
-                       </item>
-                       <item row="0" column="2">
-                        <property name="text">
-                         <string>SZSAAS</string>
-                        </property>
-                       </item>
-                       <item row="0" column="3">
-                        <property name="text">
-                         <string>SSAASS</string>
-                        </property>
-                       </item>
-                       <item row="0" column="4">
-                        <property name="text">
-                         <string>aaaaa</string>
-                        </property>
-                       </item>
-                       <item row="0" column="5">
-                        <property name="text">
-                         <string>aaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="1" column="2">
-                        <property name="text">
-                         <string>aaaaaaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="1" column="3">
-                        <property name="text">
-                         <string>aaaaaaaaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="1" column="4">
-                        <property name="text">
-                         <string>aaaaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="1" column="5">
-                        <property name="text">
-                         <string>aaaaaaaaaa</string>
-                        </property>
-                       </item>
                       </widget>
                       <widget class="QFrame" name="frame_23">
                        <property name="geometry">
@@ -2882,11 +2862,6 @@ QHeaderView::section:vertical
                        <attribute name="verticalHeaderDefaultSectionSize">
                         <number>41</number>
                        </attribute>
-                       <row>
-                        <property name="text">
-                         <string>New Row</string>
-                        </property>
-                       </row>
                        <column>
                         <property name="text">
                          <string>New Column</string>
@@ -2912,31 +2887,6 @@ QHeaderView::section:vertical
                          <string>New Column</string>
                         </property>
                        </column>
-                       <item row="0" column="0">
-                        <property name="text">
-                         <string>aaaa</string>
-                        </property>
-                       </item>
-                       <item row="0" column="1">
-                        <property name="text">
-                         <string>aaaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="0" column="2">
-                        <property name="text">
-                         <string>aaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="0" column="3">
-                        <property name="text">
-                         <string>aaaaaaa</string>
-                        </property>
-                       </item>
-                       <item row="0" column="4">
-                        <property name="text">
-                         <string>aaaaaaa</string>
-                        </property>
-                       </item>
                       </widget>
                       <widget class="QFrame" name="frame_29">
                        <property name="geometry">
@@ -3996,11 +3946,6 @@ QHeaderView::section:vertical
                            <attribute name="verticalHeaderDefaultSectionSize">
                             <number>41</number>
                            </attribute>
-                           <row>
-                            <property name="text">
-                             <string>New Row</string>
-                            </property>
-                           </row>
                            <column>
                             <property name="text">
                              <string>New Column</string>
@@ -4026,31 +3971,6 @@ QHeaderView::section:vertical
                              <string>New Column</string>
                             </property>
                            </column>
-                           <item row="0" column="0">
-                            <property name="text">
-                             <string>aaaaaa</string>
-                            </property>
-                           </item>
-                           <item row="0" column="1">
-                            <property name="text">
-                             <string>aaaaaaaa</string>
-                            </property>
-                           </item>
-                           <item row="0" column="2">
-                            <property name="text">
-                             <string>ssssssss</string>
-                            </property>
-                           </item>
-                           <item row="0" column="3">
-                            <property name="text">
-                             <string>ffffffffff</string>
-                            </property>
-                           </item>
-                           <item row="0" column="4">
-                            <property name="text">
-                             <string>sssssssss</string>
-                            </property>
-                           </item>
                           </widget>
                           <widget class="QFrame" name="frame_18">
                            <property name="geometry">

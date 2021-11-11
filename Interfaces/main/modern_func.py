@@ -20,8 +20,10 @@ from bm_user_ui import Ui_MainWindow as bmu
 from delete_area import BorrarArea 
 from array import array
 from nueva_area_func import NewArea
-import movimiento_func
-from movimiento_func import NewMovimiento
+import ingreso_func
+from ingreso_func import NewIngreso
+import egreso_func
+from egreso_func import NewEgreso
 from posiciones_alojamiento import PosicionAlojamiento as pa
 sys.path.append("C:\\proyecto-final\\DB\\")
 import loginDB
@@ -76,6 +78,8 @@ class Modern(QMainWindow):
         # Abrir Pag Movimientos
         self.ui.products_btn_movimiento.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_movimientos))
         self.ui.products_btn_movimiento.clicked.connect(self.listarMovimientos)
+        self.ui.new_egreso_btn.clicked.connect(self.mostrarEgreso)
+        self.ui.new_ingreso_btn.clicked.connect(self.mostrarIngreso)
         self.ui.btn_actualizarMov.clicked.connect(self.listarMovimientos)
         # Abrir Pag Lotes
         self.ui.products_btn_lotes.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_lotes))
@@ -98,11 +102,7 @@ class Modern(QMainWindow):
 
             # Abrir ventana para agregar Nuevo producto
         self.ui.product_new_btn.clicked.connect(self.mostrarNewProduct)
-
-        #self.aaa = self.mostrarAreas()
         
-            # Abrir ventana para agregar Nuevo movimiento
-        self.ui.btn_movimiento.clicked.connect(self.mostrarNewMovimiento)
 
     ########################## USUARIOS ##################################
 
@@ -166,9 +166,12 @@ class Modern(QMainWindow):
         self.newArea = NewArea()
         self.newArea.show()
 
-    def mostrarNewMovimiento(self):
-        self.newMovimiento = NewMovimiento()
+    def mostrarIngreso(self):
+        self.newMovimiento = NewIngreso()
         self.newMovimiento.show()
+    def mostrarEgreso(self):
+        self.newEgreso = NewEgreso()
+        self.newEgreso.show()
     def mostrarBorrarArea(self):
         self.borrarArea = BorrarArea()
         self.borrarArea.show()
@@ -210,12 +213,12 @@ class Modern(QMainWindow):
             self.ui.tableWidget_movimientos_2.setItem(
                 tableRow, 2, QtWidgets.QTableWidgetItem(str(row[3])))
             self.ui.tableWidget_movimientos_2.setItem(
-                tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+                tableRow, 4, QtWidgets.QTableWidgetItem(str(row[5])))
             if str(row[0]) == "b'1'":
                 self.ui.tableWidget_movimientos_2.setItem(
                     tableRow, 3, QtWidgets.QTableWidgetItem("Egreso"))
                 self.ui.tableWidget_movimientos_2.setItem(
-                    tableRow, 5, QtWidgets.QTableWidgetItem(str(row[3])))
+                    tableRow, 5, QtWidgets.QTableWidgetItem(str(row[4])))
             else:
                 self.ui.tableWidget_movimientos_2.setItem(
                     tableRow, 3, QtWidgets.QTableWidgetItem("Ingreso"))
@@ -248,7 +251,34 @@ class Modern(QMainWindow):
             tableRow += 1
             
   # Buscar productos a traves del input, por parámetro ingresado
+    def buscarMovimiento(self):
+        parametro = self.ui.lineEdit_5.text()
+        movimientos = m.movimientos.buscar_movimientos(parametro)
+        n = m.movimintos.buscar_movimientos_rows(parametro)
+        self.ui.tableWidget_movimientos_2.setRowCount(n)
+        tableRow = 0
+        for row in movimientos:
+            self.ui.tableWidget_movimientos_2.setItem(
+                tableRow, 0, QtWidgets.QTableWidgetItem(str(row[1])))
+            self.ui.tableWidget_movimientos_2.setItem(
+                tableRow, 1, QtWidgets.QTableWidgetItem(str(row[2])))
+            self.ui.tableWidget_movimientos_2.setItem(
+                tableRow, 2, QtWidgets.QTableWidgetItem(str(row[3])))
+            self.ui.tableWidget_movimientos_2.setItem(
+                tableRow, 4, QtWidgets.QTableWidgetItem(str(row[5])))
+            if str(row[0]) == "b'1'":
+                self.ui.tableWidget_movimientos_2.setItem(
+                    tableRow, 3, QtWidgets.QTableWidgetItem("Egreso"))
+                self.ui.tableWidget_movimientos_2.setItem(
+                    tableRow, 5, QtWidgets.QTableWidgetItem(str(row[4])))
+            else:
+                self.ui.tableWidget_movimientos_2.setItem(
+                    tableRow, 3, QtWidgets.QTableWidgetItem("Ingreso"))
+                self.ui.tableWidget_movimientos_2.setItem(
+                    tableRow, 5, QtWidgets.QTableWidgetItem("-"))
+            
 
+            tableRow += 1
     def buscarProducto(self):
         parametro = self.ui.buscar_input.text()
         products = p.productos.buscar_product(parametro)

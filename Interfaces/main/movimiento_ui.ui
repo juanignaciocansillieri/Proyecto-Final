@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>475</width>
-    <height>296</height>
+    <height>270</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -17,7 +17,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Nuevo Ingreso</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -60,116 +60,122 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item>
-        <widget class="QFrame" name="frame_3">
-         <property name="minimumSize">
-          <size>
-           <width>435</width>
-           <height>242</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>400</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">border-radius: 10px;
+      <widget class="QFrame" name="frame_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>455</width>
+         <height>242</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>435</width>
+         <height>242</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>400</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-radius: 10px;
 background-color: rgb(240, 242, 255);
 </string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <widget class="QLabel" name="label_fecha">
-          <property name="geometry">
-           <rect>
-            <x>230</x>
-            <y>10</y>
-            <width>131</width>
-            <height>27</height>
-           </rect>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>174</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>-1</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">font-family: Roboto;
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="label_fecha">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>20</y>
+          <width>131</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>174</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-family: Roboto;
 font-size: 14px;
 margin-top:10px;
 margin-left:10px
 
 </string>
-          </property>
-          <property name="text">
-           <string>Fecha de Ingreso</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_3">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>10</y>
-            <width>62</width>
-            <height>27</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>-1</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">font-family: Roboto;
+        </property>
+        <property name="text">
+         <string>Fecha de Ingreso</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>10</y>
+          <width>62</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-family: Roboto;
 font-size: 14px;
 margin-top:10px;
 margin-left:10px
 
 
 </string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="codigo_producto_input">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>100</y>
-            <width>170</width>
-            <height>25</height>
-           </rect>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>25</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QLineEdit{
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="codigo_producto_input">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>50</y>
+          <width>170</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
 background-color: #fff;
 border: 0.5px solid #c1c1c1;
 border-radius: 3px;
@@ -181,88 +187,88 @@ margin-left: 10px;
 
 }
 </string>
-          </property>
-          <property name="placeholderText">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_codigo_producto">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>70</y>
-            <width>141</width>
-            <height>27</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>-1</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">font-family: Roboto;
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_codigo_producto">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>20</y>
+          <width>141</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-family: Roboto;
 font-size: 14px;
 margin-top:10px;
 margin-left:10px
 
 </string>
-          </property>
-          <property name="text">
-           <string>Código de producto</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_motivo">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>130</y>
-            <width>71</width>
-            <height>27</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>-1</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">font-family: Roboto;
+        </property>
+        <property name="text">
+         <string>Código de producto</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_motivo">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>90</y>
+          <width>71</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-family: Roboto;
 font-size: 14px;
 margin-top:10px;
 margin-left:10px
 
 </string>
-          </property>
-          <property name="text">
-           <string>Lote</string>
-          </property>
-         </widget>
-         <widget class="QLineEdit" name="motivo_input">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>160</y>
-            <width>170</width>
-            <height>25</height>
-           </rect>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>25</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QLineEdit{
+        </property>
+        <property name="text">
+         <string>Lote</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="motivo_input">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>120</y>
+          <width>170</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
 background-color: #fff;
 border: 0.5px solid #c1c1c1;
 border-radius: 3px;
@@ -275,31 +281,31 @@ margin-left: 10px;
 
 }
 </string>
-          </property>
-          <property name="placeholderText">
-           <string/>
-          </property>
-         </widget>
-         <widget class="QPushButton" name="crearprod_btn">
-          <property name="geometry">
-           <rect>
-            <x>150</x>
-            <y>220</y>
-            <width>161</width>
-            <height>26</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>-1</pointsize>
-           </font>
-          </property>
-          <property name="cursor">
-           <cursorShape>PointingHandCursor</cursorShape>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton{
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="crearprod_btn">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>180</y>
+          <width>161</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
 background-color: rgba(71, 71, 103);
 color: #fff;
 border-radius:5px;
@@ -310,109 +316,22 @@ font-size: 13px
 QPushButton:hover{
 background-color: rgba(71, 71, 103,180);
 }</string>
-          </property>
-          <property name="text">
-           <string>Confirmar</string>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_egr_ing">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>10</y>
-            <width>141</width>
-            <height>27</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>-1</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">font-family: Roboto;
-font-size: 14px;
-margin-top:10px;
-margin-left:10px
-
-</string>
-          </property>
-          <property name="text">
-           <string>Tipo de movimiento</string>
-          </property>
-         </widget>
-         <widget class="QComboBox" name="egr_ing_cb">
-          <property name="geometry">
-           <rect>
-            <x>30</x>
-            <y>40</y>
-            <width>161</width>
-            <height>25</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">padding:0 5px;
-border-radius: 3px;
-font-family:Roboto Lt;
-border: none;
-font-size:13px;
-font-weight: 400;
-background-color: #fff;
-border: 0.5px solid #c1c1c1;
-color: #000;
-
-</string>
-          </property>
-          <property name="currentText">
-           <string>Ingreso</string>
-          </property>
-          <property name="currentIndex">
-           <number>1</number>
-          </property>
-          <property name="maxVisibleItems">
-           <number>3</number>
-          </property>
-          <property name="maxCount">
-           <number>3</number>
-          </property>
-          <property name="insertPolicy">
-           <enum>QComboBox::InsertAfterCurrent</enum>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>16</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="duplicatesEnabled">
-           <bool>false</bool>
-          </property>
-          <property name="frame">
-           <bool>false</bool>
-          </property>
-          <item>
-           <property name="text">
-            <string>Egreso</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Ingreso</string>
-           </property>
-          </item>
-         </widget>
-         <widget class="QDateEdit" name="fecha_date">
-          <property name="geometry">
-           <rect>
-            <x>230</x>
-            <y>40</y>
-            <width>170</width>
-            <height>25</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
+        </property>
+        <property name="text">
+         <string>Confirmar</string>
+        </property>
+       </widget>
+       <widget class="QDateEdit" name="fecha_date">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>50</y>
+          <width>170</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
 background-color: #fff;
 border: 0.5px solid #c1c1c1;
 border-radius: 3px;
@@ -424,56 +343,56 @@ font-weight: 400;
 margin-left: 10px;
 
 </string>
-          </property>
-          <property name="dateTime">
-           <datetime>
-            <hour>0</hour>
-            <minute>0</minute>
-            <second>0</second>
-            <year>2021</year>
-            <month>1</month>
-            <day>1</day>
-           </datetime>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_cantidad">
-          <property name="geometry">
-           <rect>
-            <x>230</x>
-            <y>130</y>
-            <width>141</width>
-            <height>27</height>
-           </rect>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>-1</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">font-family: Roboto;
+        </property>
+        <property name="dateTime">
+         <datetime>
+          <hour>0</hour>
+          <minute>0</minute>
+          <second>0</second>
+          <year>2021</year>
+          <month>1</month>
+          <day>1</day>
+         </datetime>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_cantidad">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>150</y>
+          <width>141</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-family: Roboto;
 font-size: 14px;
 margin-top:10px;
 margin-left:10px
 
 </string>
-          </property>
-          <property name="text">
-           <string>Cantidad</string>
-          </property>
-         </widget>
-         <widget class="QDateEdit" name="fecha_date_2">
-          <property name="geometry">
-           <rect>
-            <x>230</x>
-            <y>100</y>
-            <width>170</width>
-            <height>25</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
+        </property>
+        <property name="text">
+         <string>Cantidad</string>
+        </property>
+       </widget>
+       <widget class="QDateEdit" name="fecha_date_2">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>120</y>
+          <width>170</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
 background-color: #fff;
 border: 0.5px solid #c1c1c1;
 border-radius: 3px;
@@ -485,62 +404,62 @@ font-weight: 400;
 margin-left: 10px;
 
 </string>
-          </property>
-          <property name="dateTime">
-           <datetime>
-            <hour>0</hour>
-            <minute>0</minute>
-            <second>0</second>
-            <year>2021</year>
-            <month>1</month>
-            <day>1</day>
-           </datetime>
-          </property>
-         </widget>
-         <widget class="QLabel" name="label_fecha_2">
-          <property name="geometry">
-           <rect>
-            <x>230</x>
-            <y>70</y>
-            <width>151</width>
-            <height>27</height>
-           </rect>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>174</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>-1</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">font-family: Roboto;
+        </property>
+        <property name="dateTime">
+         <datetime>
+          <hour>0</hour>
+          <minute>0</minute>
+          <second>0</second>
+          <year>2021</year>
+          <month>1</month>
+          <day>1</day>
+         </datetime>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_fecha_2">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>90</y>
+          <width>151</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>174</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-family: Roboto;
 font-size: 14px;
 margin-top:10px;
 margin-left:10px
 
 </string>
-          </property>
-          <property name="text">
-           <string>Fecha de Vencimiento</string>
-          </property>
-         </widget>
-         <widget class="QSpinBox" name="spinBox">
-          <property name="geometry">
-           <rect>
-            <x>230</x>
-            <y>160</y>
-            <width>170</width>
-            <height>25</height>
-           </rect>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
+        </property>
+        <property name="text">
+         <string>Fecha de Vencimiento</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>180</y>
+          <width>170</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
 background-color: #fff;
 border: 0.5px solid #c1c1c1;
 border-radius: 3px;
@@ -552,11 +471,9 @@ margin-left: 10px;
 
 
 </string>
-          </property>
-         </widget>
-        </widget>
-       </item>
-      </layout>
+        </property>
+       </widget>
+      </widget>
      </widget>
     </item>
    </layout>
