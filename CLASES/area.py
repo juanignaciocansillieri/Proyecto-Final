@@ -3,6 +3,7 @@ from sys import setprofile
 from typing import NoReturn
 import pymysql
 import os
+import alojamiento as aloj
 sys.path.append("C:\\proyecto-final\\DB\\")
 import conexion as c
 
@@ -85,6 +86,7 @@ class Area:
             values = nombre
             cursor.execute(query, values)
             a.commit()
+            aloj.alojamiento.elim_pos_area(nombre)
             print("se elimino area correctamente")
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)

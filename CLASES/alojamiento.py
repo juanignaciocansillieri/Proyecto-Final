@@ -89,7 +89,19 @@ class alojamiento:
                 print("Hubo un error:", err)
             c.close_connection(a)
 
+    def elim_pos_area(area):
+        a=c.start_connection()
+        cursor=a.cursor()
+        try:
+            query = "DELETE * FROM alojamiento WHERE area=%s"
+            values = (area)
+            cursor.execute(query, values)
+            a.commit()
+        except pymysql.err.OperationalError as err:
+            print("Hubo un error:", err)
+        c.close_connection(a)
 
+    ##agragar areas en el futuro
 
     def buscar_aloj(param):
         a = c.start_connection()
