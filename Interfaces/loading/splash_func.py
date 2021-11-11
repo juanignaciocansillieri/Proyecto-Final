@@ -51,7 +51,7 @@ class Splash(QMainWindow):
             if str(self.time) == "PyQt5.QtCore.QTime(0, 0, 1)":
                 self.close()
                 conexion.crear_tabla()
-                self.login = l.LoginWindow()
+                self.login = l.LoginWindow()╚
         self.timer.timeout.connect(timerEvent)
         self.timer.start(1000)
 
