@@ -60,7 +60,7 @@ class Ui_MainWindow(object):
         self.label_mail.setMaximumSize(QtCore.QSize(90, 16777215))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(0)
         self.label_mail.setFont(font)
         self.label_mail.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -90,7 +90,7 @@ class Ui_MainWindow(object):
         self.label_apellido.setGeometry(QtCore.QRect(50, 70, 67, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(0)
         self.label_apellido.setFont(font)
         self.label_apellido.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -104,7 +104,7 @@ class Ui_MainWindow(object):
         self.label_tipo.setMaximumSize(QtCore.QSize(90, 16777215))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(0)
         self.label_tipo.setFont(font)
         self.label_tipo.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -117,7 +117,7 @@ class Ui_MainWindow(object):
         self.label_nombre.setGeometry(QtCore.QRect(50, 10, 71, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(0)
         self.label_nombre.setFont(font)
         self.label_nombre.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -149,7 +149,7 @@ class Ui_MainWindow(object):
         self.label_password.setMaximumSize(QtCore.QSize(154, 16777215))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(0)
         self.label_password.setFont(font)
         self.label_password.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -162,7 +162,7 @@ class Ui_MainWindow(object):
         self.label_dni.setGeometry(QtCore.QRect(50, 250, 71, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(0)
         self.label_dni.setFont(font)
         self.label_dni.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -175,7 +175,7 @@ class Ui_MainWindow(object):
         self.label_nacimiento.setGeometry(QtCore.QRect(50, 130, 91, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(0)
         self.label_nacimiento.setFont(font)
         self.label_nacimiento.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -189,7 +189,7 @@ class Ui_MainWindow(object):
         self.label_rep_mail.setMaximumSize(QtCore.QSize(90, 16777215))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(0)
         self.label_rep_mail.setFont(font)
         self.label_rep_mail.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -220,7 +220,7 @@ class Ui_MainWindow(object):
         self.label_puesto.setGeometry(QtCore.QRect(50, 190, 84, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(0)
         self.label_puesto.setFont(font)
         self.label_puesto.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -302,7 +302,7 @@ class Ui_MainWindow(object):
         self.label_rep_password.setMaximumSize(QtCore.QSize(500, 16777215))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(0)
         self.label_rep_password.setFont(font)
         self.label_rep_password.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -382,7 +382,7 @@ class Ui_MainWindow(object):
         self.modificarprod_btn.setGeometry(QtCore.QRect(280, 360, 121, 26))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(0)
         font.setBold(True)
         font.setWeight(75)
         self.modificarprod_btn.setFont(font)
@@ -403,7 +403,7 @@ class Ui_MainWindow(object):
         self.eliminarprod_btn.setGeometry(QtCore.QRect(420, 360, 121, 26))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(0)
         font.setBold(True)
         font.setWeight(75)
         self.eliminarprod_btn.setFont(font)
@@ -450,7 +450,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Usuario"))
         self.label_mail.setText(_translate("MainWindow", "Mail"))
         self.label_apellido.setText(_translate("MainWindow", "Apellido"))
         self.label_tipo.setText(_translate("MainWindow", "Tipo"))

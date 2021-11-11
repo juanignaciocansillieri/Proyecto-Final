@@ -34,11 +34,11 @@ class Area:
             print("Hubo un error:", err)
         c.close_connection(a)
 
-    def modificar_area(nombrev,nombre,iden,pasillos,segmentos,longitud,ancho,alto):
+    def modificar_area(nombre,iden,pasillos,segmentos,longitud,ancho,alto):
         a=c.start_connection()
         cursor=a.cursor()
         query = "SELECT idarea FROM area WHERE nombre=%s"
-        values =nombrev
+        values =nombre
         cursor.execute(query, values)
         a.commit()
         b = cursor.fetchall()

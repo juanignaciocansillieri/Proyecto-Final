@@ -48,7 +48,7 @@ class alojamiento:
         a=c.start_connection()
         cursor=a.cursor()
         try: 
-            query = "UPDATE alojaminto set disponibilidad= IF(disponibilidad = '0', disponibilidad + 1, disponibilidad-1) WHERE codigo=%s"
+            query = "UPDATE alojamiento set disponibilidad= IF(disponibilidad = '0', disponibilidad + 1, disponibilidad-1) WHERE codigo=%s"
             values = codigo
             cursor.execute(query, values)
             a.commit()

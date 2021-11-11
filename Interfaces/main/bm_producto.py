@@ -429,7 +429,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("Producto", "Producto"))
         self.estado_label.setText(_translate("MainWindow", "Área"))
         self.fragil_label.setText(_translate("MainWindow", "Fragil"))
         self.fragil_si.setText(_translate("MainWindow", "Si"))
