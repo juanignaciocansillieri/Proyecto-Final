@@ -148,18 +148,20 @@ class lote:
         cursor.execute(query,idproducto)
         idlote=cursor.fetchall()
         a.commit()
+        if idlote=="none":
+            return 0
+        else:
+            while i<n:
+                query = ("SELECT cantidad FROM lote WHERE idlote=%s")
+                cursor.execute(query,idlote)
+                data = cursor.fetchall()
+                data=data[0][0]
+                cantidad=cantidad+data
+                a.commit()
+                idlote=idlote+1
+                i=i+1
 
-        while i<n:
-            query = ("SELECT cantidad FROM lote WHERE idlote=%s")
-            cursor.execute(query,idlote)
-            data = cursor.fetchall()
-            data=data[0][0]
-            cantidad=cantidad+data
-            a.commit()
-            idlote=idlote+1
-            i=i+1
-
-        return cantidad
+            return cantidad
 
     def fifo(idproducto,cantidad):
         n=lote.contar_filas_producto(idproducto)
@@ -171,35 +173,38 @@ class lote:
         cursor.execute(query,idproducto)
         idlote=cursor.fetchall()
         idlote=idlote[0][0]
-        print("idlote",idlote)
-        a.commit()
-
-        while i<n:
-            query = ("SELECT cantidad FROM lote WHERE idproducto=%s ORDER BY vencimiento")
-            cursor.execute(query,idproducto)
-            n=cursor.fetchall()
+        if idlote=="none":
+            return 0
+        else:
+            print("idlote",idlote)
             a.commit()
-            n=n[0][0]
-            print("cantidad",n)
-         
 
-            if n<cantidad:
-                query = "DELETE FROM lote WHERE idproducto=%s and cantidad=%s"
-                values = (idproducto,n)
-                cursor.execute(query, values)
+            while i<n:
+                query = ("SELECT cantidad FROM lote WHERE idproducto=%s ORDER BY vencimiento")
+                cursor.execute(query,idproducto)
+                n=cursor.fetchall()
                 a.commit()
-                cantidad=cantidad-n
-                idlote+=1
-                i=i+1
-            else:
-                n2=n-cantidad
-                query = "UPDATE lote set cantidad=%s WHERE idproducto=%s and cantidad=%s"
-                values = (n2,idproducto,n)
-                cursor.execute(query, values)
-                a.commit()
-                cantidad=cantidad-n
-                idlote+=1
-                i=n
+                n=n[0][0]
+                print("cantidad",n)
+            
+
+                if n<cantidad:
+                    query = "DELETE FROM lote WHERE idproducto=%s and cantidad=%s"
+                    values = (idproducto,n)
+                    cursor.execute(query, values)
+                    a.commit()
+                    cantidad=cantidad-n
+                    idlote+=1
+                    i=i+1
+                else:
+                    n2=n-cantidad
+                    query = "UPDATE lote set cantidad=%s WHERE idproducto=%s and cantidad=%s"
+                    values = (n2,idproducto,n)
+                    cursor.execute(query, values)
+                    a.commit()
+                    cantidad=cantidad-n
+                    idlote+=1
+                    i=n
 
 
 
