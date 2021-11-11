@@ -118,7 +118,7 @@ class usuarios:
             values = (mail,idu)
             cursor.execute(query, values)
             a.commit()
-            query = "UPDATE foto SET nombre=%s WHERE idusuarios=%s"
+            query = "UPDATE usuarios SET foto=%s WHERE idusuarios=%s"
             values = (foto,idu)
             cursor.execute(query, values)
             a.commit() 

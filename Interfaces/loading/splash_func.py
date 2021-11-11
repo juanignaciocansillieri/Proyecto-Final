@@ -15,7 +15,8 @@ import conexion as conexion
 sys.path.append("C:\\proyecto-final\\Interfaces\\login\\")
 import login_funcional as l
 sys.path.append("C:\\proyecto-final\\Interfaces\\main\\")
-import main_func as m
+import modern_func as m
+
 
 
 counter = 0
@@ -50,8 +51,7 @@ class Splash(QMainWindow):
             if str(self.time) == "PyQt5.QtCore.QTime(0, 0, 1)":
                 self.close()
                 conexion.crear_tabla()
-                #self.login = l.LoginWindow()
-                self.m = m.Main(1)
+                self.login = l.LoginWindow()
         self.timer.timeout.connect(timerEvent)
         self.timer.start(1000)
 

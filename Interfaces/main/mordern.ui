@@ -934,7 +934,7 @@ QPushButton:hover{
           <item>
            <widget class="QStackedWidget" name="stackedWidget_main">
             <property name="currentIndex">
-             <number>1</number>
+             <number>4</number>
             </property>
             <widget class="QWidget" name="page_stock">
              <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -3830,7 +3830,7 @@ background-color: rgba(71, 71, 103,180);
                                <string/>
                               </property>
                               <property name="placeholderText">
-                               <string>Buscar Productos por código</string>
+                               <string>Buscar usuarios por DNI, nombre o apellido</string>
                               </property>
                              </widget>
                             </widget>

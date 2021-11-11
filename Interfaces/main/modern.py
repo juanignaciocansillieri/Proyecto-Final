@@ -1929,7 +1929,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.stackedWidget_3.setCurrentIndex(0)
-        self.stackedWidget_main.setCurrentIndex(1)
+        self.stackedWidget_main.setCurrentIndex(4)
         self.stackedWidget_user.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -2005,7 +2005,7 @@ class Ui_MainWindow(object):
         self.newArea_btn_2.setText(_translate("MainWindow", "Eliminar Área"))
         self.label_17.setText(_translate("MainWindow", "Usuarios"))
         self.user_new_btn.setText(_translate("MainWindow", "Nuevo Usuario"))
-        self.lineEdit_3.setPlaceholderText(_translate("MainWindow", "Buscar Productos por código"))
+        self.lineEdit_3.setPlaceholderText(_translate("MainWindow", "Buscar usuarios por DNI, nombre o apellido"))
         item = self.tableWidget_usuarios.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "New Column"))
         item = self.tableWidget_usuarios.horizontalHeaderItem(1)

@@ -8,7 +8,7 @@ import loginDB as l
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import usuarios as u
 sys.path.append("C:\\proyecto-final\\Interfaces\\main\\")
-import main_func as m
+import modern_func as m
 
 admin_user=True
 
@@ -45,8 +45,8 @@ class LoginWindow(QMainWindow):
             if usuario==1:
                 #inicia
                 admin_user=u.ver_tipo(user)
-                self.main = m.Main(admin_user)
                 self.close()
+                self.main = m.Modern(admin_user)
             if usuario==2:
                 #no se encuentra dni
                 QtWidgets.QMessageBox.critical(self, "Error", "DNI Incorrecto")

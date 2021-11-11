@@ -83,18 +83,31 @@ def mostrar_movimientos(codigo,fecha):
         return data
 
 def buscar_product(param):
+
+        if param == "Egreso" or param == "egreso":
+            param = b'1'
+        if param == "Ingreso" or param == "ingreso":
+            param = b'0'
+
+        print(param)
         a = c.start_connection()
         cursor = a.cursor()
-        query = (" m.tipo,m.codigo,p.descripcion,m.cantidad,m.motivo,m.fecha FROM movimientos m JOIN productos p ON m.codigo=p.codigo WHERE codigo=%s or descripcion=%s or tipo=%s or fecha=%s ")
-        cursor.execute(query, (param, param,param,param))
+        query = ("SELECT m.tipo,m.codigo,p.descripcion,m.cantidad,m.motivo,m.fecha FROM movimientos m JOIN productos p ON m.codigo=p.codigo WHERE m.codigo=%s or descripcion=%s or tipo=%s")
+        cursor.execute(query, (param, param,param))
         data = cursor.fetchall()
         a.commit()
+        print(data)
         return data
 
 def buscar_product_rows(param):
+    
+        if param == "Egreso" or param == "egreso":
+            param = b'1'
+        if param == "Ingreso" or param == "ingreso":
+            param = b'0'
         a = c.start_connection()
         cursor = a.cursor()
-        query = (" m.tipo,m.codigo,p.descripcion,m.cantidad,m.motivo,m.fecha FROM movimientos m JOIN productos p ON m.codigo=p.codigo WHERE codigo=%s or descripcion=%s or tipo=%s or fecha=%s ")
-        data = cursor.execute(query, (param, param,param,param))
+        query = ("SELECT m.tipo,m.codigo,p.descripcion,m.cantidad,m.motivo,m.fecha FROM movimientos m JOIN productos p ON m.codigo=p.codigo WHERE m.codigo=%s or descripcion=%s or tipo=%s ")
+        data = cursor.execute(query, (param, param,param))
         a.commit()
         return data

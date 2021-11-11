@@ -10,7 +10,6 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 import nuevo_producto_ui
 from modern import Ui_MainWindow
-from toggleFunction import UIFunctions
 from create_user_func import UsuarioWindow
 from nuevoProduct_func import ProductWindow
 from nueva_area import Ui_MainWindow as na
@@ -45,7 +44,7 @@ nombreNuevo =""
 
 class Modern(QMainWindow):
 
-    def __init__(self):
+    def __init__(self,admin):
         super(Modern, self).__init__()
         self.ui = Ui_MainWindow()
         self.uii = na()
@@ -59,9 +58,10 @@ class Modern(QMainWindow):
         centerPoint = QDesktopWidget().availableGeometry().center()
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
-
+        self.admin = admin
+        print(self.admin)
         self.ui.exit_btn.clicked.connect(lambda:self.close())
-
+        self.show()
         ##########################   PAGINAS   ##################################
         
     ########################## PRODUCTOS ##################################
@@ -81,6 +81,7 @@ class Modern(QMainWindow):
         self.ui.new_egreso_btn.clicked.connect(self.mostrarEgreso)
         self.ui.new_ingreso_btn.clicked.connect(self.mostrarIngreso)
         self.ui.btn_actualizarMov.clicked.connect(self.listarMovimientos)
+        self.ui.pushButton_18.clicked.connect(self.buscarMovimiento)
         # Abrir Pag Lotes
         self.ui.products_btn_lotes.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_lotes))
         self.ui.pushButton_19.clicked.connect(self.listarLotes)
@@ -105,19 +106,20 @@ class Modern(QMainWindow):
         
 
     ########################## USUARIOS ##################################
-
-        self.ui.user_new_btn.clicked.connect(self.mostrarNewUser)
-        self.ui.users_btn.clicked.connect(self.listarUsuarios)
-        self.ui.btn_buscarU.clicked.connect(self.buscarUsuarios)  
-
+        if self.admin:
+            self.ui.user_new_btn.clicked.connect(self.mostrarNewUser)
         
-        ## Abrir Pagina Usuarios ##
-        self.ui.users_btn.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_usuarios))
-        self.ui.users_btn.clicked.connect(
-            lambda: self.ui.stackedWidget_3.setCurrentWidget(self.ui.user_subpage))
+            self.ui.users_btn.clicked.connect(self.listarUsuarios)
+            self.ui.btn_buscarU.clicked.connect(self.buscarUsuarios)  
 
-        self.ui.btn_actualizarUsuarios.clicked.connect(self.listarUsuarios)
+            
+            ## Abrir Pagina Usuarios ##
+            self.ui.users_btn.clicked.connect(lambda: self.ui.stackedWidget_main.setCurrentWidget(self.ui.page_usuarios))
+            self.ui.users_btn.clicked.connect(lambda: self.ui.stackedWidget_3.setCurrentWidget(self.ui.user_subpage))
 
+            self.ui.btn_actualizarUsuarios.clicked.connect(self.listarUsuarios)
+        else:
+            self.ui.users_btn.clicked.connect(lambda:QtWidgets.QMessageBox.critical(self, "Error", "No tiene los permisos suficientes"))
             # Abrir ventana para ver el producto individual
         self.ui.tableWidget_usuarios.doubleClicked.connect(self.seleccionarusuario)
         self.ui.tableWidget_usuarios.doubleClicked.connect(self.mostrarBmUser)
@@ -253,8 +255,8 @@ class Modern(QMainWindow):
   # Buscar productos a traves del input, por parámetro ingresado
     def buscarMovimiento(self):
         parametro = self.ui.lineEdit_5.text()
-        movimientos = m.movimientos.buscar_movimientos(parametro)
-        n = m.movimintos.buscar_movimientos_rows(parametro)
+        movimientos = m.buscar_product(parametro)
+        n = m.buscar_product_rows(parametro)
         self.ui.tableWidget_movimientos_2.setRowCount(n)
         tableRow = 0
         for row in movimientos:
@@ -276,9 +278,9 @@ class Modern(QMainWindow):
                     tableRow, 3, QtWidgets.QTableWidgetItem("Ingreso"))
                 self.ui.tableWidget_movimientos_2.setItem(
                     tableRow, 5, QtWidgets.QTableWidgetItem("-"))
-            
-
+        
             tableRow += 1
+
     def buscarProducto(self):
         parametro = self.ui.buscar_input.text()
         products = p.productos.buscar_product(parametro)
@@ -863,10 +865,3 @@ class BM_Usuario(QMainWindow):
             img=img.resize(size)
             img.save("C:\proyecto-final\Interfaces\main\img/{0}".format(defaultImg))
 
-
-     
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    window = Modern()
-    window.show()
-    sys.exit(app.exec())
