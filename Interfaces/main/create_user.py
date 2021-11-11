@@ -416,7 +416,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Crear Usuario"))
         self.label_rep_password.setText(_translate("MainWindow", "Repetir Contraseña"))
         self.tipo_cb.setCurrentText(_translate("MainWindow", "Usuario"))
         self.tipo_cb.setItemText(0, _translate("MainWindow", "Usuario"))

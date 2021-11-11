@@ -90,7 +90,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Eliminar Área"))
         self.modificar_btn.setText(_translate("MainWindow", "Eliminar"))
         self.label_Area.setText(_translate("MainWindow", "Elegir Área"))
 

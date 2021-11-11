@@ -58,6 +58,8 @@ class Modern(QMainWindow):
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
 
+        self.ui.exit_btn.clicked.connect(lambda:self.close())
+
         ##########################   PAGINAS   ##################################
         
     ########################## PRODUCTOS ##################################
@@ -120,10 +122,6 @@ class Modern(QMainWindow):
         self.ui.tableWidget_usuarios.doubleClicked.connect(self.seleccionarusuario)
         self.ui.tableWidget_usuarios.doubleClicked.connect(self.mostrarBmUser)
 
-
-        #Lotes
-
-        
 
     ########################## DEPOSITOS ##################################
 
@@ -231,9 +229,7 @@ class Modern(QMainWindow):
     ## Listar lotes en la tabla
     def listarLotes(self):
         id = self.ui.lineEdit_6.text()
-        print(id)
         lotes = l.lote.listar_lote(id)
-        print(lotes)
         n = l.lote.contar_filas_producto(id)
         self.ui.tableWidget_lotes.setRowCount(n)
         tableRow = 0
@@ -331,7 +327,6 @@ class Modern(QMainWindow):
         i = 0
         n = ar.Area.contar_filas()
         child = self.ui.verticalLayout_7.count()
-        print(",,,,,,,,,,,,,,,,,",child)
         
         for area in areas:
                 self.btn1 = QtWidgets.QPushButton(self.ui.frame_14)
@@ -369,10 +364,8 @@ class Modern(QMainWindow):
 
     def mostrarAreas(self):
         child = self.ui.verticalLayout_7.count()
-        print("c",child)
         areas = ar.Area.listar_area()
         n = ar.Area.contar_filas()
-        print("n",n)
         i = 1
 
         for a in areas:
@@ -412,8 +405,7 @@ class Modern(QMainWindow):
                     if child == n-1:
                         self.agregarAreaCreada()
                     else:
-                        print("else",child)
-                        print("n",n)
+                        
                         self.btn2 = QtWidgets.QPushButton(self.ui.frame_14)
                         self.btn2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
                         self.btn2.setStyleSheet("QPushButton{\n"
@@ -544,7 +536,6 @@ class Modern(QMainWindow):
 
     def listarUsuarios(self):
         usuarios = u.listar_user()
-        print("usuarios",usuarios)
         n = u.contar_filas()
         self.ui.tableWidget_usuarios.setRowCount(n)
         tableRow = 0
@@ -605,7 +596,6 @@ class Modern(QMainWindow):
         for i in range(0,5):
             SeleccionarDNI.append(self.ui.tableWidget_usuarios.item(self.ui.tableWidget_usuarios.currentRow(),i).text())
             DNI = SeleccionarDNI[0]
-            print(DNI)
     
 
 
@@ -646,7 +636,6 @@ class BMProduct(QMainWindow):
         global defaultImg
         producto = p.productos.mostrar_product(productId)
         atributos = list(producto[0])
-        print(atributos)
         self.ui.codigo_input.setText(atributos[0])
         codigoViejo = atributos[0]
         self.ui.descripcion_input.setPlainText(atributos[3])
@@ -766,7 +755,6 @@ class BM_Usuario(QMainWindow):
         global defaultImg
         #global defaultImg        
         usuario = u.usuarios.mostrar_user(DNI)
-        print(usuario)
         atributos = list(usuario[0])
         DNI_Viejo = atributos[0]
         self.ui.dni_input.setText(atributos[0])
@@ -777,14 +765,13 @@ class BM_Usuario(QMainWindow):
         self.ui.mail_input.setText(atributos[7])
         self.ui.mail_rep_input.setText(atributos[7])
         ###Img###
-        #self.productImg = self.ui.label_img
-        #self.img = QPixmap("C:\proyecto-final\Interfaces\main\img/{0}".format(atributos[8]))
-        #self.productImg.setPixmap(self.img)
-        #defaultImg = atributos[8]
+        self.usuarioImg = self.ui.label
+        self.img = QPixmap("C:\proyecto-final\Interfaces\main\img/{0}".format(atributos[8]))
+        self.usuarioImg.setPixmap(self.img)
+        defaultImg = atributos[8]
         ########
         
         if  str(atributos[3]) == "1":
-            print("admin")
             self.ui.tipo_cb.setCurrentText("Administrador")
 
         else:
@@ -803,7 +790,6 @@ class BM_Usuario(QMainWindow):
         apellido = self.ui.apellido_input.text()
         tipo = self.ui.tipo_cb.currentText()
         foto = defaultImg
-        print("tpi",tipo)
         if tipo == "Administrador": 
             tipo = 1 
         else:
@@ -813,13 +799,13 @@ class BM_Usuario(QMainWindow):
         mail = self.ui.mail_input.text()
         if self.ui.pass_input.text() != "" or self.ui.pass_rep_input.text != "":
             if self.ui.pass_input.text() == self.ui.pass_rep_input.text():
-                u.usuarios.modificar_datos_user(DNI_Viejo,dni,nombre,apellido,tipo,puesto,nacimiento,mail)
+                u.usuarios.modificar_datos_user(DNI_Viejo,dni,nombre,apellido,tipo,puesto,nacimiento,mail,foto)
                 loginDB.cambiar_contrasena(DNI_Viejo,dni,self.ui.pass_input.text())
             else:
                 QtWidgets.QMessageBox.critical(self, "Error", "Contraseñas diferentes")
                 return None
         else:
-            u.usuarios.modificar_datos_user(DNI_Viejo,dni,nombre,apellido,tipo,puesto,nacimiento,mail)#falta foto
+            u.usuarios.modificar_datos_user(DNI_Viejo,dni,nombre,apellido,tipo,puesto,nacimiento,mail,foto)
 
         self.close()
         

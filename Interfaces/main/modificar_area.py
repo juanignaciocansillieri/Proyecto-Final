@@ -42,6 +42,7 @@ class ModificarArea(QMainWindow):
       segmentos = self.ui.segmento_num.value()
       ancho = self.ui.ancho_num.value()
       alto = self.ui.alto_num.value()
+      print(nombre,identificador,pasillos,segmentos,longitud,ancho,alto)
       a.Area.modificar_area(nombre,identificador,pasillos,segmentos,longitud,ancho,alto)
       self.close()
       return(nombre)

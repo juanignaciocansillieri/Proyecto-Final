@@ -1962,7 +1962,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("BULLSOFT", "BULLSOFT"))
         self.label_7.setText(_translate("MainWindow", "Productos"))
         self.products_btn_stock.setText(_translate("MainWindow", "Stock"))
         self.products_btn_movimiento.setText(_translate("MainWindow", "Movimientos"))
@@ -2055,16 +2055,7 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "New Column"))
         __sortingEnabled = self.tableWidget_lotes.isSortingEnabled()
         self.tableWidget_lotes.setSortingEnabled(False)
-        item = self.tableWidget_lotes.item(0, 0)
-        item.setText(_translate("MainWindow", "aaaa"))
-        item = self.tableWidget_lotes.item(0, 1)
-        item.setText(_translate("MainWindow", "aaaaaaaa"))
-        item = self.tableWidget_lotes.item(0, 2)
-        item.setText(_translate("MainWindow", "aaaaaaa"))
-        item = self.tableWidget_lotes.item(0, 3)
-        item.setText(_translate("MainWindow", "aaaaaaa"))
-        item = self.tableWidget_lotes.item(0, 4)
-        item.setText(_translate("MainWindow", "aaaaaaa"))
+
         self.tableWidget_lotes.setSortingEnabled(__sortingEnabled)
         self.label_41.setText(_translate("MainWindow", "Código del Producto"))
         self.label_42.setText(_translate("MainWindow", "Descripción"))
@@ -2076,7 +2067,7 @@ class Ui_MainWindow(object):
         self.newArea_btn_2.setText(_translate("MainWindow", "Eliminar Área"))
         self.label_17.setText(_translate("MainWindow", "Usuarios"))
         self.user_new_btn.setText(_translate("MainWindow", "Nuevo Usuario"))
-        self.lineEdit_3.setPlaceholderText(_translate("MainWindow", "Buscar Productos por código"))
+        self.lineEdit_3.setPlaceholderText(_translate("MainWindow", "Buscar Usuarios por DNI, nombre o apellido"))
         item = self.tableWidget_usuarios.verticalHeaderItem(0)
         item.setText(_translate("MainWindow", "New Row"))
         item = self.tableWidget_usuarios.horizontalHeaderItem(0)

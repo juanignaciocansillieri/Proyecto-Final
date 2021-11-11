@@ -7,12 +7,14 @@ import PyQt5
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
+from PIL import Image
 import create_user
 from create_user import Ui_MainWindow
 sys.path.append("C:\\proyecto-final\\DB\\")
 import loginDB as log
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import usuarios as us
+defaultImg = "Error.png"
 
 class UsuarioWindow(QMainWindow):
 
@@ -33,11 +35,10 @@ class UsuarioWindow(QMainWindow):
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
 
-        #self.ui.pushButton_crear_usuario.clicked.connect(self.crearUser)
+        self.ui.subirFoto_btn.clicked.connect(self.uploadImg)
 
         self.ui.crearprod_btn.clicked.connect(self.crearUser)
 
-        #self.ui.pushButton_usuarios_2.clicked.connect(self.crearUser)
     
     #CREAR PRODUCTO NUEVO
     def crearUser(self):   
@@ -51,8 +52,9 @@ class UsuarioWindow(QMainWindow):
       nacimiento = self.ui.nacimiento_date.date().toString("yyyy/MM/dd")
       puesto = self.ui.puesto_input.text()
       tipo = self.ui.tipo_cb.currentText()
-      contraseña = self.ui.pass_input.text()
-      contraseña_rep = self.ui.pass_rep_input
+      contrasena = self.ui.pass_input.text()
+      contrasena_rep = self.ui.pass_rep_input
+      foto = defaultImg
       
       
 
@@ -74,13 +76,24 @@ class UsuarioWindow(QMainWindow):
         return None
       else:
       
-        user = us.usuarios(nom,apellido,dni,tipo,puesto,nacimiento,mail)
-        log.alta_login(contraseña)
+        us.usuarios(nom,apellido,dni,tipo,puesto,nacimiento,mail,foto)
+        log.alta_login(dni,contrasena)
         self.close()
       self.clearInput()
       #return(codigo,nombre,desc,cantidad,marca,venc,condicion,lote,fragil)
       
 
+    def uploadImg(self):
+        global defaultImg 
+        size=(256,256)
+        self.filename,ok = QFileDialog.getOpenFileName(self,"Upload Image","","Image Files (*.jpg *.png)")
+        if ok:
+            print(self.filename)
+            defaultImg = os.path.basename(self.filename)
+            print(defaultImg)
+            img=Image.open(self.filename)
+            img=img.resize(size)
+            img.save("C:\proyecto-final\Interfaces\main\img/{0}".format(defaultImg))
 
     def clearInput(self):
          self.ui.apellido_input.setText("")

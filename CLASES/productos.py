@@ -1,14 +1,13 @@
 
 import sys
-from sys import setprofile
-from typing import NoReturn
 import pymysql
 import os
 #import alojamiento as aloj
-import lotes
-import alojamiento
 sys.path.append("C:\\proyecto-final\\DB\\")
 import conexion as c
+sys.path.append("C:\\proyecto-final\\CLASES\\")
+import lotes
+import alojamiento
 
 
 class productos():
@@ -43,7 +42,7 @@ class productos():
             cursor.execute(query, values)
             a.commit()
             lotes.lote(self.codigo,self.cantidad,self.fechalote,self.vencimiento)
-            alojamiento.alojamiento.ab_alojamiento(self.ubicacion)
+            alojamiento.alojamiento.ab_alojamiento(self.codigo,self.ubicacion)
 
             print("se dio alta producto correctamente")
 

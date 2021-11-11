@@ -40,7 +40,7 @@ class BorrarArea(QMainWindow):
         ret = qm.warning(self,'Esta acción es irreversible', "¿Estás seguro que quieres eliminar ésta área ?", qm.Yes | qm.No)
         if ret == qm.Yes:
          a.Area.eliminar_area(area)
-           
+         self.close()
 
     def rellenarCampo(self):
         areas = a.Area.listar_area()
