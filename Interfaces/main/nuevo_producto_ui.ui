@@ -11,7 +11,10 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Nuevo Producto</string>
+  </property>
+  <property name="toolTipDuration">
+   <number>0</number>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -819,72 +822,6 @@ margin-left: 10px;
          <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="label_ubicacion_2">
-        <property name="geometry">
-         <rect>
-          <x>420</x>
-          <y>250</y>
-          <width>91</width>
-          <height>27</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Roboto</family>
-          <pointsize>-1</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">font-family: Roboto;
-font-size: 14px;
-margin-top:10px;
-margin-left:10px
-
-</string>
-        </property>
-        <property name="text">
-         <string>Ubicación</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="ubicacion_input">
-        <property name="geometry">
-         <rect>
-          <x>420</x>
-          <y>280</y>
-          <width>170</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>25</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit{
-background-color: #fff;
-border: 0.5px solid #c1c1c1;
-border-radius: 3px;
-padding: 4 5px;
-color: #e9e9;
-font-family:Roboto;
-font-size:13px;
-font-weight: 400;
-margin-left: 10px;
-
-}</string>
-        </property>
-        <property name="placeholderText">
-         <string/>
-        </property>
-       </widget>
        <widget class="QTextEdit" name="descripcion_input">
         <property name="geometry">
          <rect>
@@ -976,8 +913,6 @@ margin-left:10px
         <font>
          <family>Roboto</family>
          <pointsize>-1</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
         </font>
        </property>
        <property name="cursor">

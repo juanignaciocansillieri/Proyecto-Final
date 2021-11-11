@@ -44,7 +44,7 @@ class alojamiento:
             print("Hubo un error:", err)
         c.close_connection(a)
     
-    def ab_alojamiento(self,codigo):
+    def ab_alojamiento(codigo):
         a=c.start_connection()
         cursor=a.cursor()
         try: 

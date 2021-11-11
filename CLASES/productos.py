@@ -42,7 +42,7 @@ class productos():
             cursor.execute(query, values)
             a.commit()
             lotes.lote(self.codigo,self.cantidad,self.fechalote,self.vencimiento)
-            alojamiento.alojamiento.ab_alojamiento(self.codigo,self.ubicacion)
+            alojamiento.alojamiento.ab_alojamiento(self.codigo)
 
             print("se dio alta producto correctamente")
 
@@ -96,9 +96,8 @@ class productos():
             values = (fragil, idp)
             cursor.execute(query, values)
             a.commit()
-            #
-            query = "SELECT ubicacion from productos ubicacion WHERE idproductos=%s"
-            values = (ubicacion, idp)
+            query = "SELECT ubicacion from productos  WHERE idproductos=%s"
+            values =  idp
             cursor.execute(query, values)
             ubicacionv = cursor.fetchall()
             ubicacionv = str(ubicacionv[0][0])

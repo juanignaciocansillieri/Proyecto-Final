@@ -74,7 +74,7 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
     puesto VARCHAR(20) NOT NULL,
     nacimiento DATE NOT NULL,
     mail VARCHAR(20) NOT NULL,
-    foto VARCHAR(50) NOT NULL
+    foto VARCHAR(100) NOT NULL
     );"""
 
     q5="""CREATE TABLE IF NOT EXISTS lote (
@@ -100,7 +100,7 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
     fila VARCHAR(20) NOT NULL,
     nivel VARCHAR(20) NOT NULL,
     codigo VARCHAR(100) NOT NULL,
-    posicion VARCHAR(20) NOT NULL,
+    posicion VARCHAR(100) NOT NULL,
     largo INT NOT NULL,
     ancho INT NOT NULL,
     alto INT NOT NULL,
@@ -163,7 +163,7 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
     ubicacion VARCHAR(20) NOT NULL,
     condicion VARCHAR(20) NOT NULL,
     fragil BINARY(1) NOT NULL,
-    foto VARCHAR(50) NOT NULL,
+    foto VARCHAR(100) NOT NULL,
     peso INT NOT NULL,
     largo INT NOT NULL,
     ancho INT NOT NULL,

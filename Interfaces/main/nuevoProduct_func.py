@@ -48,7 +48,6 @@ class ProductWindow(QMainWindow):
       marca = self.ui.marca_input.text()
       venc = self.ui.venc_date.date().toString("yyyy/MM/dd")
       lote = self.ui.lote_input.text()
-      ubicacion = self.ui.ubicacion_input.text()
       imagen = defaultImg
       if self.ui.fragil_si.isChecked():
         fragil = "1"
@@ -56,6 +55,7 @@ class ProductWindow(QMainWindow):
         fragil = "0"
 
       condicion = self.ui.area_comboBox.currentText()
+      posicion = self.ui.posicion_comboBox.currentText()
 
   
 
@@ -78,7 +78,7 @@ class ProductWindow(QMainWindow):
         QtWidgets.QMessageBox.critical(self, "Error", "Codigo Existente")
         return None
       else:
-        pr.productos(codigo,marca,cantidad,descripcion,ubicacion,lote,venc,condicion,fragil,defaultImg,peso,largo,ancho,altura)
+        pr.productos(codigo,marca,cantidad,descripcion,posicion,lote,venc,condicion,fragil,defaultImg,peso,largo,ancho,altura)
 
 
 

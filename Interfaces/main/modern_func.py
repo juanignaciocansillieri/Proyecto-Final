@@ -31,7 +31,7 @@ import productos as p
 import area as ar
 import movimientos as m
 import lotes as l
-
+import alojamiento as al
 
 
 defaultImg = ""
@@ -640,7 +640,6 @@ class BMProduct(QMainWindow):
         codigoViejo = atributos[0]
         self.ui.descripcion_input.setPlainText(atributos[3])
         self.ui.marca_input.setText(atributos[1])
-        self.ui.ubicacion_input.setText(atributos[5])
         self.productImg = self.ui.label
         self.img = QPixmap("C:\proyecto-final\Interfaces\main\img/{0}".format(atributos[8]))
         self.productImg.setPixmap(self.img)
@@ -657,6 +656,7 @@ class BMProduct(QMainWindow):
         self.ui.altura_num.setValue(atributos[12])
         self.cbox()
         self.ui.estado_cbox.setCurrentText(atributos[13])
+        self.ui.ubicacion_cbox.setCurrentText(atributos[4])
         
     def modificarProducto(self):
         global productId
@@ -665,7 +665,7 @@ class BMProduct(QMainWindow):
         codigo = self.ui.codigo_input.text()
         descripcion = self.ui.descripcion_input.toPlainText()
         marca = self.ui.marca_input.text()
-        ubicacion = self.ui.ubicacion_input.text()
+        ubicacion = self.ui.ubicacion_cbox.currentText()
         condicion = self.ui.estado_cbox.currentText()
         if self.ui.fragil_si.isChecked():
             fragil = "1"
@@ -699,15 +699,17 @@ class BMProduct(QMainWindow):
             img=img.resize(size)
             img.save("C:\proyecto-final\Interfaces\main\img/{0}".format(defaultImg))
 
-    #def bm_user(self):
-     #  self.ui.btn_.clicked.connect(lambda: self.ui.Pages_Widget.setCurrentWidget(self.ui.page_usuarios))
-     # self.ui.label_de.mousePressEvent = self.clickD
+  
      
 
     def cbox(self):
         areas = ar.Area.listar_area()
         for a in areas:
             self.ui.estado_cbox.addItem(a[0])
+        pos = al.alojamiento.listar_alojamiento()
+        for p in pos:
+            self.ui.ubicacion_cbox.addItem(p[0])
+        
 
 
 #############################################################  CLASS BM_USUARIOS ######################################################

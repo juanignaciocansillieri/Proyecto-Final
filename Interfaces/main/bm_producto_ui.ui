@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>678</width>
-    <height>571</height>
+    <height>578</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Producto</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -737,43 +737,6 @@ margin-left:10px
          <string>Descripción</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="ubicacion_input">
-        <property name="geometry">
-         <rect>
-          <x>430</x>
-          <y>170</y>
-          <width>170</width>
-          <height>25</height>
-         </rect>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>25</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: #fff;
-border-radius: 3px;
-padding: 4 5px;
-color: rgb(0, 0, 0);
-font-family:Roboto;
-border: none;
-font-size:13px;
-font-weight: 400;
-margin-left: 10px;
-</string>
-        </property>
-        <property name="placeholderText">
-         <string/>
-        </property>
-       </widget>
        <widget class="QLabel" name="ubicacion_label">
         <property name="geometry">
          <rect>
@@ -799,6 +762,55 @@ margin-left:10px
         </property>
         <property name="text">
          <string>Ubicación</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="ubicacion_cbox">
+        <property name="geometry">
+         <rect>
+          <x>430</x>
+          <y>180</y>
+          <width>171</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #fff;
+border-radius: 3px;
+padding: 4 5px;
+color: rgb(0, 0, 0);
+font-family:Roboto;
+border: none;
+font-size:13px;
+font-weight: 400;
+margin-left: 10px;
+</string>
+        </property>
+        <property name="currentText">
+         <string/>
+        </property>
+        <property name="currentIndex">
+         <number>-1</number>
+        </property>
+        <property name="maxVisibleItems">
+         <number>10</number>
+        </property>
+        <property name="maxCount">
+         <number>10</number>
+        </property>
+        <property name="insertPolicy">
+         <enum>QComboBox::InsertAfterCurrent</enum>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>16</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="duplicatesEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="frame">
+         <bool>false</bool>
         </property>
        </widget>
       </widget>
