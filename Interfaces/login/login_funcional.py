@@ -41,7 +41,8 @@ class LoginWindow(QMainWindow):
             user = self.ui.user_login_input.text()
             password = self.ui.pass_login_input.text()
             usuario = l.log_in(user,password)
-            
+
+
             if usuario==1:
                 #inicia
                 admin_user=u.ver_tipo(user)

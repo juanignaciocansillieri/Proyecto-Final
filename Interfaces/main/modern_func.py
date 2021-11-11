@@ -44,7 +44,7 @@ nombreNuevo =""
 
 class Modern(QMainWindow):
 
-    def __init__(self,admin):
+    def __init__(self,admin_user):
         super(Modern, self).__init__()
         self.ui = Ui_MainWindow()
         self.uii = na()
@@ -58,8 +58,6 @@ class Modern(QMainWindow):
         centerPoint = QDesktopWidget().availableGeometry().center()
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
-        self.admin = admin
-        print(self.admin)
         self.ui.exit_btn.clicked.connect(lambda:self.close())
         self.show()
         ##########################   PAGINAS   ##################################
@@ -106,7 +104,7 @@ class Modern(QMainWindow):
         
 
     ########################## USUARIOS ##################################
-        if self.admin:
+        if admin_user:
             self.ui.user_new_btn.clicked.connect(self.mostrarNewUser)
         
             self.ui.users_btn.clicked.connect(self.listarUsuarios)

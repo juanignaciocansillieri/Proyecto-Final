@@ -192,7 +192,7 @@ def ver_tipo(dni):
     a.commit()
     b = cursor.fetchall()
     b = str(b[0][0])
-    if b=="b'1'":
+    if b=="1":
         admin=True
     else: admin=False
     return admin
