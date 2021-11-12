@@ -39,7 +39,7 @@ class NewEgreso(QMainWindow):
         motivo = self.ui.motivo_input_2.text()
         cod = self.ui.codigo_producto_input_2.text()
         fechaEgreso = self.ui.fecha_egreso.date().toString("yyyy/MM/dd")
-        codigo = l.lotes.obtener_cantidades(cod)
+        codigo = l.lote.obtener_cantidades(cod)
         if codigo == "":
              QtWidgets.QMessageBox.critical(self, "Error", "Código Inexistente")
         else:

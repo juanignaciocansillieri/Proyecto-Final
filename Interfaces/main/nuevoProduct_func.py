@@ -68,10 +68,10 @@ class ProductWindow(QMainWindow):
       if codigo==""  or descripcion=="" or cantidad=="" or marca=="" or venc=="" or lote=="" or peso=="" or ancho=="" or largo=="" or altura=="":
         QtWidgets.QMessageBox.critical(self, "Error", "Ingrese todos los datos")
         return None
-
-   
-      ver =  pr.ver_cod(codigo)
-      if ver == 1:
+      data = pr.productos.verificar(codigo)
+      print(data)
+      if  data == 1:
+  
         QtWidgets.QMessageBox.critical(self, "Error", "Codigo Existente")
         return None
       else:
@@ -79,7 +79,7 @@ class ProductWindow(QMainWindow):
 
 
 
-        self.close()
+      self.close()
       
       
 

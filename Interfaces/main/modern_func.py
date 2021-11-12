@@ -182,7 +182,9 @@ class Modern(QMainWindow):
     def listarProductos(self):
         products = p.listar_prod()
         print("PRODUCTOS" , products)
+
         n = p.contar_filas()
+        print(n)
         self.ui.tableWidget_stock_2.setRowCount(n)
         tableRow = 0
 
@@ -193,12 +195,7 @@ class Modern(QMainWindow):
                     tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
                 self.ui.tableWidget_stock_2.setItem(
                     tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
-                self.ui.tableWidget_stock_2.setItem(
-                    tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
-                self.ui.tableWidget_stock_2.setItem(
-                    tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
-
-                tableRow += 1
+                tableRow+=1
 
     ## Listar Movimientos en la tabla
     def listarMovimientos(self):
@@ -282,6 +279,7 @@ class Modern(QMainWindow):
 
     def buscarProducto(self):
         parametro = self.ui.buscar_input.text()
+        print(type(parametro))
         products = p.productos.buscar_product(parametro)
         n = p.productos.buscar_product_rows(parametro)
         self.ui.tableWidget_stock_2.setRowCount(n)
@@ -294,10 +292,7 @@ class Modern(QMainWindow):
                     tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
                 self.ui.tableWidget_stock_2.setItem(
                     tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
-                self.ui.tableWidget_stock_2.setItem(
-                    tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
-                self.ui.tableWidget_stock_2.setItem(
-                    tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+              
 
                 tableRow += 1
 

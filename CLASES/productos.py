@@ -136,8 +136,8 @@ class productos():
     def buscar_product(param):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto WHERE codigo=%s or descripcion=%s or marca=%s or  cantidad=%s")
-        cursor.execute(query, (param, param,param,param))
+        query = ("SELECT codigo,descripcion,marca FROM productos WHERE codigo=%s or descripcion=%s or marca=%s")
+        cursor.execute(query, (param, param,param))
         data = cursor.fetchall()
         a.commit()
         return data
@@ -145,23 +145,34 @@ class productos():
     def buscar_productArea(param):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT p.codigo,p.descripcion,p.marca,l.cantidad,p.ubicacion,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto WHERE condicion = %s")
+        query = ("SELECT codigo,descripcion,marca FROM productos WHERE codigo=%s or descripcion=%s or marca=%s")
         cursor.execute(query, param)
         data = cursor.fetchall()
         a.commit()
         return data
+        
+    def verificar(param):
+        a=c.start_connection()
+        cursor=a.cursor()
+        query = "SELECT * FROM productos WHERE codigo = %s"
+        product = cursor.execute(query,param)
+        a.commit()
+        print("VERRRI" , product)
+        return product
+
 
     def buscar_product_rows(param):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto WHERE codigo=%s or descripcion=%s or marca=%s or  cantidad=%s")
-        data = cursor.execute(query, (param, param,param,param))
+        query = ("SELECT codigo,descripcion,marca FROM productos WHERE codigo=%s or descripcion=%s or marca=%s")
+        data = cursor.execute(query, (param, param,param))
         a.commit()
         return data
+
     def buscar_product_rows_area(param):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto WHERE condicion=%s")
+        query = ("SELECT codigo,descripcion,marca FROM productos WHERE condicion=%s")
         data = cursor.execute(query,param)
         a.commit()
         return data
@@ -177,12 +188,12 @@ class productos():
 
 
 
-def listar_prod_area():
+def listar_prod_area(param):
     a = c.start_connection()
     cursor = a.cursor()
     try:
-        query = "SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento,p.condicion FROM productos p JOIN lote l ON p.codigo=l.idproducto"
-        cursor.execute(query)
+        query = "SELECT codigo,descripcion,marca,condicion FROM productos WHERE condicion=%s"
+        cursor.execute(query,param)
         productos = cursor.fetchall()
         a.commit()
     except pymysql.err.OperationalError as err:
@@ -195,7 +206,7 @@ def listar_prod():
     a = c.start_connection()
     cursor = a.cursor()
     try:
-        query = "SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento,p.condicion FROM productos p JOIN lote l ON p.codigo=l.idproducto"
+        query = "SELECT codigo,descripcion,marca, condicion FROM productos"
         cursor.execute(query)
         productos = cursor.fetchall()
         a.commit()
@@ -228,54 +239,25 @@ def ver_cod(codigo):
         b = str(b[0][0])
         n = int(b)
         i=0
-        dni="(('"+codigo+"',),)"
-        while i<n:
+        codigo="(('"+codigo+"',),)"
+        while i<=n:
             query = "SELECT codigo FROM productos WHERE idproductos = %s"
             values=i
             cursor.execute(query,values)
             a.commit()
-            b = cursor.fetchall()
-            b = str(b)
-            print (b)
-            if b==dni:
+            codig = cursor.fetchall()
+            cod = str(codig) 
+
+            if cod==codigo:
+                print("ya existe")
                 i=n+1
             else:               
                 i+=1
         if i==n+1:
+            print("ya existe")
             c.close_connection(a)
-            # existe
             return 1
         else: 
             c.close_connection(a)
             return 0
 
-def ver_codigo(codigo):
-        a=c.start_connection()
-        cursor=a.cursor()
-        query = "SELECT COUNT(*) FROM productos"
-        cursor.execute(query)
-        a.commit()
-        b = cursor.fetchall()
-        b = str(b[0][0])
-        n = int(b)
-        i=0
-        codigo="(('"+codigo+"',),)"
-        while i<n:
-            query = "SELECT codigo FROM productos WHERE idproducto = %s"
-            values=i
-            cursor.execute(query,values)
-            a.commit()
-            b = cursor.fetchall()
-            b = str(b)
-            print (b)
-            if b==codigo:
-                i=n+1
-            else:               
-                i+=1
-        if i==n+1:
-            c.close_connection(a)
-            #codigo existe
-            return 1
-        else: 
-            c.close_connection(a)
-            return 0

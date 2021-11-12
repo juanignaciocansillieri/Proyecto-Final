@@ -71,7 +71,6 @@ class UsuarioWindow(QMainWindow):
       else:
         tipo="0"
 
-      print(contrasena,contrasena_rep)
       if mail!=mail_rep:
         QtWidgets.QMessageBox.critical(self, "Error", "Mails diferentes")
         return None
@@ -80,7 +79,7 @@ class UsuarioWindow(QMainWindow):
         QtWidgets.QMessageBox.critical(self, "Error", "Contraseñas diferentes")
         return None
 
-      if us.ver_dni(dni) == 1:
+      if us.usuarios.verificar(dni) == 1:
         QtWidgets.QMessageBox.critical(self, "Error", "DNI Existente")
         return None
       else:
