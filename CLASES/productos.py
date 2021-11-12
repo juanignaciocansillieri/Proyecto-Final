@@ -228,15 +228,15 @@ def ver_cod(codigo):
         b = cursor.fetchall()
         b = str(b[0][0])
         n = int(b)
-        i=1
+        i=0
         codigo="(('"+codigo+"',),)"
         while i<n:
             query = "SELECT codigo FROM productos WHERE idproductos = %s"
             values=i
             cursor.execute(query,values)
             a.commit()
-            b = cursor.fetchall()
-            b = str(b)
+            cod = cursor.fetchall()
+            cod = str(cod)
             print (b)
             if b==codigo:
                 i=n+1
@@ -250,33 +250,3 @@ def ver_cod(codigo):
             c.close_connection(a)
             return 0
 
-def ver_codigo(codigo):
-        a=c.start_connection()
-        cursor=a.cursor()
-        query = "SELECT COUNT(*) FROM productos"
-        cursor.execute(query)
-        a.commit()
-        b = cursor.fetchall()
-        b = str(b[0][0])
-        n = int(b)
-        i=1
-        codigo="(('"+codigo+"',),)"
-        while i<n:
-            query = "SELECT codigo FROM productos WHERE idproducto = %s"
-            values=i
-            cursor.execute(query,values)
-            a.commit()
-            b = cursor.fetchall()
-            b = str(b)
-            print (b)
-            if b==codigo:
-                i=n+1
-            else:               
-                i+=1
-        if i==n+1:
-            c.close_connection(a)
-            #codigo existe
-            return 1
-        else: 
-            c.close_connection(a)
-            return 0

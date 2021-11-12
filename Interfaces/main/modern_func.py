@@ -192,10 +192,7 @@ class Modern(QMainWindow):
                     tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
                 self.ui.tableWidget_stock_2.setItem(
                     tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
-                self.ui.tableWidget_stock_2.setItem(
-                    tableRow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
-                self.ui.tableWidget_stock_2.setItem(
-                    tableRow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
+
 
                 tableRow += 1
 
