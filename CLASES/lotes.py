@@ -105,8 +105,8 @@ class lote:
     def contar_filas_producto(idproducto):
         a = c.start_connection()
         cursor = a.cursor()
-        query = "SELECT COUNT(*) FROM lote l JOIN productos p ON l.idproducto = p.codigo WHERE idproducto=%s or p.descripcion = %s "
-        values=(idproducto,idproducto)
+        query = "SELECT COUNT(*) FROM lote WHERE idproducto=%s"
+        values=(idproducto)
         cursor.execute(query,values)
         a.commit()
         b = cursor.fetchall()
@@ -140,6 +140,7 @@ class lote:
 
     def obtener_cantidades(idproducto):
         cantidad=0
+        cant=0
         n=lote.contar_filas_producto(idproducto)
         print(n)
         i=0
@@ -149,13 +150,14 @@ class lote:
         cursor.execute(query,idproducto)
         cantidad=cursor.fetchall()
         print(cantidad)
-        cant = 0
         a.commit()
         while i<n:
-            cant=cantidad[0][i]+cant
+            cant=cantidad[i][0]+cant
+            print(cantidad[i][0])
             i=i+1
-        print(cant)
+        print (cant)
         c.close_connection(a)
+        return cant
 
     def obtener_fecha(idproducto):
         a = c.start_connection()
