@@ -58,7 +58,7 @@ class Splash(QMainWindow):
                 ###
                 s=u.ver_dni("admin")
                 if s==0:
-                    u.usuarios("admin","admin","admin","1","admin","01/01/2021","mail","Error.png")
+                    u.usuarios("admin","admin","admin","1","admin","2021-01-01","admin","Error.png")
                     loginDB.alta_login("admin","admin")
 
                 ###
