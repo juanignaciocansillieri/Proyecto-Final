@@ -6,10 +6,14 @@ from PyQt5 import QtCore
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
-from numpy import pi
+from numpy import log, pi
 import splash
 import Img.img
 import circularProgress as c
+sys.path.append("C:\\proyecto-final\\DB\\")
+import loginDB 
+sys.path.append("C:\\proyecto-final\\CLASES\\")
+import usuarios as u
 sys.path.append("C:\\proyecto-final\\DB\\")
 import conexion as conexion
 sys.path.append("C:\\proyecto-final\\Interfaces\\login\\")
@@ -51,6 +55,13 @@ class Splash(QMainWindow):
             if str(self.time) == "PyQt5.QtCore.QTime(0, 0, 7)":
                 self.close()
                 conexion.crear_tabla()
+                ###
+                s=u.ver_dni("admin")
+                if s==0:
+                    u.usuarios("admin","admin","admin","1","admin","01/01/2021","mail","Error.png")
+                    loginDB.alta_login("admin","admin")
+
+                ###
                 self.login = l.LoginWindow()
         self.timer.timeout.connect(timerEvent)
         self.timer.start(1000)
