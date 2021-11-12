@@ -41,7 +41,7 @@ class NewEgreso(QMainWindow):
         fechaEgreso = self.ui.fecha_egreso.date().toString("yyyy/MM/dd")
         codigo = l.lote.obtener_cantidades(cod)
         if codigo == "":
-             QtWidgets.QMessageBox.critical(self, "Error", "Código Inexistente")
+             QtWidgets.QMessageBox.critical(self, "Error", "Código Inexistente o Lote Inexistente")
         else:
             cant = l.lote.obtener_cantidades(cod)
             print("CANTIDAD",cant)
@@ -50,7 +50,7 @@ class NewEgreso(QMainWindow):
                 l.lote.fifo(cod,cantidad)
                 self.close()
             else:
-                QtWidgets.QMessageBox.critical(self, "Error", "Cantidad Insuficiente, quedan: " +str(cant)+  "productos")
+                QtWidgets.QMessageBox.critical(self, "Error", "Cantidad Insuficiente, quedan: " +str(cant)+  " productos")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

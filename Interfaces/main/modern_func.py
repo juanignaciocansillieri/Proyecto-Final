@@ -44,7 +44,7 @@ nombreNuevo =""
 
 class Modern(QMainWindow):
 
-    def __init__(self):
+    def __init__(self,admin):
         super(Modern, self).__init__()
         self.ui = Ui_MainWindow()
         self.uii = na()
@@ -104,7 +104,7 @@ class Modern(QMainWindow):
         
 
     ########################## USUARIOS ##################################
-        if True:
+        if admin:
             self.ui.user_new_btn.clicked.connect(self.mostrarNewUser)
         
             self.ui.users_btn.clicked.connect(self.listarUsuarios)
@@ -181,8 +181,6 @@ class Modern(QMainWindow):
     ## Listar Productos en la tabla
     def listarProductos(self):
         products = p.listar_prod()
-        print("PRODUCTOS" , products)
-
         n = p.contar_filas()
         print(n)
         self.ui.tableWidget_stock_2.setRowCount(n)
@@ -195,7 +193,12 @@ class Modern(QMainWindow):
                     tableRow, 1, QtWidgets.QTableWidgetItem(row[1]))
                 self.ui.tableWidget_stock_2.setItem(
                     tableRow, 2, QtWidgets.QTableWidgetItem(row[2]))
-
+                self.ui.tableWidget_stock_2.setItem(
+                    tableRow, 3, QtWidgets.QTableWidgetItem(str(l.lote.obtener_cantidades(row[0]))))
+                
+                self.ui.tableWidget_stock_2.setItem(
+                    tableRow, 4, QtWidgets.QTableWidgetItem(str(l.lote.obtener_fecha(row[0]))))
+                
 
                 tableRow += 1
 
@@ -879,9 +882,3 @@ class BM_Usuario(QMainWindow):
             img=img.resize(size)
             img.save("C:\proyecto-final\Interfaces\main\img/{0}".format(defaultImg))
 
-
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    window = Modern()
-    window.show()
-    sys.exit(app.exec())

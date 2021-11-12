@@ -166,16 +166,24 @@ class lote:
             query = "SELECT vencimiento FROM lote WHERE idproducto=%s ORDER BY vencimiento"
             cursor.execute(query,idproducto)
             param = cursor.fetchall()
+            param = param[0][0]
             a.commit()
         except pymysql.err.OperationalError as err:
             param = ""
             print("Hubo un error:", err)
         c.close_connection(a)
         return param
+    def verificar(param):
+        a=c.start_connection()
+        cursor=a.cursor()
+        query = "SELECT * FROM lote WHERE fechalote = %s"
+        product = cursor.execute(query,param)
+        a.commit()
+        print("VERRRI" , product)
+        return product
 
     def fifo(idproducto,cantidad):
         n=lote.contar_filas_producto(idproducto)
-
         i=0
         a = c.start_connection()
         cursor = a.cursor()
@@ -208,6 +216,11 @@ class lote:
                     i=i+1
                 else:
                     n2=n-cantidad
+                    if n2==0:
+                        query = "DELETE FROM lote WHERE idproducto=%s and cantidad=%s"
+                        values = (idproducto,n2)
+                        cursor.execute(query, values)
+                        a.commit()
                     query = "UPDATE lote set cantidad=%s WHERE idproducto=%s and cantidad=%s"
                     values = (n2,idproducto,n)
                     cursor.execute(query, values)

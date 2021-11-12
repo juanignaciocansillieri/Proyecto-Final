@@ -65,7 +65,7 @@ class ProductWindow(QMainWindow):
       largo = self.ui.largo_num.value()
 
     
-      if codigo==""  or descripcion=="" or cantidad=="" or marca=="" or venc=="" or lote=="" or peso=="" or ancho=="" or largo=="" or altura=="":
+      if codigo==""  or descripcion=="" or cantidad==0 or marca=="" or venc=="" or lote=="" or peso=="" or ancho=="" or largo=="" or altura=="":
         QtWidgets.QMessageBox.critical(self, "Error", "Ingrese todos los datos")
         return None
       data = pr.productos.verificar(codigo)

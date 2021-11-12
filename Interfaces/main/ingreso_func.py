@@ -42,8 +42,12 @@ class NewIngreso(QMainWindow):
         fechaIgreso = self.ui.fecha_date.date().toString("yyyy/MM/dd")
         venc = self.ui.fecha_date_2.date().toString("yyyy/MM/dd")
         codigo = p.productos.mostrar_product(cod)
+        loteV = l.lote.verificar(lote)
+
         if codigo == "":
              QtWidgets.QMessageBox.critical(self, "Error", "Código Inexistente")
+        if  loteV == 1:
+             QtWidgets.QMessageBox.critical(self, "Error", "Lote Existente")
         else:
             l.lote(cod,cantidad,lote,venc)
             m.movimientos(tipo,cod,cantidad,"Ingreso",fechaIgreso)
