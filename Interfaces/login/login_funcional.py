@@ -5,6 +5,7 @@ from PyQt5.QtCore import QFile,Qt
 from login import Ui_MainWindow
 sys.path.append("C:\\proyecto-final\\DB\\")
 import loginDB as l
+import conexion as con
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import usuarios as u
 sys.path.append("C:\\proyecto-final\\Interfaces\\main\\")
@@ -42,17 +43,25 @@ class LoginWindow(QMainWindow):
             password = self.ui.pass_login_input.text()
             usuario = l.log_in(user,password)
 
+            if user=="admin" and password=="admin":
+                con.crear_tabla()
+                self.main = m.Modern(1)
+                self.close()
 
             if usuario==1:
                 #inicia
                 admin_user=u.ver_tipo(user)
+                con.crear_tabla()
                 self.close()
                 self.main = m.Modern(admin_user)
             if usuario==2:
                 #no se encuentra dni
-                QtWidgets.QMessageBox.critical(self, "Error", "DNI Incorrecto")
-                self.ui.user_login_input.setText("")
-                self.ui.pass_login_input.setText("")
+                if user == "admin":
+                    pass
+                else:
+                    QtWidgets.QMessageBox.critical(self, "Error", "DNI Incorrecto")
+                    self.ui.user_login_input.setText("")
+                    self.ui.pass_login_input.setText("")
             if usuario==3:
                 #contraseña incorrecta
                 QtWidgets.QMessageBox.critical(self, "Error", "Contraseña Incorrecta")
