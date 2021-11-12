@@ -165,7 +165,7 @@ class lote:
 
     def fifo(idproducto,cantidad):
         n=lote.contar_filas_producto(idproducto)
-        print("n",n)
+
         i=0
         a = c.start_connection()
         cursor = a.cursor()
@@ -176,7 +176,7 @@ class lote:
         if idlote=="none":
             return 0
         else:
-            print("idlote",idlote)
+            
             a.commit()
 
             while i<n:
@@ -185,7 +185,7 @@ class lote:
                 n=cursor.fetchall()
                 a.commit()
                 n=n[0][0]
-                print("cantidad",n)
+             
             
 
                 if n<cantidad:

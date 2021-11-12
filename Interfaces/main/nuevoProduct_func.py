@@ -69,12 +69,9 @@ class ProductWindow(QMainWindow):
         QtWidgets.QMessageBox.critical(self, "Error", "Ingrese todos los datos")
         return None
 
-     # if len(codigo)!=8:
-      #  QtWidgets.QMessageBox.critical(self, "Error", "Ingrese un dni existente")
-       # return None
-      
-      
-      if pr.ver_cod(codigo) == 1:
+   
+      ver =  pr.ver_cod(codigo)
+      if ver == 1:
         QtWidgets.QMessageBox.critical(self, "Error", "Codigo Existente")
         return None
       else:
@@ -86,7 +83,6 @@ class ProductWindow(QMainWindow):
       
       
 
-      #return(codigo,nombre,desc,cantidad,marca,venc,condicion,lote,fragil)
       
 
     def uploadImg(self):
