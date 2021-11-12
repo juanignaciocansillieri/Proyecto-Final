@@ -53,12 +53,12 @@ class UsuarioWindow(QMainWindow):
       puesto = self.ui.puesto_input.text()
       tipo = self.ui.tipo_cb.currentText()
       contrasena = self.ui.pass_input.text()
-      contrasena_rep = self.ui.pass_rep_input
+      contrasena_rep = self.ui.pass_rep_input.text()
       foto = defaultImg
       
       
 
-      if nom=="" or apellido=="" or dni=="" or tipo=="" or puesto=="" or nacimiento=="":
+      if nom=="" or apellido=="" or dni=="" or tipo=="" or puesto=="" or nacimiento=="" or contrasena=="" or contrasena_rep=="":
         QtWidgets.QMessageBox.critical(self, "Error", "Ingrese todos los datos")
         return None
 
@@ -66,10 +66,19 @@ class UsuarioWindow(QMainWindow):
         QtWidgets.QMessageBox.critical(self, "Error", "Ingrese un dni existente")
         return None
       
-      if tipo=="Admin":
+      if tipo=="Administrador":
         tipo="1"
       else:
         tipo="0"
+
+      print(contrasena,contrasena_rep)
+      if mail!=mail_rep:
+        QtWidgets.QMessageBox.critical(self, "Error", "Mails diferentes")
+        return None
+
+      if contrasena!=contrasena_rep:
+        QtWidgets.QMessageBox.critical(self, "Error", "Contraseñas diferentes")
+        return None
 
       if us.ver_dni(dni) == 1:
         QtWidgets.QMessageBox.critical(self, "Error", "DNI Existente")

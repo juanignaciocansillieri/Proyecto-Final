@@ -44,7 +44,7 @@ nombreNuevo =""
 
 class Modern(QMainWindow):
 
-    def __init__(self,admin):
+    def __init__(self,admin_user):
         super(Modern, self).__init__()
         self.ui = Ui_MainWindow()
         self.uii = na()
@@ -58,8 +58,6 @@ class Modern(QMainWindow):
         centerPoint = QDesktopWidget().availableGeometry().center()
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
-        self.admin = admin
-        print(self.admin)
         self.ui.exit_btn.clicked.connect(lambda:self.close())
         self.show()
         ##########################   PAGINAS   ##################################
@@ -106,7 +104,7 @@ class Modern(QMainWindow):
         
 
     ########################## USUARIOS ##################################
-        if self.admin:
+        if admin_user:
             self.ui.user_new_btn.clicked.connect(self.mostrarNewUser)
         
             self.ui.users_btn.clicked.connect(self.listarUsuarios)
@@ -798,6 +796,10 @@ class BM_Usuario(QMainWindow):
         self.ui.puesto_input.setText(atributos[5])
         self.ui.mail_input.setText(atributos[7])
         self.ui.mail_rep_input.setText(atributos[7])
+        contra=loginDB.mostrar_pass(DNI_Viejo)
+        contra=str(contra[0][0])
+        self.ui.pass_input.setText(contra)
+        self.ui.pass_rep_input.setText(contra)
         ###Img###
         self.usuarioImg = self.ui.label
         self.img = QPixmap("C:\proyecto-final\Interfaces\main\img/{0}".format(atributos[8]))
@@ -824,6 +826,9 @@ class BM_Usuario(QMainWindow):
         apellido = self.ui.apellido_input.text()
         tipo = self.ui.tipo_cb.currentText()
         foto = defaultImg
+        contrasena=self.ui.pass_input.text()
+        contrasena_rep=self.ui.pass_rep_input.text()
+        mail_rep=self.ui.mail_rep_input.text()
         if tipo == "Administrador": 
             tipo = 1 
         else:
@@ -831,15 +836,26 @@ class BM_Usuario(QMainWindow):
         nacimiento = self.ui.nacimiento_date.date().toString("yyyy/MM/dd")
         puesto = self.ui.puesto_input.text()
         mail = self.ui.mail_input.text()
-        if self.ui.pass_input.text() != "" or self.ui.pass_rep_input.text != "":
-            if self.ui.pass_input.text() == self.ui.pass_rep_input.text():
-                u.usuarios.modificar_datos_user(DNI_Viejo,dni,nombre,apellido,tipo,puesto,nacimiento,mail,foto)
-                loginDB.cambiar_contrasena(DNI_Viejo,dni,self.ui.pass_input.text())
-            else:
-                QtWidgets.QMessageBox.critical(self, "Error", "Contraseñas diferentes")
-                return None
+        if nombre=="" or apellido=="" or dni=="" or tipo=="" or puesto=="" or nacimiento=="" or contrasena=="" or contrasena_rep=="":
+            QtWidgets.QMessageBox.critical(self, "Error", "Ingrese todos los datos")
+            return None
+
+        if len(dni)!=8:
+            QtWidgets.QMessageBox.critical(self, "Error", "Ingrese un dni existente")
+            return None
+        
+        if mail!=mail_rep:
+            QtWidgets.QMessageBox.critical(self, "Error", "Mails diferentes")
+            return None
+
+        if contrasena!=contrasena_rep:
+            QtWidgets.QMessageBox.critical(self, "Error", "Contraseñas diferentes")
+            return None
+
         else:
+
             u.usuarios.modificar_datos_user(DNI_Viejo,dni,nombre,apellido,tipo,puesto,nacimiento,mail,foto)
+            loginDB.cambiar_contrasena(DNI_Viejo,dni,contrasena)
 
         self.close()
         
