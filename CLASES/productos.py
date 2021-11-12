@@ -136,7 +136,7 @@ class productos():
     def buscar_product(param):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto WHERE codigo=%s or descripcion=%s or marca=%s or  cantidad=%s")
+        query = ("SELECT codigo,descripcion,marca FROM productos WHERE codigo=%s or descripcion=%s or marca=%s")
         cursor.execute(query, (param, param,param,param))
         data = cursor.fetchall()
         a.commit()
@@ -145,7 +145,7 @@ class productos():
     def buscar_productArea(param):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT p.codigo,p.descripcion,p.marca,l.cantidad,p.ubicacion,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto WHERE condicion = %s")
+        query = ("SELECT codigo,descripcion,marca FROM productos WHERE codigo=%s or descripcion=%s or marca=%s")
         cursor.execute(query, param)
         data = cursor.fetchall()
         a.commit()
@@ -154,14 +154,15 @@ class productos():
     def buscar_product_rows(param):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto WHERE codigo=%s or descripcion=%s or marca=%s or  cantidad=%s")
+        query = ("SELECT codigo,descripcion,marca FROM productos WHERE codigo=%s or descripcion=%s or marca=%s")
         data = cursor.execute(query, (param, param,param,param))
         a.commit()
         return data
+
     def buscar_product_rows_area(param):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento FROM productos p JOIN lote l ON p.codigo=l.idproducto WHERE condicion=%s")
+        query = ("SELECT codigo,descripcion,marca FROM productos WHERE condicion=%s")
         data = cursor.execute(query,param)
         a.commit()
         return data
@@ -177,12 +178,12 @@ class productos():
 
 
 
-def listar_prod_area():
+def listar_prod_area(param):
     a = c.start_connection()
     cursor = a.cursor()
     try:
-        query = "SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento,p.condicion FROM productos p JOIN lote l ON p.codigo=l.idproducto"
-        cursor.execute(query)
+        query = "SELECT codigo,descripcion,marca,condicion FROM productos WHERE condicion=%s"
+        cursor.execute(query,param)
         productos = cursor.fetchall()
         a.commit()
     except pymysql.err.OperationalError as err:
@@ -195,7 +196,7 @@ def listar_prod():
     a = c.start_connection()
     cursor = a.cursor()
     try:
-        query = "SELECT p.codigo,p.descripcion,p.marca,l.cantidad,l.vencimiento,p.condicion FROM productos p JOIN lote l ON p.codigo=l.idproducto"
+        query = "SELECT codigo,descripcion,marca, condicion FROM productos"
         cursor.execute(query)
         productos = cursor.fetchall()
         a.commit()
@@ -227,8 +228,8 @@ def ver_cod(codigo):
         b = cursor.fetchall()
         b = str(b[0][0])
         n = int(b)
-        i=0
-        dni="(('"+codigo+"',),)"
+        i=1
+        codigo="(('"+codigo+"',),)"
         while i<n:
             query = "SELECT codigo FROM productos WHERE idproductos = %s"
             values=i
@@ -237,7 +238,7 @@ def ver_cod(codigo):
             b = cursor.fetchall()
             b = str(b)
             print (b)
-            if b==dni:
+            if b==codigo:
                 i=n+1
             else:               
                 i+=1
@@ -258,7 +259,7 @@ def ver_codigo(codigo):
         b = cursor.fetchall()
         b = str(b[0][0])
         n = int(b)
-        i=0
+        i=1
         codigo="(('"+codigo+"',),)"
         while i<n:
             query = "SELECT codigo FROM productos WHERE idproducto = %s"

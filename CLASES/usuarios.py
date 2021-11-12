@@ -161,7 +161,7 @@ def ver_dni(dni):
         b = cursor.fetchall()
         b = str(b[0][0])
         n = int(b)
-        i=0
+        i=1
         dni="(('"+dni+"',),)"
         while i<n:
             query = "SELECT dni FROM usuarios WHERE idusuarios = %s"
