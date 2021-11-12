@@ -43,15 +43,9 @@ class LoginWindow(QMainWindow):
             password = self.ui.pass_login_input.text()
             usuario = l.log_in(user,password)
 
-            if user=="admin" and password=="admin":
-                con.crear_tabla()
-                self.main = m.Modern(1)
-                self.close()
-
             if usuario==1:
                 #inicia
                 admin_user=u.ver_tipo(user)
-                con.crear_tabla()
                 self.close()
                 self.main = m.Modern(admin_user)
             if usuario==2:
