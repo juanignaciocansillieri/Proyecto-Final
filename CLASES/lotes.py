@@ -141,27 +141,21 @@ class lote:
     def obtener_cantidades(idproducto):
         cantidad=0
         n=lote.contar_filas_producto(idproducto)
+        print(n)
         i=0
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT idlote FROM lote WHERE idproducto=%s ORDER BY cantidad")
+        query = ("SELECT cantidad FROM lote WHERE idproducto=%s ORDER BY cantidad")
         cursor.execute(query,idproducto)
-        idlote=cursor.fetchall()
+        cantidad=cursor.fetchall()
+        print(cantidad)
+        cant = 0
         a.commit()
-        if idlote=="none":
-            return 0
-        else:
-            while i<n:
-                query = ("SELECT cantidad FROM lote WHERE idlote=%s")
-                cursor.execute(query,idlote)
-                data = cursor.fetchall()
-                data=data[0][0]
-                cantidad=cantidad+data
-                a.commit()
-                idlote=idlote+1
-                i=i+1
-
-            return cantidad
+        while i<n:
+            cant=cantidad[0][i]+cant
+            i=i+1
+        print(cant)
+        c.close_connection(a)
 
     def obtener_fecha(idproducto):
         a = c.start_connection()
@@ -179,7 +173,7 @@ class lote:
 
     def fifo(idproducto,cantidad):
         n=lote.contar_filas_producto(idproducto)
-        print("n",n)
+
         i=0
         a = c.start_connection()
         cursor = a.cursor()
@@ -190,7 +184,7 @@ class lote:
         if idlote=="none":
             return 0
         else:
-            print("idlote",idlote)
+            
             a.commit()
 
             while i<n:
@@ -199,7 +193,7 @@ class lote:
                 n=cursor.fetchall()
                 a.commit()
                 n=n[0][0]
-                print("cantidad",n)
+             
             
 
                 if n<cantidad:

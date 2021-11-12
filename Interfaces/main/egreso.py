@@ -43,7 +43,7 @@ class Ui_MainWindow(object):
         self.label_fecha_3.setMaximumSize(QtCore.QSize(174, 16777215))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(0)
         self.label_fecha_3.setFont(font)
         self.label_fecha_3.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -56,7 +56,7 @@ class Ui_MainWindow(object):
         self.label_4.setGeometry(QtCore.QRect(20, 10, 62, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(0)
         self.label_4.setFont(font)
         self.label_4.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -89,7 +89,7 @@ class Ui_MainWindow(object):
         self.label_codigo_producto_2.setGeometry(QtCore.QRect(20, 30, 141, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(0)
         self.label_codigo_producto_2.setFont(font)
         self.label_codigo_producto_2.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -102,7 +102,7 @@ class Ui_MainWindow(object):
         self.crear_egreso.setGeometry(QtCore.QRect(150, 180, 161, 26))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(0)
         self.crear_egreso.setFont(font)
         self.crear_egreso.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.crear_egreso.setStyleSheet("QPushButton{\n"
@@ -137,7 +137,7 @@ class Ui_MainWindow(object):
         self.label_cantidad_2.setGeometry(QtCore.QRect(20, 90, 141, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(0)
         self.label_cantidad_2.setFont(font)
         self.label_cantidad_2.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"
@@ -183,7 +183,7 @@ class Ui_MainWindow(object):
         self.label_codigo_producto_3.setGeometry(QtCore.QRect(230, 90, 141, 27))
         font = QtGui.QFont()
         font.setFamily("Roboto")
-        font.setPointSize(-1)
+        font.setPointSize(0)
         self.label_codigo_producto_3.setFont(font)
         self.label_codigo_producto_3.setStyleSheet("font-family: Roboto;\n"
 "font-size: 14px;\n"

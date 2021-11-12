@@ -13,6 +13,7 @@ from egreso import Ui_MainWindow
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import movimientos as m
 import lotes as l
+import productos as p
 
 
 class NewEgreso(QMainWindow):
@@ -38,10 +39,18 @@ class NewEgreso(QMainWindow):
         motivo = self.ui.motivo_input_2.text()
         cod = self.ui.codigo_producto_input_2.text()
         fechaEgreso = self.ui.fecha_egreso.date().toString("yyyy/MM/dd")
-        m.movimientos(tipo,cod,cantidad,motivo,fechaEgreso)
-        l.lote.fifo(cod,cantidad)
-        self.close()
-        
+        codigo = l.lote.obtener_cantidades(cod)
+        if codigo == "":
+             QtWidgets.QMessageBox.critical(self, "Error", "Código Inexistente")
+        else:
+            cant = p.productos.mostrar_cantidad(cod)
+            print("CANTIDAD",cant)
+            if cant < cantidad:
+                m.movimientos(tipo,cod,cantidad,motivo,fechaEgreso)
+                l.lote.fifo(cod,cantidad)
+                self.close()
+            else:
+                QtWidgets.QMessageBox.critical(self, f"Error", "Cantidad Insuficiente, quedan: " +cantidad+  "productos")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

@@ -126,7 +126,14 @@ class usuarios:
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
         c.close_connection(a)
-
+    def verificar(param):
+            a=c.start_connection()
+            cursor=a.cursor()
+            query = "SELECT * FROM usuarios WHERE dni = %s"
+            product = cursor.execute(query,param)
+            a.commit()
+            print("VERRRI" , product)
+            return product
 def contar_filas():
     a = c.start_connection()
     cursor = a.cursor()

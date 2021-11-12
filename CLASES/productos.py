@@ -137,7 +137,7 @@ class productos():
         a = c.start_connection()
         cursor = a.cursor()
         query = ("SELECT codigo,descripcion,marca FROM productos WHERE codigo=%s or descripcion=%s or marca=%s")
-        cursor.execute(query, (param, param,param,param))
+        cursor.execute(query, (param, param,param))
         data = cursor.fetchall()
         a.commit()
         return data
@@ -150,12 +150,22 @@ class productos():
         data = cursor.fetchall()
         a.commit()
         return data
+        
+    def verificar(param):
+        a=c.start_connection()
+        cursor=a.cursor()
+        query = "SELECT * FROM productos WHERE codigo = %s"
+        product = cursor.execute(query,param)
+        a.commit()
+        print("VERRRI" , product)
+        return product
+
 
     def buscar_product_rows(param):
         a = c.start_connection()
         cursor = a.cursor()
         query = ("SELECT codigo,descripcion,marca FROM productos WHERE codigo=%s or descripcion=%s or marca=%s")
-        data = cursor.execute(query, (param, param,param,param))
+        data = cursor.execute(query, (param, param,param))
         a.commit()
         return data
 
@@ -230,7 +240,7 @@ def ver_cod(codigo):
         n = int(b)
         i=0
         codigo="(('"+codigo+"',),)"
-        while i<n:
+        while i<=n:
             query = "SELECT codigo FROM productos WHERE idproductos = %s"
             values=i
             cursor.execute(query,values)

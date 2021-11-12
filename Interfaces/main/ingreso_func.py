@@ -13,6 +13,7 @@ from ingreso import Ui_MainWindow
 sys.path.append("C:\\proyecto-final\\CLASES\\")
 import movimientos as m
 import lotes as l
+import productos as p
 
 
 class NewIngreso(QMainWindow):
@@ -34,19 +35,19 @@ class NewIngreso(QMainWindow):
         
 
     def crearIngreso(self):
-        global a
         tipo = False
         cantidad = self.ui.spinBox.value()
         lote = self.ui.motivo_input.text()
         cod = self.ui.codigo_producto_input.text()
         fechaIgreso = self.ui.fecha_date.date().toString("yyyy/MM/dd")
         venc = self.ui.fecha_date_2.date().toString("yyyy/MM/dd")
-
-        l.lote(cod,cantidad,lote,venc)
-        m.movimientos(tipo,cod,cantidad,"Ingreso",fechaIgreso)
-        self.close()
-        a = 0
-        
+        codigo = p.productos.mostrar_product(cod)
+        if codigo == "":
+             QtWidgets.QMessageBox.critical(self, "Error", "Código Inexistente")
+        else:
+            l.lote(cod,cantidad,lote,venc)
+            m.movimientos(tipo,cod,cantidad,"Ingreso",fechaIgreso)
+            self.close()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
