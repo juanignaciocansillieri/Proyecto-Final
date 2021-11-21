@@ -33,8 +33,8 @@ def close_connection(con):  # cierra conexion a db
 def borrar_tabla():  # borra tablas (posible modificacion futura: ingresar el nombre de la tabla y que la borre)
     # se usa "," para mas de una
     con=start_connection()
-    q1="""drop database prueba1;"""
-    q2="""create database prueba1;"""
+    q1="""drop database if exists prueba1;"""
+    q2="""create database if not exists prueba1;"""
     #q = "DROP TABLE IF EXISTS productos, usuarios,alojamiento,login,matriz,datosmatriz;"
     try:
         cur = con.cursor()
