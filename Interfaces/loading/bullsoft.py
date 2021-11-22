@@ -53,8 +53,8 @@ class Splash(QMainWindow):
             global time
             self.time = self.time.addSecs(1)
             if str(self.time) == "PyQt5.QtCore.QTime(0, 0, 7)":
-                self.close()
                 conexion.crear_tabla()
+                self.close()
                 ###
                 s=u.ver_dni("admin")
                 if s==0:

@@ -7,6 +7,19 @@ import os
 # para la devolucion de datos de cursor se usara fetchall e intantaneamente se lo convertira
 
 
+def first_connection():  # inicia conexion a db
+    h = 'localhost'
+    p = 3306
+    u = os.environ.get('USER_MYSQL')
+    ps = os.environ.get('PASSWORD_MYSQL')
+    db = "sakila"
+    try:
+        con = pymysql.Connect(host=h, port=p, user=u, password=ps, database=db)
+    except pymysql.err.OperationalError as err:
+        print("Hubo un error:", err)
+        
+    return con
+
 def start_connection():  # inicia conexion a db
     h = 'localhost'
     p = 3306
@@ -15,7 +28,6 @@ def start_connection():  # inicia conexion a db
     db = os.environ.get('DB_MYSQL')
     try:
         con = pymysql.Connect(host=h, port=p, user=u, password=ps, database=db)
-        #print(con, "\nse creo conexion")
     except pymysql.err.OperationalError as err:
         print("Hubo un error:", err)
         
@@ -47,7 +59,6 @@ def borrar_tabla():  # borra tablas (posible modificacion futura: ingresar el no
     close_connection(con)
 
 def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se crearan todas)
-    con=start_connection()
     q0="""CREATE DATABASE IF NOT EXISTS prueba1;"""
 
     q1="""USE prueba1;"""
@@ -180,9 +191,9 @@ def crear_tabla():  # crea una tabla (al iniciar por primera vez el programa se 
     );"""
     
     
-
+    con=first_connection()
+    cur = con.cursor()
     try:
-        cur = con.cursor()
         cur.execute(q0)
         cur.execute(q1)
         cur.execute(q2)
