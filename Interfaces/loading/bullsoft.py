@@ -1,29 +1,17 @@
 import sys
-import os
-from PyQt5 import QtWidgets
-from PyQt5 import QtGui
+
 from PyQt5 import QtCore
 from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
-from numpy import log, pi
-import splash
-import Img.img
-import circularProgress as c
-sys.path.append("C:\\proyecto-final\\DB\\")
-import loginDB 
-sys.path.append("C:\\proyecto-final\\CLASES\\")
-import usuarios as u
-sys.path.append("C:\\proyecto-final\\DB\\")
-import conexion as conexion
-sys.path.append("C:\\proyecto-final\\Interfaces\\login\\")
-import login_funcional as l
-sys.path.append("C:\\proyecto-final\\Interfaces\\main\\")
-import modern_func as m
+from PyQt5.QtWidgets import *
 
-
+from Interfaces.loading import circularProgress as c, splash
+import CLASES
+import DB
+from Interfaces.login import login_funcional as l
 
 counter = 0
+
 
 class Splash(QMainWindow):
     a = 0
@@ -45,7 +33,6 @@ class Splash(QMainWindow):
         self.circle = c.CircularProgress()
         self.ui.horizontalLayout_3.addWidget(self.circle)
         ###### CERRAR SPLASH #############
-        print(self.circle.timer.duration)
         self.timer = QtCore.QTimer()
         self.time = QtCore.QTime(0, 0, 0)
 
@@ -53,21 +40,19 @@ class Splash(QMainWindow):
             global time
             self.time = self.time.addSecs(1)
             if str(self.time) == "PyQt5.QtCore.QTime(0, 0, 7)":
+                DB.conexion.crear_tabla()
                 self.close()
-                conexion.crear_tabla()
-                ###
-                s=u.ver_dni("admin")
-                if s==0:
-                    u.usuarios("admin","admin","admin","1","admin","2021-01-01","admin","Error.png")
-                    loginDB.alta_login("admin","admin")
+
+                s = CLASES.usuarios.contar_filas()
+                if s == 0:
+                    CLASES.usuarios.Usuarios("admin", "admin", "admin", "1", "admin", "2021-01-01", "admin", "Error.png")
+                    DB.loginDB.alta_login("admin", "admin")
 
                 ###
                 self.login = l.LoginWindow()
+
         self.timer.timeout.connect(timerEvent)
         self.timer.start(1000)
-
-
-
 
 
 if __name__ == "__main__":

@@ -2042,8 +2042,7 @@ class Ui_MainWindow(object):
         self.label_area_mod.setText(_translate("MainWindow", "Label"))
         self.btn_newPosicion.setText(_translate("MainWindow", "Posicion de Alojamiento"))
         self.btn_modificarArea.setText(_translate("MainWindow", "Modificar Área"))
-import img_oficiales_rc
-
+from Interfaces.main import  img_oficiales_rc
 
 if __name__ == "__main__":
     import sys

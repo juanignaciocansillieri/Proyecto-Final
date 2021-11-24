@@ -1,38 +1,25 @@
-from CLASES.usuarios import usuarios
-from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow,QDesktopWidget
-from PyQt5.QtCore import QFile,Qt
+# p.crear_vector()
 
+from DB import conexion as c
 
-from CLASES.productos import productos
-#p.crear_vector()
-import sys
-sys.path.append("C:\\proyecto-final\\DB\\")
-import conexion as c
-#a=c.start_connection()
+# a=c.start_connection()
 c.borrar_tabla()
 c.crear_tabla()
-#c.contar_filas_tabla()
-#c.close_connection()
+# c.contar_filas_tabla()
+# c.close_connection()
 
-#nombre=input("ingrese el nombre:")
-#apellido=input("ingrese el apellido:")
-#dni=input("ingrese el dni:")
-#tipo=input("ingrese el tipo(1/0):")
-#puesto=input("ingrese el peusto:")
-#nacimiento=input("ingrese el fecha de nacimiento:")
+# nombre=input("ingrese el nombre:")
+# apellido=input("ingrese el apellido:")
+# dni=input("ingrese el dni:")
+# tipo=input("ingrese el tipo(1/0):")
+# puesto=input("ingrese el peusto:")
+# nacimiento=input("ingrese el fecha de nacimiento:")
 
-from DB import loginDB as log
-sys.path.append("C:\\proyecto-final\\CLASES\\")
-import usuarios as us
-import productos as pr
-import alojamiento as al
-import matriz as mz
 
-#aa=1234567
-#aa=str(aa)
-#nn=len(aa)
-#print(nn)
+# aa=1234567
+# aa=str(aa)
+# nn=len(aa)
+# print(nn)
 """
 aa=us.usuarios("alex","arraya","123",1,"gerente","1999/05/14","alex@gmail.com")
 aa.alta_usuario()
@@ -81,10 +68,10 @@ ff.alta_producto()
 """
 
 # aa=15
-#bb=16
-#cc=20
-#union=str(aa)+str(bb)+str(cc)
-#print(union)
+# bb=16
+# cc=20
+# union=str(aa)+str(bb)+str(cc)
+# print(union)
 """
 
 #print(us.ver_tipo(154))

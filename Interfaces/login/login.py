@@ -126,7 +126,7 @@ class Ui_MainWindow(object):
         self.user_login_input.setPlaceholderText(_translate("MainWindow", "Código Empleado"))
         self.pass_login_input.setPlaceholderText(_translate("MainWindow", "Contraseña"))
         self.login_btn.setText(_translate("MainWindow", "Ingresar  →"))
-
+from Interfaces.loading.Img import  img
   
 if __name__ == "__main__":
     import sys
@@ -136,5 +136,3 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
-
-

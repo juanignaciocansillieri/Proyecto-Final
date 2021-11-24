@@ -1,55 +1,48 @@
-import sys
-import os
-from PyQt5 import QtWidgets
-from PyQt5 import QtGui
-from PyQt5 import QtCore
-import PyQt5
-from PyQt5.QtCore import *
+
 from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
-import create_user
-from posiciones_alojamiento_ui import Ui_MainWindow
-sys.path.append("C:\\proyecto-final\\CLASES\\")
-import area as a
-import alojamiento as al
+from Interfaces.main.posiciones_alojamiento_ui import Ui_MainWindow
+from CLASES import area as a, alojamiento as al
+
 area = ""
+
+
 class PosicionAlojamiento(QMainWindow):
 
-    def __init__(self,nombreArea):
+    def __init__(self, nombre_area):
         super(PosicionAlojamiento, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         ############# RECIBIMOS PROPORCIONES DE LA PANTALLA ###########
-        qtRectangle = self.frameGeometry()
-        centerPoint = QDesktopWidget().availableGeometry().center()
-        qtRectangle.moveCenter(centerPoint)
-        self.move(qtRectangle.topLeft())
+        qt_rectangle = self.frameGeometry()
+        center_point = QDesktopWidget().availableGeometry().center()
+        qt_rectangle.moveCenter(center_point)
+        self.move(qt_rectangle.topLeft())
         ############## CENTRAMOS LA VENTANA #############
-        centerPoint = QDesktopWidget().availableGeometry().center()
-        qtRectangle.moveCenter(centerPoint)
-        self.move(qtRectangle.topLeft())
-        self.rellenarCampos(nombreArea)
-        self.ui.modificar_btn.clicked.connect(self.crearPosicionAlojamiento)
-    
-    #CREAR POSICIONES ALOJAMIENTO 
-    def crearPosicionAlojamiento(self):   
-      #RECIBIR VALORES DE LA VENTANA
-      global area
-      columna = self.ui.columna_num.value()
-      fila = self.ui.fila_num.value()
-      nivel = self.ui.nivel_num.value()
-      pasillo = str(self.ui.comboBox_pasillo.currentText())
-      segmento = str(self.ui.comboBox_segmento.currentText())
-      ancho = self.ui.ancho_num.value()
-      alto = self.ui.alto_num.value()
-      largo = self.ui.largo_num.value()
-      limite = self.ui.limite_num.value()
-      print()
-      al.alojamiento(largo,ancho,alto,area,pasillo,segmento,fila,nivel,limite,columna)
-      self.close()
+        center_point = QDesktopWidget().availableGeometry().center()
+        qt_rectangle.moveCenter(center_point)
+        self.move(qt_rectangle.topLeft())
+        self.rellenar_campos(nombre_area)
+        self.ui.modificar_btn.clicked.connect(self.crear_posicion_alojamiento)
+
+    # CREAR POSICIONES ALOJAMIENTO
+    def crear_posicion_alojamiento(self):
+        # RECIBIR VALORES DE LA VENTANA
+        global area
+        columna = self.ui.columna_num.value()
+        fila = self.ui.fila_num.value()
+        nivel = self.ui.nivel_num.value()
+        pasillo = str(self.ui.comboBox_pasillo.currentText())
+        segmento = str(self.ui.comboBox_segmento.currentText())
+        ancho = self.ui.ancho_num.value()
+        alto = self.ui.alto_num.value()
+        largo = self.ui.largo_num.value()
+        limite = self.ui.limite_num.value()
+        print()
+        al.Alojamiento(largo, ancho, alto, area, pasillo, segmento, fila, nivel, limite, columna)
+        self.close()
 
     # RELLENAR CAMPOS
-    def rellenarCampos(self,id):
+    def rellenar_campos(self, id):
         global area
         area = id
         posiciones = a.Area.mostrar_area(id)
@@ -58,12 +51,10 @@ class PosicionAlojamiento(QMainWindow):
         segmentos = int(atributos[3])
         i = 1
         j = 1
-        while(i<=pasillos):
-          self.ui.comboBox_pasillo.addItem('%i' % i)
-          i+=1
-        while(j<=segmentos):
-          self.ui.comboBox_segmento.addItem('%i' % j)
-          j+=1 
+        while i <= pasillos:
+            self.ui.comboBox_pasillo.addItem('%i' % i)
+            i += 1
+        while j <= segmentos:
+            self.ui.comboBox_segmento.addItem('%i' % j)
+            j += 1
         self.ui.lineEdit.setText(id)
-        
-      

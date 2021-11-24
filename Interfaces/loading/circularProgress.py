@@ -1,10 +1,8 @@
-import sys
 from PyQt5 import QtWidgets
-from PyQt5 import QtGui
-from PyQt5 import QtCore
 from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+
 
 class CircularProgress(QWidget):
     counter = 0
@@ -27,7 +25,6 @@ class CircularProgress(QWidget):
         self.timer.setFrameRange(0, 360)
         self.timer.frameChanged.connect(self.progress)
         self.timer.start()
-        print(self.drawAngle)
 
         ######## CREAR LABEL CONTADOR ##########
         self.label = QtWidgets.QLabel(self)
@@ -58,7 +55,8 @@ class CircularProgress(QWidget):
 
     def paintEvent(self, event):
         if self.a == 0:
-            # There is a problem here, pyqt5 cannot implicitly convert QRect to QRectF (PySide2 can), so use QRectF directly
+            # There is a problem here, pyqt5 cannot implicitly convert QRect to QRectF (PySide2 can), so use QRectF
+            # directly
             the_rect = QRectF(200, 50, 200, 200)
             # Paintbrush
             painter = QPainter(self)
@@ -75,7 +73,8 @@ class CircularProgress(QWidget):
             # color inicial
             painter.fillPath(the_path, QColor("#12151a"))
 
-            # Radial gradient (parameters are the center point and the starting angle), by default it is calculated counterclockwise from the right
+            # Radial gradient (parameters are the center point and the starting angle), by default it is calculated
+            # counterclockwise from the right
             the_gradient = QConicalGradient(the_rect.center(), 90)
             the_angle = self.drawAngle/360
             the_gradient.setColorAt(0, QColor(17, 115, 255, 255))

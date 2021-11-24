@@ -292,7 +292,7 @@ class Ui_MainWindow(object):
         self.label_egr_ing_3.setText(_translate("MainWindow", "Longitud"))
         self.label_egr_ing_4.setText(_translate("MainWindow", "Ancho"))
         self.label_egr_ing_5.setText(_translate("MainWindow", "Alto"))
-import img_oficiales_rc
+from Interfaces.main import img_oficiales_rc
 
 
 if __name__ == "__main__":

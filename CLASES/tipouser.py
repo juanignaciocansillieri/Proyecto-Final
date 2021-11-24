@@ -1,26 +1,21 @@
-import sys
-from sys import setprofile
-from typing import NoReturn
 import pymysql
-import os
-sys.path.append("C:\\proyecto-final\\DB\\")
-import conexion as c
+from DB import conexion as c
 
-class tipouser:
-    
-    def __init__(self,tipo,identificador):
-        self.tipo=tipo
-        self.identificador=identificador
+
+class Tipouser:
+
+    def __init__(self, tipo, identificador):
+        self.tipo = tipo
+        self.identificador = identificador
         print("se creo tipouser correctamente")
         self.alta_tipouser()
 
-
     def alta_tipouser(self):
-        a=c.start_connection()
-        cursor=a.cursor()
+        a = c.start_connection()
+        cursor = a.cursor()
         try:
             query = "INSERT INTO tipouser(tipo,identificador) VALUES (%s,%s)"
-            values = (self.tipo,self.identificador)
+            values = (self.tipo, self.identificador)
             cursor.execute(query, values)
             a.commit()
             print("se dio alta al tipouser correctamente")
@@ -28,32 +23,32 @@ class tipouser:
             print("Hubo un error:", err)
         c.close_connection(a)
 
-    def modificar_tipouser(identv,idenn,tipo):
-        a=c.start_connection()
-        cursor=a.cursor()
+    def modificar_tipouser(identv, idenn, tipo):
+        a = c.start_connection()
+        cursor = a.cursor()
         query = "SELECT idtipouser FROM tipouser WHERE identificador=%s"
-        values =identv
+        values = identv
         cursor.execute(query, values)
         a.commit()
         b = cursor.fetchall()
         ida = str(b[0][0])
         try:
             query = "UPDATE tipouser SET tipo=%s WHERE idtipouser=%s"
-            values = (tipo,ida)
+            values = (tipo, ida)
             cursor.execute(query, values)
             a.commit()
             query = "UPDATE tipouser SET identificador=%s WHERE idtipouser=%s"
-            values = (idenn,ida)
+            values = (idenn, ida)
             cursor.execute(query, values)
-            a.commit()  
+            a.commit()
             print("se modifico tipouser correctamente")
         except pymysql.err.OperationalError as err:
             print("Hubo un error:", err)
         c.close_connection(a)
 
     def eliminar_tipouser(identificador):
-        a=c.start_connection()
-        cursor=a.cursor()
+        a = c.start_connection()
+        cursor = a.cursor()
         try:
             query = "DELETE FROM tipouser WHERE identificador=%s"
             values = identificador
@@ -64,6 +59,7 @@ class tipouser:
             print("Hubo un error:", err)
         c.close_connection(a)
 
+    @staticmethod
     def contar_filas():
         a = c.start_connection()
         cursor = a.cursor()
@@ -76,24 +72,25 @@ class tipouser:
         c.close_connection(a)
         return n
 
+    @staticmethod
     def listar_tipouser():
-            a = c.start_connection()
-            cursor = a.cursor()
-            try:
-                query = "SELECT tipo,identificador FROM tipouser"
-                cursor.execute(query)
-                area = cursor.fetchall()
-                a.commit()
-            except pymysql.err.OperationalError as err:
-                print("Hubo un error:", err)
-            c.close_connection(a)
-            return area
+        a = c.start_connection()
+        cursor = a.cursor()
+        try:
+            query = "SELECT tipo,identificador FROM tipouser"
+            cursor.execute(query)
+            area = cursor.fetchall()
+            a.commit()
+        except pymysql.err.OperationalError as err:
+            print("Hubo un error:", err)
+        c.close_connection(a)
+        return area
 
     def mostrar_tipouser(iden):
         a = c.start_connection()
         cursor = a.cursor()
-        query = ("SELECT tipo,identificador FROM tipouser WHERE identificador=%s")
-        cursor.execute(query,iden)
+        query = "SELECT tipo,identificador FROM tipouser WHERE identificador=%s"
+        cursor.execute(query, iden)
         data = cursor.fetchall()
         a.commit()
         return data

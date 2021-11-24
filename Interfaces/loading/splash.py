@@ -26,8 +26,8 @@ class Ui_MainWindow(object):
         self.verticalLayout.setObjectName("verticalLayout")
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setStyleSheet("QFrame{\n"
-"border-image: url(:/fondo/images (1).jpg);\n"
-"}")
+                                 "border-image: url(:/fondo/images (1).jpg);\n"
+                                 "}")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
@@ -37,25 +37,25 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.frame_2 = QtWidgets.QFrame(self.frame)
         self.frame_2.setStyleSheet("QFrame{\n"
-"border-image: none;\n"
-"background-color: rgba(18, 21, 26,235);\n"
-"}")
+                                   "border-image: none;\n"
+                                   "background-color: rgba(18, 21, 26,235);\n"
+                                   "}")
         self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_2.setObjectName("frame_2")
         self.label_2 = QtWidgets.QLabel(self.frame_2)
         self.label_2.setGeometry(QtCore.QRect(430, 470, 101, 21))
         self.label_2.setStyleSheet("font-family:     Roboto;\n"
-"font-weight: bold;\n"
-"color:#FFF;\n"
-"font-size: 19px;\n"
-"background:none")
+                                   "font-weight: bold;\n"
+                                   "color:#FFF;\n"
+                                   "font-size: 19px;\n"
+                                   "background:none")
         self.label_2.setObjectName("label_2")
         self.label = QtWidgets.QLabel(self.frame_2)
         self.label.setGeometry(QtCore.QRect(0, 10, 941, 141))
         self.label.setMaximumSize(QtCore.QSize(2000, 200))
         self.label.setStyleSheet("image: url(:/Icon/Warehouse_Bull_Soft_Logo.png);\n"
-"background:none")
+                                 "background:none")
         self.label.setText("")
         self.label.setObjectName("label")
         self.horizontalLayoutWidget = QtWidgets.QWidget(self.frame_2)
@@ -67,10 +67,10 @@ class Ui_MainWindow(object):
         self.label_3 = QtWidgets.QLabel(self.frame_2)
         self.label_3.setGeometry(QtCore.QRect(360, 140, 231, 21))
         self.label_3.setStyleSheet("font-family:     Roboto;\n"
-"font-weight: bold;\n"
-"color:#FFF;\n"
-"font-size: 19px;\n"
-"background:none")
+                                   "font-weight: bold;\n"
+                                   "color:#FFF;\n"
+                                   "font-size: 19px;\n"
+                                   "background:none")
         self.label_3.setAlignment(QtCore.Qt.AlignCenter)
         self.label_3.setObjectName("label_3")
         self.horizontalLayout_2.addWidget(self.frame_2)
@@ -86,11 +86,14 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label_2.setText(_translate("MainWindow", "Cargando..."))
         self.label_3.setText(_translate("MainWindow", "WAREHOUSE BULL SOFT"))
+
+
 #import img_rc
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
