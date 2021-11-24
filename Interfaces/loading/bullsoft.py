@@ -40,6 +40,7 @@ class Splash(QMainWindow):
             global time
             self.time = self.time.addSecs(1)
             if str(self.time) == "PyQt5.QtCore.QTime(0, 0, 7)":
+<<<<<<< HEAD
                 DB.conexion.crear_tabla()
                 self.close()
 
@@ -47,6 +48,15 @@ class Splash(QMainWindow):
                 if s == 0:
                     CLASES.usuarios.Usuarios("admin", "admin", "admin", "1", "admin", "2021-01-01", "admin", "Error.png")
                     DB.loginDB.alta_login("admin", "admin")
+=======
+                conexion.crear_tabla()
+                self.close()
+                ###
+                s=u.ver_dni("admin")
+                if s==0:
+                    u.usuarios("admin","admin","admin","1","admin","2021-01-01","admin","Error.png")
+                    loginDB.alta_login("admin","admin")
+>>>>>>> 6107d44b37fb4b2aa509d902e4b00c803bf63ac1
 
                 ###
                 self.login = l.LoginWindow()
